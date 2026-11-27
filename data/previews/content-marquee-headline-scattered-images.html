@@ -1,0 +1,79 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; padding: var(--lb-space) 0; background: var(--lb-bg); overflow-x: clip; }
+    .lb-root .top { position: relative; height: 26vw; }
+    .lb-root .img-a { position: absolute; left: -6vw; top: 6vw; width: 24vw; aspect-ratio: 4 / 3; }
+    .lb-root .img-b { position: absolute; right: 8vw; top: 0; width: 37vw; aspect-ratio: 3 / 2; }
+    .lb-root .marquee { position: relative; z-index: 2; overflow: hidden; white-space: nowrap; }
+    .lb-root .marquee-track { display: flex; width: max-content; animation: lb-mq 30s linear infinite; }
+    .lb-root .marquee .lb-h1 { font-size: 13vw; line-height: 1; margin: 0; padding-right: 4vw; flex: none; white-space: nowrap; }
+    .lb-root .bottom { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: -5vw; }
+    .lb-root .img-c { width: 28vw; aspect-ratio: 4 / 3; }
+    .lb-root .cta { position: absolute; left: 0; top: 0; z-index: 3; width: 160px; height: 160px; margin: -80px 0 0 -80px; border-radius: 50%; background: var(--lb-ink); display: flex; align-items: center; justify-content: center; pointer-events: none; transform: translate(var(--x, 50vw), var(--y, 50%)); transition: opacity .3s ease, scale .3s ease; }
+    .lb-root .cta { --x: 50vw; }
+    .lb-root .cta .lb-arrow { color: var(--lb-bg); font-size: 28px; margin: 0 0.15em 0 0; }
+    .lb-root .cta .arc { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--lb-on-accent); }
+    .lb-root.follow .cta.out { opacity: 0; scale: .4; }
+    @keyframes lb-mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .lb-root .marquee-track { animation: none; } }
+    @media (max-width: 640px) {
+      .lb-root .top { height: 34vw; }
+      .lb-root .img-a { width: 30vw; left: -8vw; top: 8vw; }
+      .lb-root .img-b { width: 42vw; right: -8vw; }
+      .lb-root .marquee .lb-h1 { font-size: 16vw; }
+      .lb-root .bottom { justify-content: flex-start; padding-left: 12vw; margin-top: -6vw; }
+      .lb-root .img-c { width: 40vw; }
+      .lb-root .cta[data-extra] { display: none !important; }
+    }
+  </style>
+  <div class="top">
+    <div class="lb-img img-a"></div>
+    <div class="lb-img img-b"></div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <h2 class="lb-h1">Marquee headline goes here</h2>
+      <span class="lb-h1" aria-hidden="true">Marquee headline goes here</span>
+      <span class="lb-h1" aria-hidden="true">Marquee headline goes here</span>
+      <span class="lb-h1" aria-hidden="true">Marquee headline goes here</span>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="lb-img img-c"></div>
+  </div>
+  <a class="cta" href="#" data-extra="0" aria-label="Explore">
+    <span class="arc lb-small">Explore the page</span>
+    <span class="lb-arrow"></span>
+  </a>
+  <script type="text/lb">
+    var cta = root.querySelector('.cta');
+    function center() {
+      cta.style.setProperty('--x', (root.clientWidth / 2) + 'px');
+      cta.style.setProperty('--y', (root.clientHeight / 2) + 'px');
+    }
+    center();
+    window.addEventListener('resize', center);
+    ctx.onCleanup(function () { window.removeEventListener('resize', center); });
+    if (!ctx.extras.includes(0)) return;
+    var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!canHover || ctx.reducedMotion) return;
+    root.classList.add('follow');
+    cta.classList.add('out');
+    function move(e) {
+      var r = root.getBoundingClientRect();
+      cta.style.setProperty('--x', (e.clientX - r.left) + 'px');
+      cta.style.setProperty('--y', (e.clientY - r.top) + 'px');
+    }
+    function enter(e) { move(e); cta.classList.remove('out'); }
+    function leave() { cta.classList.add('out'); }
+    root.addEventListener('pointerenter', enter);
+    root.addEventListener('pointermove', move);
+    root.addEventListener('pointerleave', leave);
+    ctx.onCleanup(function () {
+      root.removeEventListener('pointerenter', enter);
+      root.removeEventListener('pointermove', move);
+      root.removeEventListener('pointerleave', leave);
+      root.classList.remove('follow');
+    });
+  </script>
+</section>

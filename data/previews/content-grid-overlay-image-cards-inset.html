@@ -1,0 +1,29 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: 0; overflow-x: clip; }
+    .lb-root .card { margin: 0 auto; box-sizing: border-box; padding: var(--lb-space) var(--lb-pad); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); background: var(--lb-surface-2); }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); margin-bottom: calc(var(--lb-space) * 1.5); }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: calc(var(--lb-gap) * 2.5); row-gap: calc(var(--lb-gap) * 2.5); width: 70%; margin: 0 auto; }
+    .lb-root .item { position: relative; aspect-ratio: 1 / 1; display: flex; }
+    .lb-root .item .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .item .inner { position: relative; z-index: 1; margin: auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: calc(var(--lb-gap) / 2); padding: var(--lb-pad); }
+    @media (max-width: 640px) {
+      .lb-root .card { padding: var(--lb-space) var(--lb-pad); }
+      .lb-root .grid { grid-template-columns: 1fr; width: 90%; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="card lb-card">
+      <div class="head">
+        <span class="lb-label">Tag</span>
+        <h2 class="lb-h2">Headline goes here</h2>
+        <a class="lb-btn">Button</a>
+      </div>
+      <div class="grid">
+        <div class="item"><div class="lb-img lb-flat lb-tag-tl"></div><div class="inner"><span class="lb-label">Tag</span><h3 class="lb-h3">Item title</h3><a class="lb-btn">Button</a></div></div>
+        <div class="item"><div class="lb-img lb-flat lb-tag-tl"></div><div class="inner"><span class="lb-label">Tag</span><h3 class="lb-h3">Item title</h3><a class="lb-btn">Button</a></div></div>
+        <div class="item"><div class="lb-img lb-flat lb-tag-tl"></div><div class="inner"><span class="lb-label">Tag</span><h3 class="lb-h3">Item title</h3><a class="lb-btn">Button</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>

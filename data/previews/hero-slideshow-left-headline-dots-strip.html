@@ -1,0 +1,65 @@
+<section class="lb-root">
+  <style>
+    .lb-root { display: flex; flex-direction: column; box-sizing: border-box; }
+    .lb-root[data-header="below"], .lb-root[data-header="inset"], .lb-root[data-header="after"] { height: calc(80vh - var(--header-h)); }
+    .lb-root[data-header="overlay"] { height: 80vh; }
+    .lb-root .stage { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+    .lb-root .slide { position: absolute; inset: 0; display: flex; align-items: center; opacity: 0; pointer-events: none; transition: opacity .6s; box-sizing: border-box; padding-bottom: 8%; }
+    .lb-root[data-header="overlay"] .slide { padding-top: var(--header-h); }
+    .lb-root .slide.on { opacity: 1; pointer-events: auto; }
+    .lb-root .bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .lb-wrap { position: relative; width: 100%; }
+    .lb-root .copy { display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); width: 25vw; min-width: 260px; }
+    .lb-root .copy .sub { width: 200%; max-width: 50vw; }
+    .lb-root .copy .btns { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .lb-root .strip { display: flex; align-items: center; justify-content: center; gap: 10px; height: 40px; background: var(--lb-bg); flex: none; }
+    .lb-root .dot { width: 8px; height: 8px; border-radius: 999px; border: 0; padding: 0; background: var(--lb-line); cursor: pointer; }
+    .lb-root .dot.on { background: var(--lb-ink); width: 10px; height: 10px; }
+    @media (max-width: 640px) {
+      .lb-root .slide { align-items: flex-end; padding-bottom: var(--lb-pad); }
+      .lb-root .copy { width: 50vw; min-width: 0; }
+      .lb-root .copy .sub { width: 100%; max-width: none; }
+      .lb-root .bg.lb-tag-br { }
+    }
+  </style>
+  <div class="stage">
+    <div class="slide on">
+      <div class="lb-img lb-flat bg lb-tag-tr"></div>
+      <div class="lb-wrap"><div class="copy">
+        <h1 class="lb-h1">Headline goes here</h1>
+        <p class="lb-text sub">Subtitle placeholder text goes here for the slide</p>
+        <div class="btns"><span class="lb-btn">Button</span><span class="lb-btn lb-btn-ghost second">Button</span></div>
+      </div></div>
+    </div>
+    <div class="slide">
+      <div class="lb-img lb-flat bg lb-tag-tr"></div>
+      <div class="lb-wrap"><div class="copy">
+        <h1 class="lb-h1">Second headline here</h1>
+        <p class="lb-text sub">Subtitle placeholder text goes here for the slide</p>
+        <div class="btns"><span class="lb-btn">Button</span></div>
+      </div></div>
+    </div>
+    <div class="slide">
+      <div class="lb-img lb-flat bg lb-tag-tr"></div>
+      <div class="lb-wrap"><div class="copy">
+        <h1 class="lb-h1">Third headline here</h1>
+        <p class="lb-text sub">Subtitle placeholder text goes here for the slide</p>
+        <div class="btns"><span class="lb-btn">Button</span></div>
+      </div></div>
+    </div>
+  </div>
+  <div class="strip" data-acc="0"><button class="dot on" type="button" aria-label="Slide 1"></button><button class="dot" type="button" aria-label="Slide 2"></button><button class="dot" type="button" aria-label="Slide 3"></button></div>
+  <style>
+    @media (min-width: 641px) { .lb-root .btns .second { display: none; } }
+  </style>
+  <script type="text/lb">
+    const slides = [...root.querySelectorAll('.slide')];
+    const dots = [...root.querySelectorAll('.dot')];
+    let i = 0, timer;
+    const show = (n) => { i = (n + slides.length) % slides.length; slides.forEach((s, k) => s.classList.toggle('on', k === i)); dots.forEach((d, k) => d.classList.toggle('on', k === i)); };
+    const start = () => { clearInterval(timer); timer = setInterval(() => show(i + 1), 5000); };
+    const handlers = dots.map((d, k) => { const h = () => { show(k); start(); }; d.addEventListener('click', h); return h; });
+    start();
+    ctx.onCleanup(() => { clearInterval(timer); dots.forEach((d, k) => d.removeEventListener('click', handlers[k])); });
+  </script>
+</section>

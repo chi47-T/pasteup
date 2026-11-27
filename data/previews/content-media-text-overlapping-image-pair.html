@@ -1,0 +1,36 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .row { display: grid; grid-template-columns: 44fr 56fr; gap: var(--lb-gap); align-items: start; }
+    .lb-root .copy { display: flex; flex-direction: column; align-items: flex-start; }
+    .lb-root .title { font-size: clamp(40px, 5.6vw, 88px); max-width: 40vw; }
+    .lb-root .body { margin-top: calc(var(--lb-gap) * 2); display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .copy .lb-btn { margin-top: calc(var(--lb-gap) * 1.5); }
+    .lb-root .pair { position: relative; padding-bottom: 18%; }
+    .lb-root .big { width: 72%; margin-left: auto; aspect-ratio: 4 / 5; }
+    .lb-root .small { position: absolute; left: 0; bottom: 0; width: 43%; aspect-ratio: 3 / 4; }
+    @media (max-width: 640px) {
+      .lb-root .row { grid-template-columns: 1fr; gap: calc(var(--lb-gap) * 2); }
+      .lb-root .title { max-width: none; font-size: clamp(34px, 10vw, 52px); }
+      .lb-root .pair { padding-bottom: 0; padding-top: 14%; }
+      .lb-root .big { width: 60%; margin-left: 0; }
+      .lb-root .small { left: 44%; right: auto; top: 0; bottom: auto; width: 40%; z-index: 1; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="row">
+      <div class="copy">
+        <h2 class="lb-h1 title">Headline goes here in two lines</h2>
+        <div class="body">
+          <p class="lb-text">Supporting text goes here. It gives a short overview of the section and explains the main idea in a sentence or two.</p>
+          <p class="lb-text">A second paragraph of supporting text goes here, adding a little more detail and context for the images.</p>
+        </div>
+        <a class="lb-btn">Learn more</a>
+      </div>
+      <div class="pair">
+        <div class="lb-img big"></div>
+        <div class="lb-img small"></div>
+      </div>
+    </div>
+  </div>
+</section>

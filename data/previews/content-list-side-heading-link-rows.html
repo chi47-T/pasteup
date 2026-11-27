@@ -1,0 +1,94 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .panel { margin-right: var(--lb-gutter); border-radius: 0 var(--lb-r-tr) var(--lb-r-br) 0; padding: calc(var(--lb-pad) * 2) calc(var(--lb-pad) * 2) calc(var(--lb-pad) * 2) var(--lb-gutter); }
+    .lb-root .inner { display: grid; grid-template-columns: 3fr 7fr; grid-template-rows: auto auto 1fr; grid-template-areas: "head list" "nav list" "foot list"; column-gap: calc(var(--lb-gap) * 2); }
+    .lb-root .head { grid-area: head; display: flex; flex-direction: column; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .nav { grid-area: nav; display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--lb-gap) / 2); margin-top: calc(var(--lb-gap) * 2); }
+    .lb-root .nav a { position: relative; color: var(--lb-muted); }
+    .lb-root .nav a.is-current { color: var(--lb-ink); padding-left: 14px; }
+    .lb-root .nav a.is-current::before { content: ""; position: absolute; left: 0; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); background: var(--lb-ink); }
+    .lb-root .foot { grid-area: foot; align-self: end; display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .list { grid-area: list; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+    .lb-root .row { position: relative; display: flex; align-items: center; gap: var(--lb-gap); padding: var(--lb-gap) 0; border-bottom: 1px solid var(--lb-line); }
+    .lb-root .row:first-child { padding-top: 0; }
+    .lb-root .row .body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .row .meta { display: flex; align-items: center; gap: calc(var(--lb-gap) / 2); flex-wrap: wrap; }
+    .lb-root .row .pill { border: 1px solid var(--lb-line); padding: 2px 10px; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .row .lb-icon-btn { flex: none; }
+
+    /* extra 0: hover effect, mouse-only and desktop-only */
+    @media (hover: hover) and (min-width: 1025px) {
+      .lb-root.fx-hover .row::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--lb-ink); transform: scaleX(0); transform-origin: left center; transition: transform .4s ease; }
+      .lb-root.fx-hover .row .title { transition: transform .3s ease; }
+      .lb-root.fx-hover .row .lb-icon-btn { transition: background-color .3s ease, color .3s ease; }
+      .lb-root.fx-hover .row:hover::after { transform: scaleX(1); }
+      .lb-root.fx-hover .row:hover .title { transform: translateX(8px); }
+      .lb-root.fx-hover .row:hover .lb-icon-btn { background: var(--lb-ink); color: var(--lb-bg); border-color: var(--lb-ink); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lb-root .row::after, .lb-root .row .title, .lb-root .row .lb-icon-btn { transition: none !important; }
+    }
+
+    @media (max-width: 640px) {
+      .lb-root .inner { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "head" "nav" "list" "foot"; row-gap: calc(var(--lb-gap) * 1.5); }
+      .lb-root .nav { flex-direction: row; flex-wrap: wrap; gap: var(--lb-gap); margin-top: 0; }
+      .lb-root .row .lb-icon-btn { display: none; }
+      .lb-root .foot { align-self: start; }
+    }
+  </style>
+  <div class="panel lb-card">
+    <div class="inner">
+      <div class="head">
+        <h2 class="lb-h2">Section title</h2>
+        <p class="lb-small">Short supporting caption text</p>
+      </div>
+      <nav class="nav">
+        <a class="lb-link is-current">All topics</a>
+        <a class="lb-link">Category one</a>
+        <a class="lb-link">Category two</a>
+        <a class="lb-link">Category three</a>
+      </nav>
+      <div class="foot">
+        <a class="lb-link">View all items</a>
+        <span class="lb-icon-btn"></span>
+      </div>
+      <ul class="list">
+        <li class="row">
+          <div class="body">
+            <div class="meta"><span class="lb-small">2026.11.01</span><span class="pill lb-label">Category</span></div>
+            <h3 class="title lb-h3">A list item headline that may wrap onto two lines</h3>
+          </div>
+          <span class="lb-icon-btn"></span>
+        </li>
+        <li class="row">
+          <div class="body">
+            <div class="meta"><span class="lb-small">2026.10.24</span><span class="pill lb-label">Category</span></div>
+            <h3 class="title lb-h3">Another list item headline text</h3>
+          </div>
+          <span class="lb-icon-btn"></span>
+        </li>
+        <li class="row">
+          <div class="body">
+            <div class="meta"><span class="lb-small">2026.10.12</span><span class="pill lb-label">Category</span></div>
+            <h3 class="title lb-h3">A third list item headline example</h3>
+          </div>
+          <span class="lb-icon-btn"></span>
+        </li>
+        <li class="row">
+          <div class="body">
+            <div class="meta"><span class="lb-small">2026.09.30</span><span class="pill lb-label">Category</span></div>
+            <h3 class="title lb-h3">The fourth list item headline text</h3>
+          </div>
+          <span class="lb-icon-btn"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/lb">
+    if (ctx.extras.includes(0)) {
+      root.classList.add('fx-hover');
+      ctx.onCleanup(function () { root.classList.remove('fx-hover'); });
+    }
+  </script>
+</section>

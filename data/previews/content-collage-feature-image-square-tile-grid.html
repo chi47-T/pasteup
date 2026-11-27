@@ -1,0 +1,49 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; }
+    .lb-root .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .feature { position: relative; aspect-ratio: 1 / 1; }
+    .lb-root .feature .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .cap { position: absolute; left: 0; bottom: 0; width: 70%; height: 40%; background: var(--lb-bg); display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--lb-gap) / 2); padding: var(--lb-pad) var(--lb-pad) 0 0; overflow: hidden; }
+    .lb-root .cap .btn-row { margin-top: auto; align-self: flex-end; padding-bottom: 0; }
+    .lb-root .tiles { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; gap: var(--lb-gap); }
+    .lb-root .tile { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: calc(var(--lb-gap) / 2); padding: var(--lb-pad); aspect-ratio: 1 / 1; }
+    .lb-root .tile .lb-icon { width: 40px; height: 40px; }
+    .lb-root .m-text { display: none; }
+    @media (max-width: 640px) {
+      .lb-root .row { grid-template-columns: 1fr; }
+      .lb-root .cap { display: none; }
+      .lb-root .m-text { display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--lb-gap) / 2); }
+      .lb-root .tile { padding: calc(var(--lb-pad) / 2); }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="row">
+      <div class="feature-col" style="display:contents">
+        <div>
+          <div class="feature">
+            <div class="lb-img lb-tag-tr"></div>
+            <div class="cap">
+              <span class="lb-label">Tag</span>
+              <h3 class="lb-h3">Headline goes here</h3>
+              <p class="lb-text">Supporting description text goes here.</p>
+              <div class="btn-row"><a class="lb-btn">Button</a></div>
+            </div>
+          </div>
+          <div class="m-text" style="margin-top: var(--lb-gap)">
+            <span class="lb-label">Tag</span>
+            <h3 class="lb-h3">Headline goes here</h3>
+            <p class="lb-text">Supporting description text goes here.</p>
+            <a class="lb-btn lb-block">Button</a>
+          </div>
+        </div>
+      </div>
+      <div class="tiles">
+        <div class="lb-card tile"><span class="lb-icon"></span><span class="lb-label">Tag</span><h3 class="lb-h3">Tile title</h3></div>
+        <div class="lb-card tile"><span class="lb-icon"></span><span class="lb-label">Tag</span><h3 class="lb-h3">Tile title</h3></div>
+        <div class="lb-card tile"><span class="lb-icon"></span><span class="lb-label">Tag</span><h3 class="lb-h3">Tile title</h3></div>
+        <div class="lb-card tile"><span class="lb-icon"></span><span class="lb-label">Tag</span><h3 class="lb-h3">Tile title</h3></div>
+      </div>
+    </div>
+  </div>
+</section>

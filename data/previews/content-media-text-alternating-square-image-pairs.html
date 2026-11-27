@@ -1,0 +1,47 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .list { display: flex; flex-direction: column; gap: var(--lb-space); }
+    .lb-root .pair { display: flex; align-items: center; justify-content: space-between; gap: var(--lb-gap); }
+    .lb-root .pair.rev { flex-direction: row-reverse; }
+    .lb-root .media { flex: 0 0 40%; }
+    .lb-root .media .lb-img { width: 100%; aspect-ratio: 1 / 1; }
+    .lb-root .copy { flex: 0 0 30%; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; text-align: left; }
+    .lb-root .pair.rev .copy { align-items: flex-end; text-align: right; }
+    .lb-root .linkrow { display: inline-flex; flex-direction: column; gap: 8px; }
+    .lb-root .linkline { display: flex; align-items: center; gap: 8px; }
+    @media (max-width: 640px) {
+      .lb-root .pair, .lb-root .pair.rev { flex-direction: column; align-items: stretch; }
+      .lb-root .pair.rev { flex-direction: column-reverse; }
+      .lb-root .media, .lb-root .copy { flex: none; width: 100%; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="list">
+    <div class="pair">
+      <div class="media"><div class="lb-img"></div></div>
+      <div class="copy">
+        <h3 class="lb-h2">Headline goes here</h3>
+        <p class="lb-text">Short description placeholder text goes here.</p>
+        <div class="linkrow"><div class="linkline"><a class="lb-link">Link one</a><span class="lb-icon-btn"><i class="lb-arrow"></i></span></div><div class="lb-divider"></div></div>
+      </div>
+    </div>
+    <div class="pair rev">
+      <div class="media"><div class="lb-img"></div></div>
+      <div class="copy">
+        <h3 class="lb-h2">Headline goes here</h3>
+        <p class="lb-text">Short description placeholder text goes here.</p>
+        <div class="linkrow"><div class="linkline"><a class="lb-link">Link one</a><span class="lb-icon-btn"><i class="lb-arrow"></i></span></div><div class="lb-divider"></div></div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="media"><div class="lb-img"></div></div>
+      <div class="copy">
+        <h3 class="lb-h2">Headline goes here</h3>
+        <p class="lb-text">Short description placeholder text goes here.</p>
+        <div class="linkrow"><div class="linkline"><a class="lb-link">Link one</a><span class="lb-icon-btn"><i class="lb-arrow"></i></span></div><div class="lb-divider"></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>

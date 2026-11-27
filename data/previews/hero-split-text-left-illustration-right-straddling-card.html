@@ -1,0 +1,58 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; overflow-x: clip; }
+    .lb-root .hero { position: relative; box-sizing: border-box; display: flex; align-items: center; background: var(--lb-bg); padding: var(--lb-space) 0; min-height: calc(90vh - var(--header-h)); }
+    .lb-root[data-header="overlay"] .hero { min-height: 90vh; padding-top: calc(var(--header-h) + var(--lb-space)); }
+    .lb-root[data-header="below"] .hero, .lb-root[data-header="inset"] .hero, .lb-root[data-header="after"] .hero { min-height: calc(90vh - var(--header-h)); }
+    .lb-root .cols { display: grid; grid-template-columns: 4.4fr 5fr; gap: var(--lb-gap); align-items: center; width: 100%; }
+    .lb-root .txt { display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .art { position: relative; width: 100%; aspect-ratio: 1 / 1; }
+    .lb-root .art .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .dot { position: absolute; width: 8%; aspect-ratio: 1; background: var(--lb-accent); opacity: 0; animation: lbpop 4s infinite; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .dot.d1 { left: 18%; top: 20%; }
+    .lb-root .dot.d2 { left: 70%; top: 30%; animation-delay: 1.3s; }
+    .lb-root .dot.d3 { left: 40%; top: 72%; animation-delay: 2.6s; }
+    @keyframes lbpop { 0%, 100% { opacity: 0; transform: scale(.5); } 40%, 60% { opacity: 1; transform: scale(1); } }
+    .lb-root .strip { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; justify-content: center; padding: 0 var(--lb-gutter); pointer-events: none; }
+    .lb-root .strip .lb-card { pointer-events: auto; transform: translateY(50%); width: 100%; max-width: 1200px; box-sizing: border-box; display: flex; align-items: center; gap: var(--lb-gap); overflow: visible; }
+    .lb-root .logos { display: flex; gap: var(--lb-gap); flex: 1; }
+    .lb-root .logos .lb-img { width: 64px; height: 32px; }
+    @media (max-width: 640px) {
+      .lb-root .hero { align-items: flex-start; }
+      .lb-root .cols { grid-template-columns: 1fr; }
+      .lb-root .art { width: 92%; margin: 0 auto; }
+      .lb-root .mfirst, .lb-root .mlast { display: contents; }
+      .lb-root .txt { display: contents; }
+      .lb-root .cols { display: flex; flex-direction: column; align-items: stretch; }
+      .lb-root .txt > .lb-btn { align-self: center; order: 5; }
+      .lb-root .txt > .lb-text.lb-center, .lb-root .art { order: 3; }
+      .lb-root .strip .lb-card { flex-direction: column; align-items: stretch; }
+      .lb-root .strip .lb-divider-v { display: none; }
+      .lb-root .strip .lb-divider { display: block; }
+    }
+    .lb-root .strip .lb-divider { display: none; }
+  </style>
+  <div class="hero">
+    <div class="lb-wrap cols">
+      <div class="txt">
+        <h1 class="lb-h1" style="order:1">Headline goes here</h1>
+        <div class="lb-text" style="order:2">Supporting text placeholder line one two three</div>
+        <a class="lb-btn" style="order:5">Button</a>
+      </div>
+      <div class="art">
+        <div class="lb-img"></div>
+        <span class="dot d1" data-extra="0"></span>
+        <span class="dot d2" data-extra="0"></span>
+        <span class="dot d3" data-extra="0"></span>
+      </div>
+    </div>
+  </div>
+  <div class="strip" data-acc="0">
+    <div class="lb-card">
+      <div class="logos"><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div></div>
+      <div class="lb-divider-v"></div>
+      <div class="lb-divider"></div>
+      <a class="lb-link">Text link</a>
+    </div>
+  </div>
+</section>

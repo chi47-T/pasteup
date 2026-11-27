@@ -1,0 +1,66 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; box-sizing: border-box; overflow-x: clip; }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); margin-bottom: var(--lb-gap); }
+    .lb-root .view { overflow: hidden; margin-top: var(--lb-space); }
+    .lb-root .track { display: flex; transition: transform .5s ease; }
+    .lb-root .item { flex: 0 0 25%; box-sizing: border-box; display: flex; gap: 2px; padding: 0 var(--lb-gap); border-left: 1px solid var(--lb-line); }
+    .lb-root .item:first-child { border-left: 0; }
+    .lb-root .vlabel { writing-mode: vertical-rl; align-self: flex-start; }
+    .lb-root .body { flex: 0 0 62%; min-width: 0; }
+    .lb-root .pic { width: 100%; aspect-ratio: 1; }
+    .lb-root .ttl { margin-top: var(--lb-gap); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .lb-root .ctl { display: flex; justify-content: center; align-items: center; gap: calc(var(--lb-gap) * 4); margin-top: var(--lb-space); }
+    .lb-root .pg { display: flex; align-items: center; gap: 8px; }
+    .lb-root .pg i { display: block; width: 16px; border-top: 1px solid var(--lb-ink); }
+    @media (max-width: 640px) {
+      .lb-root .view { margin-right: calc(-1 * var(--lb-gutter)); }
+      .lb-root .item { flex: 0 0 68%; }
+      .lb-root .body { flex-basis: 70%; }
+      .lb-root .ctl { justify-content: space-between; }
+      .lb-root .pg { position: absolute; left: 50%; transform: translateX(-50%); }
+      .lb-root .ctl { position: relative; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <span class="lb-label">Tag</span>
+      <h2 class="lb-h2">Headline goes here</h2>
+      <p class="lb-text">Description text goes here for the section</p>
+      <button class="lb-btn">Button</button>
+    </div>
+    <div class="view">
+      <div class="track">
+        <div class="item"><span class="lb-label vlabel">Label</span><div class="body"><div class="lb-img pic"></div><h3 class="lb-h3 ttl">Item title goes here</h3></div></div>
+        <div class="item"><span class="lb-label vlabel">Label</span><div class="body"><div class="lb-img pic"></div><h3 class="lb-h3 ttl">Item title goes here</h3></div></div>
+        <div class="item"><span class="lb-label vlabel">Label</span><div class="body"><div class="lb-img pic"></div><h3 class="lb-h3 ttl">Item title goes here</h3></div></div>
+        <div class="item"><span class="lb-label vlabel">Label</span><div class="body"><div class="lb-img pic"></div><h3 class="lb-h3 ttl">Item title goes here</h3></div></div>
+        <div class="item"><span class="lb-label vlabel">Label</span><div class="body"><div class="lb-img pic"></div><h3 class="lb-h3 ttl">Item title goes here</h3></div></div>
+        <div class="item"><span class="lb-label vlabel">Label</span><div class="body"><div class="lb-img pic"></div><h3 class="lb-h3 ttl">Item title goes here</h3></div></div>
+        <div class="item"><span class="lb-label vlabel">Label</span><div class="body"><div class="lb-img pic"></div><h3 class="lb-h3 ttl">Item title goes here</h3></div></div>
+        <div class="item"><span class="lb-label vlabel">Label</span><div class="body"><div class="lb-img pic"></div><h3 class="lb-h3 ttl">Item title goes here</h3></div></div>
+      </div>
+    </div>
+    <div class="ctl">
+      <button class="lb-icon-btn" data-prev aria-label="Previous"><span class="lb-arrow lb-arrow-left"></span></button>
+      <span class="pg"><span class="lb-label cur">1</span><i></i><span class="lb-label tot">2</span></span>
+      <button class="lb-icon-btn" data-next aria-label="Next"><span class="lb-arrow"></span></button>
+    </div>
+  </div>
+  <script type="text/lb">
+    const track = root.querySelector('.track'), items = track.children, N = items.length;
+    let p = 0;
+    const per = () => window.innerWidth <= 640 ? 1 : 4;
+    const pages = () => Math.ceil(N / per());
+    const render = () => {
+      const k = per(), pc = pages(); p = Math.max(0, Math.min(p, pc - 1));
+      const idx = Math.min(p * k, N - k);
+      track.style.transform = 'translateX(' + (-idx * items[0].getBoundingClientRect().width) + 'px)';
+      root.querySelector('.cur').textContent = p + 1; root.querySelector('.tot').textContent = pc;
+    };
+    root.querySelector('[data-prev]').addEventListener('click', () => { p--; render(); });
+    root.querySelector('[data-next]').addEventListener('click', () => { p++; render(); });
+    window.addEventListener('resize', render); ctx.onCleanup(() => window.removeEventListener('resize', render));
+    render();
+  </script>
+</section>

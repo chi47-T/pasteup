@@ -1,0 +1,131 @@
+/* base.css — 預覽元件共用的樣式：變數（token）與線框用的基本類別
+   用在三個地方：預覽頁的文件本身、每個元件的 Shadow DOM、wrap.mjs 產生的測試頁。
+   變數只定義在 :root（不要加 :host），Shadow DOM 裡的元件靠繼承取得，外層改變數才會生效。
+   元件只能用這裡的變數決定顏色、圓角、內距與留白；組合器改變數就能即時改變所有預覽。 */
+
+:root {
+  /* 顏色（線框風格：灰階加一個主色） */
+  --lb-accent: #376B6D;      /* 主色：主要按鈕、標誌、小標籤 */
+  --lb-ink: #5E5E5E;         /* 標題文字 */
+  --lb-ink-2: #5E5E5E;       /* 次要標題、導覽文字 */
+  --lb-muted: #DCDFE4;       /* 內文的線條、次要外框 */
+  --lb-line: #E5E7EB;        /* 分隔線、外框 */
+  --lb-surface: #EEF0F2;     /* 圖片、影片的佔位底色 */
+  --lb-media-tag: #AEB4BC;   /* 圖片、影片上的 Image／Video 標示：比底色深一點 */
+  --lb-surface-2: #F9FAFB;   /* 卡片或區塊的淺底 */
+  --lb-bg: #FFFFFF;          /* 頁面底色 */
+  --lb-on-accent: #FFFFFF;   /* 主色上的元素 */
+  /* 圓角：大小由 --lb-radius 決定；四個角可以分別關掉（整頁設定的圓角位置） */
+  --lb-radius: 16px;
+  --lb-r-tl: var(--lb-radius); --lb-r-tr: var(--lb-radius);
+  --lb-r-br: var(--lb-radius); --lb-r-bl: var(--lb-radius);
+  /* 間距：--lb-density 是鬆緊倍率（組合器的「內距與留白」設定：緊湊 0.7、適中 1、寬鬆 1.4），只改這一個變數 */
+  --lb-density: 1;
+  --_pad: 24px; --_gap: 20px; --_space: 80px;
+  --lb-pad: calc(var(--_pad) * var(--lb-density));       /* 卡片與容器的內距 */
+  --lb-gap: calc(var(--_gap) * var(--lb-density));       /* 項目之間的間距 */
+  --lb-space: calc(var(--_space) * var(--lb-density));   /* 區塊上下的留白 */
+  --lb-gutter: 48px;         /* 頁面內容寬度左右的邊距 */
+  --lb-content: 1200px;      /* 頁面內容寬度的最大值 */
+  --header-h: 80px;          /* 頁首高度，由預覽頁依實際頁首設定 */
+}
+@media (max-width: 640px) {
+  :root { --_pad: 20px; --_gap: 16px; --_space: 56px; --lb-gutter: 20px; }
+}
+
+.lb-root { box-sizing: border-box; position: relative; display: block; color: var(--lb-ink); font: 16px/1.5 system-ui, sans-serif; }
+.lb-root *, .lb-root *::before, .lb-root *::after { box-sizing: border-box; }
+/* 區塊預設帶頁面底色，捲動經過固定的區塊（例如固定的主視覺）時不會透出底下的內容。
+   用 :where() 讓權重為 0，元件自己設定的 background 一律優先；頁首不套用，疊在主視覺上時要保持透明 */
+:where(section.lb-root, footer.lb-root) { background: var(--lb-bg); }
+.lb-root :where(h1, h2, h3, h4, p, ul, ol, figure) { margin: 0; padding: 0; }
+.lb-root :where(ul, ol) { list-style: none; }
+/* 拿掉瀏覽器給 <button> 的預設灰底與外框（:where 不加權重，元件與共用類別的樣式優先） */
+.lb-root :where(a) { color: inherit; text-decoration: none; }
+.lb-root :where(button) { appearance: none; margin: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: inherit; cursor: pointer; }
+.lb-root [hidden] { display: none !important; }
+
+/* 頁面內容寬度：置中、有最大寬度、左右保留邊距 */
+.lb-wrap { width: 100%; max-width: calc(var(--lb-content) + var(--lb-gutter) * 2); margin-inline: auto; padding-inline: var(--lb-gutter); }
+
+/* 文字：標題、連結、小標籤直接顯示佔位文字；內文畫成淺色的線條（文字仍在，量測用）。
+   顏色固定由這裡決定（!important），元件不能自己改；文字放在深色或主色底上時加 lb-invert */
+.lb-h1, .lb-h2, .lb-h3, .lb-link, .lb-label { color: var(--lb-ink) !important; max-width: 100%; }
+.lb-h1 { font-size: clamp(34px, 4.6vw, 68px); line-height: 1.12; font-weight: 600; letter-spacing: -0.02em; }
+.lb-h2 { font-size: clamp(24px, 2.8vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.01em; }
+.lb-h3 { font-size: 19px; line-height: 1.35; font-weight: 600; }
+.lb-link { font-size: 14px; line-height: 1.8; color: var(--lb-ink-2) !important; }
+.lb-label { font-size: 12px; line-height: 1.6; letter-spacing: 0.06em; text-transform: uppercase; color: var(--lb-accent) !important; }
+.lb-text, .lb-small {
+  color: transparent !important; width: fit-content; max-width: 100%; user-select: none;
+  --_c: var(--lb-muted); --_t: 0.36lh; --_b: 0.64lh;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent var(--_t), var(--_c) var(--_t), var(--_c) var(--_b), transparent var(--_b), transparent 1lh);
+}
+.lb-text { font-size: 16px; line-height: 1.7; }
+.lb-small { font-size: 13px; line-height: 1.6; }
+.lb-invert, .lb-invert :where(.lb-h1, .lb-h2, .lb-h3, .lb-link, .lb-label) { color: var(--lb-on-accent) !important; }
+.lb-invert :where(.lb-text, .lb-small), .lb-text.lb-invert, .lb-small.lb-invert { --_c: color-mix(in srgb, var(--lb-on-accent) 55%, transparent); }
+/* 直排文字：加在文字類別旁邊，例如 class="lb-h2 lb-vertical" */
+.lb-vertical { writing-mode: vertical-rl; max-height: 100%; }
+.lb-text.lb-vertical, .lb-small.lb-vertical { height: fit-content; width: auto; max-width: none;
+  background: repeating-linear-gradient(to left, transparent 0, transparent var(--_t), var(--_c) var(--_t), var(--_c) var(--_b), transparent var(--_b), transparent 1lh); }
+/* 置中或靠右的文字塊 */
+.lb-center { margin-inline: auto; text-align: center; }
+.lb-right { margin-left: auto; text-align: right; }
+
+/* 按鈕：預設依內容寬度；要橫跨容器時加 lb-block */
+.lb-btn, .lb-btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 28px; font-size: 14px; font-weight: 500; line-height: 1; color: var(--lb-on-accent) !important; user-select: none; white-space: nowrap; border: 1px solid var(--lb-accent); background: var(--lb-accent);
+  border-radius: min(var(--lb-r-tl), 10px) min(var(--lb-r-tr), 10px) min(var(--lb-r-br), 10px) min(var(--lb-r-bl), 10px); }
+.lb-btn-ghost { background: transparent; border-color: var(--lb-muted); color: var(--lb-ink) !important; }
+.lb-block { display: flex; width: 100%; }
+.lb-icon-btn { display: inline-grid; place-items: center; color: var(--lb-ink); width: 36px; height: 36px; flex: none; border: 1px solid var(--lb-muted); border-radius: min(var(--lb-r-tl), 8px) min(var(--lb-r-tr), 8px) min(var(--lb-r-br), 8px) min(var(--lb-r-bl), 8px); }
+.lb-icon { display: inline-block; width: 40px; height: 40px; flex: none; background: color-mix(in srgb, var(--lb-accent) 16%, var(--lb-bg)); border-radius: 10px; }
+/* 一般圖示（搜尋、購物車）放進 lb-icon-btn 時縮成按鈕內的小圖示，不要超出外框 */
+.lb-icon-btn > .lb-icon { width: 16px; height: 16px; border-radius: 4px; }
+/* 箭頭：放在按鈕、連結或文字旁的小箭頭，顏色跟著文字。預設朝右，lb-arrow-up／down／left 改方向。
+   按鈕或連結「帶箭頭」時用它，不要把 lb-icon 塞進按鈕 */
+.lb-arrow { display: inline-block; flex: none; width: 0.5em; height: 0.5em; margin: 0 0.15em 0 0.4em; vertical-align: 0.1em; border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor; rotate: 45deg; }
+.lb-arrow-up { rotate: -45deg; vertical-align: -0.05em; }
+.lb-arrow-down { rotate: 135deg; vertical-align: 0.25em; }
+.lb-arrow-left { rotate: -135deg; margin: 0 0.4em 0 0.15em; }
+.lb-icon-btn > .lb-arrow { margin: 0 0.15em 0 0; vertical-align: 0; }
+.lb-icon-btn > .lb-arrow-left { margin: 0 0 0 0.15em; }
+/* 選單（三條線）與關閉（叉叉）：放在 lb-icon-btn 裡，顏色跟著文字 */
+.lb-menu { position: relative; display: inline-block; flex: none; width: 18px; height: 12px; border-top: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; }
+.lb-menu::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 1.5px solid currentColor; translate: 0 -50%; }
+.lb-close { position: relative; display: inline-block; flex: none; width: 16px; height: 16px; }
+.lb-close::before, .lb-close::after { content: ""; position: absolute; left: 50%; top: 50%; width: 20px; border-top: 1.5px solid currentColor; translate: -50% -50%; rotate: 45deg; }
+.lb-close::after { rotate: -45deg; }
+.lb-avatar { display: inline-block; width: 36px; height: 36px; flex: none; border-radius: 50%; background: var(--lb-muted); }
+.lb-logo { display: inline-flex; align-items: center; gap: 10px; color: transparent; font-size: 14px; line-height: 1; user-select: none; }
+.lb-logo::before { content: ""; width: 26px; height: 26px; border-radius: 7px; background: var(--lb-accent); }
+.lb-logo { font-size: 0; gap: 8px; }
+.lb-logo::after { content: "Logo"; font: 600 15px/1 system-ui, sans-serif; color: var(--lb-ink); }
+.lb-input { display: block; height: 44px; min-width: 160px; border: 1px solid var(--lb-muted); background: var(--lb-bg); border-radius: min(var(--lb-r-tl), 10px) min(var(--lb-r-tr), 10px) min(var(--lb-r-br), 10px) min(var(--lb-r-bl), 10px); }
+
+/* 圖片與影片的佔位：單一淺色底，中央用深一點的小字標示 Image 或 Video。自己不決定大小，由元件設定寬高或比例。
+   元件不要在上面加漸層、遮罩或陰影。中央有文字疊在上面時，用 lb-tag-tl／tr／bl／br 把標示移到空的角落；很小的圖加 lb-notag */
+.lb-img, .lb-video { display: block; position: relative; overflow: hidden; background: var(--lb-surface) !important;
+  border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+.lb-img::after, .lb-video::after { content: "Image"; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  font: 500 12px/1 system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; pointer-events: none;
+  color: var(--lb-media-tag); }
+.lb-video::after { content: "Video"; }
+.lb-tag-tl::after, .lb-tag-tr::after, .lb-tag-bl::after, .lb-tag-br::after { translate: none; }
+.lb-tag-tl::after { left: var(--lb-pad); top: var(--lb-pad); }
+.lb-tag-tr::after { left: auto; right: var(--lb-pad); top: var(--lb-pad); }
+.lb-tag-bl::after { left: var(--lb-pad); top: auto; bottom: var(--lb-pad); }
+.lb-tag-br::after { left: auto; right: var(--lb-pad); top: auto; bottom: var(--lb-pad); }
+.lb-notag::after { content: none; }
+.lb-flat { border-radius: 0; }  /* 滿版或貼齊邊緣的圖片不要圓角時加上 */
+
+/* 卡片：有外框與內距；圖片要貼齊卡片邊緣時，把內距拿掉（lb-card lb-nopad）再讓文字區自己加內距 */
+.lb-card { display: block; background: var(--lb-bg); border: 1px solid var(--lb-line); padding: var(--lb-pad); overflow: hidden;
+  border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+.lb-nopad { padding: 0; }
+.lb-pad { padding: var(--lb-pad); }
+.lb-divider { display: block; border: 0; height: 1px; width: 100%; background: var(--lb-line); margin: 0; }
+.lb-divider-v { display: block; border: 0; width: 1px; align-self: stretch; background: var(--lb-line); margin: 0; }
+
+/* 配件與額外效果：配件（data-acc）預設顯示，被關掉時預覽頁會加 hidden；額外效果（data-extra）預設不顯示，開啟時預覽頁會加 data-on */
+.lb-root [data-extra]:not([data-on]) { display: none !important; }

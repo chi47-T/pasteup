@@ -1,0 +1,51 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; box-sizing: border-box; display: flex; flex-direction: column; }
+    .lb-root[data-header="below"], .lb-root[data-header="inset"], .lb-root[data-header="after"] { height: calc(100vh - var(--header-h)); }
+    .lb-root[data-header="overlay"] { height: 100vh; padding-top: var(--header-h); }
+    .lb-root .stage { position: relative; flex: 1; min-height: 0; display: flex; align-items: stretch; justify-content: center; }
+    .lb-root .card { position: relative; width: 90%; overflow: hidden; border-radius: 0; }
+    .lb-root .track { display: flex; position: absolute; inset: 0; transition: transform .6s ease; }
+    .lb-root .slide { flex: 0 0 100%; height: 100%; position: relative; }
+    .lb-root .slide .bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .subject { position: absolute; left: 50%; bottom: 3%; transform: translateX(-50%); height: 66%; width: 28%; max-width: 360px; z-index: 2; }
+    .lb-root .side { position: absolute; top: 0; bottom: 0; width: 5%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--lb-gap); }
+    .lb-root .side-l { left: 0; }
+    .lb-root .side-r { right: 0; }
+    .lb-root .vlabel { writing-mode: vertical-rl; }
+    .lb-root .strip { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; padding: var(--lb-gap) 0; }
+    .lb-root .vm { display: none; position: absolute; right: 0; top: 0; bottom: 0; width: 12%; align-items: center; justify-content: center; }
+    .lb-root .vm .lb-label { writing-mode: vertical-rl; }
+    @media (max-width: 640px) {
+      .lb-root[data-header="below"], .lb-root[data-header="inset"], .lb-root[data-header="after"] { height: calc(90vh - var(--header-h)); }
+      .lb-root[data-header="overlay"] { height: 90vh; }
+      .lb-root .stage { justify-content: flex-start; }
+      .lb-root .card { width: 88%; }
+      .lb-root .subject { left: auto; right: 6%; transform: none; height: 55%; width: 44%; }
+      .lb-root .side { display: none; }
+      .lb-root .vm { display: flex; }
+    }
+  </style>
+  <div class="stage">
+    <div class="side side-l" data-acc="0"><span class="lb-label vlabel">Label</span></div>
+    <div class="card">
+      <div class="track">
+        <div class="slide"><div class="lb-img lb-flat bg"></div><div class="lb-img subject"></div></div>
+        <div class="slide"><div class="lb-img lb-flat bg"></div><div class="lb-img subject"></div></div>
+        <div class="slide"><div class="lb-img lb-flat bg"></div><div class="lb-img subject"></div></div>
+      </div>
+    </div>
+    <div class="side side-r" data-acc="1"><span class="lb-label vlabel">Label</span><button class="lb-icon-btn" data-next aria-label="Next"><span class="lb-arrow"></span></button></div>
+    <div class="vm"><span class="lb-label">Secondary text</span></div>
+  </div>
+  <div class="strip" data-acc="2"><button class="lb-btn">Button</button></div>
+  <script type="text/lb">
+    const track = root.querySelector('.track');
+    const n = track.children.length;
+    let i = 0;
+    const go = () => { i = (i + 1) % n; track.style.transform = 'translateX(' + (-100 * i) + '%)'; };
+    const nx = root.querySelector('[data-next]');
+    if (nx) nx.addEventListener('click', go);
+    if (!ctx.reducedMotion) { const t = setInterval(go, 4000); ctx.onCleanup(() => clearInterval(t)); }
+  </script>
+</section>

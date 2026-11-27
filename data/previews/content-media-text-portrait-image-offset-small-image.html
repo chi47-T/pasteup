@@ -1,0 +1,31 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0 0; overflow-x: clip; }
+    .lb-root .po-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .lb-root .po-big { width: 80%; aspect-ratio: 3 / 4; }
+    .lb-root .po-right { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .po-small { width: 40%; aspect-ratio: 4 / 3; align-self: flex-end; }
+    .lb-root .po-text { width: 66%; display: flex; flex-direction: column; gap: var(--lb-gap); text-align: left; }
+    @media (max-width: 640px) {
+      .lb-root { padding-top: 0; }
+      .lb-root .po-grid { display: block; }
+      .lb-root .po-big { width: 84%; margin-right: auto; }
+      .lb-root .po-right { display: block; }
+      .lb-root .po-small { display: none; }
+      .lb-root .po-text { width: auto; padding: var(--lb-gap) var(--lb-gutter) 0; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="po-grid">
+      <div class="lb-img lb-flat po-big"></div>
+      <div class="po-right">
+        <div class="lb-img po-small"></div>
+        <div class="po-text">
+          <h2 class="lb-h2">Headline goes here across a few lines</h2>
+          <p class="lb-text">Supporting description text goes here, a short paragraph of placeholder copy.</p>
+          <a class="lb-link">Learn more<span class="lb-arrow"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

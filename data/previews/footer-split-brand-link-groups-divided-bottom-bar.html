@@ -1,0 +1,89 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { padding-top: var(--lb-space); }
+    .lb-root .top { display: grid; grid-template-columns: 2fr 8fr; gap: var(--lb-gap); align-items: start; }
+    .lb-root .brand { display: flex; gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .logocol { display: flex; flex-direction: column; justify-content: space-between; gap: var(--lb-gap); align-self: stretch; }
+    .lb-root .icons { display: flex; flex-wrap: nowrap; gap: 8px; }
+    .lb-root .region { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .lb-root .groups { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--lb-gap); align-items: start; }
+    .lb-root .group { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .lb-root .sub { display: flex; flex-direction: column; gap: 8px; padding-left: var(--lb-gap); }
+    .lb-root .gh { background: none; border: 0; padding: 0; text-align: left; display: flex; justify-content: space-between; align-items: center; width: 100%; font: inherit; color: inherit; }
+    .lb-root .chev { display: none; }
+    .lb-root .mtop { display: none; }
+    .lb-root .bottom { margin-top: var(--lb-space); }
+    .lb-root .bar { display: flex; justify-content: space-between; align-items: center; gap: var(--lb-gap); padding: var(--lb-gap) 0 var(--lb-space); }
+    .lb-root .bar .right { display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .bar .icons.sm { flex-wrap: wrap; }
+    @media (max-width: 640px) {
+      .lb-root .top { grid-template-columns: 1fr; }
+      .lb-root .brand { flex-direction: column; }
+      .lb-root .logocol { display: none; }
+      .lb-root .mtop { display: flex; justify-content: space-between; align-items: center; gap: var(--lb-gap); }
+      .lb-root .groups { grid-template-columns: 1fr; gap: 0; }
+      .lb-root .group { padding: var(--lb-gap) 0; border-top: 1px solid var(--lb-line); }
+      .lb-root .chev { display: inline; }
+      .lb-root .group.collapsed .links { display: none; }
+      .lb-root .bar { flex-direction: column-reverse; align-items: flex-start; }
+      .lb-root .bar .right { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="mtop">
+          <div class="lb-logo"></div>
+          <div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+        </div>
+        <div class="logocol">
+          <div class="lb-logo"></div>
+          <div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+        </div>
+        <div class="region">
+          <span class="lb-label">Region</span>
+          <span class="lb-icon"></span>
+          <span class="lb-small">Country name</span>
+        </div>
+      </div>
+      <div class="groups">
+        <div class="group">
+          <button class="gh" type="button"><span class="lb-label">Group one</span><span class="chev lb-small">&#8964;</span></button>
+          <div class="links group-links"><div class="sub" style="padding-left:0"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a><div class="sub"><a class="lb-link">Sub link</a><a class="lb-link">Sub link</a></div><a class="lb-link">Link four</a></div></div>
+        </div>
+        <div class="group">
+          <button class="gh" type="button"><span class="lb-label">Group two</span><span class="chev lb-small">&#8964;</span></button>
+          <div class="links"><div class="sub" style="padding-left:0"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a></div></div>
+        </div>
+        <div class="group" data-collapsible>
+          <button class="gh" type="button"><span class="lb-label">Group three</span><span class="chev lb-small">&#8964;</span></button>
+          <div class="links"><div class="sub" style="padding-left:0"><a class="lb-link">Link one</a><a class="lb-link">Link two</a></div></div>
+        </div>
+        <div class="group" data-collapsible>
+          <button class="gh" type="button"><span class="lb-label">Group four</span><span class="chev lb-small">&#8964;</span></button>
+          <div class="links"><div class="sub" style="padding-left:0"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="lb-divider"></div>
+    <div class="lb-wrap">
+      <div class="bar">
+        <span class="lb-small">Small print line goes here</span>
+        <div class="right">
+          <span class="lb-small">Secondary text</span>
+          <div class="icons sm"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/lb">
+    const mq = window.matchMedia('(max-width: 640px)');
+    const groups = Array.from(root.querySelectorAll('.group'));
+    const apply = () => groups.forEach(g => g.classList.toggle('collapsed', mq.matches && g.hasAttribute('data-collapsible')));
+    const hs = groups.map(g => { const h = () => { if (mq.matches && g.hasAttribute('data-collapsible')) g.classList.toggle('collapsed'); }; g.querySelector('.gh').addEventListener('click', h); return [g, h]; });
+    mq.addEventListener('change', apply); apply();
+    ctx.onCleanup(() => { mq.removeEventListener('change', apply); hs.forEach(([g, h]) => g.querySelector('.gh').removeEventListener('click', h)); });
+  </script>
+</footer>

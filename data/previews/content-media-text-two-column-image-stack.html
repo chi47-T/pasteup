@@ -1,0 +1,55 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: 0; }
+    .lb-root .lb-wrap { box-sizing: border-box; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--lb-gutter); display: grid; grid-template-columns: 40% 1fr; gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .stack { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); height: 720px; }
+    .lb-root .col { display: flex; flex-direction: column; gap: var(--lb-gap); min-height: 0; }
+    .lb-root .slot { position: relative; min-height: 0; overflow: hidden; }
+    .lb-root .slot .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .6s; }
+    .lb-root .slot .lb-img.on { opacity: 1; }
+    .lb-root .c1 .s1 { flex: 5; } .lb-root .c1 .s2 { flex: 3; } .lb-root .c1 .s3 { flex: 4; }
+    .lb-root .c2 .s1 { flex: 3; } .lb-root .c2 .s2 { flex: 5; } .lb-root .c2 .s3 { flex: 3; }
+    .lb-root .textcol { position: relative; padding: var(--lb-space) var(--lb-pad); display: flex; flex-direction: column; gap: var(--lb-gap); align-self: stretch; align-items: flex-start; }
+    .lb-root .deco { position: absolute; width: 40px; height: 40px; border: 1px solid var(--lb-line); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .d-tr { top: var(--lb-gap); right: 0; } .lb-root .d-br { bottom: var(--lb-gap); right: 0; }
+    @media (max-width: 640px) {
+      .lb-root { padding-top: var(--lb-space); padding-bottom: 0; }
+      .lb-root .lb-wrap { grid-template-columns: 1fr; }
+      .lb-root .textcol { order: 1; padding: 0 0 var(--lb-space); }
+      .lb-root .stack { order: 2; height: 520px; }
+      .lb-root .d-br { bottom: auto; top: 60px; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="stack">
+      <div class="col c1">
+        <div class="slot s1"><div class="lb-img lb-flat on"></div><div class="lb-img lb-flat" data-extra="0"></div></div>
+        <div class="slot s2"><div class="lb-img lb-flat on"></div><div class="lb-img lb-flat" data-extra="0"></div></div>
+        <div class="slot s3"><div class="lb-img lb-flat on"></div><div class="lb-img lb-flat" data-extra="0"></div></div>
+      </div>
+      <div class="col c2">
+        <div class="slot s1"><div class="lb-img lb-flat on"></div><div class="lb-img lb-flat" data-extra="0"></div></div>
+        <div class="slot s2"><div class="lb-img lb-flat on"></div><div class="lb-img lb-flat" data-extra="0"></div></div>
+        <div class="slot s3"><div class="lb-img lb-flat on"></div><div class="lb-img lb-flat" data-extra="0"></div></div>
+      </div>
+    </div>
+    <div class="textcol">
+      <span class="lb-label">Tag</span>
+      <h2 class="lb-h2">Headline goes here across two lines</h2>
+      <span class="lb-text">Paragraph text goes here with some length to it.</span>
+      <span class="lb-text">Another paragraph of placeholder text goes here.</span>
+      <div class="deco d-tr"></div><div class="deco d-br"></div>
+    </div>
+  </div>
+  <script type="text/lb">
+    if (ctx.extras.includes(0) && !ctx.reducedMotion) {
+      const slots = [...root.querySelectorAll('.slot')];
+      let n = 0;
+      const t = setInterval(() => {
+        n++;
+        slots.forEach(s => { const im = s.querySelectorAll('.lb-img'); im.forEach((e, i) => e.classList.toggle('on', i === n % im.length)); });
+      }, 3500);
+      ctx.onCleanup(() => clearInterval(t));
+    }
+  </script>
+</section>

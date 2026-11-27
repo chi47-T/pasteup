@@ -1,0 +1,57 @@
+<section class="lb-root">
+  <style>
+    .lb-root { --cw: 1280px; --edge: max(var(--lb-gutter), calc((100% - var(--cw)) / 2)); overflow-x: clip; padding: 0 0 var(--lb-space); }
+    .lb-root .head { padding: 0 var(--edge); margin-bottom: var(--lb-gap); }
+    .lb-root .head > * { margin-top: 0; }
+    .lb-root .viewport { padding: 0 var(--edge); }
+    .lb-root .grid { display: grid; grid-template-rows: repeat(2, auto); grid-auto-flow: column; grid-auto-columns: calc((100% - 5 * var(--lb-gap)) / 6); gap: var(--lb-gap); }
+    .lb-root .tile { aspect-ratio: 1 / 1; width: 100%; }
+    .lb-root .more { display: flex; justify-content: flex-end; padding: var(--lb-gap) var(--edge) 0; }
+    .lb-root .nav { display: none; }
+    .lb-root .nav [disabled] { opacity: .35; pointer-events: none; }
+    .lb-root .anim .tile { clip-path: inset(0 0 100% 0); }
+    .lb-root .anim.in .tile { clip-path: inset(0 0 0 0); transition: clip-path .8s ease; transition-delay: calc(var(--i) * 80ms); }
+    @media (max-width: 640px) {
+      .lb-root .viewport { padding: 0; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
+      .lb-root .viewport::-webkit-scrollbar { display: none; }
+      .lb-root .grid { padding: 0 var(--lb-gutter); grid-auto-columns: 38vw; width: max-content; min-width: 100%; box-sizing: border-box; }
+      .lb-root .grid > .tile { scroll-snap-align: start; }
+      .lb-root .nav { display: flex; justify-content: flex-end; gap: var(--lb-gap); padding: var(--lb-gap) var(--lb-gutter) 0; }
+      .lb-root .more { padding-left: var(--lb-gutter); padding-right: var(--lb-gutter); }
+    }
+    @media (prefers-reduced-motion: reduce) { .lb-root .anim .tile { clip-path: none; transition: none; } }
+  </style>
+  <div class="head"><h2 class="lb-h3">Title goes here</h2></div>
+  <div class="viewport">
+    <div class="grid">
+      <div class="lb-img tile lb-notag" style="--i:0"></div><div class="lb-img tile lb-notag" style="--i:1"></div>
+      <div class="lb-img tile lb-notag" style="--i:2"></div><div class="lb-img tile lb-notag" style="--i:3"></div>
+      <div class="lb-img tile lb-notag" style="--i:4"></div><div class="lb-img tile lb-notag" style="--i:5"></div>
+      <div class="lb-img tile lb-notag" style="--i:6"></div><div class="lb-img tile lb-notag" style="--i:7"></div>
+      <div class="lb-img tile lb-notag" style="--i:8"></div><div class="lb-img tile lb-notag" style="--i:9"></div>
+      <div class="lb-img tile lb-notag" style="--i:10"></div><div class="lb-img tile lb-notag" style="--i:11"></div>
+    </div>
+  </div>
+  <div class="nav">
+    <button class="lb-icon-btn prev" aria-label="Previous"><span class="lb-arrow lb-arrow-left"></span></button>
+    <button class="lb-icon-btn next" aria-label="Next"><span class="lb-arrow"></span></button>
+  </div>
+  <div class="more"><a class="lb-link">Link text</a></div>
+  <script type="text/lb">
+    const vp = root.querySelector('.viewport'), prev = root.querySelector('.prev'), next = root.querySelector('.next');
+    const step = () => { const t = root.querySelector('.tile'); return t.getBoundingClientRect().width + parseFloat(getComputedStyle(root.querySelector('.grid')).columnGap || 0); };
+    const upd = () => { prev.disabled = vp.scrollLeft <= 1; next.disabled = vp.scrollLeft >= vp.scrollWidth - vp.clientWidth - 1; };
+    prev.addEventListener('click', () => vp.scrollBy({ left: -step() }));
+    next.addEventListener('click', () => vp.scrollBy({ left: step() }));
+    vp.addEventListener('scroll', upd);
+    window.addEventListener('resize', upd);
+    ctx.onCleanup(() => window.removeEventListener('resize', upd));
+    upd();
+    if (ctx.extras.includes(0) && !ctx.reducedMotion) {
+      root.classList.add('anim');
+      const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { root.classList.add('in'); io.disconnect(); } }, { threshold: 0.2 });
+      io.observe(root.querySelector('.grid'));
+      ctx.onCleanup(() => io.disconnect());
+    }
+  </script>
+</section>

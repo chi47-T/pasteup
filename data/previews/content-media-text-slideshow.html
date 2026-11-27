@@ -1,0 +1,45 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; }
+    .lb-root .lb-wrap { display: grid; grid-template-columns: 48% 1fr; gap: var(--lb-gap); align-items: start; }
+    .lb-root .left { display: flex; flex-direction: column; gap: var(--lb-gap); justify-content: space-between; align-self: stretch; padding-top: var(--lb-space); }
+    .lb-root .txt { display: flex; flex-direction: column; gap: var(--lb-gap); align-items: flex-start; }
+    .lb-root .vig { width: 50%; aspect-ratio: 4/3; }
+    .lb-root .show { position: relative; margin-top: calc(-1 * var(--lb-gap)); aspect-ratio: 4/5; }
+    .lb-root .slide { position: absolute; inset: 0; display: none; }
+    .lb-root .slide.on { display: block; }
+    .lb-root .slide .lb-img { width: 100%; height: 100%; }
+    .lb-root .dots { position: absolute; left: 0; right: 0; bottom: var(--lb-gap); display: flex; justify-content: center; gap: 8px; }
+    .lb-root .dot { width: 8px; height: 8px; border: 1px solid var(--lb-ink); border-radius: 50%; background: transparent; padding: 0; cursor: pointer; }
+    .lb-root .dot.on { background: var(--lb-ink); }
+    .lb-root .count { position: absolute; right: var(--lb-gap); bottom: var(--lb-gap); width: 44px; height: 44px; border-radius: 50%; background: var(--lb-bg); display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 640px) {
+      .lb-root .lb-wrap { grid-template-columns: 1fr; }
+      .lb-root .left { padding-top: 0; }
+      .lb-root .vig { align-self: flex-end; }
+      .lb-root .show { margin-top: 0; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="left">
+      <div class="txt">
+        <span class="lb-label">Tag</span>
+        <h2 class="lb-h2">Headline goes here across two lines</h2>
+        <span class="lb-text">Description text goes here with some length to it.</span>
+      </div>
+      <div class="lb-img vig lb-notag"></div>
+    </div>
+    <div class="show">
+      <div class="slide on"><div class="lb-img"></div></div>
+      <div class="slide"><div class="lb-img"></div></div>
+      <div class="slide"><div class="lb-img"></div></div>
+      <div class="dots"><button class="dot on"></button><button class="dot"></button><button class="dot"></button></div>
+      <div class="count"><span class="lb-label">1/3</span></div>
+    </div>
+  </div>
+  <script type="text/lb">
+    const slides = [...root.querySelectorAll('.slide')], dots = [...root.querySelectorAll('.dot')], cnt = root.querySelector('.count .lb-label');
+    const go = i => { slides.forEach((s, j) => s.classList.toggle('on', i === j)); dots.forEach((d, j) => d.classList.toggle('on', i === j)); cnt.textContent = (i + 1) + '/' + slides.length; };
+    dots.forEach((d, i) => { const f = () => go(i); d.addEventListener('click', f); ctx.onCleanup(() => d.removeEventListener('click', f)); });
+  </script>
+</section>

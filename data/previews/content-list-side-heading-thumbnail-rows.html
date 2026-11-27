@@ -1,0 +1,34 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); overflow-x: clip; }
+    .lb-root .card { background: var(--lb-surface-2); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); padding: var(--lb-pad); display: flex; gap: var(--lb-gap); align-items: flex-start; }
+    .lb-root .side { flex: 0 0 20%; display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .list { flex: 1 1 0; display: flex; flex-direction: column; gap: var(--lb-gap); min-width: 0; }
+    .lb-root .item { display: flex; gap: var(--lb-gap); align-items: center; }
+    .lb-root .thumb { position: relative; flex: 0 0 25%; }
+    .lb-root .thumb .lb-img { width: 100%; aspect-ratio: 16 / 10; }
+    .lb-root .thumb .lb-label { position: absolute; left: 8px; top: 8px; }
+    .lb-root .body { flex: 1 1 0; display: flex; flex-direction: column; gap: 8px; }
+    @media (max-width: 640px) {
+      .lb-root .card { flex-direction: column; align-items: stretch; }
+      .lb-root .side { flex: none; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; }
+      .lb-root .list { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; margin-right: calc(var(--lb-pad) * -1); padding-right: var(--lb-pad); padding-bottom: var(--lb-pad); }
+      .lb-root .card { border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); padding-bottom: var(--lb-pad); }
+      .lb-root .item { flex: 0 0 60%; flex-direction: column; align-items: stretch; scroll-snap-align: start; }
+      .lb-root .thumb { flex: none; }
+    }
+  </style>
+  <div class="card">
+    <div class="side">
+      <span class="lb-label">Label</span>
+      <div class="lb-h3">Section heading</div>
+      <a class="lb-btn">View all</a>
+    </div>
+    <div class="list">
+      <div class="item"><div class="thumb"><div class="lb-img"></div><span class="lb-label">Tag</span></div><div class="body"><div class="lb-h3">Item title goes here</div><div class="lb-text">Secondary text placeholder goes here.</div></div></div>
+      <div class="item"><div class="thumb"><div class="lb-img"></div><span class="lb-label">Tag</span></div><div class="body"><div class="lb-h3">Item title goes here</div><div class="lb-text">Secondary text placeholder goes here.</div></div></div>
+      <div class="item"><div class="thumb"><div class="lb-img"></div><span class="lb-label">Tag</span></div><div class="body"><div class="lb-h3">Item title goes here</div><div class="lb-text">Secondary text placeholder goes here.</div></div></div>
+      <div class="item"><div class="thumb"><div class="lb-img"></div><span class="lb-label">Tag</span></div><div class="body"><div class="lb-h3">Item title goes here</div><div class="lb-text">Secondary text placeholder goes here.</div></div></div>
+    </div>
+  </div>
+</section>

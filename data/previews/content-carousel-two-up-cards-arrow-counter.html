@@ -1,0 +1,62 @@
+<section class="lb-root">
+  <style>
+    .lb-root { --per: 2; padding-bottom: 33vh; }
+    .lb-root { overflow-x: clip; }
+    .lb-root .vp { overflow: hidden; }
+    .lb-root .track { display: flex; gap: var(--lb-gap); transition: transform .4s; }
+    .lb-root .track > * { flex: 0 0 calc((100% - (var(--per) - 1) * var(--lb-gap)) / var(--per)); min-width: 0; }
+    .lb-root .ctrl { display: flex; justify-content: space-between; align-items: center; width: 33%; min-width: 240px; margin: var(--lb-gap) auto 0; }
+    .lb-root .counter { display: inline-flex; align-items: center; gap: 8px; }
+    .lb-root .dash { width: 16px; height: 1px; background: var(--lb-ink); display: inline-block; }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+    .lb-root .head { margin-top: -80px; margin-bottom: var(--lb-space); }
+    .lb-root .track { align-items: flex-start; }
+    .lb-root .card { display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .top { display: flex; align-items: center; justify-content: flex-start; gap: 8px; }
+    .lb-root .mid { display: flex; gap: var(--lb-gap); align-items: flex-start; }
+    .lb-root .mid .lb-img { width: 33%; aspect-ratio: 1; flex: none; }
+    @media (max-width: 640px) {
+      .lb-root { --per: 1; }
+      .lb-root .ctrl { width: 100%; min-width: 0; }
+      .lb-root .vp { overflow: visible; }
+      .lb-root .track > * { flex-basis: 85%; }
+      .lb-root .head { margin-top: -60px; }
+    }
+    /* 跨在交界上：區塊上方用自己的留白（不是外距）容納往上移的標題組，留白和頁面同色、下方才是本區塊的底色，整個區塊不透明，只有標題組往上移，不蓋到上一個區塊 */
+    .lb-root { --shift: calc(19px + 12px + clamp(34px, 4.6vw, 68px) * 0.56); margin-top: 0; padding-top: var(--shift); background: var(--lb-surface-2); position: relative; z-index: 1; }
+    .lb-root .head { position: relative; z-index: 1; margin-top: 0; transform: translateY(calc(-1 * var(--shift))); margin-bottom: calc(var(--lb-space) - var(--shift)); }
+    .lb-root::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: var(--shift); background: var(--lb-bg); z-index: 0; pointer-events: none; }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><span class="lb-label">Tag</span><h2 class="lb-h1">Headline goes here across two lines</h2><p class="lb-text">Description text placeholder.</p><div><button class="lb-btn">Button</button></div></div>
+    <div class="vp"><div class="track">
+<div class="lb-card card"><div class="top"><span class="lb-avatar"></span><span class="lb-label">Tag</span></div><div class="mid"><div class="lb-img lb-notag"></div><h3 class="lb-h3">Card title goes here</h3></div><p class="lb-text">Description text placeholder of similar length.</p><p class="lb-small">Secondary text placeholder</p><div><button class="lb-btn-ghost lb-btn">Button</button></div></div>
+<div class="lb-card card"><div class="top"><span class="lb-avatar"></span><span class="lb-label">Tag</span></div><div class="mid"><div class="lb-img lb-notag"></div><h3 class="lb-h3">Card title goes here</h3></div><p class="lb-text">Description text placeholder of similar length.</p><p class="lb-small">Secondary text placeholder</p><div><button class="lb-btn-ghost lb-btn">Button</button></div></div>
+<div class="lb-card card"><div class="top"><span class="lb-avatar"></span><span class="lb-label">Tag</span></div><div class="mid"><div class="lb-img lb-notag"></div><h3 class="lb-h3">Card title goes here</h3></div><p class="lb-text">Description text placeholder of similar length.</p><p class="lb-small">Secondary text placeholder</p><div><button class="lb-btn-ghost lb-btn">Button</button></div></div>
+<div class="lb-card card"><div class="top"><span class="lb-avatar"></span><span class="lb-label">Tag</span></div><div class="mid"><div class="lb-img lb-notag"></div><h3 class="lb-h3">Card title goes here</h3></div><p class="lb-text">Description text placeholder of similar length.</p><p class="lb-small">Secondary text placeholder</p><div><button class="lb-btn-ghost lb-btn">Button</button></div></div>
+<div class="lb-card card"><div class="top"><span class="lb-avatar"></span><span class="lb-label">Tag</span></div><div class="mid"><div class="lb-img lb-notag"></div><h3 class="lb-h3">Card title goes here</h3></div><p class="lb-text">Description text placeholder of similar length.</p><p class="lb-small">Secondary text placeholder</p><div><button class="lb-btn-ghost lb-btn">Button</button></div></div>
+<div class="lb-card card"><div class="top"><span class="lb-avatar"></span><span class="lb-label">Tag</span></div><div class="mid"><div class="lb-img lb-notag"></div><h3 class="lb-h3">Card title goes here</h3></div><p class="lb-text">Description text placeholder of similar length.</p><p class="lb-small">Secondary text placeholder</p><div><button class="lb-btn-ghost lb-btn">Button</button></div></div>
+</div></div>
+    <div class="ctrl"><button class="lb-icon-btn prev"><span class="lb-arrow lb-arrow-left"></span></button><span class="lb-label counter"><span class="cur">1</span> <span class="dash"></span> <span class="tot">1</span></span><button class="lb-icon-btn next"><span class="lb-arrow"></span></button></div>
+  </div>
+  <script type="text/lb">
+    const vp = root.querySelector('.vp'), track = root.querySelector('.track');
+    const items = [...track.children];
+    const prev = root.querySelector('.prev'), next = root.querySelector('.next');
+    const cur = root.querySelector('.cur'), tot = root.querySelector('.tot');
+    let page = 0;
+    const per = () => parseInt(getComputedStyle(root).getPropertyValue('--per')) || 1;
+    const pages = () => Math.ceil(items.length / per());
+    const render = () => {
+      const p = per(); page = Math.min(page, pages() - 1);
+      const idx = Math.min(page * p, items.length - p);
+      track.style.transform = 'translateX(' + (-items[Math.max(idx, 0)].offsetLeft + items[0].offsetLeft) + 'px)';
+      cur.textContent = page + 1; tot.textContent = pages();
+    };
+    prev.addEventListener('click', () => { page = Math.max(0, page - 1); render(); });
+    next.addEventListener('click', () => { page = Math.min(pages() - 1, page + 1); render(); });
+    window.addEventListener('resize', render);
+    ctx.onCleanup(() => window.removeEventListener('resize', render));
+    render();
+  </script>
+</section>

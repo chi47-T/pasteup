@@ -1,0 +1,33 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: 0 0 var(--lb-space); }
+    .lb-root .head { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); margin-top: -2.5rem; margin-bottom: var(--lb-space); }
+    .lb-root .grid { width: 60%; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--lb-gap); justify-items: stretch; }
+    .lb-root .item { display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); text-align: center; min-width: 0; }
+    .lb-root .circle { width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; }
+    @media (max-width: 640px) {
+      .lb-root .grid { width: 100%; grid-template-columns: repeat(3, 1fr); }
+    }
+    /* 跨在交界上：區塊上方用自己的留白（不是外距）容納往上移的標題組，留白和頁面同色、下方才是本區塊的底色，整個區塊不透明，只有標題組往上移，不蓋到上一個區塊 */
+    .lb-root { --shift: calc(19px + var(--lb-gap) + clamp(24px, 2.8vw, 40px) * 0.6); margin-top: 0; padding-top: var(--shift); background: var(--lb-surface-2); position: relative; z-index: 1; }
+    .lb-root .head { position: relative; z-index: 1; margin-top: 0; transform: translateY(calc(-1 * var(--shift))); margin-bottom: calc(var(--lb-space) - var(--shift)); }
+    .lb-root::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: var(--shift); background: var(--lb-bg); z-index: 0; pointer-events: none; }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <span class="lb-label">Label</span>
+      <h2 class="lb-h2 lb-center">Headline goes here<br>second line</h2>
+      <p class="lb-text lb-center">Short description text goes here for the group</p>
+      <a class="lb-btn">Learn more</a>
+    </div>
+    <div class="grid">
+      <div class="item"><div class="lb-img lb-flat lb-notag circle"></div><h3 class="lb-h3 lb-center">Item title</h3></div>
+      <div class="item"><div class="lb-img lb-flat lb-notag circle"></div><h3 class="lb-h3 lb-center">Item title two lines</h3></div>
+      <div class="item"><div class="lb-img lb-flat lb-notag circle"></div><h3 class="lb-h3 lb-center">Item title</h3></div>
+      <div class="item"><div class="lb-img lb-flat lb-notag circle"></div><h3 class="lb-h3 lb-center">Item title</h3></div>
+      <div class="item"><div class="lb-img lb-flat lb-notag circle"></div><h3 class="lb-h3 lb-center">Item title</h3></div>
+      <div class="item"><div class="lb-img lb-flat lb-notag circle"></div><h3 class="lb-h3 lb-center">Item title</h3></div>
+      <div class="item"><div class="lb-img lb-flat lb-notag circle"></div><h3 class="lb-h3 lb-center">Item title</h3></div>
+    </div>
+  </div>
+</section>

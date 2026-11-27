@@ -1,0 +1,51 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); border-top: 1px solid var(--lb-line); border-bottom: 1px solid var(--lb-line); overflow-x: clip; }
+    .lb-root .cols { display: grid; grid-template-columns: 65% 35%; }
+    .lb-root .left { display: flex; flex-direction: column; padding: var(--lb-space) var(--lb-gutter); min-width: 0; }
+    .lb-root .head { display: flex; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .lb-label { border: 1px solid var(--lb-line); padding: 2px 8px; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .list { margin-top: auto; padding-top: calc(var(--lb-space) * 2); display: flex; flex-direction: column; }
+    .lb-root .row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--lb-gap); padding: var(--lb-pad) 0; border-bottom: 1px solid var(--lb-line); }
+    .lb-root .more { align-self: flex-end; margin-top: var(--lb-gap); }
+    .lb-root .right { border-left: 1px solid var(--lb-line); display: grid; place-items: center; padding: var(--lb-space) 0; }
+    .lb-root .pic { grid-area: 1 / 1; width: 60%; align-self: center; justify-self: center; visibility: hidden; }
+    .lb-root .pic.on { visibility: visible; }
+    .lb-root .p1 { aspect-ratio: 4 / 5; }
+    .lb-root .p2 { aspect-ratio: 1 / 1; }
+    .lb-root .p3 { aspect-ratio: 3 / 4; }
+    .lb-root .right { grid-template-columns: 1fr; }
+    .lb-root .right > .pic { width: 60%; }
+    @media (max-width: 640px) {
+      .lb-root .cols { grid-template-columns: 1fr; }
+      .lb-root .right { display: none; }
+      .lb-root .list { padding-top: var(--lb-space); }
+      .lb-root .row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+  </style>
+  <div class="cols">
+    <div class="left">
+      <div class="head"><h2 class="lb-h2">Headline goes<br>here</h2><span class="lb-label">Tag</span></div>
+      <div class="list">
+        <div class="row" data-i="0"><span class="lb-h3">Item one</span><span class="lb-small">Secondary text</span></div>
+        <div class="row" data-i="1"><span class="lb-h3">Item two</span><span class="lb-small">Secondary text</span></div>
+        <div class="row" data-i="2"><span class="lb-h3">Item three</span><span class="lb-small">Secondary text</span></div>
+      </div>
+      <a class="lb-link more">View all <span class="lb-arrow"></span></a>
+    </div>
+    <div class="right">
+      <div class="lb-img pic p1 on" data-i="0"></div>
+      <div class="lb-img pic p2" data-i="1" data-extra="0"></div>
+      <div class="lb-img pic p3" data-i="2" data-extra="0"></div>
+    </div>
+  </div>
+  <script type="text/lb">
+    if (ctx.extras.includes(0)) {
+      const pics = root.querySelectorAll('.pic');
+      root.querySelectorAll('.row').forEach(row => {
+        const on = () => pics.forEach(p => p.classList.toggle('on', p.dataset.i === row.dataset.i));
+        row.addEventListener('mouseenter', on);
+      });
+    }
+  </script>
+</section>

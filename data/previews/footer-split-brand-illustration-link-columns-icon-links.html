@@ -1,0 +1,49 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .top { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); align-items: start; }
+    .lb-root .brand { display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--lb-space)); }
+    .lb-root .brand .lb-img { width: 65%; aspect-ratio: 16 / 9; }
+    .lb-root .links { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    .lb-root .big { display: flex; flex-direction: column; gap: 20px; }
+    .lb-root .sm { display: flex; flex-direction: column; gap: 10px; }
+    .lb-root .grp { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .lb-root .grp .lb-link, .lb-root .sm .lb-link { font-size: 0.85em; }
+    .lb-root .bottom { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); margin-top: var(--lb-gap); align-items: center; }
+    .lb-root .icons { display: flex; gap: 12px; justify-content: flex-end; align-items: center; }
+    .lb-root .icons .lb-icon { width: 24px; height: 24px; }
+    .lb-root .m-icons { display: none; }
+    @media (max-width: 640px) {
+      .lb-root .top { grid-template-columns: 1fr; }
+      .lb-root .brand { display: contents; }
+      .lb-root .brand .lb-img { width: 100%; grid-row: 3; }
+      .lb-root .top { display: flex; flex-direction: column; }
+      .lb-root .logo-wrap { order: 1; }
+      .lb-root .links { order: 2; width: 100%; }
+      .lb-root .ill { order: 3; margin-top: var(--lb-space); }
+      .lb-root .bottom { display: flex; justify-content: flex-end; order: 4; }
+      .lb-root .icons { display: none; }
+      .lb-root .m-icons { display: flex; justify-content: flex-end; gap: 12px; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="logo-wrap"><span class="lb-logo">Logo</span></div>
+        <div class="lb-img ill"></div>
+      </div>
+      <div class="links">
+        <div class="big"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a><a class="lb-link">Link four</a></div>
+        <div class="sm">
+          <div class="grp"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a></div>
+          <div class="grp"><a class="lb-link">Link four</a><a class="lb-link">Link five</a></div>
+          <div class="m-icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="lb-small">Small print text goes here</div>
+      <div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+    </div>
+  </div>
+</footer>

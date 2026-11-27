@@ -1,0 +1,53 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .cols { display: grid; grid-template-columns: 2fr 1fr; gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .left { display: flex; flex-direction: column; padding-bottom: var(--lb-space); }
+    .lb-root .left-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--lb-gap); padding: var(--lb-pad); }
+    .lb-root .titles { display: flex; flex-direction: column; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .row { display: flex; align-items: center; gap: var(--lb-gap); padding: var(--lb-pad); }
+    .lb-root .row:nth-child(even) { background: var(--lb-surface-2); }
+    .lb-root .row .sec { flex: 0 0 20%; }
+    .lb-root .row .tag { flex: 0 0 15%; }
+    .lb-root .row .desc { flex: 1; }
+    .lb-root .row .lcol { display: contents; }
+    .lb-root .btn-bottom { display: none; }
+    .lb-root .right { position: relative; display: flex; overflow: hidden; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .right .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .right .inner { position: relative; z-index: 1; margin: auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); padding: var(--lb-pad); }
+    @media (max-width: 640px) {
+      .lb-root .wrap { padding-left: 0; padding-right: 0; }
+      .lb-root .cols { grid-template-columns: 1fr; gap: var(--lb-space); }
+      .lb-root .left { padding: var(--lb-space) var(--lb-gutter); background: var(--lb-surface); border: 0; border-radius: 0; }
+      .lb-root .left-head { padding: 0 0 var(--lb-pad); justify-content: flex-start; }
+      .lb-root .left-head .btn-top { display: none; }
+      .lb-root .row { padding: var(--lb-pad) 0; align-items: flex-start; }
+      .lb-root .row:nth-child(even) { background: var(--lb-surface-2); }
+      .lb-root .row .lcol { display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--lb-gap) / 2); flex: 0 0 40%; }
+      .lb-root .row .sec, .lb-root .row .tag { flex: none; }
+      .lb-root .btn-bottom { display: flex; margin-top: var(--lb-space); }
+      .lb-root .right { margin: 0 var(--lb-gutter); aspect-ratio: 1 / 1; }
+    }
+  </style>
+  <div class="lb-wrap wrap">
+    <div class="cols">
+      <div class="left lb-card">
+        <div class="left-head">
+          <div class="titles"><span class="lb-label">Tag</span><h2 class="lb-h2">Headline goes here</h2></div>
+          <a class="lb-btn btn-top">Button</a>
+        </div>
+        <div class="rows">
+          <div class="row"><div class="lcol"><span class="lb-small sec">Secondary text</span><span class="lb-label tag">Tag</span></div><p class="lb-text desc">Description text placeholder that can wrap.</p></div>
+          <div class="row"><div class="lcol"><span class="lb-small sec">Secondary text</span><span class="lb-label tag">Tag</span></div><p class="lb-text desc">Description text placeholder that can wrap.</p></div>
+          <div class="row"><div class="lcol"><span class="lb-small sec">Secondary text</span><span class="lb-label tag">Tag</span></div><p class="lb-text desc">Description text placeholder that can wrap.</p></div>
+          <div class="row"><div class="lcol"><span class="lb-small sec">Secondary text</span><span class="lb-label tag">Tag</span></div><p class="lb-text desc">Description text placeholder that can wrap.</p></div>
+        </div>
+        <a class="lb-btn lb-block btn-bottom">Button</a>
+      </div>
+      <div class="right">
+        <div class="lb-img lb-flat lb-tag-tl"></div>
+        <div class="inner"><div class="lb-icon"></div><span class="lb-label">Tag</span><h3 class="lb-h3">Card title</h3><a class="lb-btn">Button</a></div>
+      </div>
+    </div>
+  </div>
+</section>

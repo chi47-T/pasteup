@@ -1,0 +1,44 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: sticky; top: 0; z-index: 0; height: 100vh; }
+    .lb-root .pin { height: 100%; padding: var(--lb-gutter); box-sizing: border-box; }
+    .lb-root[data-header="below"] { top: var(--header-h); height: calc(100vh - var(--header-h)); }
+    .lb-root .card { position: relative; height: 100%; overflow: hidden; display: flex; flex-direction: column; justify-content: center; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root[data-header="overlay"] .card { padding-top: var(--header-h); }
+    .lb-root .bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .lb-wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); padding-bottom: 8vh; box-sizing: border-box; }
+    .lb-root .title { width: 60vw; max-width: 100%; }
+    .lb-root .sub { max-width: 40ch; }
+    .lb-root .info { position: absolute; right: var(--lb-pad); bottom: var(--lb-pad); display: flex; align-items: center; gap: calc(var(--lb-gap) / 2); max-width: min(420px, calc(100% - 2 * var(--lb-pad))); padding: calc(var(--lb-pad) / 2) calc(var(--lb-pad) / 2) calc(var(--lb-pad) / 2) var(--lb-pad); background: var(--lb-bg); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); box-sizing: border-box; }
+    .lb-root .info .lb-divider-v { align-self: stretch; }
+    .lb-root .info .lb-text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lb-root .info .lb-label, .lb-root .info .lb-icon-btn { flex-shrink: 0; }
+
+    @media (max-width: 640px) {
+      .lb-root { height: 100svh; }
+      .lb-root .pin { padding: calc(var(--lb-gutter) / 2); }
+      .lb-root[data-header="below"] { height: calc(100svh - var(--header-h)); }
+      .lb-root .bg { aspect-ratio: 9 / 16; }
+      .lb-root .title { width: 100%; }
+      .lb-root .info { left: var(--lb-pad); right: var(--lb-pad); max-width: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lb-root, .lb-root[data-header="below"] { position: relative; top: auto; }
+    }
+  </style>
+  <div class="pin">
+    <div class="card">
+      <div class="lb-video lb-flat lb-tag-tl bg" aria-hidden="true"></div>
+      <div class="lb-wrap">
+        <h1 class="lb-h1 lb-center title">Headline goes here</h1>
+        <p class="lb-text lb-center sub">A short supporting line under the headline</p>
+      </div>
+      <div class="info" data-acc="0">
+        <span class="lb-label">Label</span>
+        <span class="lb-divider-v"></span>
+        <span class="lb-text">A short line of card text that may wrap onto two</span>
+        <button class="lb-icon-btn" aria-label="Open"><span class="lb-arrow"></span></button>
+      </div>
+    </div>
+  </div>
+</section>

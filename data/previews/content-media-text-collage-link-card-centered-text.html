@@ -1,0 +1,44 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); margin: var(--lb-space) 0; padding: var(--lb-space) 0; overflow-x: clip; border: 1px solid var(--lb-line); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .top { display: grid; grid-template-columns: 35% 1fr; gap: var(--lb-gap); align-items: center; padding: 0 var(--lb-gutter); }
+    .lb-root .lcard { position: relative; display: flex; flex-direction: column; gap: var(--lb-gap); padding: var(--lb-pad); background: var(--lb-surface-2); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .collage { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; height: 260px; }
+    .lb-root .collage .big { height: 100%; }
+    .lb-root .flow { position: relative; overflow: hidden; height: 100%; }
+    .lb-root .flowin { display: flex; flex-direction: column; gap: 8px; }
+    .lb-root .flowin .lb-img { height: 120px; flex: none; }
+    .lb-root .corner { align-self: flex-end; }
+    .lb-root .ctr { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); }
+    @media (max-width: 640px) {
+      .lb-root .top { grid-template-columns: 1fr; }
+      .lb-root .ctr { order: 1; } .lb-root .lcard { order: 2; }
+    }
+  </style>
+  <div class="top">
+    <div class="lcard">
+      <span class="lb-label">Tag</span>
+      <div class="collage"><div class="lb-img big"></div><div class="flow"><div class="flowin"><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div></div></div></div>
+      <h2 class="lb-h1">Headline goes here</h2>
+      <span class="lb-small">Secondary text here</span>
+      <button class="lb-icon-btn corner"><span class="lb-arrow"></span></button>
+    </div>
+    <div class="ctr">
+      <h2 class="lb-h1">Headline goes here</h2>
+      <span class="lb-label">Subtitle</span>
+      <h3 class="lb-h3">Second heading here</h3>
+      <span class="lb-text">Description text goes here with some length.</span>
+      <a class="lb-btn">Button</a>
+    </div>
+  </div>
+  <script type="text/lb">
+    const flow = root.querySelector('.flowin');
+    if (ctx.extras.includes(0) && !ctx.reducedMotion && flow) {
+      flow.innerHTML += flow.innerHTML;
+      let y = 0, raf;
+      const tick = () => { y = (y + 0.4) % (flow.scrollHeight / 2); flow.style.transform = 'translateY(' + (-y) + 'px)'; raf = requestAnimationFrame(tick); };
+      raf = requestAnimationFrame(tick);
+      ctx.onCleanup(() => cancelAnimationFrame(raf));
+    }
+  </script>
+</section>

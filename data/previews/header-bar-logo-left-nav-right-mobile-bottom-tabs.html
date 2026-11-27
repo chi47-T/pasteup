@@ -1,0 +1,68 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: sticky; top: 0; z-index: 30; background: var(--lb-bg); }
+    .lb-root .bar { display: flex; align-items: center; gap: var(--lb-gap); padding: 0 var(--lb-gutter); min-height: 80px; }
+    .lb-root .brand { display: flex; align-items: center; gap: 12px; flex: none; }
+    .lb-root .brand .lb-logo { width: 140px; height: 44px; }
+    .lb-root .right { margin-left: auto; display: flex; align-items: center; gap: 40px; }
+    .lb-root .nav { display: flex; align-items: center; gap: 24px; }
+    .lb-root .nav-item { position: relative; display: inline-flex; flex-direction: column; align-items: center; padding-bottom: 10px; }
+    .lb-root .nav-item::after { content: ""; position: absolute; bottom: 0; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: var(--lb-ink); opacity: 0; }
+    .lb-root .nav-item.is-current::after { opacity: 1; }
+    .lb-root.hov .nav-item:hover::after { opacity: 1; }
+    .lb-root .tools { display: flex; align-items: center; gap: 20px; }
+    .lb-root .tools .lb-input { width: 140px; }
+    .lb-root .icons { display: flex; align-items: center; gap: 12px; }
+    .lb-root .badge-wrap { position: relative; display: inline-flex; }
+    .lb-root .badge { position: absolute; top: -4px; right: -4px; min-width: 16px; height: 16px; padding: 0 4px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; background: var(--lb-accent); color: var(--lb-on-accent); font-size: 10px; }
+    .lb-root .tabs { display: none; }
+    .lb-root .m-input { display: none; }
+    .lb-root .panel { display: none; }
+    @media (max-width: 1024px) {
+      .lb-root .nav, .lb-root .tools .icons, .lb-root .tools .d-input { display: none; }
+      .lb-root .m-input { display: block; width: 120px; margin-left: auto; }
+      .lb-root .right { display: none; }
+      .lb-root .tabs { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--lb-bg); border-top: 1px solid var(--lb-line); }
+      .lb-root .tab { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; position: relative; background: none; border: 0; cursor: pointer; }
+      .lb-root .tab + .tab { border-left: 1px solid var(--lb-line); }
+      .lb-root .tab.is-current::after { content: ""; position: absolute; bottom: 3px; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: var(--lb-ink); }
+      .lb-root.hov .nav-item:hover::after { opacity: 0; }
+      .lb-root .panel { position: fixed; left: 0; right: 0; bottom: 64px; z-index: 40; background: var(--lb-bg); border-top: 1px solid var(--lb-line); padding: var(--lb-pad); flex-direction: column; gap: var(--lb-gap); }
+      .lb-root .panel.open { display: flex; }
+    }
+    @media (max-width: 640px) { .lb-root .brand .lb-logo { width: 100px; height: 32px; } .lb-root .m-input { width: 100px; } }
+  </style>
+  <div class="bar">
+    <div class="brand"><span class="lb-logo"></span><span class="lb-small">Tagline text</span></div>
+    <div class="right">
+      <nav class="nav">
+        <span class="nav-item is-current"><a class="lb-link">Link one</a></span>
+        <span class="nav-item"><a class="lb-link">Link two</a></span>
+        <span class="nav-item"><a class="lb-link">Link three</a></span>
+        <span class="nav-item"><a class="lb-link">Link four</a></span>
+      </nav>
+      <div class="tools">
+        <span class="lb-input d-input" style="width:140px">Search</span>
+        <div class="icons">
+          <span class="lb-icon-btn"><span class="lb-icon"></span></span>
+          <span class="badge-wrap"><span class="lb-icon-btn"><span class="lb-icon"></span></span><span class="badge">2</span></span>
+          <span class="lb-icon-btn"><span class="lb-icon"></span></span>
+        </div>
+      </div>
+    </div>
+    <span class="lb-input m-input">Search</span>
+  </div>
+  <div class="panel"><a class="lb-link">Link five</a><a class="lb-link">Link six</a><a class="lb-link">Link seven</a></div>
+  <nav class="tabs">
+    <button class="tab is-current"><span class="lb-icon"></span><span class="lb-label">Tab</span></button>
+    <button class="tab"><span class="lb-icon"></span><span class="lb-label">Tab</span></button>
+    <button class="tab"><span class="lb-icon"></span><span class="lb-label">Tab</span></button>
+    <button class="tab"><span class="lb-icon"></span><span class="lb-label">Tab</span></button>
+    <button class="tab menu-btn"><span class="lb-icon"></span><span class="lb-label">Menu</span></button>
+  </nav>
+  <script type="text/lb">
+    if (ctx.extras.includes(0)) root.classList.add('hov');
+    var btn = root.querySelector('.menu-btn'), panel = root.querySelector('.panel');
+    btn.addEventListener('click', function () { panel.classList.toggle('open'); });
+  </script>
+</header>

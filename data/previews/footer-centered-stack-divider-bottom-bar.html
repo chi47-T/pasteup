@@ -1,0 +1,30 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0 0; }
+    .lb-root .stack { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); }
+    .lb-root .big { zoom: 3; }
+    .lb-root .icons { display: flex; justify-content: center; gap: var(--lb-gap); }
+    .lb-root .links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--lb-gap); }
+    .lb-root .links.small { gap: 0.75rem; }
+    .lb-root .links .sep { width: 1px; height: 0.9rem; background: var(--lb-line); }
+    .lb-root .bottom { margin-top: var(--lb-space); }
+    .lb-root .bottom .lb-small { display: block; padding: var(--lb-pad) var(--lb-gutter); margin: 0 auto; text-align: center; white-space: nowrap; }
+    @media (max-width: 640px) {
+      .lb-root .links.main { flex-direction: column; }
+      .lb-root .links.small { flex-wrap: wrap; justify-content: center; text-align: center; max-width: 16rem; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="stack">
+      <div class="lb-logo big"></div>
+      <div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+      <div class="links main"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a><a class="lb-link">Link four</a></div>
+      <div class="links small"><a class="lb-link">Small link</a><span class="sep"></span><a class="lb-link">Small link</a><span class="sep"></span><a class="lb-link">Small link</a><span class="sep"></span><a class="lb-link">Small link</a><span class="sep"></span><a class="lb-link">Small link</a><span class="sep"></span><a class="lb-link">Small link</a></div>
+      <div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+    </div>
+  </div>
+  <div class="bottom">
+    <hr class="lb-divider">
+    <span class="lb-small lb-center">Small print</span>
+  </div>
+</footer>

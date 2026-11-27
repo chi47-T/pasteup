@@ -1,0 +1,91 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: sticky; top: 0; z-index: 50; padding: var(--lb-gap) var(--lb-gutter) 0; }
+    .lb-root[data-over] { position: fixed; left: 0; right: 0; top: 0; background: none; }
+    .lb-root .bar { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: var(--lb-gap); transition: margin .4s ease; }
+    .lb-root .nav-box { display: flex; align-items: center; justify-content: flex-end; gap: var(--lb-gap); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); transition: background-color .4s ease, padding .4s ease; }
+    .lb-root .nav { display: none; align-items: center; gap: var(--lb-gap); flex: 1; }
+    .lb-root .nav-item { position: relative; display: flex; align-items: center; gap: calc(var(--lb-gap) / 4); }
+    .lb-root .nav-item .lb-arrow { font-size: 12px; margin-left: 0.3em; }
+    .lb-root .sub { display: none; position: absolute; top: 100%; left: 0; flex-direction: column; gap: calc(var(--lb-gap) / 2); padding: var(--lb-pad); min-width: 160px; background: var(--lb-bg); border: 1px solid var(--lb-line); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .nav-item:hover .sub, .lb-root .nav-item:focus-within .sub { display: flex; }
+    @media (hover: none) { .lb-root .nav-item:hover .sub { display: none; } }
+
+    /* 捲動約一個畫面後 */
+    .lb-root.is-scrolled .bar { margin: 0 calc(var(--lb-gutter) / -2); }
+    .lb-root.is-scrolled .nav-box { width: 56vw; max-width: calc(100% - 160px); background: var(--lb-surface-2); padding: calc(var(--lb-pad) / 2) calc(var(--lb-pad) / 2) calc(var(--lb-pad) / 2) var(--lb-pad); }
+    .lb-root.is-scrolled .nav { display: flex; }
+
+    /* 選單按鈕 開 / 關 */
+    .lb-root .menu-btn .ic-close { display: none; }
+    .lb-root.is-open .menu-btn .ic-open { display: none; }
+    .lb-root.is-open .menu-btn .ic-close { display: block; }
+    .lb-root.is-open .nav-box { background: none; }
+    .lb-root.is-open .nav { visibility: hidden; }
+
+    /* 蓋住整個畫面的選單面板 */
+    .lb-root .panel { position: fixed; inset: 0; z-index: 1; background: var(--lb-bg); padding: calc(var(--header-h) + var(--lb-space)) var(--lb-gutter) var(--lb-space); overflow-y: auto; visibility: hidden; opacity: 0; transition: opacity .3s ease, visibility 0s linear .3s; }
+    .lb-root.is-open .panel { visibility: visible; opacity: 1; transition: opacity .3s ease; }
+    .lb-root .groups { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: calc(var(--lb-gap) * 3); }
+    .lb-root .group { display: flex; flex-direction: column; gap: calc(var(--lb-gap) / 2); opacity: 0; transform: translateY(8px); transition: opacity .4s ease, transform .4s ease; }
+    .lb-root .group .lb-h2 { margin-bottom: calc(var(--lb-gap) / 2); }
+    .lb-root.is-open .group { opacity: 1; transform: none; }
+    .lb-root.is-open .group:nth-child(2) { transition-delay: .1s; }
+    .lb-root.is-open .group:nth-child(3) { transition-delay: .2s; }
+    .lb-root.is-open .group:nth-child(4) { transition-delay: .3s; }
+
+    @media (max-width: 1024px) {
+      .lb-root.is-scrolled .nav-box { width: auto; background: none; padding: 0; }
+      .lb-root.is-scrolled .nav { display: none; }
+      .lb-root .groups { flex-direction: column; align-items: flex-start; gap: calc(var(--lb-gap) * 2); }
+      .lb-root .sub { display: none !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lb-root .bar, .lb-root .nav-box, .lb-root .panel, .lb-root .group { transition: none !important; }
+      .lb-root .group { transform: none; }
+    }
+  </style>
+  <div class="bar">
+    <a class="lb-logo">Brand</a>
+    <div class="nav-box">
+      <nav class="nav">
+        <div class="nav-item"><a class="lb-link">Menu one</a><span class="lb-arrow lb-arrow-down"></span>
+          <div class="sub"><a class="lb-link">Sub link</a><a class="lb-link">Link</a><a class="lb-link">Sub item</a></div>
+        </div>
+        <div class="nav-item"><a class="lb-link">Menu two</a><span class="lb-arrow lb-arrow-down"></span>
+          <div class="sub"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a></div>
+        </div>
+        <div class="nav-item"><a class="lb-link">Menu item</a></div>
+        <div class="nav-item"><a class="lb-link">Contact</a></div>
+      </nav>
+      <button class="lb-icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><span class="lb-menu ic-open"></span><span class="lb-close ic-close"></span></button>
+    </div>
+  </div>
+  <div class="panel" aria-hidden="true">
+    <div class="groups">
+      <div class="group"><a class="lb-h2">Menu one</a><a class="lb-link">Sub link</a><a class="lb-link">Link</a><a class="lb-link">Sub item</a></div>
+      <div class="group"><a class="lb-h2">Menu two</a><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a></div>
+      <div class="group"><a class="lb-h2">Menu item</a><a class="lb-link">Sub link one</a><a class="lb-link">Sub link two</a></div>
+      <div class="group"><a class="lb-h2">Contact</a><a class="lb-link">Get in touch</a><a class="lb-link">Link two</a></div>
+    </div>
+  </div>
+  <script type="text/lb">
+    const btn = root.querySelector('.menu-btn');
+    const panel = root.querySelector('.panel');
+    const onScroll = () => root.classList.toggle('is-scrolled', window.scrollY > window.innerHeight * 0.9);
+    const onClick = () => {
+      const open = root.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    btn.addEventListener('click', onClick);
+    ctx.onCleanup(() => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      btn.removeEventListener('click', onClick);
+    });
+  </script>
+</header>

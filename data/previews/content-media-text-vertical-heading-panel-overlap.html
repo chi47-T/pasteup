@@ -1,0 +1,69 @@
+<section class="lb-root">
+  <style>
+    /* no top space: image sits flush with the block's top edge */
+    .lb-root { position: relative; isolation: isolate; overflow: clip; background: var(--lb-bg); padding: 0 0 var(--lb-space); }
+    .lb-root .wrap { position: relative; container-type: inline-size; }
+    /* H = image height = 75cqw * 9 / 16 = 42.1875cqw */
+    .lb-root .band { position: absolute; z-index: 0; top: calc(42.1875cqw * 0.6); bottom: -100vmax; left: -100vmax; right: -100vmax; background: var(--lb-surface-2); }
+    .lb-root .media { position: relative; z-index: 1; width: 75%; aspect-ratio: 16 / 9; }
+    .lb-root .media .slide { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .lower { position: relative; z-index: 2; display: grid; grid-template-columns: 37.5% 1fr 33.333% 25%; align-items: start; }
+    .lb-root .panel { grid-column: 1; margin-top: calc(42.1875cqw * -0.2); background: var(--lb-surface-2); padding: var(--lb-pad); display: flex; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .title { margin: 0; display: flex; flex-direction: row-reverse; align-items: flex-start; gap: calc(var(--lb-gap) / 2); }
+    /* rotated tag: whole line turned 90deg, glyphs lying on their side (not upright vertical text) */
+    .lb-root .tag { writing-mode: vertical-rl; text-orientation: sideways; white-space: nowrap; }
+    .lb-root .desc { grid-column: 3; margin-top: var(--lb-gap); }
+    .lb-root .btn { grid-column: 4; justify-self: end; margin-top: calc(42.1875cqw * -0.2 + var(--lb-pad)); }
+
+    .lb-root.is-cycling .slide { opacity: 0; transition: opacity 1s ease; }
+    .lb-root.is-cycling .slide.is-on { opacity: 1; }
+    .lb-root.is-cycling.no-motion .slide { transition: none; }
+
+    @media (max-width: 640px) {
+      .lb-root .band { top: calc(100vw * 9 / 16 * 0.6); }
+      .lb-root .media { width: 100vw; margin-left: calc(50% - 50vw); }
+      .lb-root .lower { display: block; }
+      .lb-root .panel { width: 70vw; margin-left: calc(50% - 50vw); margin-top: calc(var(--lb-gap) * -1.5); padding-left: var(--lb-gutter); }
+      .lb-root .desc { margin-left: 40%; width: 60%; margin-top: var(--lb-gap); }
+      .lb-root .btn { display: inline-flex; margin-left: 40%; margin-top: var(--lb-gap); }
+    }
+  </style>
+  <div class="lb-wrap wrap">
+    <div class="band"></div>
+    <div class="media">
+      <div class="slide lb-img lb-flat is-on"></div>
+      <div class="slide lb-img lb-flat" data-extra="0"></div>
+      <div class="slide lb-img lb-flat" data-extra="0"></div>
+    </div>
+    <div class="lower">
+      <div class="panel">
+        <h2 class="title">
+          <span class="lb-h2 lb-vertical">Title line</span>
+          <span class="lb-h2 lb-vertical">Second line</span>
+        </h2>
+        <span class="tag lb-label">Section label</span>
+      </div>
+      <p class="desc lb-text">A short descriptive paragraph that explains the section in a few sentences of placeholder copy for layout purposes.</p>
+      <a class="btn lb-btn">Learn more</a>
+    </div>
+  </div>
+  <script type="text/lb">
+    if (!ctx.extras.includes(0)) return;
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.media .slide'));
+    if (slides.length < 2) return;
+    root.classList.add('is-cycling');
+    if (ctx.reducedMotion) root.classList.add('no-motion');
+    var i = 0;
+    slides.forEach(function (s, n) { s.classList.toggle('is-on', n === 0); });
+    var t = setInterval(function () {
+      slides[i].classList.remove('is-on');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-on');
+    }, 4000);
+    ctx.onCleanup(function () {
+      clearInterval(t);
+      root.classList.remove('is-cycling', 'no-motion');
+      slides.forEach(function (s, n) { s.classList.toggle('is-on', n === 0); });
+    });
+  </script>
+</section>

@@ -1,0 +1,29 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--lb-gap); align-items: start; }
+    .lb-root .grp { display: flex; flex-direction: column; gap: 12px; }
+    .lb-root .grp .lb-h3 { margin-bottom: 4px; }
+    .lb-root .bar { position: relative; display: flex; align-items: center; margin-top: calc(var(--lb-space) * 1.5); }
+    .lb-root .icons { display: flex; gap: 12px; }
+    .lb-root .copy { position: absolute; left: 62.5%; top: 50%; transform: translate(-50%, -50%); text-align: center; white-space: nowrap; }
+    @media (max-width: 1024px) {
+      .lb-root .cols { grid-template-columns: 1fr; }
+      .lb-root .brand { align-items: center; }
+      .lb-root .bar { flex-direction: column; gap: 16px; align-items: center; }
+      .lb-root .copy { position: static; transform: none; white-space: normal; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="cols">
+      <div class="grp brand"><div class="lb-logo">Logo</div></div>
+      <div class="grp"><h3 class="lb-h3">Group one</h3><span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span></div>
+      <div class="grp"><h3 class="lb-h3">Group two</h3><span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span></div>
+      <div class="grp"><h3 class="lb-h3">Group three</h3><span class="lb-link">Link one</span><span class="lb-link">Link two</span></div>
+    </div>
+    <div class="bar">
+      <div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+      <div class="copy lb-small">Small print line goes here</div>
+    </div>
+  </div>
+</footer>

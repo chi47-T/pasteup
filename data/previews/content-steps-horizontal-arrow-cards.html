@@ -1,0 +1,30 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); text-align: center; margin-bottom: var(--lb-space); }
+    .lb-root .in { box-sizing: border-box; max-width: 1200px; margin: 0 auto; padding: 0 var(--lb-gutter); }
+    .lb-root .row { position: relative; display: flex; align-items: stretch; gap: var(--lb-gap); }
+    .lb-root .step { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+    .lb-root .num { display: block; text-align: center; padding: 8px; background: var(--lb-accent); color: var(--lb-on-accent); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .card { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 0; overflow: hidden; background: var(--lb-surface-2); }
+    .lb-root .ct { padding: var(--lb-pad) var(--lb-pad) 0; display: flex; flex-direction: column; gap: 8px; }
+    .lb-root .pic { width: 60%; aspect-ratio: 3 / 4; margin: 0 auto; }
+    .lb-root .sep { flex: none; align-self: center; }
+    @media (max-width: 1024px) {
+      .lb-root .row { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: calc(-1 * var(--lb-gutter)); padding-right: var(--lb-gutter); }
+      .lb-root .row::-webkit-scrollbar { display: none; }
+      .lb-root .step { flex: 0 0 70%; scroll-snap-align: start; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <span class="lb-label">Label</span>
+      <h2 class="lb-h1 lb-center">Headline goes here</h2>
+      <p class="lb-h3 lb-center">Subtitle goes here</p>
+      <p class="lb-text lb-center">Supporting description text goes here</p>
+    </div>
+  </div>
+  <div class="lb-wrap in">
+    <div class="row"><div class="step"><div class="lb-label num">1</div><div class="lb-card card"><div class="ct"><h3 class="lb-h3 lb-center">Step title</h3><p class="lb-text lb-center">Description text goes here</p></div><div class="lb-img pic lb-flat"></div></div></div><span class="lb-arrow sep"></span><div class="step"><div class="lb-label num">1</div><div class="lb-card card"><div class="ct"><h3 class="lb-h3 lb-center">Step title</h3><p class="lb-text lb-center">Description text goes here</p></div><div class="lb-img pic lb-flat"></div></div></div><span class="lb-arrow sep"></span><div class="step"><div class="lb-label num">1</div><div class="lb-card card"><div class="ct"><h3 class="lb-h3 lb-center">Step title</h3><p class="lb-text lb-center">Description text goes here</p></div><div class="lb-img pic lb-flat"></div></div></div></div>
+  </div>
+</section>

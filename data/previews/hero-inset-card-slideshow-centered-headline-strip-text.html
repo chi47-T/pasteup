@@ -1,0 +1,58 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; background: var(--lb-bg); box-sizing: border-box; display: flex; flex-direction: column; overflow-x: clip; --strip: 48px; --edge: 5vw; }
+    .lb-root[data-header="overlay"] { height: 100vh; height: 100svh; padding-top: var(--header-h); }
+    .lb-root[data-header="below"], .lb-root[data-header="inset"], .lb-root[data-header="after"] { height: calc(100vh - var(--header-h)); height: calc(100svh - var(--header-h)); }
+    .lb-root .card { position: relative; flex: 1; min-height: 0; margin: var(--lb-gutter) var(--edge) 0; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); overflow: hidden; background: var(--lb-surface); }
+    .lb-root[data-header="overlay"] .card { margin-top: 0; }
+    .lb-root .slide { position: absolute; inset: 0; clip-path: inset(100% 0 0 0); z-index: 1; }
+    .lb-root .slide.active { clip-path: inset(0 0 0 0); z-index: 2; transition: clip-path .9s ease; }
+    .lb-root .slide.prev { clip-path: inset(0 0 0 0); z-index: 1; }
+    .lb-root .slide .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; transform: scale(1); }
+    .lb-root .slide.active .lb-img, .lb-root .slide.prev .lb-img { transform: scale(1.1); transition: transform 6s linear; }
+    .lb-root .slide.active .lb-img { transform: scale(1.1); }
+    .lb-root .center { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--lb-gap); text-align: center; pointer-events: none; }
+    .lb-root .center .lb-h1 { width: 33.333%; }
+    .lb-root .strip { height: var(--strip); flex: none; display: flex; align-items: center; justify-content: center; }
+    .lb-root .scroll-hint { position: absolute; left: 0; bottom: var(--strip); width: var(--edge); display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 5; }
+    .lb-root .scroll-hint .lb-label { writing-mode: vertical-rl; transform: rotate(180deg); }
+    .lb-root .tri { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 8px solid var(--lb-muted); opacity: .25; animation: lb-tri 1.5s infinite; }
+    .lb-root .tri:nth-child(3) { animation-delay: .25s; }
+    .lb-root .tri:nth-child(4) { animation-delay: .5s; }
+    @keyframes lb-tri { 0%, 100% { opacity: .25; } 40% { opacity: 1; } }
+    @media (max-width: 1024px) and (min-width: 641px) { .lb-root { --edge: 5vw; } }
+    @media (max-width: 640px) {
+      .lb-root { --edge: 3vw; }
+      .lb-root .center .lb-h1 { width: 70%; }
+    }
+    @media (prefers-reduced-motion: reduce) { .lb-root .slide, .lb-root .slide .lb-img, .lb-root .tri { transition: none; animation: none; } }
+  </style>
+  <div class="card">
+    <div class="slide active"><div class="lb-img lb-flat lb-tag-tl"></div></div>
+    <div class="slide"><div class="lb-img lb-flat lb-tag-tl"></div></div>
+    <div class="slide"><div class="lb-img lb-flat lb-tag-tl"></div></div>
+    <div class="center">
+      <span class="lb-label">Tag</span>
+      <span class="lb-h1">Headline goes here</span>
+      <span class="lb-text">Subtitle text</span>
+    </div>
+  </div>
+  <div class="strip"><span class="lb-text">Subtitle text</span></div>
+  <div class="scroll-hint" data-acc="0"><span class="lb-label">Scroll</span><span class="tri"></span><span class="tri"></span><span class="tri"></span></div>
+  <script type="text/lb">
+    const slides = [...root.querySelectorAll('.slide')];
+    let i = 0, timer;
+    if (!ctx.reducedMotion) {
+      timer = setInterval(() => {
+        const prev = slides[i];
+        i = (i + 1) % slides.length;
+        slides.forEach(s => s.classList.remove('prev'));
+        prev.classList.remove('active'); prev.classList.add('prev');
+        slides[i].classList.remove('prev');
+        slides[i].style.clipPath = '';
+        slides[i].classList.add('active');
+      }, 5000);
+    }
+    ctx.onCleanup(() => clearInterval(timer));
+  </script>
+</section>

@@ -1,0 +1,53 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: relative; width: 100%; background: transparent; }
+    .lb-root .hd { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 80px; padding: 0 var(--lb-gutter); }
+    .lb-root .hd-logo { flex: 0 0 auto; }
+    .lb-root .hd-nav { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 50%; display: flex; justify-content: center; gap: var(--lb-gap); }
+    .lb-root .nav-item { position: relative; display: flex; align-items: center; gap: 4px; padding: 8px 0; }
+    .lb-root .nav-item .lb-arrow { transform: scale(.6); }
+    .lb-root .sub { display: none; position: absolute; left: 0; top: 100%; min-width: 160px; padding: var(--lb-pad); flex-direction: column; gap: 8px; background: var(--lb-bg); border: 1px solid var(--lb-line); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); z-index: 5; }
+    .lb-root .nav-item:hover .sub, .lb-root .nav-item:focus-within .sub { display: flex; }
+    .lb-root .hd-menu { display: none; }
+    .lb-root .drawer { display: none; }
+    .lb-root[data-over] { position: absolute; left: 0; right: 0; top: 0; z-index: 20; background: transparent; }
+    @media (max-width: 1024px) {
+      .lb-root .hd-nav { display: none; }
+      .lb-root .hd-menu { display: inline-flex; }
+      .lb-root .drawer { display: flex; flex-direction: column; gap: var(--lb-gap); position: fixed; top: 0; right: 0; bottom: 0; width: 75%; padding: var(--lb-pad); background: var(--lb-bg); border-left: 1px solid var(--lb-line); transform: translateX(100%); visibility: hidden; transition: transform .3s, visibility .3s; z-index: 30; overflow-y: auto; }
+      .lb-root.is-open .drawer { transform: translateX(0); visibility: visible; }
+      .lb-root .drawer .close { align-self: flex-end; }
+      .lb-root .drawer .d-item { display: flex; flex-direction: column; gap: 8px; text-align: left; }
+      .lb-root .drawer .d-sub { display: flex; flex-direction: column; gap: 8px; padding-left: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .lb-root .drawer { transition: none; } }
+  </style>
+  <div class="hd">
+    <div class="hd-logo lb-logo">Logo</div>
+    <nav class="hd-nav">
+      <div class="nav-item"><span class="lb-link">Link one</span></div>
+      <div class="nav-item" tabindex="0"><span class="lb-link">Link two</span><span class="lb-arrow lb-arrow-down"></span>
+        <div class="sub"><span class="lb-link">Sub one</span><span class="lb-link">Sub two</span><span class="lb-link">Sub three</span></div>
+      </div>
+      <div class="nav-item"><span class="lb-link">Link three</span></div>
+      <div class="nav-item"><span class="lb-link">Link four</span></div>
+    </nav>
+    <button class="lb-icon-btn hd-menu" type="button" aria-label="Menu"><span class="lb-menu"></span></button>
+  </div>
+  <aside class="drawer" aria-hidden="true">
+    <button class="lb-icon-btn close" type="button" aria-label="Close"><span class="lb-close"></span></button>
+    <div class="d-item"><span class="lb-link">Link one</span></div>
+    <div class="d-item"><span class="lb-link">Link two</span>
+      <div class="d-sub"><span class="lb-link">Sub one</span><span class="lb-link">Sub two</span><span class="lb-link">Sub three</span></div>
+    </div>
+    <div class="d-item"><span class="lb-link">Link three</span></div>
+    <div class="d-item"><span class="lb-link">Link four</span></div>
+  </aside>
+  <script type="text/lb">
+    const open = root.querySelector('.hd-menu'), close = root.querySelector('.close'), dr = root.querySelector('.drawer');
+    const set = v => { root.classList.toggle('is-open', v); dr.setAttribute('aria-hidden', String(!v)); };
+    const o = () => set(true), c = () => set(false);
+    open.addEventListener('click', o); close.addEventListener('click', c);
+    ctx.onCleanup(() => { open.removeEventListener('click', o); close.removeEventListener('click', c); });
+  </script>
+</header>

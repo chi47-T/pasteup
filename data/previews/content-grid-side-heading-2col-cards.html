@@ -1,0 +1,30 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .lay { display: grid; grid-template-columns: 3fr 6.5fr; gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .side { display: flex; flex-direction: column; align-items: stretch; gap: var(--lb-gap); }
+    .lb-root .side .lb-btn { margin-top: auto; }
+    .lb-root .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    .lb-root .grid .lb-card { display: flex; flex-direction: column; gap: var(--lb-gap); padding: var(--lb-pad); box-sizing: border-box; }
+    .lb-root .ct { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    @media (max-width: 640px) {
+      .lb-root .lay { display: flex; flex-direction: column; }
+      .lb-root .side { display: contents; }
+      .lb-root .side .lb-h2, .lb-root .side .lb-h3 { text-align: center; }
+      .lb-root .grid { grid-template-columns: 1fr; order: 2; }
+      .lb-root .side .lb-btn { order: 3; margin-top: 0; }
+    }
+  </style>
+  <div class="lb-wrap lay">
+    <div class="side">
+      <h2 class="lb-h2">Section heading goes here</h2>
+      <a class="lb-btn lb-block">Button</a>
+    </div>
+    <div class="grid">
+      <div class="lb-card"><div class="ct"><h3 class="lb-h3">Card title</h3><span class="lb-arrow"></span></div><div class="lb-text">Description text placeholder for the card body</div></div>
+      <div class="lb-card"><div class="ct"><h3 class="lb-h3">Card title</h3><span class="lb-arrow"></span></div><div class="lb-text">Description text placeholder for the card body</div></div>
+      <div class="lb-card"><div class="ct"><h3 class="lb-h3">Card title</h3><span class="lb-arrow"></span></div><div class="lb-text">Description text placeholder for the card body</div></div>
+      <div class="lb-card"><div class="ct"><h3 class="lb-h3">Card title</h3><span class="lb-arrow"></span></div><div class="lb-text">Description text placeholder for the card body</div></div>
+    </div>
+  </div>
+</section>

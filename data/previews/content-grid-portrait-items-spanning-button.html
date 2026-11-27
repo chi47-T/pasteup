@@ -1,0 +1,22 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: var(--lb-space); }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .item { display: flex; flex-direction: column; gap: var(--lb-gap); min-width: 0; }
+    .lb-root .pic { width: 100%; aspect-ratio: 3 / 4; }
+    .lb-root .row { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .item .lb-btn { margin-top: auto; }
+    .lb-root .lb-h3 { overflow-wrap: anywhere; }
+    @media (max-width: 1024px) { .lb-root .grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><h2 class="lb-h2">Headline goes here</h2></div>
+    <div class="grid">
+      <div class="item"><div class="lb-img pic"></div><div class="row"><div class="lb-h3">Item title</div></div><a class="lb-btn lb-block">Button</a></div>
+      <div class="item"><div class="lb-img pic"></div><div class="row"><div class="lb-h3">Item title</div></div><a class="lb-btn lb-block">Button</a></div>
+      <div class="item"><div class="lb-img pic"></div><div class="row"><div class="lb-h3">Item title</div></div><a class="lb-btn lb-block">Button</a></div>
+      <div class="item"><div class="lb-img pic"></div><div class="row"><div class="lb-h3">Item title</div></div><a class="lb-btn lb-block">Button</a></div>
+    </div>
+  </div>
+</section>

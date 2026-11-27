@@ -1,0 +1,32 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .head { margin-bottom: var(--lb-gap); text-align: left; }
+    .lb-root .row { display: grid; grid-template-columns: 1fr 2fr; gap: var(--lb-gap); align-items: start; padding: var(--lb-gap) 0; }
+    .lb-root .row .lb-img { width: 100%; aspect-ratio: 16 / 9; }
+    .lb-root .col { display: flex; flex-direction: column; gap: 8px; min-width: 0; align-items: flex-start; }
+    .lb-root .col .lb-text { width: 100%; overflow-wrap: anywhere; }
+    @media (max-width: 640px) {
+      .lb-root .row { grid-template-columns: 1fr; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><h2 class="lb-h2">Headline goes here</h2></div>
+    <hr class="lb-divider">
+    <div class="row">
+      <div class="lb-img"></div>
+      <div class="col"><h3 class="lb-h3">Item title here</h3><p class="lb-text">Description text placeholder of moderate length for this row.</p></div>
+    </div>
+    <hr class="lb-divider">
+    <div class="row">
+      <div class="lb-img"></div>
+      <div class="col"><h3 class="lb-h3">Item title here</h3><p class="lb-text">Description text placeholder of moderate length for this row.</p></div>
+    </div>
+    <hr class="lb-divider">
+    <div class="row">
+      <div class="lb-img"></div>
+      <div class="col"><h3 class="lb-h3">Item title here</h3><p class="lb-text">Description text placeholder of moderate length for this row.</p></div>
+    </div>
+    <hr class="lb-divider">
+  </div>
+</section>

@@ -1,0 +1,61 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: var(--lb-gap); }
+    .lb-root .panel { position: relative; background: var(--lb-surface-2); padding: var(--lb-pad); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .viewport { overflow: hidden; }
+    .lb-root .track { display: flex; gap: var(--lb-gap); transition: transform .4s; }
+    .lb-root .item { flex: 0 0 calc((100% - 3 * var(--lb-gap)) / 3.4); }
+    .lb-root .item .lb-card { height: 100%; min-height: 460px; display: flex; flex-direction: column; background: var(--lb-bg); }
+    .lb-root .top { display: flex; gap: var(--lb-gap); align-items: flex-start; }
+    .lb-root .top .lb-img { flex: 0 0 50%; aspect-ratio: 1 / 1; }
+    .lb-root .side { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; flex: 1; min-width: 0; }
+    .lb-root .icons { display: flex; gap: 6px; }
+    .lb-root .lb-divider { margin: var(--lb-gap) 0; }
+    .lb-root .arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; }
+    .lb-root .arrow.prev { left: 0; transform: translate(-50%, -50%); }
+    .lb-root .arrow.next { right: 0; transform: translate(50%, -50%); }
+    @media (max-width: 640px) {
+      .lb-root .item { flex: 0 0 100%; }
+      .lb-root .arrow.prev { left: 4px; transform: translateY(-50%); }
+      .lb-root .arrow.next { right: 4px; transform: translateY(-50%); }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <span class="lb-label">Label</span>
+      <h2 class="lb-h2">Headline goes here<br>second line</h2>
+      <p class="lb-text">Supporting description text goes here</p>
+      <a class="lb-btn">Button</a>
+    </div>
+    <div class="panel">
+      <button class="lb-icon-btn arrow prev" type="button">&lsaquo;</button>
+      <button class="lb-icon-btn arrow next" type="button">&rsaquo;</button>
+      <div class="viewport">
+        <div class="track">
+          <div class="item"><div class="lb-card"><div class="top"><div class="lb-img"></div><div class="side"><p class="lb-small">Secondary text</p><p class="lb-text">Short text goes here</p><a class="lb-btn">Button</a><div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div></div></div><hr class="lb-divider"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p></div></div>
+          <div class="item"><div class="lb-card"><div class="top"><div class="lb-img"></div><div class="side"><p class="lb-small">Secondary text</p><p class="lb-text">Short text goes here</p><a class="lb-btn">Button</a><div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div></div></div><hr class="lb-divider"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p></div></div>
+          <div class="item"><div class="lb-card"><div class="top"><div class="lb-img"></div><div class="side"><p class="lb-small">Secondary text</p><p class="lb-text">Short text goes here</p><a class="lb-btn">Button</a><div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div></div></div><hr class="lb-divider"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p></div></div>
+          <div class="item"><div class="lb-card"><div class="top"><div class="lb-img"></div><div class="side"><p class="lb-small">Secondary text</p><p class="lb-text">Short text goes here</p><a class="lb-btn">Button</a><div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div></div></div><hr class="lb-divider"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p></div></div>
+          <div class="item"><div class="lb-card"><div class="top"><div class="lb-img"></div><div class="side"><p class="lb-small">Secondary text</p><p class="lb-text">Short text goes here</p><a class="lb-btn">Button</a><div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div></div></div><hr class="lb-divider"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/lb">
+    const track = root.querySelector('.track');
+    const items = root.querySelectorAll('.item');
+    let i = 0;
+    const apply = () => {
+      const w = items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0);
+      track.style.transform = 'translateX(' + (-i * w) + 'px)';
+    };
+    const max = () => items.length - (window.innerWidth <= 640 ? 1 : 3);
+    const fp = () => { i = Math.max(0, i - 1); apply(); };
+    const fn = () => { i = Math.min(max(), i + 1); apply(); };
+    const p = root.querySelector('.prev'), n = root.querySelector('.next');
+    p.addEventListener('click', fp); n.addEventListener('click', fn);
+    window.addEventListener('resize', apply);
+    ctx.onCleanup(() => { p.removeEventListener('click', fp); n.removeEventListener('click', fn); window.removeEventListener('resize', apply); });
+  </script>
+</section>

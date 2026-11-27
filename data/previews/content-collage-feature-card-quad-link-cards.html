@@ -1,0 +1,51 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .grid { display: grid; grid-template-columns: 6fr 4fr; gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .big { display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .media { position: relative; width: 100%; }
+    .lb-root .media .wide { width: 100%; aspect-ratio: 16 / 7; }
+    .lb-root .media .sq { position: absolute; right: var(--lb-pad); bottom: calc(var(--lb-pad) * -1); width: 22%; aspect-ratio: 1 / 1; z-index: 1; }
+    .lb-root .sqtag { position: absolute; right: var(--lb-pad); top: calc(100% + var(--lb-pad) + 4px); }
+    .lb-root .titleblk { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; margin-top: var(--lb-pad); }
+    .lb-root .cta { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .lb-root .cta .stack { display: flex; flex-direction: column; align-items: flex-start; }
+    .lb-root .small-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); grid-auto-rows: 1fr; }
+    .lb-root .sc { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+    .lb-root .sc .top { display: flex; align-items: center; gap: 8px; }
+    .lb-root .sc .lb-icon-btn { position: absolute; right: var(--lb-pad); bottom: var(--lb-pad); }
+    @media (max-width: 640px) {
+      .lb-root .grid { grid-template-columns: 1fr; }
+      .lb-root .sqtag { display: none; }
+      .lb-root .m-tag { display: inline-block; }
+      .lb-root .small-grid { display: flex; overflow-x: auto; margin-right: calc(var(--lb-gutter) * -1); padding-right: var(--lb-gutter); scroll-snap-type: x mandatory; }
+      .lb-root .sc { flex: 0 0 60%; min-height: 180px; scroll-snap-align: start; }
+    }
+    .lb-root .m-tag { display: none; }
+  </style>
+  <div class="lb-wrap">
+    <div class="grid">
+      <div class="lb-card big">
+        <div class="media">
+          <div class="lb-img wide"></div>
+          <div class="lb-img sq lb-notag"></div>
+          <span class="lb-label sqtag">Tag</span>
+        </div>
+        <div class="titleblk">
+          <span class="lb-label">Label</span>
+          <h2 class="lb-h2">Large headline goes here</h2>
+          <span class="lb-label m-tag">Tag</span>
+          <div class="lb-text">Supporting description text goes here.</div>
+        </div>
+        <a class="lb-btn lb-block cta"><span class="stack"><span>Button</span><span class="lb-small">Secondary text</span></span><span class="lb-arrow"></span></a>
+        <div class="lb-small">Small print text goes here</div>
+      </div>
+      <div class="small-grid">
+        <div class="lb-card sc"><div class="top"><span class="lb-icon lb-notag"></span><span class="lb-label">Tag</span></div><div class="lb-h3">Card title</div><div class="lb-text">Short text</div><span class="lb-icon-btn"><span class="lb-arrow"></span></span></div>
+        <div class="lb-card sc"><div class="top"><span class="lb-icon lb-notag"></span><span class="lb-label">Tag</span></div><div class="lb-h3">Card title</div><div class="lb-text">Short text</div><span class="lb-icon-btn"><span class="lb-arrow"></span></span></div>
+        <div class="lb-card sc"><div class="top"><span class="lb-icon lb-notag"></span><span class="lb-label">Tag</span></div><div class="lb-h3">Card title</div><div class="lb-text">Short text</div><span class="lb-icon-btn"><span class="lb-arrow"></span></span></div>
+        <div class="lb-card sc"><div class="top"><span class="lb-icon lb-notag"></span><span class="lb-label">Tag</span></div><div class="lb-h3">Card title</div><div class="lb-text">Short text</div><span class="lb-icon-btn"><span class="lb-arrow"></span></span></div>
+      </div>
+    </div>
+  </div>
+</section>

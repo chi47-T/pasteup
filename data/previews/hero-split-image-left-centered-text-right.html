@@ -1,0 +1,29 @@
+<section class="lb-root">
+  <style>
+    .lb-root { border-bottom: 1px solid var(--lb-line); }
+    .lb-root .split { display: grid; grid-template-columns: 1fr 1fr; }
+    .lb-root .media { width: 100%; height: 100%; min-height: 100%; }
+    .lb-root .copy { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: var(--lb-gap); padding: var(--lb-space) var(--lb-gutter); background: var(--lb-bg); }
+    .lb-root .copy .lb-h1 { width: 60%; }
+    .lb-root[data-header="below"], .lb-root[data-header="inset"] { min-height: calc(100vh - var(--header-h)); }
+    .lb-root[data-header="below"] .split, .lb-root[data-header="inset"] .split { min-height: calc(100vh - var(--header-h)); }
+    .lb-root[data-header="overlay"] { min-height: 100vh; }
+    .lb-root[data-header="overlay"] .split { min-height: 100vh; }
+    .lb-root[data-header="after"] { min-height: 100vh; }
+    .lb-root[data-header="after"] .split { min-height: 100vh; }
+    @media (max-width: 640px) {
+      .lb-root, .lb-root[data-header] { min-height: 0; }
+      .lb-root .split, .lb-root[data-header] .split { grid-template-columns: 1fr; min-height: 0; }
+      .lb-root .media { aspect-ratio: 3 / 4; height: auto; }
+      .lb-root .copy .lb-h1 { width: 100%; }
+    }
+  </style>
+  <div class="split">
+    <div class="lb-img lb-flat media"></div>
+    <div class="copy">
+      <h1 class="lb-h1 lb-center">Headline goes here</h1>
+      <div class="lb-text lb-center">Supporting text placeholder</div>
+      <a class="lb-btn">Button</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; display: grid; grid-template-columns: 30% 70%; background: var(--lb-bg); }
+    .lb-root[data-header="below"], .lb-root[data-header="inset"], .lb-root { height: calc(80vh - var(--header-h)); min-height: 420px; }
+    .lb-root .left { position: relative; background: var(--lb-surface-2); padding: var(--lb-pad); display: flex; flex-direction: column; justify-content: center; padding-bottom: 12%; gap: var(--lb-gap); }
+    .lb-root .left .link { position: absolute; left: 0; right: 0; bottom: var(--lb-pad); display: flex; justify-content: center; align-items: center; gap: 8px; }
+    .lb-root .right { position: relative; }
+    .lb-root .cell { position: absolute; inset: 0; }
+    .lb-root .cell.up { clip-path: polygon(0 0, 100% 0, 100% 66%, 0 33%); }
+    .lb-root .cell.down { clip-path: polygon(0 33%, 100% 66%, 100% 100%, 0 100%); }
+    .lb-root .cell .lb-img { width: 100%; height: 100%; }
+    .lb-root .acc { position: absolute; right: var(--lb-pad); bottom: var(--lb-pad); display: flex; gap: var(--lb-gap); align-items: center; padding: 8px; width: 280px; }
+    .lb-root .acc .lb-img { width: 56px; height: 56px; flex: none; }
+    @media (max-width: 640px) {
+      .lb-root, .lb-root[data-header] { display: flex; flex-direction: column; height: auto; min-height: 0; }
+      .lb-root .right { order: -1; margin: 0 8px; aspect-ratio: 4 / 5; height: auto; min-height: 0; }
+      .lb-root .left { padding: var(--lb-pad); padding-bottom: var(--lb-pad); justify-content: flex-start; }
+      .lb-root .left .link { position: static; justify-content: flex-start; }
+      .lb-root .acc { left: 0; right: 0; bottom: 0; width: auto; }
+    }
+  </style>
+  <div class="left">
+    <h1 class="lb-h1">Headline goes here</h1>
+    <div class="lb-text">Supporting text placeholder line one two</div>
+    <div class="link"><span class="lb-link">Text link</span><span class="lb-icon"></span></div>
+  </div>
+  <div class="right">
+    <div class="cell up"><div class="lb-img lb-flat"></div></div>
+    <div class="cell down"><div class="lb-img lb-flat lb-tag-br"></div></div>
+    <div class="lb-card acc" data-acc="0"><div class="lb-img lb-notag"></div><span class="lb-small">Short banner text</span></div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  html, body { margin: 0; background: var(--lb-bg); }
+  body { overflow-x: hidden; }
+  /* 每個區塊的外殼不產生自己的方塊：區塊就像直接放在頁面裡 */
+  .lb-host { display: contents; }
+  /* 還沒有選任何區塊時的提示 */
+  #lb-page:empty::before { content: ""; display: block; height: 100vh; background: var(--lb-surface-2); }
+  /* lb:set 帶 tail: true 時：最後一個區塊後面留一個畫面高的空白，
+     單獨預覽一個區塊（樣式資訊彈窗）時，固定捲動的效果才捲得完 */
+  #lb-page[data-tail]:not(:empty)::after { content: ""; display: block; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="lb-page"></div>
+<!-- data-previews：預覽檔的資料夾；data-css：base.css 的位置（都相對於這個頁面） -->
+<script src="runtime.js" data-previews="../data/previews/" data-css="base.css"></script>
+</body>
+</html>

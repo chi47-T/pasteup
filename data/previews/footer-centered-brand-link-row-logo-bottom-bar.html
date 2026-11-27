@@ -1,0 +1,33 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) var(--lb-gutter) calc(var(--lb-space) / 3); box-sizing: border-box; background: var(--lb-bg); }
+    .lb-root .top { width: 66vw; max-width: 100%; margin: 0 auto; display: flex; align-items: center; gap: calc(var(--lb-gap) * 2); }
+    .lb-root .top .lb-logo { width: 140px; height: 40px; flex: none; }
+    .lb-root .links { display: flex; align-items: center; gap: var(--lb-gap); flex-wrap: wrap; }
+    .lb-root .last { margin-left: auto; display: flex; align-items: center; gap: var(--lb-gap); flex: none; }
+    .lb-root .last .lb-divider-v { height: 16px; }
+    .lb-root .bottom { margin-top: calc(var(--lb-space) * 2); display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); text-align: center; }
+    .lb-root .bottom .lb-logo { width: 72px; height: 20px; }
+    .lb-root .bottom .lb-small { font-size: 12px; }
+    @media (max-width: 640px) {
+      .lb-root .top { width: 100%; flex-direction: column; gap: var(--lb-gap); }
+      .lb-root .links { justify-content: center; width: 100%; }
+      .lb-root .last { margin-left: 0; justify-content: center; width: 100%; }
+      .lb-root .last .lb-divider-v { display: none; }
+    }
+  </style>
+  <div class="top">
+    <div class="lb-logo"></div>
+    <nav class="links">
+      <a class="lb-link">Link one</a>
+      <a class="lb-link">Link two</a>
+      <a class="lb-link">Link three</a>
+      <a class="lb-link">Link four</a>
+    </nav>
+    <div class="last"><span class="lb-divider-v"></span><a class="lb-link">Link five</a></div>
+  </div>
+  <div class="bottom">
+    <div class="lb-logo"></div>
+    <div class="lb-small">Small footer line of text</div>
+  </div>
+</footer>

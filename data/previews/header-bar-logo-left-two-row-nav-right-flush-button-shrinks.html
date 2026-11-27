@@ -1,0 +1,70 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: fixed; left: 0; right: 0; top: 0; z-index: 50; background: var(--lb-bg); }
+    .lb-root .bar { display: flex; align-items: stretch; justify-content: space-between; height: 112px; padding-left: var(--lb-gutter); transition: height .25s; }
+    .lb-root .logo-cell { display: flex; align-items: center; }
+    .lb-root .right { display: flex; align-items: stretch; margin-left: auto; }
+    .lb-root .navarea { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; padding-right: var(--lb-gap); }
+    .lb-root .sec { display: flex; align-items: center; margin-bottom: var(--lb-gap); }
+    .lb-root .sec .lb-link { font-size: 12px; padding: 0 var(--lb-gap); }
+    .lb-root .sec .lb-divider-v { height: 12px; }
+    .lb-root .nav { display: flex; gap: calc(var(--lb-gap) * 1.5); }
+    .lb-root .nav .item { position: relative; padding-bottom: 12px; }
+    .lb-root .nav .lb-link { font-size: 18px; }
+    .lb-root .nav .item.on::after { content: ""; position: absolute; left: 0; bottom: 0; width: 24px; height: 3px; background: var(--lb-accent); }
+    .lb-root .cta { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; width: 96px; border-radius: 0; align-self: stretch; padding: 0; }
+    .lb-root .menu-btn { display: none; }
+    .lb-root .panel { display: none; }
+    .lb-root.shrunk .bar { height: 64px; }
+    .lb-root.shrunk .logo-cell, .lb-root.shrunk .sec { display: none; }
+    .lb-root.shrunk .right { flex: 1; }
+    .lb-root.shrunk .navarea { flex: 1; justify-content: center; align-items: center; padding-right: 0; }
+    .lb-root.shrunk .nav .item { padding-bottom: 0; }
+    .lb-root.shrunk .nav .item.on::after { bottom: -8px; }
+    .lb-root.shrunk .cta { width: 72px; }
+    @media (max-width: 1024px) {
+      .lb-root .bar, .lb-root.shrunk .bar { height: 64px; }
+      .lb-root .logo-cell, .lb-root.shrunk .logo-cell { display: flex; }
+      .lb-root .navarea, .lb-root .cta { display: none; }
+      .lb-root .menu-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; width: 64px; border-radius: 0; padding: 0; }
+      .lb-root .panel { position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 60; background: var(--lb-bg); padding: var(--lb-gutter); flex-direction: column; gap: var(--lb-gap); }
+      .lb-root.open .panel { display: flex; }
+      .lb-root .panel .top { display: flex; justify-content: space-between; align-items: center; }
+      .lb-root .panel .lb-link { font-size: 20px; }
+    }
+  </style>
+  <div class="bar">
+    <div class="logo-cell"><div class="lb-logo">Logo</div></div>
+    <div class="right">
+      <div class="navarea">
+        <div class="sec">
+          <span class="lb-link">Link</span><span class="lb-divider-v"></span>
+          <span class="lb-link">Link</span><span class="lb-divider-v"></span>
+          <span class="lb-link">Link</span>
+        </div>
+        <nav class="nav">
+          <div class="item on"><span class="lb-link">Nav one</span></div>
+          <div class="item"><span class="lb-link">Nav two</span></div>
+          <div class="item"><span class="lb-link">Nav three</span></div>
+          <div class="item"><span class="lb-link">Nav four</span></div>
+        </nav>
+      </div>
+      <a class="lb-btn cta"><span class="lb-icon"></span><span>Action</span></a>
+      <button class="lb-btn menu-btn" type="button"><span class="lb-icon-btn"><span class="lb-menu"></span></span><span>Menu</span></button>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="top"><div class="lb-logo">Logo</div><button class="lb-icon-btn close-btn" type="button"><span class="lb-close"></span></button></div>
+    <span class="lb-link">Nav one</span><span class="lb-link">Nav two</span><span class="lb-link">Nav three</span><span class="lb-link">Nav four</span>
+  </div>
+  <script type="text/lb">
+    const small = () => window.matchMedia('(max-width: 1024px)').matches;
+    const onScroll = () => root.classList.toggle('shrunk', !small() && window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    const mb = root.querySelector('.menu-btn'), cb = root.querySelector('.close-btn');
+    const open = () => root.classList.add('open'), close = () => root.classList.remove('open');
+    mb.addEventListener('click', open); cb.addEventListener('click', close);
+    ctx.onCleanup(() => { window.removeEventListener('scroll', onScroll); mb.removeEventListener('click', open); cb.removeEventListener('click', close); });
+  </script>
+</header>

@@ -1,0 +1,61 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: sticky; top: 0; left: 0; right: 0; z-index: 50; background: var(--lb-bg); transition: transform .3s ease; }
+    .lb-root[data-over] { position: fixed; left: 0; right: 0; top: 0; background: transparent; }
+    .lb-root.is-hidden { transform: translateY(-100%); }
+    .lb-root .bar { height: 80px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(16px, 2.5vw, 32px); border-bottom: 1px solid var(--lb-line); box-sizing: border-box; position: relative; z-index: 2; background: inherit; }
+    .lb-root .nav { display: flex; align-items: center; }
+    .lb-root .links { display: flex; align-items: center; gap: clamp(20px, 3vw, 48px); }
+    .lb-root .links .lb-link { font-size: 18px; padding: 6px 10px; border: 1px solid transparent; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root.hover-on .links .lb-link:hover { border-color: var(--lb-ink); }
+    .lb-root .tools { display: flex; align-items: center; gap: 12px; }
+    .lb-root .lb-divider-v { height: 28px; margin: 0 clamp(16px, 2vw, 32px); }
+    .lb-root .menu-btn { display: none; }
+    .lb-root .panel { display: none; }
+    @media (max-width: 1024px) {
+      .lb-root .nav { display: none; }
+      .lb-root .menu-btn { display: inline-flex; }
+      .lb-root .panel { position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 1; background: var(--lb-bg); padding: calc(var(--header-h) + 24px) var(--lb-gutter) 24px; box-sizing: border-box; overflow-y: auto; flex-direction: column; }
+      .lb-root.is-open .panel { display: flex; }
+      .lb-root .panel .lb-link { display: block; font-size: 32px; padding: 18px 0; border-bottom: 1px solid var(--lb-line); margin: 0 calc(-1 * var(--lb-gutter)); padding-left: var(--lb-gutter); padding-right: var(--lb-gutter); }
+      .lb-root .panel .tools { margin-top: 24px; }
+      .lb-root.hover-on .links .lb-link:hover { border-color: transparent; }
+    }
+  </style>
+  <div class="bar">
+    <div class="lb-logo">Logo</div>
+    <div class="nav">
+      <div class="links" data-extra="0">
+        <span class="lb-link">Link one</span>
+        <span class="lb-link">Link two</span>
+        <span class="lb-link">Link three</span>
+        <span class="lb-link">Link four</span>
+      </div>
+      <div class="lb-divider-v"></div>
+      <div class="tools"><span class="lb-label">EN</span><button class="lb-icon-btn"><span class="lb-icon"></span></button></div>
+    </div>
+    <button class="lb-icon-btn menu-btn" aria-label="Menu"><span class="lb-menu"></span></button>
+  </div>
+  <div class="panel">
+    <span class="lb-link">Link one</span>
+    <span class="lb-link">Link two</span>
+    <span class="lb-link">Link three</span>
+    <span class="lb-link">Link four</span>
+    <div class="tools"><span class="lb-label">EN</span><button class="lb-icon-btn"><span class="lb-icon"></span></button></div>
+  </div>
+  <script type="text/lb">
+    if (ctx.extras.includes(0)) root.classList.add('hover-on');
+    const btn = root.querySelector('.menu-btn');
+    btn.addEventListener('click', () => root.classList.toggle('is-open'));
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (root.classList.contains('is-open')) { last = y; return; }
+      if (y > last && y > 40) root.classList.add('is-hidden');
+      else if (y < last) root.classList.remove('is-hidden');
+      last = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    ctx.onCleanup(() => window.removeEventListener('scroll', onScroll));
+  </script>
+</header>

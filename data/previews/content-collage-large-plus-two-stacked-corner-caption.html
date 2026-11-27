@@ -1,0 +1,42 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    .lb-root .stack { display: grid; grid-template-rows: 1fr 1fr; gap: var(--lb-gap); min-width: 0; }
+    .lb-root .item { position: relative; min-width: 0; min-height: 260px; }
+    .lb-root .item.large { min-height: 560px; }
+    .lb-root .item .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .cap { position: absolute; right: 0; bottom: 0; width: 70%; height: 40%; box-sizing: border-box; background: var(--lb-bg); padding: var(--lb-pad); display: flex; align-items: center; justify-content: space-between; gap: var(--lb-gap); }
+    .lb-root .item.large .cap { width: 60%; }
+    .lb-root .cap .txt { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    @media (max-width: 640px) {
+      .lb-root .cols { grid-template-columns: 1fr; }
+      .lb-root .stack { grid-template-rows: none; }
+      .lb-root .item, .lb-root .item.large { display: flex; flex-direction: column; height: auto; min-height: 0; overflow: visible; background: none; }
+      .lb-root .item .lb-img { flex: none; width: 100%; height: auto; }
+      .lb-root .cap, .lb-root .item.large .cap { flex: none; display: flex; }
+      .lb-root .item .lb-img { position: static; aspect-ratio: 16 / 10; }
+      .lb-root .item.large .lb-img { aspect-ratio: 3 / 4; }
+      .lb-root .cap, .lb-root .item.large .cap { position: static; width: auto; height: auto; padding: var(--lb-gap) 0 0; flex-direction: column; align-items: stretch; justify-content: flex-start; }
+      .lb-root .cap .lb-btn { width: 100%; box-sizing: border-box; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="cols">
+      <div class="lb-card lb-nopad item large">
+        <div class="lb-img lb-tag-tl"></div>
+        <div class="cap"><div class="txt"><span class="lb-label">Tag</span><h3 class="lb-h3">Item headline</h3></div><a class="lb-btn">Button</a></div>
+      </div>
+      <div class="stack">
+        <div class="lb-card lb-nopad item">
+          <div class="lb-img lb-tag-tl"></div>
+          <div class="cap"><div class="txt"><span class="lb-label">Tag</span><h3 class="lb-h3">Item headline</h3></div><a class="lb-btn">Button</a></div>
+        </div>
+        <div class="lb-card lb-nopad item">
+          <div class="lb-img lb-tag-tl"></div>
+          <div class="cap"><div class="txt"><span class="lb-label">Tag</span><h3 class="lb-h3">Item headline</h3></div><a class="lb-btn">Button</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

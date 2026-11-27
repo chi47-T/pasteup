@@ -1,0 +1,73 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; padding: 0 var(--lb-gutter); background: var(--lb-bg); }
+    .lb-root::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 33%; background: var(--lb-surface-2); pointer-events: none; }
+    .lb-root .shell { position: relative; padding: calc(var(--lb-space) * 0.8) calc(var(--lb-pad) * 2); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; gap: calc(var(--lb-gap) / 2); margin-bottom: calc(var(--lb-gap) * 3); }
+    .lb-root .items { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    .lb-root .item { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--lb-gap) / 2); min-height: 220px; padding-bottom: calc(var(--lb-pad) + 48px); cursor: pointer; }
+    .lb-root .item-title { display: flex; align-items: center; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .pill { border: 1px solid var(--lb-line); border-radius: 999px; padding: 4px 12px; }
+    .lb-root .item .lb-icon-btn { position: absolute; right: var(--lb-pad); bottom: var(--lb-pad); border-radius: 999px; }
+    .lb-root .foot { display: flex; align-items: center; gap: var(--lb-gap); margin-top: calc(var(--lb-gap) * 1.5); }
+    .lb-root .cursor { position: absolute; left: 0; top: 0; width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 999px; background: var(--lb-accent); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; pointer-events: none; z-index: 2; transform: scale(0); opacity: 0; transition: transform .25s ease, opacity .25s ease; }
+    .lb-root .cursor.on { transform: scale(1); opacity: 1; }
+    .lb-root .cursor .lb-arrow { font-size: 22px; margin: 6px 0.15em 0 0; }
+    @media (max-width: 640px) {
+      .lb-root { padding: 0 calc(var(--lb-gutter) / 2); }
+      .lb-root::before { height: 10%; }
+      .lb-root .shell { padding: var(--lb-space) var(--lb-pad); }
+      .lb-root .items { grid-template-columns: 1fr; }
+      .lb-root .item { align-items: center; text-align: center; padding-bottom: var(--lb-pad); min-height: 0; }
+      .lb-root .item .lb-icon-btn { position: static; }
+      .lb-root .foot { flex-direction: column; }
+    }
+    @media (max-width: 1024px) { .lb-root .cursor { display: none; } }
+    @media (hover: none) { .lb-root .cursor { display: none; } }
+  </style>
+  <div class="lb-card shell">
+    <div class="head">
+      <span class="lb-label lb-center">Label</span>
+      <h2 class="lb-h2 lb-center">Headline goes here</h2>
+      <p class="lb-text lb-center">A short supporting sentence goes here and may run onto a second line of text.</p>
+    </div>
+    <div class="items">
+      <div class="lb-card item">
+        <span class="lb-label">Label one</span>
+        <div class="item-title"><span class="lb-icon"></span><h3 class="lb-h2">Item title one</h3></div>
+        <span class="lb-label pill">Tag</span>
+        <a class="lb-icon-btn"></a>
+      </div>
+      <div class="lb-card item">
+        <span class="lb-label">Label two</span>
+        <div class="item-title"><span class="lb-icon"></span><h3 class="lb-h2">Item title two</h3></div>
+        <span class="lb-label pill">Tag</span>
+        <a class="lb-icon-btn"></a>
+      </div>
+    </div>
+    <div class="foot">
+      <span class="lb-small">Not sure which one suits you best?</span>
+      <a class="lb-btn">Talk to us</a>
+    </div>
+    <div class="cursor lb-invert" data-extra="0"><span class="lb-small">View</span><span class="lb-arrow"></span></div>
+  </div>
+  <script type="text/lb">
+    if (!ctx.extras.includes(0)) return;
+    const shell = root.querySelector('.shell');
+    const dot = root.querySelector('.cursor');
+    const mq = window.matchMedia('(hover: hover) and (min-width: 1025px)');
+    root.querySelectorAll('.item').forEach(function (item) {
+      function move(e) {
+        if (!mq.matches) return;
+        const r = shell.getBoundingClientRect();
+        dot.style.left = (e.clientX - r.left) + 'px';
+        dot.style.top = (e.clientY - r.top) + 'px';
+        dot.classList.add('on');
+      }
+      function leave() { dot.classList.remove('on'); }
+      item.addEventListener('mousemove', move);
+      item.addEventListener('mouseleave', leave);
+      ctx.onCleanup(function () { item.removeEventListener('mousemove', move); item.removeEventListener('mouseleave', leave); });
+    });
+  </script>
+</section>

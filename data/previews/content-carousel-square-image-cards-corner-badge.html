@@ -1,0 +1,49 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--lb-gap); margin-bottom: var(--lb-gap); }
+    .lb-root .head-text { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .lb-root .arrows { display: flex; gap: 8px; flex: none; }
+    .lb-root .track { display: flex; gap: var(--lb-gap); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .lb-root .track::-webkit-scrollbar { display: none; }
+    .lb-root .item { flex: 0 0 calc((100% - 3 * var(--lb-gap)) / 4); scroll-snap-align: start; display: flex; flex-direction: column; }
+    .lb-root .item .lb-card { flex: 1; display: flex; flex-direction: column; }
+    .lb-root .pic { position: relative; width: 100%; aspect-ratio: 1 / 1; }
+    .lb-root .pic .lb-img { width: 100%; height: 100%; }
+    .lb-root .badge { position: absolute; top: 8px; left: 8px; }
+    .lb-root .body { display: flex; flex-direction: column; gap: 8px; }
+    @media (max-width: 640px) {
+      .lb-root .track { margin-right: calc(-1 * var(--lb-gutter)); padding-right: var(--lb-gutter); }
+      .lb-root .item { flex: 0 0 calc((100% - var(--lb-gap)) / 2.3); }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <div class="head-text">
+        <h2 class="lb-h2">Headline goes here<br>second line</h2>
+        <p class="lb-text">Supporting description text goes here</p>
+      </div>
+      <div class="arrows">
+        <button class="lb-icon-btn prev" type="button">&lsaquo;</button>
+        <button class="lb-icon-btn next" type="button">&rsaquo;</button>
+      </div>
+    </div>
+    <div class="track">
+      <div class="item"><div class="lb-card lb-nopad"><div class="pic"><div class="lb-img lb-flat"></div><span class="lb-label badge">Label</span></div><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary line</p></div></div></div>
+      <div class="item"><div class="lb-card lb-nopad"><div class="pic"><div class="lb-img lb-flat"></div><span class="lb-label badge">Label</span></div><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary line</p></div></div></div>
+      <div class="item"><div class="lb-card lb-nopad"><div class="pic"><div class="lb-img lb-flat"></div><span class="lb-label badge">Label</span></div><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary line</p></div></div></div>
+      <div class="item"><div class="lb-card lb-nopad"><div class="pic"><div class="lb-img lb-flat"></div><span class="lb-label badge">Label</span></div><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary line</p></div></div></div>
+      <div class="item"><div class="lb-card lb-nopad"><div class="pic"><div class="lb-img lb-flat"></div><span class="lb-label badge">Label</span></div><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary line</p></div></div></div>
+      <div class="item"><div class="lb-card lb-nopad"><div class="pic"><div class="lb-img lb-flat"></div><span class="lb-label badge">Label</span></div><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary line</p></div></div></div>
+    </div>
+  </div>
+  <script type="text/lb">
+    const track = root.querySelector('.track');
+    const step = () => { const it = root.querySelector('.item'); return it.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0); };
+    const go = (d) => track.scrollBy({ left: d * step(), behavior: ctx.reducedMotion ? 'auto' : 'smooth' });
+    const p = root.querySelector('.prev'), n = root.querySelector('.next');
+    const fp = () => go(-1), fn = () => go(1);
+    p.addEventListener('click', fp); n.addEventListener('click', fn);
+    ctx.onCleanup(() => { p.removeEventListener('click', fp); n.removeEventListener('click', fn); });
+  </script>
+</section>

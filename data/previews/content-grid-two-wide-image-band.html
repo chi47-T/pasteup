@@ -1,0 +1,20 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding-top: 33vh; padding-bottom: 0; }
+    .lb-root .band { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0 2vw; }
+    .lb-root .pic { width: 100%; aspect-ratio: 3 / 2; }
+    .lb-root .txt { display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); padding: var(--lb-pad) calc(var(--lb-pad) * 2); }
+    .lb-root .row { display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .txt .lb-text { width: 100%; }
+    @media (max-width: 640px) {
+      .lb-root { padding-top: var(--lb-space); }
+      .lb-root .band { grid-template-columns: 1fr; padding: 0 var(--lb-gutter); }
+      .lb-root .txt { padding: var(--lb-pad) 0; }
+      .lb-root .item:not(:last-child) .txt { margin-bottom: var(--lb-gap); }
+    }
+  </style>
+  <div class="band">
+    <div class="item"><div class="lb-img pic lb-flat"></div><div class="txt"><h3 class="lb-h3">Item title</h3><div class="lb-text">Description text placeholder that wraps across lines</div></div></div>
+    <div class="item"><div class="lb-img pic lb-flat"></div><div class="txt"><h3 class="lb-h3">Item title</h3><div class="lb-text">Description text placeholder that wraps across lines</div></div></div>
+  </div>
+</section>

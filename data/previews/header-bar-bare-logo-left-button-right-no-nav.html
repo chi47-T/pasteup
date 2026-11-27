@@ -1,0 +1,51 @@
+<header class="lb-root">
+  <style>
+    .lb-root {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      width: 100%;
+      background: transparent;
+    }
+    .lb-root[data-over] {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      background: transparent;
+    }
+    .lb-root .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--lb-gap);
+      min-height: 80px;
+      padding: 0 calc(var(--lb-gutter) / 2);
+      box-sizing: border-box;
+    }
+    .lb-root .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--lb-gap);
+      min-width: 0;
+    }
+    .lb-root .actions {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .lb-root .bar { min-height: 64px; padding: 0 calc(var(--lb-gutter) / 2); }
+    }
+  </style>
+  <div class="bar">
+    <div class="brand">
+      <span class="lb-logo">Logo</span>
+    </div>
+    <div class="actions">
+      <a class="lb-btn" href="#">Get started</a>
+    </div>
+  </div>
+</header>

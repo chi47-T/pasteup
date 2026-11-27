@@ -1,0 +1,84 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .head { margin-bottom: var(--lb-gap); }
+    .lb-root .head .lb-h2 { margin: 0; }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--lb-gap); }
+    .lb-root .card { display: flex; flex-direction: column; border: 0; min-width: 0; }
+    .lb-root .media { position: relative; }
+    .lb-root .media .lb-img { width: 100%; aspect-ratio: 16 / 9; display: block; }
+    .lb-root .corner { position: absolute; top: var(--lb-pad); left: var(--lb-pad); }
+    .lb-root .body { flex: 1; padding: var(--lb-pad); display: flex; flex-direction: column; align-items: flex-start; gap: 10px; text-align: left; }
+    .lb-root .body .lb-h3 { margin: 0; overflow-wrap: anywhere; }
+    .lb-root .row { display: flex; flex-direction: column; gap: 4px; align-self: stretch; }
+    .lb-root .more { display: flex; justify-content: center; margin-top: var(--lb-gap); }
+    .lb-root .nav { display: none; }
+    @media (max-width: 640px) {
+      .lb-root .head { text-align: center; }
+      .lb-root .car { position: relative; }
+      .lb-root .grid { display: flex; gap: var(--lb-gap); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: calc(-1 * var(--lb-gutter)); padding-right: var(--lb-gutter); }
+      .lb-root .grid::-webkit-scrollbar { display: none; }
+      .lb-root .card { flex: 0 0 84%; scroll-snap-align: start; }
+      .lb-root .nav { display: inline-flex; position: absolute; top: 40%; transform: translateY(-50%); z-index: 2; }
+      .lb-root .nav-prev { left: 8px; }
+      .lb-root .nav-next { right: 8px; }
+      .lb-root .nav[disabled] { opacity: 0.3; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><h2 class="lb-h2">Section title</h2></div>
+    <div class="car">
+      <div class="grid">
+        <div class="lb-card lb-nopad card">
+          <div class="media"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-label corner">Tag</span></div>
+          <div class="lb-pad body">
+            <span class="lb-label">Outline tag</span>
+            <h3 class="lb-h3">Card title goes here</h3>
+            <div class="row"><span class="lb-small">Label</span><span class="lb-text">Secondary text here</span></div>
+            <div class="row"><span class="lb-small">Label</span><span class="lb-text">Secondary text here</span></div>
+          </div>
+        </div>
+        <div class="lb-card lb-nopad card">
+          <div class="media"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-label corner">Tag</span></div>
+          <div class="lb-pad body">
+            <span class="lb-label">Outline tag</span>
+            <h3 class="lb-h3">Card title goes here and wraps</h3>
+            <div class="row"><span class="lb-small">Label</span><span class="lb-text">Secondary text here</span></div>
+            <div class="row"><span class="lb-small">Label</span><span class="lb-text">Secondary text here</span></div>
+          </div>
+        </div>
+        <div class="lb-card lb-nopad card">
+          <div class="media"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-label corner">Tag</span></div>
+          <div class="lb-pad body">
+            <span class="lb-label">Outline tag</span>
+            <h3 class="lb-h3">Card title goes here</h3>
+            <div class="row"><span class="lb-small">Label</span><span class="lb-text">Secondary text here</span></div>
+            <div class="row"><span class="lb-small">Label</span><span class="lb-text">Secondary text here</span></div>
+          </div>
+        </div>
+        <div class="lb-card lb-nopad card">
+          <div class="media"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-label corner">Tag</span></div>
+          <div class="lb-pad body">
+            <span class="lb-label">Outline tag</span>
+            <h3 class="lb-h3">Card title goes here</h3>
+            <div class="row"><span class="lb-small">Label</span><span class="lb-text">Secondary text here</span></div>
+            <div class="row"><span class="lb-small">Label</span><span class="lb-text">Secondary text here</span></div>
+          </div>
+        </div>
+      </div>
+      <button class="lb-icon-btn nav nav-prev" type="button" aria-label="Previous">&lsaquo;</button>
+      <button class="lb-icon-btn nav nav-next" type="button" aria-label="Next">&rsaquo;</button>
+    </div>
+    <div class="more"><a class="lb-btn">Button</a></div>
+  </div>
+  <script type="text/lb">
+    const g = root.querySelector('.grid');
+    const p = root.querySelector('.nav-prev'), n = root.querySelector('.nav-next');
+    const upd = () => { p.disabled = g.scrollLeft <= 2; };
+    const step = (d) => { const c = g.querySelector('.card'); g.scrollBy({ left: d * (c.getBoundingClientRect().width + 16), behavior: ctx.reducedMotion ? 'auto' : 'smooth' }); };
+    const a = () => step(-1), b = () => step(1);
+    p.addEventListener('click', a); n.addEventListener('click', b);
+    g.addEventListener('scroll', upd); upd();
+    ctx.onCleanup(() => { p.removeEventListener('click', a); n.removeEventListener('click', b); g.removeEventListener('scroll', upd); });
+  </script>
+</section>

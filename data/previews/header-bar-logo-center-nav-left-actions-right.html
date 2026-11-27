@@ -1,0 +1,58 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: fixed; left: 0; right: 0; top: 0; z-index: 50; transition: transform .3s ease; border-bottom: 1px solid var(--lb-line); background: var(--lb-bg); }
+    .lb-root .bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 80px; padding: 0 var(--lb-gutter); gap: var(--lb-gap); }
+    .lb-root .nav { display: flex; align-items: center; gap: var(--lb-gap); flex-wrap: nowrap; justify-self: start; }
+    .lb-root .logo { justify-self: center; width: 120px; height: 40px; }
+    .lb-root .actions { justify-self: end; display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .menu-btn { display: none; }
+    .lb-root .panel { display: none; }
+    .lb-root.hide { transform: translateY(-100%); }
+    .lb-root[data-over] { background: none; }
+    @media (prefers-reduced-motion: reduce) { .lb-root { transition: none; } }
+    @media (max-width: 1024px) {
+      .lb-root .nav { display: none; }
+      .lb-root .menu-btn { display: inline-flex; justify-self: start; }
+      .lb-root .logo { width: 96px; height: 32px; }
+      .lb-root .panel { position: absolute; left: 0; right: 0; top: 100%; z-index: 10; min-height: calc(100vh - var(--header-h)); background: var(--lb-bg); border-top: 1px solid var(--lb-line); flex-direction: column; }
+      .lb-root.open .panel { display: flex; }
+      .lb-root .panel .item { padding: var(--lb-pad) var(--lb-gutter); border-bottom: 1px solid var(--lb-line); text-align: left; }
+      .lb-root .menu-btn .lb-menu { display: block; }
+      .lb-root .menu-btn .lb-close { display: none; }
+      .lb-root.open .menu-btn .lb-menu { display: none; }
+      .lb-root.open .menu-btn .lb-close { display: block; }
+    }
+  </style>
+  <div class="bar">
+    <button class="lb-icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false"><span class="lb-menu"></span><span class="lb-close"></span></button>
+    <nav class="nav">
+      <a class="lb-link">Link one</a>
+      <a class="lb-link">Link two</a>
+      <a class="lb-link">Link three</a>
+      <a class="lb-link">Link four</a>
+    </nav>
+    <div class="lb-logo logo"></div>
+    <div class="actions"></div>
+  </div>
+  <div class="panel">
+    <a class="lb-link item">Link one</a>
+    <a class="lb-link item">Link two</a>
+    <a class="lb-link item">Link three</a>
+    <a class="lb-link item">Link four</a>
+  </div>
+  <script type="text/lb">
+    const btn = root.querySelector('.menu-btn');
+    const h = () => { const o = root.classList.toggle('open'); btn.setAttribute('aria-expanded', o); };
+    btn.addEventListener('click', h);
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (root.classList.contains('open') || y <= 0) root.classList.remove('hide');
+      else if (y > last + 2) root.classList.add('hide');
+      else if (y < last - 2) root.classList.remove('hide');
+      last = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    ctx.onCleanup(() => { btn.removeEventListener('click', h); window.removeEventListener('scroll', onScroll); });
+  </script>
+</header>

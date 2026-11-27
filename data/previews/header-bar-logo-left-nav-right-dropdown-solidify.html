@@ -1,0 +1,91 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: fixed; left: 0; right: 0; top: 0; z-index: 50; background: var(--lb-bg); border-bottom: 1px solid var(--lb-line); }
+    .lb-root[data-over] { position: fixed; left: 0; right: 0; top: 0; background: transparent; border-bottom: 1px solid transparent; }
+    .lb-root[data-over].is-solid { background: var(--lb-bg); border-bottom-color: var(--lb-line); }
+    .lb-root .bar { display: flex; align-items: center; height: 72px; padding: 0 var(--lb-gutter); gap: var(--lb-gap); position: relative; z-index: 2; }
+    .lb-root .right { margin-left: auto; display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .nav { display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .item { position: relative; display: flex; align-items: center; gap: 6px; height: 100%; }
+    .lb-root .item .lb-arrow { transition: transform .2s; }
+    .lb-root .sub { display: none; position: absolute; top: 100%; left: 0; min-width: 180px; flex-direction: column; gap: var(--lb-gap); padding: var(--lb-pad); background: var(--lb-bg); border: 1px solid var(--lb-line); }
+    .lb-root .item:hover .sub, .lb-root .item:focus-within .sub { display: flex; }
+    .lb-root .item:hover .lb-arrow { transform: rotate(180deg); }
+    .lb-root .tools { display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .menu-btn, .lb-root .panel { display: none; }
+    .lb-root .menu-btn .lb-close { display: none; }
+    .lb-root[data-open] .menu-btn .lb-menu { display: none; }
+    .lb-root[data-open] .menu-btn .lb-close { display: block; }
+    @media (max-width: 1024px) {
+      .lb-root .nav, .lb-root .tools { display: none; }
+      .lb-root .menu-btn { display: inline-flex; }
+      .lb-root[data-open] { background: var(--lb-bg); }
+      .lb-root[data-open] .panel { display: flex; flex-direction: column; gap: var(--lb-gap); position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 1; padding: calc(var(--header-h) + var(--lb-space)) var(--lb-gutter) var(--lb-space); background: var(--lb-bg); overflow-y: auto; }
+      .lb-root .panel .links { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+      .lb-root .panel .big { font-size: 1.75rem; }
+      .lb-root .panel .pitem { display: flex; flex-direction: column; gap: var(--lb-gap); }
+      .lb-root .panel .pitem .psub { display: none; flex-direction: column; gap: var(--lb-gap); }
+      .lb-root .panel .pitem[data-expanded] .psub { display: flex; }
+      .lb-root .panel .pitem[data-expanded] .lb-arrow { transform: rotate(180deg); }
+      .lb-root .panel .toggle { display: flex; align-items: center; gap: 6px; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; }
+      .lb-root .panel .small-row { display: flex; align-items: center; justify-content: space-between; gap: var(--lb-gap); }
+      .lb-root .panel .small-links { display: flex; flex-direction: column; gap: var(--lb-gap); }
+    }
+  </style>
+  <div class="bar">
+    <div class="lb-logo">Logo</div>
+    <div class="right">
+      <nav class="nav">
+        <div class="item"><span class="lb-link">Link one</span></div>
+        <div class="item">
+          <span class="lb-link">Link two</span><span class="lb-arrow lb-arrow-down"></span>
+          <div class="sub">
+            <span class="lb-link">Sub link one</span>
+            <span class="lb-link">Sub link two</span>
+            <span class="lb-link">Sub link three</span>
+          </div>
+        </div>
+        <div class="item"><span class="lb-link">Link three</span></div>
+        <div class="item"><span class="lb-link">Link four</span></div>
+      </nav>
+      <div class="tools">
+        <button class="lb-icon-btn" type="button"><span class="lb-arrow"></span></button>
+        <button class="lb-btn" type="button">Button</button>
+      </div>
+      <button class="lb-icon-btn menu-btn" type="button" aria-label="Menu"><span class="lb-menu"></span><span class="lb-close"></span></button>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="links">
+      <span class="lb-h2 big">Link one</span>
+      <div class="pitem">
+        <button class="toggle" type="button"><span class="lb-h2 big">Link two</span><span class="lb-arrow lb-arrow-down"></span></button>
+        <div class="psub"><span class="lb-link">Sub link one</span><span class="lb-link">Sub link two</span></div>
+      </div>
+      <span class="lb-h2 big">Link three</span>
+      <span class="lb-h2 big">Link four</span>
+    </div>
+    <div><button class="lb-btn" type="button">Button</button></div>
+    <div class="lb-divider"></div>
+    <div class="small-row">
+      <div class="small-links"><span class="lb-link">Small link one</span><span class="lb-link">Small link two</span></div>
+      <button class="lb-icon-btn" type="button"><span class="lb-arrow"></span></button>
+    </div>
+  </div>
+  <script type="text/lb">
+    const toggle = () => { if (root.hasAttribute('data-open')) root.removeAttribute('data-open'); else root.setAttribute('data-open', ''); };
+    const mb = root.querySelector('.menu-btn');
+    mb.addEventListener('click', toggle);
+    root.querySelectorAll('.pitem .toggle').forEach(b => b.addEventListener('click', () => {
+      const p = b.closest('.pitem');
+      if (p.hasAttribute('data-expanded')) p.removeAttribute('data-expanded'); else p.setAttribute('data-expanded', '');
+    }));
+    const onScroll = () => {
+      const past = window.scrollY > Math.max(window.innerHeight - 80, 40);
+      root.classList.toggle('is-solid', past);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    ctx.onCleanup(() => window.removeEventListener('scroll', onScroll));
+  </script>
+</header>

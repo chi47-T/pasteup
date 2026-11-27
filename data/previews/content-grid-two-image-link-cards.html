@@ -1,0 +1,26 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding-top: var(--lb-space); padding-bottom: var(--lb-space); }
+    .lb-root .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    .lb-root .card { position: relative; overflow: visible; }
+    .lb-root .card .lb-img { width: 100%; aspect-ratio: 4 / 3; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .foot { position: absolute; left: var(--lb-pad); right: var(--lb-pad); bottom: var(--lb-pad); display: flex; align-items: flex-end; justify-content: space-between; gap: var(--lb-gap); }
+    .lb-root .foot .lb-h3 { min-width: 0; overflow-wrap: anywhere; }
+    @media (max-width: 640px) {
+      .lb-root .grid { grid-template-columns: 1fr; }
+      .lb-root .foot .lb-icon-btn { margin-right: calc(-1 * var(--lb-pad)); transform: translateX(50%); }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="grid">
+      <div class="lb-card lb-nopad card">
+        <div class="lb-img lb-tag-tl"></div>
+        <div class="foot"><h3 class="lb-h3 lb-invert">Card title one</h3><span class="lb-icon-btn"></span></div>
+      </div>
+      <div class="lb-card lb-nopad card">
+        <div class="lb-img lb-tag-tl"></div>
+        <div class="foot"><h3 class="lb-h3 lb-invert">Card title two</h3><span class="lb-icon-btn"></span></div>
+      </div>
+    </div>
+  </div>
+</section>

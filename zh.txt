@@ -1,0 +1,271 @@
+1:"$Sreact.fragment"
+2:"/_next/static/chunks/02wzmny-ye9dv.js"
+3:I[88287,["$2"],"default"]
+4:I[74895,["$2"],"default"]
+e:"ViewportBoundary"
+f:I[51858,["$2"],"$e"]
+11:"MetadataBoundary"
+12:I[51858,["$2"],"$11"]
+13:"$Sreact.suspense"
+15:I[52576,[],"default",1]
+:HL["/_next/static/chunks/0d4ec3goabnvv.css","style"]
+:HL["/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/6ca1ce77bc8a532d-s.p.2u3b59fm8x3sh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+5:X
+9:T8f7,{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pasteupai.com/#organization","name":"PASTEUP","url":"https://pasteupai.com","logo":"https://pasteupai.com/apple-icon.png","sameAs":["https://github.com/chi47-T/pasteup"]},{"@type":"WebSite","@id":"https://pasteupai.com/#website","name":"PASTEUP","url":"https://pasteupai.com","inLanguage":["en","zh-Hant"],"publisher":{"@id":"https://pasteupai.com/#organization"}},{"@type":"WebApplication","name":"PASTEUP","url":"https://pasteupai.com/compose","description":"像排版一樣挑選頁首、主視覺、內容區塊與頁尾，即時預覽電腦與手機版，一鍵產生完整的 Landing Page 提示詞。","applicationCategory":"DesignApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":0,"priceCurrency":"USD"},"image":"https://pasteupai.com/opengraph-image.png","screenshot":"https://pasteupai.com/opengraph-image.png","publisher":{"@id":"https://pasteupai.com/#organization"},"inLanguage":["en","zh-Hant"]},{"@type":"FAQPage","url":"https://pasteupai.com/zh","dateModified":"2026-11-27T13:02:25.079Z","inLanguage":"zh-Hant","mainEntity":[{"@type":"Question","name":"PASTEUP 是什麼？","acceptedAnswer":{"@type":"Answer","text":"PASTEUP 是免費的 Landing Page 提示詞產生器，為了減少千篇一律的 AI slop 而做。從現成的版面區塊挑出頁首、主視覺、內容與頁尾，組合器會把整頁版面整理成一份完整的提示詞，AI 照著你選的版面做，不用自己猜。"}},{"@type":"Question","name":"需要註冊或付費嗎？","acceptedAnswer":{"@type":"Answer","text":"不用。打開組合器就能使用，不需要帳號，提示詞可以直接複製。"}},{"@type":"Question","name":"產生的提示詞可以用在哪裡？","acceptedAnswer":{"@type":"Answer","text":"可以貼到任何 AI 工具使用。整頁提示詞一次描述所有區塊；也能只複製單一區塊的提示詞，用來替換頁面上的某一段。"}},{"@type":"Question","name":"目前有哪些區塊？","acceptedAnswer":{"@type":"Answer","text":"目前共有 130 個區塊，分成頁首、主視覺、內容與頁尾四類，每個都附有樣式說明與適用的素材類型。"}}]}]}8:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$9"}}],"$La"],["$Lb","$Lc"],"$Ld"]}],"p":false,"v":null}}]]
+7:[["children",{"s":"zh","h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$5"},"c":"$Q8"}]]
+6:[["children",{"s":"(zh)","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0d4ec3goabnvv.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-Hant","className":"y1uHmq_variable YLnOmW_variable h-full antialiased","children":["$","body",null,{"className":"min-h-full","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:t:t:d:r:props:children:1:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:t:t:d:r:props:children:1:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$0:t:t:d:r:props:children:1:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$0:t:t:d:r:props:children:1:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],"p":false,"v":null},"c":"$Q7"}]]
+0:{"P":null,"c":["","zh"],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$5"},"c":"$Q6"},"h":{"r":["$","$1","h",{"children":[null,["$","$Lf",null,{"children":"$L10"}],["$","$L12",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$13",null,{"name":"Next.Metadata","children":"$L14"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":false,"v":null}},"m":"$undefined","G":["$15",[]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"_e8Pf1Uzi1lfcQGz7dSCt"}
+16:"/_next/static/chunks/2bqglst_4fayv.js"
+17:"/_next/static/chunks/2jmn95ig3z-kf.js"
+18:I[16447,["$16","$17"],"default"]
+1b:I[51858,["$2"],"OutletBoundary"]
+5:C
+19:T3382,## 任務
+- 依照以下規格建立一個單頁的落地頁。
+- 版面結構完全依照規格：不要新增、刪除、合併或調換區塊，也不要加規格沒提到的元素。
+- 這一版只做版面結構。規格沒寫到的視覺細節一律用「佔位內容與中性樣式」的預設，不要自行發揮風格。
+- 規格和常見做法不同時，以規格為準，不要改回常見的樣子。
+- 一次完成整頁；太長需要分段時，從下一個區塊的標題接續，不要省略或摘要。
+
+## 佔位內容與中性樣式
+- 先用佔位內容和中性的樣式把整頁做出來。真正的文案、圖片、配色和字體，之後由使用者自己替換。
+- 文字用中性的佔位文字，長度要接近真實情況（標題短、說明兩三行），不要用過短的字讓版面看起來比實際整齊。
+- 圖片和影片用單一灰色的佔位色塊，標誌用文字「Logo」。不要放圖庫照片、插畫或生成的圖片，也不要編造品牌名稱、數據、日期、客戶名稱或評價。
+- 配色只用黑、白、灰，加上一個強調色（視覺風格有指定主色就用它，沒有就用深灰）。字體用一種系統預設的無襯線字體。
+- 顏色、字體、圓角和間距集中定義在同一個地方，全站共用，之後改一處就能換掉整體風格。
+- 所有文案和圖片路徑集中放在同一個容易找到的地方，並標明每一項屬於哪個區塊。
+- 完成後用簡短的清單告訴使用者：文案、圖片、配色與字體各自在哪裡修改。
+
+## 頁面大綱（由上到下）
+1. 頁首 — 整列頁首＋標誌左、導覽右，滑過展開子連結，捲動後出現底板
+2. 主視覺 — 左文右圖＋底部超大跑馬燈文字
+3. 內容區塊 1 — 精選圖文並排＋三欄網格＋置中按鈕
+4. 內容區塊 2 — 多組方形圖文左右交錯，文字靠向圖片
+5. 內容區塊 3 — 靠左行動呼籲段（標誌＋標題＋說明＋並排按鈕）
+6. 頁尾 — 標誌欄＋數欄連結群組＋分隔線＋底部列
+
+## 用詞
+- 「一個畫面」指瀏覽器可視範圍的高度；手機上的高度不能因為網址列伸縮而跳動。
+- 手機、平板、桌機分別指窄、中、寬三種螢幕寬度，三種都要做。
+- 區塊說明和全域規則不同時，以區塊說明為準。平板與手機的說明只覆蓋它提到的部分，其餘沿用桌機。
+
+## 全域規則
+- 所有區塊與卡片裡的文字、按鈕，都要和容器邊緣保持內距，不能貼邊；只有區塊說明裡寫明「貼齊」的元素例外。
+- 每個區塊的上下都保留一致的留白，區塊之間不要緊貼；只有區塊說明裡寫明「不留白」或「緊接上一個區塊」的例外。
+- 「頁面內容寬度」指一個水平置中、有固定最大寬度的範圍，左右和畫面邊緣保留邊距。區塊說明寫「對齊頁面內容寬度」的元素都對齊這個範圍；寫「貼齊畫面邊緣」或「滿版」的才延伸到畫面邊緣。
+- 網格、列表和並排的項目之間保留一致的間距；只有區塊說明寫明「沒有間距」的例外。
+- 按鈕的寬度依內容而定；只有區塊說明寫明「橫跨」的按鈕才撐滿容器寬度。
+- 文字疊在圖片或影片上時，要確保文字清楚可讀。
+- 圖片一律用佔位圖，填滿自己的容器並裁切，不能變形；只有區塊說明寫明「完整顯示」的圖片不裁切。
+- 文字變長或換行時，容器跟著變高，不能溢出、被裁切或蓋到其他元素；長的英文單字和網址要能換行。
+- 標題的大小隨螢幕寬度縮放，在手機上不能超出畫面。
+- 重疊的元素依這個順序疊放：頁首最上層，其次是展開的選單和浮動元件，再來是各區塊的內容。
+- 任何螢幕寬度都不能出現水平捲軸。
+- 使用者的系統設定為減少動態效果時，取消固定捲動、視差和進場動畫，直接顯示內容。
+
+## 視覺風格
+- 主色使用 #376B6D，用在主要按鈕和需要強調的元素；其餘以中性色為主。
+
+## 不要做的事
+- 不要使用紫色或藍紫色漸層、霓虹色、深色底加發光效果這類常見的 AI 網頁風格；維持中性的黑白灰。
+- 不要自行加上進場動畫、滾動視差或數字跳動效果；只做規格寫到的動態。
+- 不要加規格沒提到的區塊、徽章、小標籤、裝飾圖形、背景光暈、漸層或毛玻璃效果。
+- 不要用表情符號當圖示；規格沒提到圖示的地方不要加圖示。
+- 不要把所有內容都置中；對齊方式照各區塊的說明。
+- 不要替每個元素都加陰影、外框或滑鼠移上去浮起的效果；規格沒提到的互動效果不要加。
+- 不要編造數據、客戶名稱、評價、合作夥伴標誌或獎項。
+- 強調色只用一種；圓角和留白全站一致，不要每個區塊各自一套。
+- 不要在標題上方加一行小標語、在標題裡用漸層字，或在每個區塊結尾都加按鈕，除非規格有寫。
+
+## 頁首
+建立一個橫跨整個畫面寬的頁首列，固定在畫面頂端：標誌在左，導覽連結與功能區靠右，所有元素在同一水平線上垂直置中；內容不受頁面內容寬度限制，左右延伸到接近畫面邊緣，只留少許邊距。功能區可放一個圖示按鈕與一個主要按鈕，沒有時省略。有子項目的導覽項目旁有一個展開符號；導覽項目有子項目時，滑過後在該項目下方展開一欄子連結。捲過主視覺後頁首出現底板，並在頁首下緣出現一條分隔線；往下或往上捲動都不隱藏，高度不變。
+
+平板與手機：
+- 平板沿用手機版。
+- 頁首仍是整列，頁首上只留標誌在左、選單按鈕在右，導覽連結與功能區都收進選單面板。點選單按鈕後，展開蓋住整個畫面的選單面板，選單按鈕變成關閉按鈕；面板裡的導覽連結靠左、明顯大於其他文字，分成兩欄直向排列；下方放功能區的主要按鈕，再下方一條橫向分隔線，分隔線下方可放一欄小型文字連結與一個小圖示連結，沒有時省略；有子項目時點擊後在原位展開。固定在畫面頂端、捲過主視覺後出現底板的行為保留。
+
+注意：
+- 導覽連結維持單行，放不下時改用選單按鈕，不要換成兩行。選單展開時，後面的頁面不能跟著捲動。
+
+## 主視覺
+建立一個主視覺，底邊約在畫面八成高的位置，下方露出下一個區塊的開頭，主視覺接在頁首下方，不和頁首重疊。頁首使用實色背景。
+區塊上下不留白。版面分左右兩欄：左欄約佔畫面寬的四成多，放大標題（可多行），標題下方可放一個文字連結（短文字加右側一個小圓形箭頭圖示），沒有內容時省略，標題位置不變；左欄靠左對齊頁面內容寬度，在主視覺上段的空白區內垂直置中。右欄放一張橫式圖片，約佔畫面寬的一半多，貼齊主視覺上緣與畫面右緣，下緣不到主視覺底緣。主視覺背景分成上下兩段：上段約佔三分之二，下段換成另一種底色，一直延伸到主視覺底緣。下段底部放一行超大文字，左右都超出畫面、被畫面邊緣裁切；文字下半部被主視覺底緣裁切，字底貼齊主視覺底緣，下方沒有空白；這行文字持續往同一方向水平流動（跑馬燈）；圖片在這行文字前面，蓋住它的右側部分。
+
+平板與手機：
+- 平板沿用桌機版。
+- 左右兩欄改為上下排列：大標題與文字連結在上並靠左對齊，圖片在下；圖片改為接近方形，左側留邊、對齊頁面內容寬度的左緣，右側貼齊畫面右緣。背景下段的另一種底色改從圖片中段開始；超大文字仍在下段底部、在圖片後方，下半部同樣被主視覺底緣裁切，字底貼齊底緣、下方沒有空白，跑馬燈保留。主視覺底邊約在畫面九成高的位置。
+
+注意：
+- 背景的圖片或影片填滿主視覺並裁切。標題很長或螢幕很矮時，主視覺跟著內容變高，內容不能被裁切，也不能被頁首蓋住。
+- 跑馬燈：內容頭尾相接、連續不中斷，超出畫面的部分裁掉，不能造成水平捲軸。
+- 重疊：往上疊的部分要完整顯示在上一個區塊之上，不能被上一個區塊裁切或蓋住。
+
+## 內容區塊 1
+建立一個高度依內容而定的區塊。區塊左右貼齊畫面邊緣；四個角（左上、右上、左下、右下）都做圓角。區塊上方靠左放標題組，標題組包含標題（可多行），下方可放副標，沒有時省略；區塊標題明顯大於各項目的標題。標題組下方是一個精選項目，左右兩欄各佔約一半：左側是一張橫式圖片，右側文字欄垂直置中，依序為標題（可多行）、說明文字，下方可放次要文字與小標籤，沒有時省略；精選項目的標題大於下方網格項目的標題。精選項目下方是多個項目排成的網格，每列三個、等寬，圖片同一比例；每個項目無外框：橫式圖片在上，下方是標題（可多行），可放次要文字與小標籤，沒有時省略。網格下方置中放一顆按鈕。
+
+平板與手機：
+- 平板沿用桌機版，網格每列數量可減為兩個。
+- 改為直向堆疊，由上而下為標題組、精選項目、網格、按鈕。精選項目改為圖片在上、文字在下，圖片比文字更寬，左右只留很窄的邊，幾乎延伸到畫面邊緣。網格每列一個項目。按鈕改為靠左。區塊仍左右貼齊畫面邊緣，四個角（左上、右上、左下、右下）都做圓角。
+
+注意：
+- 網格：同一列的項目等高。最後一列不足時靠左排，不要拉寬或置中。欄數照說明，不要自行增減。
+
+## 內容區塊 2
+建立一個高度依內容而定的區塊。內容是多組圖文由上往下排列，每組左右兩欄，圖片和文字左右交錯：第一組圖片在左、文字在右，下一組圖片在右、文字在左，依此類推。圖片為方形，各組同一比例，約佔內容寬度的四成，明顯大於文字欄；文字欄約佔三成，相對圖片垂直置中，並靠向圖片那一側對齊：文字在右欄時靠左，在左欄時靠右。文字欄由上到下是標題（可多行）、說明文字，最下方是一個文字連結，連結旁附一個小圓形箭頭圖示，連結下方有一條約與連結同寬的短分隔線；標題上方可放小標籤，說明文字與連結可省略，沒有時省略，其他元素的位置不變。
+
+平板與手機：
+- 平板沿用桌機版。
+- 每組改為直向堆疊，保持原本的先後順序：圖片在左的組圖片在上、文字在下，圖片在右的組文字在上、圖片在下。圖片橫跨頁面內容寬度；文字的對齊方向不變，原本靠右的仍靠右。
+
+## 內容區塊 3
+建立一個高度依內容而定的區塊。所有元素靠左、對齊頁面內容寬度，由上往下堆疊，只佔區塊左側約三分之一寬，右側留大片空白：最上方可放一個小型標誌，沒有時省略；下方是大標題（可多行），完整落在頁面內容寬度內；大標題下方可放說明文字，沒有時省略；最下方是一顆主要按鈕，旁邊可並排第二顆按鈕，沒有時省略，其他元素的位置不變。
+
+平板與手機：
+- 平板沿用桌機版。
+- 結構不變，等比縮放：元素仍靠左由上往下堆疊，說明文字寬度延伸到接近內容全寬，兩顆按鈕仍並排在同一列；大標題完整落在畫面內，不超出畫面邊緣。
+
+## 頁尾
+建立一個高度依內容而定的頁尾，放在頁面最下方，跟著頁面捲動。頁尾上緣有一條橫跨整個畫面寬的分隔線。內容分成數欄並排的連結群組，對齊頁面內容寬度、各欄靠上對齊：最左一欄是標誌，其餘每欄是一個小標題加上直向排列的文字連結，各欄寬度大致相等。下方是底部列，上方有一條橫跨整個畫面寬、貼齊畫面左右邊緣的分隔線：一側可放小型下拉選單，沒有時省略，另一側是一行小字。
+
+平板與手機：
+- 平板沿用桌機版。
+- 改為單欄由上往下排列：標誌置中放在最上方；連結群組改為直向堆疊，全部展開，靠左對齊。頁尾上緣與底部列上方的分隔線都保留，橫跨畫面寬。底部列改成上下兩行並置中：小型下拉選單在上，一行小字在下。沒有動態效果。
+
+注意：
+- 頁面內容很短時，頁尾仍然在畫面最下方，下面不留空白。
+
+## 完成後檢查
+- 區塊的數量和順序與頁面大綱一致，沒有多出來的區塊或元素。
+- 在手機、平板、桌機三種寬度下都沒有水平捲軸，文字沒有被裁切或互相重疊。
+- 沒有文字或按鈕貼著容器邊緣（規格寫明「貼齊」的除外）。
+- 頁首和主視覺的關係與規格一致，頁首沒有蓋住任何內容。
+- 逐條對照「不要做的事」，有做到的拿掉。
+有不符合的先修正再交付。1a:T42ff,## Task
+- Build a single-page landing page from the specification below.
+- Follow the layout structure exactly: do not add, remove, merge or reorder sections, and do not add elements the specification does not mention.
+- This pass builds the layout structure only. For any visual detail the specification leaves open, use the defaults under "Placeholder content and neutral styling"; do not improvise a visual style.
+- Where the specification differs from common practice, follow the specification; do not fall back to the usual pattern.
+- Build the whole page in one go; if you must split the output, continue from the next section heading without omitting or summarizing anything.
+
+## Placeholder content and neutral styling
+- Build the whole page with placeholder content and neutral styling first. The real copy, images, colors and fonts will be swapped in by the user afterwards.
+- Use neutral placeholder text of realistic length (short headlines, two- to three-line paragraphs); do not use very short text that makes the layout look tidier than it will be.
+- Use single-color gray placeholder blocks for images and videos and the word "Logo" for the logo. Do not use stock photos, illustrations or generated images, and do not invent brand names, figures, dates, client names or testimonials.
+- Use only black, white and grays plus one accent color (the primary color from the visual style if one is given, otherwise dark gray). Use a single system sans-serif font.
+- Define colors, fonts, corner radius and spacing in one shared place used by the whole site, so the overall style can be changed by editing one spot.
+- Keep all copy and image paths together in one easy-to-find place, labeled by the section each item belongs to.
+- When finished, give the user a short list of where to change the copy, the images, and the colors and fonts.
+
+## Page outline (top to bottom)
+1. Header — Full-width header bar + logo left, navigation right, hover dropdown, gains a background panel after scrolling
+2. Hero — Split text left, image right, giant marquee band
+3. Section 1 — Featured side-by-side item + three-column grid + centered button
+4. Section 2 — Alternating square image and text pairs, text aligned toward the image
+5. Section 3 — Left-aligned call-to-action section (logo + headline + description + side-by-side buttons)
+6. Footer — Logo column + link group columns + divider + bottom bar
+
+## Terms
+- "One viewport" means the height of the visible browser area; on mobile this height must not jump when the address bar collapses or expands.
+- Mobile, tablet and desktop mean narrow, medium and wide screens; build all three.
+- Where a block description differs from a global rule, the block description wins. Tablet and mobile notes override only what they mention; everything else follows desktop.
+
+## Global rules
+- All text and buttons inside sections and cards must keep inner padding from the edges of their container and never touch them; the only exceptions are elements that a block description explicitly says are flush with an edge.
+- Every section keeps consistent vertical spacing above and below its content, and sections never butt against each other; the only exceptions are sections whose description says "no spacing" or "directly follows the previous section".
+- "Page content width" means a horizontally centered area with a fixed maximum width and margins from the viewport edges. Elements described as "aligned to the page content width" align to this area; only elements described as "flush with the viewport edge" or "full-bleed" extend to the viewport edge.
+- Items in grids, lists and rows keep consistent gaps between them; the only exceptions are blocks whose description says "no gap".
+- Buttons are as wide as their content; only buttons described as "spanning" stretch to the full width of their container.
+- When text sits on top of an image or video, make sure the text stays clearly legible.
+- Use placeholder images that fill their container and are cropped, never distorted; only images described as "shown in full" are not cropped.
+- When text gets longer or wraps, its container grows with it; text must not overflow, be clipped or cover other elements, and long words and URLs must be able to wrap.
+- Headline size scales with the screen width and must never extend beyond the viewport on mobile.
+- Overlapping elements stack in this order: the header on top, then open menus and floating elements, then section content.
+- No horizontal scrollbar may appear at any screen width.
+- When the user’s system is set to reduce motion, disable pinned scrolling, parallax and entrance animations and show the content directly.
+
+## Visual style
+- Use #376B6D as the primary color for primary buttons and emphasized elements; keep everything else in neutral colors.
+
+## Do not
+- Do not use purple or blue-violet gradients, neon colors, or dark backgrounds with glow effects — the usual AI-generated look; stay with neutral black, white and gray.
+- Do not add entrance animations, scroll parallax or counting-number effects on your own; build only the motion the specification describes.
+- Do not add sections, badges, pills, decorative shapes, background glows, gradients or glass effects that the specification does not mention.
+- Do not use emoji as icons, and do not add icons where the specification does not mention them.
+- Do not center everything; follow the alignment each block describes.
+- Do not put shadows, borders or hover-lift effects on every element, and do not add interactions the specification does not mention.
+- Do not invent figures, client names, testimonials, partner logos or awards.
+- Use a single accent color, and keep corner radius and spacing consistent across the site instead of varying them per section.
+- Do not add an eyebrow line above headlines, gradient text in headlines, or a button at the end of every section unless the specification says so.
+
+## Header
+Create a header bar spanning the full width of the viewport, fixed to the top of the viewport, with the logo on the left, with the navigation links and the actions group on the right, all elements vertically centered on the same horizontal line; the content is not limited to the page content width and extends close to the left and right edges of the viewport, keeping only a small margin. Optionally place one icon button and one primary button in the actions group; omit them when there is no content. Navigation items that have sub-items show an expand symbol next to them; when a navigation item has sub-items, hovering over it opens a single column of sub-links below that item. After scrolling past the hero, the header gains a background panel and a divider appears along the bottom edge of the header; the header never hides, whether scrolling down or up, and its height does not change.
+
+Tablet and mobile:
+- Tablet uses the mobile layout.
+- The header stays a full-width bar, keeping only the logo on the left and the menu button on the right; the navigation links and the actions group move into the menu panel. Tapping the menu button opens a menu panel covering the entire viewport, and the menu button turns into a close button; in the panel the navigation links are left-aligned, clearly larger than the other text, and arranged vertically in two columns; below them sits the primary button from the actions group, then a horizontal divider, and below the divider you may place a single column of small text links and one small icon link, omitted when there is no content; items with sub-items expand in place when tapped. The header stays fixed to the top of the viewport and still gains a background panel after scrolling past the hero.
+
+Notes:
+- Navigation links stay on one line; when they do not fit, switch to the menu button instead of wrapping. While the menu is open, the page behind it must not scroll.
+
+## Hero
+Create a hero whose bottom edge sits at about 80% of the viewport height, with the start of the next section visible below, starting below the header without overlapping it. The header uses a solid background.
+The section has no spacing at the top or bottom. The layout is split into two columns: the left column takes a little over forty percent of the viewport width and holds a headline (may wrap to multiple lines); optionally place a text link below the headline (short text with a small circular arrow icon to its right); omit it when there is no content, without changing the position of the headline. The left column is left-aligned to the page content width and vertically centered within the empty upper part of the hero. The right column holds a landscape image taking a little over half the viewport width, flush with the top edge of the hero and the right edge of the viewport; its bottom edge stops short of the bottom of the hero. The hero background is split into two bands: the upper band takes about two thirds, and the lower band switches to a different background color that extends to the bottom edge of the hero. At the bottom of the lower band, place a single line of giant text that extends past both sides of the viewport and is cropped by the viewport edges; the lower half of the text is cropped by the bottom edge of the hero, so the text is flush with the bottom edge of the hero with no space below it; the line flows continuously in one direction (marquee); the image is in front of this text and covers its right part.
+
+Tablet and mobile:
+- Tablet uses the desktop layout.
+- The two columns stack vertically: the headline and text link on top, left-aligned, with the image below; the image becomes roughly square, with a margin on the left aligned to the left edge of the page content width and flush with the right edge of the viewport on the right. The lower band of different background color now starts at the middle of the image; the giant text stays at the bottom of the lower band, behind the image, with its lower half likewise cropped by the bottom edge of the hero, flush with that edge and no space below it, and the marquee is kept. The bottom edge of the hero sits at about ninety percent of the viewport height.
+
+Notes:
+- The background image or video fills the hero and is cropped. When the headline is long or the screen is short, the hero grows with its content; content must not be clipped or covered by the header.
+- Marquee: the content loops seamlessly with no gap; whatever extends beyond the viewport is clipped and must not create a horizontal scrollbar.
+- Overlap: the part pulled up over the previous section is fully visible on top of it and is not clipped or covered by that section.
+
+## Section 1
+Create a section whose height is determined by its content. The section is flush with the left and right edges of the screen; all four corners (top-left, top-right, bottom-left, bottom-right) are rounded corners. Place the heading group at the top, aligned left. The heading group contains a title (may wrap to multiple lines), optionally with a subheading below; omit it when there is no content. The section title is noticeably larger than the item titles. Below the heading group is one featured item in two columns of about half each: on the left a single landscape image, on the right a text column, vertically centered, containing a title (may wrap to multiple lines) and a description, optionally followed by secondary text and a label; omit them when there is no content. The featured item's title is larger than the titles of the grid items below. Below the featured item, multiple items are arranged in a grid of three per row, equal in width, with images in the same proportion. Each item has no border: a landscape image on top, then a title (may wrap to multiple lines), optionally with secondary text and a label; omit them when there is no content. Centered below the grid is a single button.
+
+Tablet and mobile:
+- The tablet layout follows the desktop layout; the grid may drop to two items per row.
+- Everything stacks vertically, from top to bottom: heading group, featured item, grid, button. The featured item becomes image on top and text below; the image is wider than the text, with only a very narrow margin on each side, extending almost to the screen edges. The grid shows one item per row. The button becomes aligned left. The section stays flush with the left and right edges of the screen, with all four corners (top-left, top-right, bottom-left, bottom-right) rounded.
+
+Notes:
+- Grid: items in the same row are equal height. An incomplete last row aligns left and is not stretched or centered. Use the stated number of columns; do not add or remove columns.
+
+## Section 2
+Create a section whose height is determined by its content. The content is multiple image-and-text pairs arranged top to bottom, each in two columns, with the image and text alternating sides: the first pair has the image on the left and the text on the right, the next has the image on the right and the text on the left, and so on. The images are square, with the same proportions in every pair, taking about forty percent of the content width and clearly larger than the text column; the text column takes about thirty percent, is vertically centered against the image, and is aligned toward the image: aligned left when the text is in the right column, and aligned right when it is in the left column. From top to bottom the text column holds a title (may wrap to multiple lines), a description, and a text link at the bottom with a small circular arrow icon beside it and a short divider about as wide as the link below it; optionally place a label above the title; the description and link are optional; omit them when there is no content, without changing the position of the other elements.
+
+Tablet and mobile:
+- The tablet layout follows the desktop layout.
+- Each pair becomes a vertical stack that keeps its original order: in pairs with the image on the left, the image is on top and the text below; in pairs with the image on the right, the text is on top and the image below. The images span the page content width; the text alignment is unchanged, so text that was aligned right stays aligned right.
+
+## Section 3
+Create a section whose height is determined by its content. All elements are aligned left within the page content width and stacked top to bottom, occupying only about the left third of the section, with a large empty area on the right: optionally place a small logo at the top, omitting it when there is no content; below it is a headline (may wrap to multiple lines) that stays fully within the page content width; optionally place a description below the headline, omitting it when there is no content; at the bottom is a primary button, optionally with a second button side by side, omitted when there is no content, without changing the position of the other elements.
+
+Tablet and mobile:
+- Tablet keeps the desktop layout.
+- The structure stays the same and scales proportionally: elements remain aligned left and stacked top to bottom, the description extends to nearly the full content width, and the two buttons stay side by side on one row; the headline stays fully within the viewport and does not overflow its edges.
+
+## Footer
+Create a footer whose height is determined by its content, placed at the very end of the page and scrolling with it. A divider spanning the full viewport width runs along the top edge of the footer. The content is split into several side-by-side columns of link groups, aligned to the page content width, with all columns top-aligned: the leftmost column holds the logo, and each remaining column is a group heading with text links stacked vertically below it; the columns are roughly equal in width. Below them is the bottom bar, with a divider above it spanning the full viewport width, flush with the left and right edges of the viewport: optionally place a small dropdown on one side, omitting it when there is no content, and a line of small text on the other side.
+
+Tablet and mobile:
+- Tablet uses the desktop layout.
+- Everything becomes a single column stacked top to bottom: the logo is centered at the top; the link groups become a vertical stack, all expanded and left-aligned. Both the divider along the top edge and the divider above the bottom bar are kept and span the full viewport width. The bottom bar becomes two stacked lines, centered: the small dropdown on top and the line of small text below. There is no motion.
+
+Notes:
+- When the page content is short, the footer still sits at the bottom of the viewport with no empty space below it.
+
+## Final check
+- The number and order of sections match the page outline, with no extra sections or elements.
+- At mobile, tablet and desktop widths there is no horizontal scrollbar and no text is clipped or overlapping.
+- No text or button touches the edge of its container (except where the specification says "flush").
+- The relationship between the header and the hero matches the specification, and the header covers no content.
+- Go through the "Do not" list item by item and remove anything that violates it.
+Fix anything that does not match before delivering.1d:I[49310,["$2"],"IconMark"]
+a:["$","$L18",null,{"data":{"counts":{"header":15,"hero":13,"content":87,"footer":15,"page":1},"gallery":{"header":[{"id":"header-bar-bare-logo-block-left-nav-right-reshapes-to-menu-only","v":"1cba0f0782e6","name":{"zh":"無底板頁首列＋貼齊左上的大標誌方塊、導覽右，捲動後只剩小標誌與選單按鈕","en":"Bare header bar with a large logo block flush top-left and navigation on the right, reduced to a small logo and menu button after scrolling"},"tags":[],"pinned":false},{"id":"header-bar-bare-logo-left-button-right-no-nav","v":"703e5035948c","name":{"zh":"無底板頁首列＋標誌左、主要按鈕右，沒有導覽連結","en":"Bare header bar with logo left and primary button right, no navigation"},"tags":["button"],"pinned":false},{"id":"header-bar-bare-logo-left-nav-center-dropdown-drawer","v":"42524a76e17b","name":{"zh":"無底板頁首列＋標誌左、導覽置中，下拉子選單，手機右側抽屜","en":"Bare header bar with logo left, centered navigation, dropdown submenu and right-side drawer on mobile"},"tags":["hover-interaction"],"pinned":false},{"id":"header-bar-bare-logo-left-nav-right-hide-on-scroll","v":"94426bb1b87f","name":{"zh":"無底板頁首列＋標誌左、導覽與按鈕右，往下捲動隱藏","en":"Bare header bar with logo left, navigation and button right, hides on scroll down"},"tags":["button"],"pinned":false},{"id":"header-bar-bare-logo-top-left-menu-button-bottom-right","v":"3e70c44acdcc","name":{"zh":"無底板頁首＋標誌左上、選單按鈕右下","en":"Bare header with logo top-left and menu button bottom-right"},"tags":[],"pinned":false},{"id":"header-bar-logo-center-nav-left-actions-right","v":"fdb78c723304","name":{"zh":"整列頁首＋標誌置中、導覽連結在左、功能區在右，下緣分隔線","en":"Header bar + logo centered, navigation links on the left, actions group on the right, bottom divider"},"tags":["divider"],"pinned":false},{"id":"header-bar-logo-center-overflow-drawer-reshapes-to-logo-left","v":"8bcfd377f523","name":{"zh":"整列頁首（大標誌置中、超出下緣）→ 捲動後縮成標誌靠左的矮頁首，側滑選單","en":"Full-width header (large centered logo overflowing its bottom edge) → shrinks to a shorter header with the logo on the left after scrolling, slide-in menu"},"tags":["button","divider"],"pinned":false},{"id":"header-bar-logo-left-nav-center-divider-drawer","v":"917ff03fdc49","name":{"zh":"整列頁首＋標誌左、導覽置中、功能區右，下緣分隔線，手機側邊抽屜選單","en":"Full-width header bar + logo left, navigation centered, actions right, bottom divider, mobile side drawer menu"},"tags":["divider","announcement-bar"],"pinned":false}],"hero":[{"id":"hero-center-slide-carousel-side-peeks-numbered-pagination","v":"7a1169fde262","name":{"zh":"中央投影片輪播＋左右露出相鄰投影片，下方編號分頁","en":"Centered-slide carousel with side peeks and numbered pagination"},"tags":["image","carousel","slideshow","button"],"pinned":false},{"id":"hero-fullbleed-slideshow-middle-left-headline","v":"3cb355f598c9","name":{"zh":"滿版輪播背景＋左側中段標題","en":"Full-bleed slideshow with middle-left headline"},"tags":["image","slideshow","headline","button"],"pinned":false},{"id":"hero-fullbleed-video-bottom-left-headline","v":"65a0ac26d714","name":{"zh":"滿版影片＋左下大標題","en":"Full-bleed video with bottom-left headline"},"tags":["video","headline"],"pinned":false},{"id":"hero-fullbleed-video-no-text-corner-info-card","v":"251dda8f30f5","name":{"zh":"滿版影片無文字＋右下資訊卡","en":"Full-bleed video, no text, corner info card"},"tags":["video","no-text","button"],"pinned":false},{"id":"hero-image-marquee-strip-bottom-text-band","v":"9d408743e9ef","name":{"zh":"上方圖片跑馬燈列＋下方留白文字帶","en":"Top image marquee strip + bottom blank text band"},"tags":["image","marquee","headline","staggered"],"pinned":false},{"id":"hero-inset-card-slideshow-bottom-strip-button","v":"7471a44cc444","name":{"zh":"左右留邊的輪播卡片＋中央直式主體圖，下方窄條放按鈕","en":"Side-margin slideshow card with a centered portrait image and a button strip below"},"tags":["image","slideshow","carousel","card","button","vertical-text"],"pinned":false},{"id":"hero-inset-card-slideshow-centered-headline-strip-text","v":"938b51b656a4","name":{"zh":"四邊留邊的圓角輪播卡片＋中央大標題，卡片下方一行置中文字","en":"Rounded slideshow card with margins on all sides, centered headline and a centered line of text below"},"tags":["image","slideshow","card","headline"],"pinned":false},{"id":"hero-inset-card-video-centered-headline-pinned-cover","v":"ddfbd92fcac0","name":{"zh":"四邊留邊的影片卡片＋置中大標題，固定後被下一段蓋過","en":"Inset video card with centered headline, pinned and covered by the next section"},"tags":["video","card","headline","pin"],"pinned":true}],"content":[{"id":"content-carousel-bleed-frameless-cards-arrows-right","v":"75875ebeb987","name":{"zh":"出血無外框卡片輪播＋右下箭頭","en":"Bleeding frameless card carousel with arrows at bottom right"},"tags":["image","video","button","overlap","intro-animation"],"pinned":false},{"id":"content-carousel-cards-heading-arrows","v":"8c8478ba2054","name":{"zh":"標題列右側箭頭＋方形圖片卡片輪播","en":"Heading row with right-side arrows + square-image card carousel"},"tags":["image","card","button"],"pinned":false},{"id":"content-carousel-centered-bleed-both-edges-arrows","v":"65728869ca1f","name":{"zh":"兩端出血的置中方形圖片輪播＋箭頭","en":"Centered square-image carousel bleeding off both edges + arrows"},"tags":["image","card","button","overlap"],"pinned":false},{"id":"content-carousel-edge-bleed-progress-bar","v":"09ee970d1ea7","name":{"zh":"向右出血的直式圖片輪播＋進度條","en":"Right-bleeding portrait image carousel + progress bar"},"tags":["image","divider"],"pinned":false},{"id":"content-carousel-image-cards-pager","v":"795ac9c4abeb","name":{"zh":"跨界置中標題＋圖片卡片輪播與頁碼控制","en":"Boundary-straddling centered heading + image card carousel with page counter"},"tags":["image","button","overlap"],"pinned":false},{"id":"content-carousel-numbered-image-cards","v":"fc9a0255f993","name":{"zh":"置中標題＋附序號與圖片的項目輪播","en":"Centered heading + carousel of numbered items with an image"},"tags":["image","button"],"pinned":false},{"id":"content-carousel-panel-cards-side-arrows","v":"0ca92daf91ad","name":{"zh":"靠左標題＋底色面板內的卡片輪播（兩側箭頭）","en":"Left-aligned heading + card carousel inside a tinted panel (side arrows)"},"tags":["card","image","button","divider","overlap"],"pinned":false},{"id":"content-carousel-portrait-cards-bleed-dividers","v":"4b2284dcefa6","name":{"zh":"出血卡片輪播（分隔線框出卡片、兩側箭頭與分頁點）","en":"Bleeding card carousel (divider-framed cards, side arrows and dots)"},"tags":["image","divider","autoplay"],"pinned":false}],"footer":[{"id":"footer-centered-brand-link-row-logo-bottom-bar","v":"d5baa5dd76d8","name":{"zh":"置中的標誌＋橫向連結列，下方小標誌與一行小字","en":"Centered logo + horizontal link row, with a small logo and a line of small text below"},"tags":["divider"],"pinned":false},{"id":"footer-centered-stack-divider-bottom-bar","v":"2f4fae7d10f5","name":{"zh":"置中堆疊：標誌＋圖示連結＋文字連結列＋底部列","en":"Centered stack: logo + icon links + text link rows + bottom bar"},"tags":["divider","image"],"pinned":false},{"id":"footer-columns-brand-link-groups-divider-bottom-bar","v":"25dabea4ccbb","name":{"zh":"標誌欄＋數欄連結群組＋分隔線＋底部列","en":"Logo column + link group columns + divider + bottom bar"},"tags":["divider"],"pinned":false},{"id":"footer-four-columns-brand-link-groups-bottom-bar","v":"04883e7c0e3a","name":{"zh":"四欄等寬：品牌欄＋連結群組＋底部列","en":"Four equal columns: brand column + link groups + bottom bar"},"tags":["image"],"pinned":false},{"id":"footer-link-row-dividers-icon-bottom-bar","v":"e3e5122868d6","name":{"zh":"分隔線夾住的橫向文字連結列＋圖示連結底部列","en":"Divider-framed row of text links + bottom bar with icon links"},"tags":["divider"],"pinned":false},{"id":"footer-split-brand-illustration-link-columns-icon-links","v":"71bb557a1600","name":{"zh":"左品牌區＋插圖＋右兩欄文字連結","en":"Left brand block + illustration + right two text-link columns"},"tags":["image"],"pinned":false},{"id":"footer-split-brand-info-button-icon-links","v":"bf0a5d2b0eee","name":{"zh":"左品牌區＋資訊文字＋右按鈕與小圖示連結","en":"Left brand block with info text + right button and icon links"},"tags":[],"pinned":false},{"id":"footer-split-brand-info-icon-links-link-columns-bottom-bar","v":"c94efdb6a3d6","name":{"zh":"左品牌區＋右側文字連結＋分隔線底部列","en":"Left brand block + right text link columns + bottom bar with divider"},"tags":["divider"],"pinned":false}]},"mock":{"header":{"id":"header-bar-logo-left-nav-right-dropdown-solidify","v":"b869c02409fe","name":{"zh":"整列頁首＋標誌左、導覽右，滑過展開子連結，捲動後出現底板","en":"Full-width header bar + logo left, navigation right, hover dropdown, gains a background panel after scrolling"},"tags":["button","divider","hover-interaction"],"pinned":false},"hero":{"id":"hero-split-text-left-image-right-marquee-band","v":"e4720a8ef4ee","name":{"zh":"左文右圖＋底部超大跑馬燈文字","en":"Split text left, image right, giant marquee band"},"tags":["image","split","headline","marquee","overlap"],"pinned":false},"cards":[{"id":"hero-center-slide-carousel-side-peeks-numbered-pagination","v":"7a1169fde262","name":"$a:props:data:gallery:hero:0:name","tags":"$a:props:data:gallery:hero:0:tags","pinned":false},{"id":"hero-split-text-left-image-right-marquee-band","v":"e4720a8ef4ee","name":"$a:props:data:mock:hero:name","tags":"$a:props:data:mock:hero:tags","pinned":false},{"id":"hero-fullbleed-slideshow-middle-left-headline","v":"3cb355f598c9","name":"$a:props:data:gallery:hero:1:name","tags":"$a:props:data:gallery:hero:1:tags","pinned":false},{"id":"hero-fullbleed-video-bottom-left-headline","v":"65a0ac26d714","name":"$a:props:data:gallery:hero:2:name","tags":"$a:props:data:gallery:hero:2:tags","pinned":false}],"selected":"hero-split-text-left-image-right-marquee-band"},"sample":{"count":6,"prompt":{"zh":"$19","en":"$1a"}}},"lang":"zh","repoUrl":"https://github.com/chi47-T/pasteup"}]
+b:["$","script","script-0",{"src":"/_next/static/chunks/2bqglst_4fayv.js","async":true,"nonce":"$undefined"}]
+c:["$","script","script-1",{"src":"/_next/static/chunks/2jmn95ig3z-kf.js","async":true,"nonce":"$undefined"}]
+d:["$","$L1b",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
+10:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+14:[["$","title","0",{"children":"PASTEUP｜用版面區塊組出 Landing Page 提示詞，告別 AI slop"}],["$","meta","1",{"name":"description","content":"像排版一樣挑選頁首、主視覺、內容區塊與頁尾，即時預覽電腦與手機版，一鍵產生完整的 Landing Page 提示詞。"}],["$","link","2",{"rel":"canonical","href":"https://pasteupai.com/zh"}],["$","link","3",{"rel":"alternate","hrefLang":"en","href":"https://pasteupai.com"}],["$","link","4",{"rel":"alternate","hrefLang":"zh-Hant","href":"https://pasteupai.com/zh"}],["$","link","5",{"rel":"alternate","hrefLang":"x-default","href":"https://pasteupai.com"}],["$","meta","6",{"property":"og:title","content":"PASTEUP｜用版面區塊組出 Landing Page 提示詞，告別 AI slop"}],["$","meta","7",{"property":"og:description","content":"像排版一樣挑選頁首、主視覺、內容區塊與頁尾，即時預覽電腦與手機版，一鍵產生完整的 Landing Page 提示詞。"}],["$","meta","8",{"property":"og:url","content":"https://pasteupai.com/zh"}],["$","meta","9",{"property":"og:site_name","content":"PASTEUP"}],["$","meta","10",{"property":"og:locale","content":"zh_TW"}],["$","meta","11",{"property":"og:image","content":"https://pasteupai.com/opengraph-image.png"}],["$","meta","12",{"property":"og:image:type","content":"image/png"}],["$","meta","13",{"property":"og:image:width","content":"1200"}],["$","meta","14",{"property":"og:image:height","content":"630"}],["$","meta","15",{"property":"og:image:alt","content":"PASTEUP：用版面區塊組出 Landing Page，拿到完整提示詞"}],["$","meta","16",{"property":"og:type","content":"website"}],["$","meta","17",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","18",{"name":"twitter:title","content":"PASTEUP｜用版面區塊組出 Landing Page 提示詞，告別 AI slop"}],["$","meta","19",{"name":"twitter:description","content":"像排版一樣挑選頁首、主視覺、內容區塊與頁尾，即時預覽電腦與手機版，一鍵產生完整的 Landing Page 提示詞。"}],["$","meta","20",{"name":"twitter:image","content":"https://pasteupai.com/opengraph-image.png"}],["$","meta","21",{"name":"twitter:image:alt","content":"PASTEUP：用版面區塊組出 Landing Page，拿到完整提示詞"}],["$","meta","22",{"name":"twitter:image:type","content":"image/png"}],["$","meta","23",{"name":"twitter:image:width","content":"1200"}],["$","meta","24",{"name":"twitter:image:height","content":"630"}],["$","link","25",{"rel":"icon","href":"/favicon.ico?favicon.12swzxxciphz_.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","26",{"rel":"icon","href":"/icon.svg?icon.1tt_f4b8d2gin.svg","sizes":"any","type":"image/svg+xml"}],["$","link","27",{"rel":"apple-touch-icon","href":"/apple-icon.png?apple-icon.2kvrodqd6j90l.png","sizes":"180x180","type":"image/png"}],["$","$L1d","28",{}]]
+1c:null

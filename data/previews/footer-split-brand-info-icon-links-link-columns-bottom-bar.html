@@ -1,0 +1,41 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0 0; overflow-x: clip; }
+    .lb-root .top { display: flex; justify-content: space-between; align-items: flex-start; gap: calc(var(--lb-gap) * 4); }
+    .lb-root .brand { width: 25%; display: flex; flex-direction: column; gap: var(--lb-gap); align-items: flex-start; }
+    .lb-root .brand .lb-text, .lb-root .brand .lb-small { width: 100%; }
+    .lb-root .info { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+    .lb-root .icons { display: flex; gap: var(--lb-gap); }
+    .lb-root .icons .lb-icon { width: 24px; height: 24px; }
+    .lb-root .cols { width: 25%; display: flex; justify-content: flex-end; align-items: flex-start; gap: calc(var(--lb-gap) * 2); padding-top: 64px; }
+    .lb-root .col { display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .bottom { margin-top: var(--lb-space); }
+    .lb-root .bottom-row { display: flex; justify-content: space-between; align-items: center; gap: var(--lb-gap); padding: var(--lb-pad) 0; }
+    @media (max-width: 640px) {
+      .lb-root .top { flex-direction: column; align-items: center; }
+      .lb-root .brand { width: 100%; align-items: center; text-align: center; }
+      .lb-root .info { align-items: center; }
+      .lb-root .icons { justify-content: center; }
+      .lb-root .cols { display: none; }
+      .lb-root .bottom-row { flex-direction: column; text-align: center; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="top">
+      <div class="brand">
+        <span class="lb-logo">Logo</span>
+        <span class="lb-h3">Subtitle</span>
+        <div class="info"><span class="lb-small">Secondary info text line</span><span class="lb-small">Secondary info text line</span><span class="lb-small">Secondary info text</span></div>
+        <div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+      </div>
+      <div class="cols">
+        <div class="col"><span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span></div>
+        <div class="col"><span class="lb-link">Link four</span><span class="lb-link">Link five</span><span class="lb-link">Link six</span></div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="lb-divider"></div>
+      <div class="bottom-row"><span class="lb-small">Small print left</span><span class="lb-small">Small print right</span></div>
+    </div>
+  </div>
+</footer>

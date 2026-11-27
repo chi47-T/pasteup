@@ -1,0 +1,173 @@
+# PASTEUP
+
+> PASTEUP is a free landing-page prompt generator, built to cut down on generic AI slop. Pick a header, hero, content sections and footer from ready-made layout blocks, and the composer turns the whole layout into one complete prompt, so the AI builds the layout you chose instead of guessing.
+
+PASTEUP is a free web app with no sign-up. The interface and the generated prompts are available in English and Traditional Chinese (zh-Hant).
+
+## Pages
+
+- [Home (English)](https://pasteupai.com): what PASTEUP does, the block library, a sample full-page prompt and FAQ
+- [Home (Traditional Chinese)](https://pasteupai.com/zh): the same page in Traditional Chinese
+- [Composer](https://pasteupai.com/compose): pick blocks, preview desktop and mobile, copy the full-page or per-block prompt
+
+## FAQ
+
+### What is PASTEUP?
+
+PASTEUP is a free landing-page prompt generator, built to cut down on generic AI slop. Pick a header, hero, content sections and footer from ready-made layout blocks, and the composer turns the whole layout into one complete prompt, so the AI builds the layout you chose instead of guessing.
+
+### Do I need an account or to pay?
+
+No. Open the composer and start; there is no sign-up, and prompts copy straight to your clipboard.
+
+### Where can I use the prompt?
+
+Paste it into any AI tool. The full-page prompt describes every block at once, or copy a single block’s prompt to replace one section of a page.
+
+### Which blocks are available?
+
+130 blocks so far, in four groups: header, hero, content and footer. Each one comes with style notes and the media types it works with.
+
+## Block library (130 blocks)
+
+### Headers (15)
+
+- Bare header bar with a large logo block flush top-left and navigation on the right, reduced to a small logo and menu button after scrolling (無底板頁首列＋貼齊左上的大標誌方塊、導覽右，捲動後只剩小標誌與選單按鈕)
+- Bare header bar with logo left and primary button right, no navigation (無底板頁首列＋標誌左、主要按鈕右，沒有導覽連結)
+- Bare header bar with logo left, centered navigation, dropdown submenu and right-side drawer on mobile (無底板頁首列＋標誌左、導覽置中，下拉子選單，手機右側抽屜)
+- Bare header bar with logo left, navigation and button right, hides on scroll down (無底板頁首列＋標誌左、導覽與按鈕右，往下捲動隱藏)
+- Bare header with logo top-left and menu button bottom-right (無底板頁首＋標誌左上、選單按鈕右下)
+- Header bar + logo centered, navigation links on the left, actions group on the right, bottom divider (整列頁首＋標誌置中、導覽連結在左、功能區在右，下緣分隔線)
+- Full-width header (large centered logo overflowing its bottom edge) → shrinks to a shorter header with the logo on the left after scrolling, slide-in menu (整列頁首（大標誌置中、超出下緣）→ 捲動後縮成標誌靠左的矮頁首，側滑選單)
+- Full-width header bar + logo left, navigation centered, actions right, bottom divider, mobile side drawer menu (整列頁首＋標誌左、導覽置中、功能區右，下緣分隔線，手機側邊抽屜選單)
+- Header bar with logo left, navigation and actions right, dividers, hides on scroll down (整列頁首＋標誌左、導覽與功能區右，上下分隔線，往下捲動隱藏)
+- Full-width header bar + logo left, navigation right, hover dropdown, gains a background panel after scrolling (整列頁首＋標誌左、導覽右，滑過展開子連結，捲動後出現底板)
+- Full-width header bar + logo left, navigation, input and icon buttons on the right, bottom tab bar on mobile (整列頁首＋標誌左、導覽與輸入框和圖示按鈕靠右，手機改底部分頁列)
+- Header bar with logo left, two-row navigation on the right and a flush primary button; shrinks to navigation only on scroll (整列頁首＋標誌左、兩列導覽靠右、貼邊主要按鈕，捲動後變矮並只留導覽)
+- Non-fixed header bar with logo left, navigation and actions right, mega panel on hover (整列頁首（不固定）＋標誌左、導覽與功能區右，滑過展開大型面板)
+- Floating header with no backing (logo + menu button) → navigation container appears on the right after scrolling (無底板浮動頁首（標誌＋選單按鈕）→ 捲動後右側出現導覽容器)
+- Centered floating header (all corners rounded) + logo left, navigation centered, menu button right, menu expands into a large panel (置中浮動頁首（四角圓角）＋標誌左、導覽置中、選單按鈕右，選單往下延伸成大面板)
+
+### Heroes (13)
+
+- Centered-slide carousel with side peeks and numbered pagination (中央投影片輪播＋左右露出相鄰投影片，下方編號分頁)
+- Full-bleed slideshow with middle-left headline (滿版輪播背景＋左側中段標題)
+- Full-bleed video with bottom-left headline (滿版影片＋左下大標題)
+- Full-bleed video, no text, corner info card (滿版影片無文字＋右下資訊卡)
+- Top image marquee strip + bottom blank text band (上方圖片跑馬燈列＋下方留白文字帶)
+- Side-margin slideshow card with a centered portrait image and a button strip below (左右留邊的輪播卡片＋中央直式主體圖，下方窄條放按鈕)
+- Rounded slideshow card with margins on all sides, centered headline and a centered line of text below (四邊留邊的圓角輪播卡片＋中央大標題，卡片下方一行置中文字)
+- Inset video card with centered headline, pinned and covered by the next section (四邊留邊的影片卡片＋置中大標題，固定後被下一段蓋過)
+- Full-bleed slideshow with a left text group and a pagination strip below (滿版輪播＋左側標題組，下方窄條放分頁點)
+- Half-and-half split: portrait image left, centered text right (左右對半：左側直式圖片＋右側置中文字)
+- Split text left, diagonal image pair right (左文右圖＋斜線切分的雙圖)
+- Split text left, illustration right, with straddling bottom card (左文右插圖分欄＋跨界底部卡片)
+- Split text left, image right, giant marquee band (左文右圖＋底部超大跑馬燈文字)
+
+### Content sections (87)
+
+- Bleeding frameless card carousel with arrows at bottom right (出血無外框卡片輪播＋右下箭頭)
+- Heading row with right-side arrows + square-image card carousel (標題列右側箭頭＋方形圖片卡片輪播)
+- Centered square-image carousel bleeding off both edges + arrows (兩端出血的置中方形圖片輪播＋箭頭)
+- Right-bleeding portrait image carousel + progress bar (向右出血的直式圖片輪播＋進度條)
+- Boundary-straddling centered heading + image card carousel with page counter (跨界置中標題＋圖片卡片輪播與頁碼控制)
+- Centered heading + carousel of numbered items with an image (置中標題＋附序號與圖片的項目輪播)
+- Left-aligned heading + card carousel inside a tinted panel (side arrows) (靠左標題＋底色面板內的卡片輪播（兩側箭頭）)
+- Bleeding card carousel (divider-framed cards, side arrows and dots) (出血卡片輪播（分隔線框出卡片、兩側箭頭與分頁點）)
+- Left-aligned heading + portrait image card carousel bleeding to the right edge (靠左標題＋延伸到右緣的直式圖片卡片輪播)
+- Split-card carousel (neighbors peeking on both sides, arrows straddling the card edges) (左右分欄大卡片輪播（兩側露出相鄰卡片、箭頭跨在卡片邊緣）)
+- Split heading + square image card carousel (arrows over the images) (左右分開標題＋方形圖片卡片輪播（箭頭疊在圖片上）)
+- Square-image card carousel with top-right arrows (方形圖卡輪播＋右上箭頭)
+- Centered heading group straddling the boundary + multi-image carousel with page-counter controls (置中標題組跨在交界上＋多圖輪播與頁碼控制列)
+- Centered heading + two-up card carousel (arrows and counter) (置中標題＋雙卡輪播（箭頭與頁碼）)
+- Centered heading group + carousel of items with vertical labels and dividers (置中標題組＋直向小標籤卡片輪播＋分隔線)
+- Large feature card + four-up small card collage (左側大卡片＋右側四格小卡片拼貼)
+- One-large-four-small collage: feature image with overlapping text panel + square tile grid (大圖疊文字區＋方形小卡網格的一大四小拼貼)
+- One-large two-small image collage + bottom-right caption panel (一大兩小圖片拼貼＋右下角文字面板)
+- Narrow card and image card side by side + text panel overlapping the bottom-right corner (窄卡片＋圖片卡片並排，右下角疊文字面板)
+- Centered title + two side-by-side wide buttons (置中標題＋兩顆並排寬按鈕)
+- Wide video card + heading, description and button spread to the corners (寬幅影片卡片＋四角分散的標題、說明與按鈕)
+- Left-aligned call-to-action section (logo + headline + description + side-by-side buttons) (靠左行動呼籲段（標誌＋標題＋說明＋並排按鈕）)
+- Centered heading group + centered single-column form + bottom-edge divider (置中標題組＋置中單欄表單＋區塊下緣分隔線)
+- Centered heading + one row of image cards (label overlapping the image's bottom edge) + centered button (置中標題＋一列圖片卡片（小標籤壓在圖片下緣）＋置中按鈕)
+- Centered heading + circular image grid (置中標題＋圓形圖片網格)
+- Featured side-by-side item + three-column grid + centered button (精選圖文並排＋三欄網格＋置中按鈕)
+- Full-bleed grid with grid lines, centered cells and a centered text link (滿版格線網格＋格內置中圖文＋置中文字連結)
+- Centered heading + grouped grid with header bars (置中標題＋分群標題列網格)
+- Centered heading + row of icon cards + small image-and-text row (置中標題＋一列圖示卡片＋底部小圖文列)
+- Left-aligned title + image card grid + centered button (靠左標題＋圖片卡片網格＋置中按鈕)
+- Four-column image card grid with centered button (carousel on mobile) (四欄圖片卡片網格＋置中按鈕（手機改橫向滑動）)
+- Centered heading + two side-by-side item cards inside an inset card (內縮卡片裡的置中標題＋兩張並排項目卡片)
+- Three-column image-and-text card grid + icon panel (button straddling the panel's bottom edge) (三欄圖文卡片網格＋圖示面板（按鈕跨在面板下緣）)
+- Centered heading + dense grid of small images (置中標題＋小型圖片密集網格)
+- Inset card + centered heading + grid of square images with overlaid text (內縮卡片＋置中標題＋方形圖片疊字網格)
+- Portrait image grid (title and secondary text side by side, spanning button at the bottom) (直式圖片網格（標題與次要文字左右並排、底部橫跨按鈕）)
+- Portrait image grid with overlaid top-left titles (直式圖片網格＋圖上左上標題)
+- Side heading group + two-per-row text card grid (側邊標題組＋每列兩張文字卡片網格)
+- Side-column heading with a single-row grid of equal-width square-image items (側欄標題＋單列等寬方圖網格)
+- Left heading + small square framed image grid (靠左標題＋小型方形外框圖片網格)
+- Four-column grid of square images + centered captions (方形圖片四欄網格＋置中說明文字)
+- Two-row square image grid (two-row horizontal swipe on mobile) (兩列方形圖片網格（手機改兩列橫向滑動）)
+- Centered heading + three-column divided grid in a container card + straddling button (置中標題＋卡片容器內三欄分隔網格＋跨邊按鈕)
+- Three-column full-bleed grid with grid lines (portrait image + text link) (三欄滿版格線網格（直式圖片＋文字連結）)
+- Equal-size card grid + connected tab button group at top right (等尺寸卡片網格＋右上相連分頁按鈕群組)
+- Two large side-by-side cards (image band on top, label on the seam, spanning button) (兩張大卡片並排（上方圖片帶、標籤壓在交界、橫跨按鈕）)
+- Two side-by-side image cards (title bottom-left, arrow icon button bottom-right) (兩張並排圖片卡片（左下標題、右下箭頭圖示按鈕）)
+- Two full-bleed image tiles side by side with bottom-left overlay text (兩格滿版圖片並排＋左下疊字)
+- Two equal square cards + right-side vertical heading column (兩張等大方形卡片＋右側直排標題欄)
+- Two-column wide image band with inset text (兩欄寬幅圖片帶並排＋內縮文字)
+- Centered heading group + divided grid of vertical secondary text beside landscape images (置中標題組＋直排次要文字搭配橫式圖片的分隔線網格)
+- Centered heading + one wide card above two side-by-side image-left cards (置中標題＋一張寬卡片在上、兩張左圖右文卡片並排)
+- Link list of rows with a pair of portrait images on the right (連結直列＋右側並排直式雙圖)
+- Centered heading + image-left text-right list rows (dividers between rows) (置中標題＋左圖右文直列（列間分隔線）)
+- Left-aligned heading + image-left text-right rows with dividers (靠左標題＋圖左文右的分隔線直列)
+- Pinned side heading group + vertical card list (固定側欄標題組＋直向卡片列)
+- Split heading group + single-panel list of rows (左右分開的標題組＋單一面板直列清單)
+- Side heading column + title row list (側邊標題欄＋標題列列表)
+- Pinned side heading group + horizontal card rows (側欄固定標題組＋橫向卡片直列)
+- Side heading group + thumbnail rows list (card section) (側欄標題組＋縮圖圖文直列（卡片區塊）)
+- Split list of rows + single image column (分欄直列＋右欄單張圖片)
+- Zebra-striped list card + side image card (交替底色直列卡＋側邊圖片引導卡)
+- Oversized headline marquee with scattered images (超大標題跑馬燈＋散置圖片)
+- Text card + vertical image marquee card side by side (文字卡＋直向圖片跑馬燈卡並排)
+- Vertically flowing image walls on both sides with a central vertical title (左右直向流動圖片牆＋中間直排標題)
+- Wide image slideshow + centered heading group below (寬幅圖片輪播＋下方置中標題組)
+- Text and image split + accordion + small image row (左文右圖＋收合清單＋小圖片列)
+- Alternating square image and text pairs, text aligned toward the image (多組方形圖文左右交錯，文字靠向圖片)
+- Narrow text column with a bleeding landscape image (窄文字欄＋出血橫式大圖圖文並排)
+- Text left, image right + image cropped by the section bottom (左文右圖＋圖片下緣被區塊裁切)
+- Narrow side-by-side media and text (text left, circular image right) (窄版圖文並排（左文右圓形圖片）)
+- Split image-collage link card + centered text group (圖片拼貼連結卡片＋置中文字組的圖文並排)
+- Text left, image right + image flush with the section top and the screen's right edge (左文右圖＋圖片貼齊區塊上緣與畫面右緣)
+- Large image left + right column with small image and right-aligned text (大圖靠左＋右欄小圖與靠右文字)
+- Text left + three overlapping staggered images right (左文右三圖錯落重疊拼貼)
+- Text left, image right + two overlapping staggered images (左文右圖＋兩張重疊錯位圖片)
+- Pinned centered vertical text + portrait images passing on alternating sides (固定的置中直排文字＋兩側交錯經過的直式圖片)
+- Portrait image + small top-right image + low-set text column (直式大圖＋右上小圖＋下沉文字欄)
+- Left text column + right portrait image slideshow (文字左欄＋右側直式圖片輪播)
+- Text left + image slideshow right with overlapping thumbnail (左文右圖輪播＋疊角小圖)
+- Square image on the left + list of text items on the right (左側方形圖片＋右側直列文字項目)
+- Two-column image stack + top-aligned text column (兩直欄圖片群＋靠上文字欄)
+- Large landscape image + vertical-heading panel overlapping its bottom-left corner (大橫圖＋壓在圖片左下角的直排標題面板)
+- Centered heading + horizontal step cards connected by arrows (置中標題＋橫排步驟卡片與箭頭連接)
+- Top divider + centered title and subheading (上緣分隔線＋置中標題與副標)
+- Left-aligned title text + stat box at bottom right (靠左標題文字段＋右下角數據框)
+- Straddling centered heading + wrapping button group (跨界置中標題＋自動換行的按鈕群組)
+
+### Footers (15)
+
+- Centered logo + horizontal link row, with a small logo and a line of small text below (置中的標誌＋橫向連結列，下方小標誌與一行小字)
+- Centered stack: logo + icon links + text link rows + bottom bar (置中堆疊：標誌＋圖示連結＋文字連結列＋底部列)
+- Logo column + link group columns + divider + bottom bar (標誌欄＋數欄連結群組＋分隔線＋底部列)
+- Four equal columns: brand column + link groups + bottom bar (四欄等寬：品牌欄＋連結群組＋底部列)
+- Divider-framed row of text links + bottom bar with icon links (分隔線夾住的橫向文字連結列＋圖示連結底部列)
+- Left brand block + illustration + right two text-link columns (左品牌區＋插圖＋右兩欄文字連結)
+- Left brand block with info text + right button and icon links (左品牌區＋資訊文字＋右按鈕與小圖示連結)
+- Left brand block + right text link columns + bottom bar with divider (左品牌區＋右側文字連結＋分隔線底部列)
+- Top-left brand block + bottom link row + large bottom-right button (左上品牌區＋底部連結列＋右下大按鈕)
+- Left logo + right multi-column links + divider + row of small-image cards + full-bleed band bottom bar (左標誌＋右多欄連結＋分隔線＋一排小圖卡片＋滿版色帶底部列)
+- Narrow brand column + multi-column link groups + full-width divided bottom bar (左窄品牌欄＋右數欄連結群組＋全寬分隔底部列)
+- Left brand block + right multi-column link groups + bottom-right wordmark (左品牌區＋右數欄連結群組＋右下大字標)
+- Left logo + right link groups (heading beside links) + vertical back-to-top button + centered small text (左標誌＋右側連結群組（小標題在連結左側）＋直式回到頂端按鈕＋置中小字)
+- Left logo + right stacked link-group columns + vertical back-to-top label (左標誌＋右三欄堆疊連結群組＋回到頂端直向小字)
+- Split by a vertical divider + horizontal link row + centered bottom bar (直向分隔線左右分區＋橫向連結列＋置中底部列)

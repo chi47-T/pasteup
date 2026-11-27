@@ -1,0 +1,42 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: 0 0 var(--lb-space); }
+    .lb-root .head { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); margin-top: -2.5rem; margin-bottom: var(--lb-space); }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .lb-root .item { display: flex; flex-direction: column; gap: var(--lb-gap); padding: 0 var(--lb-pad); border-left: 1px solid var(--lb-line); min-width: 0; }
+    .lb-root .item:nth-child(3n+1) { border-left: 0; }
+    .lb-root .top { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--lb-gap); align-items: start; }
+    .lb-root .meta { display: flex; flex-direction: row; align-items: center; gap: 0.5rem; writing-mode: vertical-rl; transform: rotate(180deg); flex: none; }
+    .lb-root .meta .bar { width: 1px; height: 1.25rem; background: var(--lb-line); }
+    .lb-root .pic { width: 100%; min-width: 0; aspect-ratio: 4 / 3; transition: transform .3s; }
+    .lb-root[data-tilt] .item:hover .pic { transform: rotate(-2deg); }
+    .lb-root .foot { display: flex; justify-content: center; margin-top: var(--lb-space); }
+    @media (hover: none) { .lb-root[data-tilt] .item:hover .pic { transform: none; } }
+    @media (max-width: 640px) {
+      .lb-root .head { padding-inline: var(--lb-gutter); }
+      .lb-root .grid { grid-template-columns: 1fr; }
+      .lb-root .item { border-left: 0; padding: var(--lb-pad) 0; border-top: 1px solid var(--lb-line); }
+      .lb-root .item:first-child { border-top: 0; }
+    }
+    /* 跨在交界上：區塊上方用自己的留白（不是外距）容納往上移的標題組，留白和頁面同色、下方才是本區塊的底色，整個區塊不透明，只有標題組往上移，不蓋到上一個區塊 */
+    .lb-root { --shift: calc(19px + var(--lb-gap) + clamp(24px, 2.8vw, 40px) * 0.6); margin-top: 0; padding-top: var(--shift); background: var(--lb-surface-2); position: relative; z-index: 1; }
+    .lb-root .head { position: relative; z-index: 1; margin-top: 0; transform: translateY(calc(-1 * var(--shift))); margin-bottom: calc(var(--lb-space) - var(--shift)); }
+    .lb-root::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: var(--shift); background: var(--lb-bg); z-index: 0; pointer-events: none; }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <span class="lb-label">Label</span>
+      <h2 class="lb-h2 lb-center">Headline goes here<br>second line</h2>
+      <p class="lb-text lb-center">Short description text goes here</p>
+    </div>
+    <div class="grid">
+      <div class="item"><div class="top"><div class="meta"><span class="lb-small lb-vertical">Meta text</span><span class="bar"></span><span class="lb-small lb-vertical">Meta two</span></div><div class="lb-img pic"></div></div><h3 class="lb-h3">Item title goes here</h3></div>
+      <div class="item"><div class="top"><div class="meta"><span class="lb-small lb-vertical">Meta text</span><span class="bar"></span><span class="lb-small lb-vertical">Meta two</span></div><div class="lb-img pic"></div></div><h3 class="lb-h3">Item title goes here</h3></div>
+      <div class="item"><div class="top"><div class="meta"><span class="lb-small lb-vertical">Meta text</span></div><div class="lb-img pic"></div></div><h3 class="lb-h3">Item title goes here</h3></div>
+    </div>
+    <div class="foot"><a class="lb-btn">View all</a></div>
+  </div>
+  <script type="text/lb">
+    if (ctx.extras.includes(0)) root.setAttribute('data-tilt', '');
+  </script>
+</section>

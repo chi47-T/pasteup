@@ -1,0 +1,57 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; display: flex; flex-direction: column; overflow-x: clip; height: 100vh; }
+    .lb-root[data-header="overlay"] { height: 100vh; padding-top: var(--header-h); box-sizing: border-box; }
+    .lb-root[data-header="below"], .lb-root[data-header="inset"] { height: calc(100vh - var(--header-h)); }
+    .lb-root[data-header="after"] { height: 100vh; }
+    .lb-root .strip { flex: 7 1 0; min-height: 0; overflow: hidden; }
+    .lb-root .track { display: flex; gap: 4px; height: 100%; width: max-content; animation: lb-marq 40s linear infinite; }
+    .lb-root .track .lb-img { flex: none; height: 100%; width: 30vw; }
+    @keyframes lb-marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .lb-root .band { flex: 3 1 0; min-height: 0; position: relative; display: flex; align-items: center; gap: var(--lb-gap); padding: 0 var(--lb-gutter); background: var(--lb-bg); }
+    .lb-root .mark { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .lb-root .mark .lb-img { width: 48px; height: 48px; }
+    .lb-root .title { width: 30vw; }
+    .lb-root .title .lb-h1 { display: block; }
+    .lb-root .title .l2 { padding-left: 1.5em; }
+    .lb-root .title .l3 { padding-left: 3em; }
+    .lb-root .ill { width: 64px; height: 64px; margin-left: auto; margin-right: 140px; }
+    .lb-root .hint { position: absolute; right: var(--lb-gutter); top: 16px; display: flex; align-items: center; gap: 8px; }
+    .lb-root .arrow { animation: lb-bob 1.4s ease-in-out infinite; }
+    @keyframes lb-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    @media (max-width: 640px) {
+      .lb-root { flex-direction: column-reverse; }
+      .lb-root[data-header="overlay"] { height: 90vh; }
+      .lb-root[data-header="below"], .lb-root[data-header="inset"] { height: calc(90vh - var(--header-h)); }
+      .lb-root[data-header="after"] { height: 90vh; }
+      .lb-root .strip { flex: 2 1 0; }
+      .lb-root .band { flex: 1 1 0; align-items: flex-start; padding-top: 16px; }
+      .lb-root .track .lb-img { width: 42vw; }
+      .lb-root .title { width: auto; flex: 1; }
+      .lb-root .ill { position: absolute; right: var(--lb-gutter); bottom: 12px; margin: 0; width: 44px; height: 44px; }
+      .lb-root .hint { right: auto; left: var(--lb-gutter); top: auto; bottom: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .lb-root .track, .lb-root .arrow { animation: none; } }
+  </style>
+  <div class="strip">
+    <div class="track">
+      <div class="lb-img lb-flat"></div><div class="lb-img lb-flat"></div><div class="lb-img lb-flat"></div>
+      <div class="lb-img lb-flat"></div><div class="lb-img lb-flat"></div><div class="lb-img lb-flat"></div>
+      <div class="lb-img lb-flat"></div><div class="lb-img lb-flat"></div><div class="lb-img lb-flat"></div>
+      <div class="lb-img lb-flat"></div><div class="lb-img lb-flat"></div><div class="lb-img lb-flat"></div>
+    </div>
+  </div>
+  <div class="band">
+    <div class="mark">
+      <div class="lb-img lb-notag"></div>
+      <div class="lb-small">Secondary text</div>
+    </div>
+    <div class="title">
+      <span class="lb-h1">Headline</span>
+      <span class="lb-h1 l2">goes here</span>
+      <span class="lb-h1 l3">today</span>
+    </div>
+    <div class="ill lb-img lb-notag"></div>
+    <div class="hint" data-acc="0"><span class="lb-label">Scroll</span><span class="arrow lb-icon"></span></div>
+  </div>
+</section>

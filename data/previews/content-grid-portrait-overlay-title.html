@@ -1,0 +1,25 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .head { margin-bottom: var(--lb-gap); }
+    .lb-root .head .lb-h3 { margin: 0; }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--lb-gap); }
+    .lb-root .item { position: relative; min-width: 0; }
+    .lb-root .item .lb-img { width: 100%; aspect-ratio: 3 / 4; display: block; }
+    .lb-root .item .ttl { position: absolute; top: var(--lb-pad); left: var(--lb-pad); right: var(--lb-pad); overflow-wrap: anywhere; }
+    @media (max-width: 640px) {
+      .lb-root .head { text-align: center; }
+      .lb-root .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-left: calc(-1 * var(--lb-gutter)); margin-right: calc(-1 * var(--lb-gutter)); }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><h3 class="lb-h3">Section title</h3></div>
+    <div class="grid">
+      <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><div class="ttl lb-label">Title one</div></div>
+      <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><div class="ttl lb-label">Title two</div></div>
+      <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><div class="ttl lb-label">Title three</div></div>
+      <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><div class="ttl lb-label">Title four</div></div>
+      <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><div class="ttl lb-label">Title five</div></div>
+    </div>
+  </div>
+</section>

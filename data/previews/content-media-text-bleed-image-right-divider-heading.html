@@ -1,0 +1,36 @@
+<section class="lb-root">
+  <style>
+    .lb-root { --cw: 1280px; --edge: max(var(--lb-gutter), calc((100% - var(--cw)) / 2)); overflow-x: clip; padding-bottom: var(--lb-space); }
+    .lb-root .top { display: grid; grid-template-columns: 3fr 7fr; align-items: center; }
+    .lb-root .txt { padding: var(--lb-space) var(--lb-gap) var(--lb-space) var(--edge); display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .main { aspect-ratio: 16 / 9; width: 100%; }
+    .lb-root.anim .main { clip-path: inset(0 0 100% 0); transform: translateY(40px); }
+    .lb-root.anim .lb-h1 { opacity: 0; transform: translateY(30px); }
+    .lb-root.anim.in .main { clip-path: inset(0 0 0 0); transform: none; transition: clip-path .9s ease, transform .9s ease; }
+    .lb-root.anim.in .lb-h1 { opacity: 1; transform: none; transition: opacity .8s ease .2s, transform .8s ease .2s; }
+    @media (max-width: 640px) {
+      .lb-root .top { grid-template-columns: 1fr; }
+      .lb-root .txt { padding: 0 var(--lb-gutter) var(--lb-gap); }
+      .lb-root .main { aspect-ratio: 3 / 4; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lb-root.anim .main, .lb-root.anim .lb-h1 { opacity: 1; transform: none; clip-path: none; transition: none; }
+    }
+  </style>
+  <div class="top">
+    <div class="txt">
+      <h2 class="lb-h1">Headline goes here</h2>
+      <hr class="lb-divider">
+      <p class="lb-text">Supporting description text placeholder for this section.</p>
+    </div>
+    <div class="lb-img lb-flat main"></div>
+  </div>
+  <script type="text/lb">
+    if (ctx.extras.includes(0) && !ctx.reducedMotion) {
+      root.classList.add('anim');
+      const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { root.classList.add('in'); io.disconnect(); } }, { threshold: 0.15 });
+      io.observe(root);
+      ctx.onCleanup(() => io.disconnect());
+    }
+  </script>
+</section>

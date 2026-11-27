@@ -1,0 +1,33 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-gap) var(--lb-gutter) calc(var(--lb-space) * 2); }
+    .lb-root .inner { display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .links { display: flex; flex-wrap: wrap; gap: var(--lb-gap); }
+    .lb-root .bottom { display: flex; justify-content: space-between; align-items: center; gap: var(--lb-gap); }
+    .lb-root .left { display: flex; align-items: center; gap: var(--lb-gap); flex-wrap: wrap; }
+    .lb-root .icons { display: flex; gap: var(--lb-gap); }
+    .lb-root .more { display: inline-flex; align-items: center; gap: 6px; }
+    .lb-root .small { text-align: right; }
+    @media (max-width: 640px) {
+      .lb-root .links { display: grid; grid-template-columns: 1fr 1fr; justify-items: start; }
+      .lb-root .links .lb-link { overflow-wrap: anywhere; }
+      .lb-root .bottom { flex-direction: column; align-items: stretch; }
+      .lb-root .left { justify-content: space-between; flex-wrap: nowrap; }
+      .lb-root .small { text-align: center; }
+    }
+  </style>
+  <div class="lb-wrap inner">
+    <hr class="lb-divider">
+    <nav class="links">
+      <a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a><a class="lb-link">Link four</a><a class="lb-link">Link five</a><a class="lb-link">Link six</a>
+    </nav>
+    <hr class="lb-divider">
+    <div class="bottom">
+      <div class="left">
+        <div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span><span class="lb-icon"></span></div>
+        <a class="lb-link more">Link text <span class="lb-arrow"></span></a>
+      </div>
+      <p class="lb-small small">Small print text goes here</p>
+    </div>
+  </div>
+</footer>

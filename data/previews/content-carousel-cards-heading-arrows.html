@@ -1,0 +1,41 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; --per: 4; }
+    .lb-root .head { display: flex; align-items: center; justify-content: space-between; gap: var(--lb-gap); margin-bottom: var(--lb-gap); }
+    .lb-root .head .lb-h1 { margin: 0; }
+    .lb-root .arrows { display: flex; gap: 8px; flex: none; }
+    .lb-root .viewport { overflow: hidden; }
+    .lb-root .track { display: flex; gap: var(--lb-gap); transition: transform .4s ease; align-items: stretch; }
+    .lb-root .card { flex: 0 0 calc((100% - (var(--per) - 1) * var(--lb-gap)) / var(--per)); min-width: 0; display: flex; flex-direction: column; overflow: hidden; }
+    .lb-root .card .sq { width: 100%; aspect-ratio: 1 / 1; }
+    .lb-root .card .body { flex: 1 1 auto; display: flex; flex-direction: column; gap: 8px; background: var(--lb-surface-2); }
+    .lb-root .card .hl { color: var(--lb-accent); }
+    @media (max-width: 1024px) { .lb-root { --per: 3; } }
+    @media (max-width: 640px) {
+      .lb-root { --per: 2.4; overflow-x: clip; }
+      .lb-root .viewport { overflow-x: auto; overflow-y: hidden; margin-right: calc(-1 * var(--lb-gutter)); scroll-snap-type: x mandatory; scrollbar-width: none; }
+      .lb-root .viewport::-webkit-scrollbar { display: none; }
+      .lb-root .track { transform: none !important; padding-right: var(--lb-gutter); }
+      .lb-root .card { scroll-snap-align: start; flex-basis: calc((100% - var(--lb-gutter) - (var(--per) - 1) * var(--lb-gap)) / var(--per)); }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><h2 class="lb-h1">Section heading goes here</h2><div class="arrows"><button class="lb-icon-btn prev"><span class="lb-arrow lb-arrow-left"></span></button><button class="lb-icon-btn next"><span class="lb-arrow"></span></button></div></div>
+    <div class="viewport"><div class="track"><div class="card lb-card lb-nopad"><span class="lb-img lb-flat sq"></span><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><span class="lb-small">Secondary text</span><span class="lb-label hl">Highlight text</span></div></div><div class="card lb-card lb-nopad"><span class="lb-img lb-flat sq"></span><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><span class="lb-small">Secondary text</span><span class="lb-label hl">Highlight text</span></div></div><div class="card lb-card lb-nopad"><span class="lb-img lb-flat sq"></span><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><span class="lb-small">Secondary text</span><span class="lb-label hl">Highlight text</span></div></div><div class="card lb-card lb-nopad"><span class="lb-img lb-flat sq"></span><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><span class="lb-small">Secondary text</span><span class="lb-label hl">Highlight text</span></div></div><div class="card lb-card lb-nopad"><span class="lb-img lb-flat sq"></span><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><span class="lb-small">Secondary text</span><span class="lb-label hl">Highlight text</span></div></div><div class="card lb-card lb-nopad"><span class="lb-img lb-flat sq"></span><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><span class="lb-small">Secondary text</span><span class="lb-label hl">Highlight text</span></div></div><div class="card lb-card lb-nopad"><span class="lb-img lb-flat sq"></span><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><span class="lb-small">Secondary text</span><span class="lb-label hl">Highlight text</span></div></div><div class="card lb-card lb-nopad"><span class="lb-img lb-flat sq"></span><div class="body lb-pad"><h3 class="lb-h3">Card title goes here</h3><span class="lb-small">Secondary text</span><span class="lb-label hl">Highlight text</span></div></div></div></div>
+  </div>
+  <script type="text/lb">
+    var track = root.querySelector('.track'), vp = root.querySelector('.viewport');
+    var cards = root.querySelectorAll('.card'), i = 0;
+    function per() { return window.innerWidth <= 640 ? 2 : window.innerWidth <= 1024 ? 3 : 4; }
+    function go(k) {
+      if (window.innerWidth <= 640) { vp.scrollBy({ left: (k < i ? -1 : 1) * cards[0].offsetWidth, behavior: 'smooth' }); return; }
+      i = Math.max(0, Math.min(cards.length - per(), k));
+      track.style.transform = 'translateX(' + (-cards[i].offsetLeft) + 'px)';
+    }
+    root.querySelector('.prev').addEventListener('click', function () { go(i - 1); });
+    root.querySelector('.next').addEventListener('click', function () { go(i + 1); });
+    function onR() { if (window.innerWidth > 640) go(i); else track.style.transform = ''; }
+    window.addEventListener('resize', onR);
+    ctx.onCleanup(function () { window.removeEventListener('resize', onR); });
+  </script>
+</section>

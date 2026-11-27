@@ -1,0 +1,23 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) var(--lb-gutter); }
+    .lb-root .row { max-width: 820px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); align-items: center; }
+    .lb-root .txt { display: flex; flex-direction: column; gap: var(--lb-gap); text-align: left; min-width: 0; overflow-wrap: anywhere; }
+    .lb-root .pic { display: flex; justify-content: center; }
+    .lb-root .circle { width: 30vw; max-width: 100%; aspect-ratio: 1; border-radius: 50%; }
+    .lb-root .lb-h1 { font-size: clamp(28px, 4.5vw, 56px); }
+    @media (max-width: 640px) {
+      .lb-root .row { grid-template-columns: 1fr; }
+      .lb-root .lb-h1 { text-align: center; }
+      .lb-root .circle { width: 70vw; }
+    }
+  </style>
+  <div class="row">
+    <div class="txt">
+      <div class="lb-h1">Large headline goes here</div>
+      <div class="lb-text">Description text of similar length goes here for the block.</div>
+      <div class="lb-small">Smaller secondary text goes here.</div>
+    </div>
+    <div class="pic"><div class="lb-img circle lb-notag"></div></div>
+  </div>
+</section>

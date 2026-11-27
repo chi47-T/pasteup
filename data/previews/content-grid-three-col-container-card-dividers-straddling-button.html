@@ -1,0 +1,34 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); margin-bottom: var(--lb-gap); }
+    .lb-root .head .lb-h2 { font-size: clamp(28px, 4vw, 48px); }
+    .lb-root .box { overflow: visible; position: relative; margin-bottom: 28px; }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(3, 1fr); align-items: start; padding-bottom: 28px; }
+    .lb-root .col { display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); padding: 0 var(--lb-pad); }
+    .lb-root .col + .col { border-left: 1px solid var(--lb-line); }
+    .lb-root .col .lb-img { width: 96px; height: 96px; aspect-ratio: 1; }
+    .lb-root .col .desc { width: 100%; }
+    .lb-root .cta { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); }
+    @media (max-width: 640px) {
+      .lb-root .grid { grid-template-columns: 1fr; }
+      .lb-root .col + .col { border-left: 0; border-top: 1px solid var(--lb-line); margin-top: var(--lb-pad); padding-top: var(--lb-pad); }
+      .lb-root .col { align-items: flex-start; }
+      .lb-root .col .lb-img { display: none; }
+      .lb-root .col .lb-label, .lb-root .col .lb-h3 { text-align: left; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <div class="lb-h2">Headline goes here</div>
+    </div>
+    <div class="box lb-card">
+      <div class="grid">
+        <div class="col"><div class="lb-img"></div><span class="lb-h3 lb-center">Item title</span><div class="lb-text desc">Description text placeholder here</div></div>
+        <div class="col"><div class="lb-img"></div><span class="lb-h3 lb-center">Item title</span><div class="lb-text desc">Description text placeholder here</div></div>
+        <div class="col"><div class="lb-img"></div><span class="lb-h3 lb-center">Item title</span><div class="lb-text desc">Description text placeholder here</div></div>
+      </div>
+      <a class="lb-btn cta">Button</a>
+    </div>
+  </div>
+</section>

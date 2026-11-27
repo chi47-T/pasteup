@@ -1,0 +1,37 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); margin-bottom: calc(var(--lb-space) * 0.8); text-align: center; }
+    .lb-root .head .lb-text { width: min(520px, 100%); }
+    .lb-root .grid { width: 66%; margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); }
+    .lb-root .cell { display: flex; align-items: center; justify-content: center; aspect-ratio: 1 / 1; min-width: 0; }
+    .lb-root .logo { width: 56px; height: 56px; }
+    @media (max-width: 640px) {
+      .lb-root .grid { width: 100%; grid-template-columns: repeat(3, 1fr); }
+      .lb-root .logo { width: 44px; height: 44px; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><h2 class="lb-h2 lb-center">Headline goes here</h2></div>
+    <div class="grid">
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><div class="lb-img lb-notag logo"></div></div>
+      <div class="cell"><a class="lb-link">Link</a></div>
+    </div>
+  </div>
+</section>

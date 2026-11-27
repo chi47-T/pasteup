@@ -1,0 +1,40 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { padding-top: var(--lb-space); }
+    .lb-root .top { display: grid; grid-template-columns: 1fr 2fr; gap: var(--lb-gap); align-items: start; }
+    .lb-root .brand { display: flex; gap: var(--lb-gap); align-items: flex-start; }
+    .lb-root .cols { display: flex; justify-content: space-between; gap: var(--lb-gap); }
+    .lb-root .cols .g { display: flex; flex-direction: column; gap: 12px; }
+    .lb-root .lb-divider { margin: var(--lb-space) 0 var(--lb-gap); }
+    .lb-root .cards { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--lb-gap); }
+    .lb-root .cards .lb-card { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .lb-root .cards .lb-img { width: 64px; height: 40px; }
+    .lb-root .band { margin-top: var(--lb-space); background: var(--lb-surface-2); padding: 12px 0; }
+    .lb-root .band .lb-small { text-align: right; }
+    @media (max-width: 640px) {
+      .lb-root .top { grid-template-columns: 1fr 1fr; }
+      .lb-root .brand { flex-direction: column; }
+      .lb-root .cols .g:not(:last-child), .lb-root .lb-divider, .lb-root .cards { display: none; }
+      .lb-root .band { margin-top: var(--lb-space); }
+      .lb-root .band .lb-wrap { display: flex; justify-content: center; } .lb-root .band .lb-small { text-align: center; margin: 0 auto; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="top">
+      <div class="brand"><div class="lb-logo">Logo</div></div>
+      <div class="cols">
+        <div class="g"><span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span><span class="lb-link">Link four</span></div>
+        <div class="g"><span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span><span class="lb-link">Link four</span></div>
+        <div class="g"><span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span><span class="lb-link">Link four</span></div>
+      </div>
+    </div>
+    <div class="lb-divider"></div>
+    <div class="cards">
+      <a class="lb-card"><div class="lb-img lb-notag"></div><span class="lb-small">Short caption</span></a>
+      <a class="lb-card"><div class="lb-img lb-notag"></div><span class="lb-small">Short caption</span></a>
+      <a class="lb-card"><div class="lb-img lb-notag"></div><span class="lb-small">Short caption</span></a>
+      <a class="lb-card"><div class="lb-img lb-notag"></div><span class="lb-small">Short caption</span></a>
+    </div>
+  </div>
+  <div class="band"><div class="lb-wrap"><div class="lb-small">Small print text here</div></div></div>
+</footer>

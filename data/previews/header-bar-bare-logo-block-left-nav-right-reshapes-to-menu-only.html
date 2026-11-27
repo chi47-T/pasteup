@@ -1,0 +1,86 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: relative; height: 64px; background: var(--lb-bg); z-index: 20; }
+    .lb-root[data-over] { position: absolute; left: 0; right: 0; top: 0; background: none; }
+    .lb-root .big-logo { position: absolute; left: 0; top: 0; width: 128px; height: 128px; border-radius: 0 0 var(--lb-r-br) 0; z-index: 2; }
+    .lb-root .nav { position: absolute; top: 0; left: 0; right: 120px; height: 64px; display: flex; justify-content: flex-end; align-items: center; gap: calc(var(--lb-gap) * 1.5); }
+    .lb-root .menu-btn { position: fixed; top: 0; right: 16px; height: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; background: none; border: 0; padding: 0; width: 64px; box-sizing: border-box; cursor: pointer; z-index: 40; }
+    .lb-root .menu-btn .icon-box { position: relative; width: 32px; height: 32px; flex: none; }
+    .lb-root .menu-btn .lb-icon-btn { position: absolute; inset: 0; width: 32px; height: 32px; border: 0; background: none; padding: 0; display: flex; align-items: center; justify-content: center; }
+    .lb-root .menu-btn .ico-close { display: none; }
+    .lb-root[data-open] .menu-btn .ico-menu { display: none; }
+    .lb-root[data-open] .menu-btn .ico-close { display: flex; }
+    .lb-root[data-open] .big-logo, .lb-root[data-open] .nav { display: none; }
+    .lb-root .small-logo { position: fixed; left: 16px; top: 16px; width: 48px; height: 48px; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); z-index: 40; display: none; }
+    .lb-root[data-scrolled] .small-logo, .lb-root[data-open] .small-logo { display: block; }
+    .lb-root[data-scrolled] .big-logo, .lb-root[data-scrolled] .nav { display: none; }
+    .lb-root .panel { position: fixed; inset: 0; background: var(--lb-bg); z-index: 30; display: none; }
+    .lb-root[data-open] .panel { display: flex; }
+    .lb-root .panel-img { width: 33.333%; height: 100%; flex: none; }
+    .lb-root .panel-links { flex: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: var(--lb-gap); padding: 96px var(--lb-gutter) 96px var(--lb-gutter); overflow-y: auto; }
+    .lb-root .item { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .lb-root .item-row { display: flex; align-items: center; gap: 8px; }
+    .lb-root .sub { display: none; flex-direction: column; gap: 8px; padding-top: 8px; }
+    .lb-root .item[data-expanded] .sub { display: flex; }
+    .lb-root .item[data-expanded] .expander { transform: rotate(180deg); }
+    .lb-root .expander { display: inline-block; }
+    .lb-root .big-link { font-size: 32px; }
+    .lb-root .big-logo, .lb-root .small-logo { background: var(--lb-accent); align-items: center; justify-content: center; }
+    .lb-root .big-logo { display: flex; }
+    .lb-root .big-logo .lb-logo, .lb-root .small-logo .lb-logo { flex-direction: column; }
+    .lb-root .big-logo .lb-logo::before, .lb-root .small-logo .lb-logo::before { background: var(--lb-on-accent); }
+    .lb-root .big-logo .lb-logo::after { color: var(--lb-on-accent); }
+    .lb-root .small-logo .lb-logo::after { content: none; }
+    .lb-root[data-scrolled] .small-logo, .lb-root[data-open] .small-logo { display: flex; }
+    @media (max-width: 1024px) {
+      .lb-root .nav { display: none; }
+      .lb-root .big-logo { width: 96px; height: 96px; }
+      .lb-root[data-scrolled] .small-logo { display: none; }
+      .lb-root[data-open] .small-logo { display: block; }
+      .lb-root .panel-img { display: none; }
+      .lb-root .panel-links { align-items: flex-start; justify-content: flex-start; padding-top: 96px; padding-left: var(--lb-gutter); }
+    }
+  </style>
+  <div class="big-logo"><span class="lb-logo"></span></div>
+  <nav class="nav">
+    <a class="lb-link">Link one</a>
+    <a class="lb-link">Link two</a>
+    <a class="lb-link">Link three</a>
+    <a class="lb-link">Link four</a>
+  </nav>
+  <div class="small-logo"><span class="lb-logo"></span></div>
+  <button class="menu-btn" type="button" aria-label="Menu">
+    <span class="icon-box"><span class="lb-icon-btn ico-menu"><span class="lb-menu"></span></span><span class="lb-icon-btn ico-close"><span class="lb-close"></span></span></span>
+    <span class="lb-label">Menu</span>
+  </button>
+  <div class="panel">
+    <div class="lb-img panel-img lb-flat"></div>
+    <div class="panel-links">
+      <div class="item"><span class="lb-label">Tag</span><div class="item-row"><a class="lb-h2 big-link">Link one</a></div></div>
+      <div class="item" data-sub><span class="lb-label">Tag</span><div class="item-row"><a class="lb-h2 big-link">Link two</a><span class="expander lb-arrow lb-arrow-down"></span></div>
+        <div class="sub"><a class="lb-link">Sub link one</a><a class="lb-link">Sub link two</a></div></div>
+      <div class="item"><a class="lb-h2 big-link">Link three</a></div>
+      <div class="item"><a class="lb-h2 big-link">Link four</a></div>
+    </div>
+  </div>
+  <script type="text/lb">
+    const btn = root.querySelector('.menu-btn');
+    const onBtn = () => { if (root.hasAttribute('data-open')) root.removeAttribute('data-open'); else root.setAttribute('data-open', ''); };
+    btn.addEventListener('click', onBtn);
+    const subs = root.querySelectorAll('.item[data-sub]');
+    const handlers = [];
+    subs.forEach(it => {
+      const h = () => { if (it.hasAttribute('data-expanded')) it.removeAttribute('data-expanded'); else it.setAttribute('data-expanded', ''); };
+      it.querySelector('.item-row').addEventListener('click', h);
+      handlers.push([it, h]);
+    });
+    const onScroll = () => { if (window.scrollY > 40) root.setAttribute('data-scrolled', ''); else root.removeAttribute('data-scrolled'); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    ctx.onCleanup(() => {
+      window.removeEventListener('scroll', onScroll);
+      btn.removeEventListener('click', onBtn);
+      handlers.forEach(([it, h]) => it.querySelector('.item-row').removeEventListener('click', h));
+    });
+  </script>
+</header>

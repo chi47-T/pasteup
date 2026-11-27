@@ -1,0 +1,46 @@
+<section class="lb-root">
+  <style>
+    .lb-root { --cw: 1280px; --edge: max(var(--lb-gutter), calc((100% - var(--cw)) / 2)); overflow-x: clip; padding: var(--lb-space) 0; }
+    .lb-root .track { display: flex; gap: var(--lb-gap); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; }
+    .lb-root .track::-webkit-scrollbar { display: none; }
+    .lb-root .item { flex: 0 0 calc((100% - 2 * var(--lb-gap)) / 2.5); scroll-snap-align: start; display: flex; flex-direction: column; gap: var(--lb-gap); min-width: 0; }
+    .lb-root .item .lb-img { aspect-ratio: 16 / 10; width: 100%; }
+    .lb-root .nav { display: flex; justify-content: flex-end; gap: var(--lb-gap); padding: var(--lb-gap) var(--edge) 0; }
+    .lb-root .nav [disabled] { opacity: .35; pointer-events: none; }
+    .lb-root.anim .item { opacity: 0; transform: translateX(60px); }
+    .lb-root.anim.in .item { opacity: 1; transform: none; transition: opacity .8s ease, transform .8s ease; }
+    @media (max-width: 640px) {
+      .lb-root .track { padding-left: var(--lb-gutter); scroll-padding-left: var(--lb-gutter); }
+      .lb-root .item { flex-basis: 80%; }
+      .lb-root .nav { padding: var(--lb-gap) var(--lb-gutter) 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .lb-root.anim .item { opacity: 1; transform: none; transition: none; } }
+  </style>
+  <div class="track">
+    <div class="item"><div class="lb-img lb-flat"></div><p class="lb-text">Caption text placeholder here</p></div>
+    <div class="item"><div class="lb-img lb-flat"></div><p class="lb-text">Caption text placeholder here</p></div>
+    <div class="item"><div class="lb-img lb-flat"></div><p class="lb-text">Caption text placeholder here</p></div>
+    <div class="item"><div class="lb-img lb-flat"></div><p class="lb-text">Caption text placeholder here</p></div>
+  </div>
+  <div class="nav">
+    <button class="lb-icon-btn prev" aria-label="Previous"><span class="lb-arrow lb-arrow-left"></span></button>
+    <button class="lb-icon-btn next" aria-label="Next"><span class="lb-arrow"></span></button>
+  </div>
+  <script type="text/lb">
+    const track = root.querySelector('.track'), prev = root.querySelector('.prev'), next = root.querySelector('.next');
+    const step = () => track.querySelector('.item').getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0);
+    const upd = () => { prev.disabled = track.scrollLeft <= 1; next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1; };
+    prev.addEventListener('click', () => track.scrollBy({ left: -step() }));
+    next.addEventListener('click', () => track.scrollBy({ left: step() }));
+    track.addEventListener('scroll', upd);
+    window.addEventListener('resize', upd);
+    ctx.onCleanup(() => window.removeEventListener('resize', upd));
+    upd();
+    if (ctx.extras.includes(0) && !ctx.reducedMotion) {
+      root.classList.add('anim');
+      const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { root.classList.add('in'); io.disconnect(); } }, { threshold: 0.15 });
+      io.observe(root);
+      ctx.onCleanup(() => io.disconnect());
+    }
+  </script>
+</section>

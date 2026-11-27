@@ -1,0 +1,37 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .row { display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .txt { flex: 0 0 30%; display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .col { flex: 1 1 0; min-width: 0; }
+    .lb-root .set { position: relative; width: 100%; aspect-ratio: 1.15 / 1; }
+    .lb-root .set .lb-img { position: absolute; aspect-ratio: 1 / 1; }
+    .lb-root .big { width: 56%; right: 0; top: 0; }
+    .lb-root .mid { width: 38%; left: 12%; top: 50%; z-index: 2; }
+    .lb-root .sml { width: 26%; right: 12%; bottom: -12%; }
+    .lb-root .set { margin-bottom: 12%; }
+    @media (max-width: 640px) {
+      .lb-root .row { flex-direction: column-reverse; align-items: stretch; }
+      .lb-root .txt { flex: none; }
+      .lb-root .col { width: calc(100% + var(--lb-gutter)); margin: 0 calc(var(--lb-gutter) / -2); }
+      .lb-root .set { aspect-ratio: 1.1 / 1; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="row">
+      <div class="txt">
+        <span class="lb-label">Label</span>
+        <h2 class="lb-h2">Headline goes here across lines</h2>
+        <div class="lb-text">Supporting description text goes here with some length.</div>
+        <a class="lb-btn">Learn more</a>
+      </div>
+      <div class="col">
+        <div class="set">
+          <div class="lb-img big"></div>
+          <div class="lb-img mid"></div>
+          <div class="lb-img sml"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<section class="lb-root">
+  <style>
+    .lb-root { border-top: 1px solid var(--lb-line); border-bottom: 1px solid var(--lb-line); padding: var(--lb-space) 0; }
+    .lb-root .row { display: flex; justify-content: space-between; align-items: center; gap: calc(var(--lb-gap) * 3); }
+    .lb-root .big { width: 40%; aspect-ratio: 4 / 3; }
+    .lb-root .side { width: 33.333%; display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: var(--lb-gap); }
+    .lb-root .small { width: 60%; aspect-ratio: 4 / 3; }
+    @media (max-width: 640px) {
+      .lb-root .row { flex-direction: column; align-items: stretch; gap: calc(var(--lb-gap) * 2); }
+      .lb-root .big { width: 100%; }
+      .lb-root .side { width: 100%; gap: calc(var(--lb-gap) * 2); }
+      .lb-root .small { width: 100%; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="row">
+      <div class="lb-img big"></div>
+      <div class="side">
+        <div class="lb-img small"></div>
+        <h2 class="lb-h2 lb-right">Headline goes here</h2>
+        <div class="lb-text lb-right">Supporting text placeholder that runs a few lines long</div>
+        <a class="lb-btn">Button</a>
+      </div>
+    </div>
+  </div>
+</section>

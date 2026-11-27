@@ -1,0 +1,20 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .stack { display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); width: 34%; min-width: 0; }
+    .lb-root .stack .lb-logo { width: 96px; height: 40px; }
+    .lb-root .stack .lb-h1 { font-size: clamp(32px, 5vw, 64px); overflow-wrap: anywhere; }
+    .lb-root .btns { display: flex; flex-wrap: nowrap; gap: var(--lb-gap); }
+    @media (max-width: 640px) {
+      .lb-root .stack { width: 100%; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="stack">
+      <div class="lb-logo"></div>
+      <h2 class="lb-h1">Headline goes here</h2>
+      <p class="lb-text">Short description text goes here for this block</p>
+      <div class="btns"><a class="lb-btn">Primary</a><a class="lb-btn-ghost">Second</a></div>
+    </div>
+  </div>
+</section>

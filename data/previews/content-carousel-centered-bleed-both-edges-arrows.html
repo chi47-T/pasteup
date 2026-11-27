@@ -1,0 +1,40 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); margin: var(--lb-space) 0; padding: var(--lb-space) 0; overflow-x: clip; border: 1px solid var(--lb-line); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); padding: 0 var(--lb-gutter) var(--lb-gap); }
+    .lb-root .car { position: relative; container-type: inline-size; }
+    .lb-root .track { display: flex; gap: var(--lb-gap); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .lb-root .track::-webkit-scrollbar { display: none; }
+    .lb-root .item { flex: 0 0 calc((100cqw - 4 * var(--lb-gap)) / 3.4); scroll-snap-align: center; display: flex; flex-direction: column; gap: 8px; }
+    .lb-root .item .pic { position: relative; aspect-ratio: 1/1; }
+    .lb-root .item .pic .lb-img { width: 100%; height: 100%; }
+    .lb-root .item .tag { position: absolute; top: 8px; left: 8px; }
+    .lb-root .item .ib { position: absolute; right: 8px; bottom: 8px; }
+    .lb-root .item .ics { display: flex; gap: 6px; }
+    .lb-root .arr { position: absolute; top: calc((100cqw - 4 * var(--lb-gap)) / 6.8); transform: translateY(-50%); z-index: 2; }
+    .lb-root .arr-l { left: var(--lb-gap); } .lb-root .arr-r { right: var(--lb-gap); }
+    .lb-root .foot { display: flex; justify-content: center; padding-top: var(--lb-space); }
+    @media (max-width: 640px) {
+      .lb-root .item { flex-basis: 70%; }
+      .lb-root .track { padding: 0 15%; }
+      .lb-root .arr { display: none; }
+    }
+  </style>
+  <div class="head"><h2 class="lb-h1">Headline goes here</h2><span class="lb-text">Description text goes here.</span></div>
+  <div class="car">
+    <button class="lb-icon-btn arr arr-l" data-dir="-1"><span class="lb-arrow lb-arrow-left"></span></button>
+    <button class="lb-icon-btn arr arr-r" data-dir="1"><span class="lb-arrow"></span></button>
+    <div class="track">
+      <div class="item"><div class="pic"><div class="lb-img"></div><span class="lb-label tag">Tag</span><button class="lb-icon-btn ib"><span class="lb-arrow"></span></button></div><span class="lb-h3">Title</span><div class="ics"><span class="lb-icon"></span></div></div><div class="item"><div class="pic"><div class="lb-img"></div><span class="lb-label tag">Tag</span><button class="lb-icon-btn ib"><span class="lb-arrow"></span></button></div><span class="lb-h3">Title</span><div class="ics"><span class="lb-icon"></span></div></div><div class="item"><div class="pic"><div class="lb-img"></div><span class="lb-label tag">Tag</span><button class="lb-icon-btn ib"><span class="lb-arrow"></span></button></div><span class="lb-h3">Title</span><div class="ics"><span class="lb-icon"></span></div></div><div class="item"><div class="pic"><div class="lb-img"></div><span class="lb-label tag">Tag</span><button class="lb-icon-btn ib"><span class="lb-arrow"></span></button></div><span class="lb-h3">Title</span><div class="ics"><span class="lb-icon"></span></div></div><div class="item"><div class="pic"><div class="lb-img"></div><span class="lb-label tag">Tag</span><button class="lb-icon-btn ib"><span class="lb-arrow"></span></button></div><span class="lb-h3">Title</span><div class="ics"><span class="lb-icon"></span></div></div>
+    </div>
+  </div>
+  <div class="foot"><a class="lb-btn">View all</a></div>
+  <script type="text/lb">
+    const track = root.querySelector('.track');
+    root.querySelectorAll('.arr').forEach(b => {
+      const f = () => track.scrollBy({ left: +b.dataset.dir * root.querySelector('.item').offsetWidth, behavior: 'smooth' });
+      b.addEventListener('click', f);
+      ctx.onCleanup(() => b.removeEventListener('click', f));
+    });
+  </script>
+</section>

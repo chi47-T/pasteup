@@ -1,0 +1,43 @@
+<section class="lb-root">
+  <style>
+    .lb-root { overflow-x: clip; padding: var(--lb-space) 0; }
+    .lb-root .stage { position: relative; height: 560px; overflow: hidden; --w: calc(100vw / 3.4); }
+    .lb-root .slot { position: absolute; top: 0; bottom: 0; width: var(--w); left: calc(50% - var(--w) / 2 + var(--off) * var(--w)); box-sizing: border-box; }
+    .lb-root .slot::after { content: ""; position: absolute; top: 0; bottom: 0; right: 0; border-right: 1px solid var(--lb-line); }
+    .lb-root .item { position: absolute; inset: 0 calc(var(--lb-gap) / 2); border-top: 1px solid var(--lb-line); border-bottom: 1px solid var(--lb-line); padding: var(--lb-pad); display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); }
+    .lb-root .pic { width: 66%; aspect-ratio: 3 / 4; }
+    .lb-root .desc { width: 100%; text-align: left; }
+    .lb-root .item .lb-link { margin-top: auto; }
+    .lb-root .ctrl { display: flex; align-items: center; justify-content: space-between; padding: var(--lb-gap) var(--lb-gutter) 0; }
+    .lb-root .dots { display: flex; gap: 8px; }
+    .lb-root .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lb-line); border: 0; padding: 0; cursor: pointer; }
+    .lb-root .dot.on { background: var(--lb-accent); }
+    @media (max-width: 640px) { .lb-root .stage { --w: calc(100vw / 1.3); height: 500px; } }
+  </style>
+  <div class="stage"></div>
+  <div class="ctrl">
+    <button class="lb-icon-btn prev" aria-label="Previous"><span class="lb-arrow lb-arrow-left"></span></button>
+    <div class="dots"></div>
+    <button class="lb-icon-btn next" aria-label="Next"><span class="lb-arrow"></span></button>
+  </div>
+  <script type="text/lb">
+    const N = 5, stage = root.querySelector('.stage'), dots = root.querySelector('.dots');
+    let cur = 0;
+    for (let i = 0; i < N; i++) { const d = document.createElement('button'); d.className = 'dot'; d.setAttribute('aria-label', 'Go to ' + (i + 1)); d.onclick = () => go(i); dots.appendChild(d); }
+    function mod(n) { return ((n % N) + N) % N; }
+    function render() {
+      stage.innerHTML = '';
+      for (let o = -2; o <= 2; o++) {
+        const s = document.createElement('div'); s.className = 'slot'; s.style.setProperty('--off', o);
+        s.innerHTML = '<div class="item"><div class="lb-img pic"></div><div class="lb-h3 lb-center">Item title</div><div class="desc"><div class="lb-text">Description text placeholder goes here and wraps</div><div class="lb-text">onto a few lines of similar length</div></div><a class="lb-link lb-center">Link</a></div>';
+        stage.appendChild(s);
+      }
+      [...dots.children].forEach((d, i) => d.classList.toggle('on', i === cur));
+    }
+    function go(i) { cur = mod(i); render(); }
+    root.querySelector('.prev').onclick = () => go(cur - 1);
+    root.querySelector('.next').onclick = () => go(cur + 1);
+    render();
+    if (!ctx.reducedMotion) { const t = setInterval(() => go(cur + 1), 4000); ctx.onCleanup(() => clearInterval(t)); }
+  </script>
+</section>

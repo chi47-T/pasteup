@@ -1,0 +1,64 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .gg-head { display: flex; justify-content: flex-start; align-items: flex-end; gap: var(--lb-gap); padding-bottom: var(--lb-space); }
+    .lb-root .gg-head .lb-h2 { max-width: 60%; }
+    .lb-root .gg-head .lb-small { width: 160px; flex: none; }
+    .lb-root .gg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; border-top: 1px solid var(--lb-line); }
+    .lb-root .gg-cell { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); padding: var(--lb-space) var(--lb-pad); border-bottom: 1px solid var(--lb-line); border-right: 1px solid var(--lb-line); }
+    .lb-root .gg-cell:nth-child(3n) { border-right: 0; }
+    .lb-root .gg-media { width: 100%; display: flex; align-items: center; justify-content: center; }
+    .lb-root .gg-media .lb-img { width: 70%; aspect-ratio: 4 / 3; }
+    .lb-root .gg-info { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .lb-root .gg-cta { display: flex; justify-content: center; padding-top: var(--lb-space); }
+    .lb-root .gg-cta .lb-link { display: inline-flex; align-items: center; gap: 12px; padding-bottom: 4px; border-bottom: 1px solid currentColor; text-decoration: none; }
+    .lb-root .gg-long { position: relative; display: inline-block; width: 40px; height: 0; border-top: 1px solid currentColor; }
+    .lb-root .gg-long::after { content: ""; position: absolute; right: 0; top: -0.5px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: translateY(-50%) rotate(45deg); transform-origin: center; }
+    @media (hover: hover) and (min-width: 1025px) {
+      .lb-root.hov-on .gg-cell:hover { background: var(--lb-surface-2); }
+    }
+    @media (max-width: 640px) {
+      .lb-root .gg-grid { grid-template-columns: 1fr; }
+      .lb-root .gg-cell { border-right: 0; }
+      .lb-root .gg-media .lb-img { width: 85%; }
+      .lb-root .gg-cell:nth-child(n+5) { display: none; }
+      .lb-root .gg-head .lb-h2 { max-width: none; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="gg-head">
+      <h2 class="lb-h2">Headline goes here across a few lines</h2>
+      <p class="lb-small">Small secondary text</p>
+    </div>
+  </div>
+  <div class="gg-grid">
+    <div class="gg-cell">
+      <div class="gg-media"><div class="lb-img"></div></div>
+      <div class="gg-info"><span class="lb-label">Tag</span><h3 class="lb-h3">Item title goes here</h3><p class="lb-small">Secondary text line</p></div>
+    </div>
+    <div class="gg-cell">
+      <div class="gg-media"><div class="lb-img"></div></div>
+      <div class="gg-info"><span class="lb-label">Tag</span><h3 class="lb-h3">Item title goes here</h3><p class="lb-small">Secondary text line</p></div>
+    </div>
+    <div class="gg-cell">
+      <div class="gg-media"><div class="lb-img"></div></div>
+      <div class="gg-info"><span class="lb-label">Tag</span><h3 class="lb-h3">Item title goes here</h3><p class="lb-small">Secondary text line</p></div>
+    </div>
+    <div class="gg-cell">
+      <div class="gg-media"><div class="lb-img"></div></div>
+      <div class="gg-info"><span class="lb-label">Tag</span><h3 class="lb-h3">Item title goes here</h3><p class="lb-small">Secondary text line</p></div>
+    </div>
+    <div class="gg-cell">
+      <div class="gg-media"><div class="lb-img"></div></div>
+      <div class="gg-info"><span class="lb-label">Tag</span><h3 class="lb-h3">Item title goes here</h3><p class="lb-small">Secondary text line</p></div>
+    </div>
+    <div class="gg-cell">
+      <div class="gg-media"><div class="lb-img"></div></div>
+      <div class="gg-info"><span class="lb-label">Tag</span><h3 class="lb-h3">Item title goes here</h3><p class="lb-small">Secondary text line</p></div>
+    </div>
+  </div>
+  <div class="lb-wrap"><div class="gg-cta"><a class="lb-link">View all<span class="gg-long"></span></a></div></div>
+  <script type="text/lb">
+    if (ctx.extras.includes(0)) root.classList.add('hov-on');
+  </script>
+</section>

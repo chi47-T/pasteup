@@ -1,0 +1,66 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: sticky; top: 0; z-index: 50; padding: 12px var(--lb-gutter) 0; }
+    .lb-root[data-over] { position: fixed; left: 0; right: 0; top: 0; }
+    .lb-root .bar-wrap { width: 50%; margin: 0 auto; background: var(--lb-bg); border: 1px solid var(--lb-line); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); overflow: hidden; }
+    .lb-root .bar { height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--lb-pad); gap: var(--lb-gap); }
+    .lb-root .nav { display: flex; gap: var(--lb-gap); align-items: center; justify-content: center; flex: 1; }
+    .lb-root .fn { display: flex; align-items: center; gap: 8px; }
+    .lb-root .panel { display: none; padding: var(--lb-pad); border-top: 1px solid var(--lb-line); gap: var(--lb-gap); flex-direction: column; }
+    .lb-root.open .panel { display: flex; }
+    .lb-root .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--lb-gap); }
+    .lb-root .lcard { display: flex; flex-direction: column; gap: 8px; }
+    .lb-root .lcard .lb-img { aspect-ratio: 1/1; width: 100%; }
+    .lb-root .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .lb-root .links2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--lb-gap); }
+    .lb-root .links2 .row { padding: 12px 0; border-bottom: 1px solid var(--lb-line); }
+    .lb-root .cards2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    .lb-root .bottom { display: flex; justify-content: space-between; align-items: center; gap: var(--lb-gap); }
+    .lb-root .icons { display: flex; gap: 8px; }
+    .lb-root .mclose { display: none; }
+    @media (max-width: 640px) {
+      .lb-root .bar-wrap { width: 100%; }
+      .lb-root .nav, .lb-root .fn .lb-btn { display: none; }
+      .lb-root.open { height: 100vh; overflow-y: auto; }
+      .lb-root .panel { max-height: calc(100vh - 96px); overflow-y: auto; }
+      .lb-root .cards3 { grid-template-columns: 1fr; }
+      .lb-root .lcard { flex-direction: row; align-items: center; }
+      .lb-root .lcard .lb-img { width: 56px; flex: none; }
+      .lb-root .lcard .row { flex: 1; }
+      .lb-root .links2 { grid-template-columns: 1fr; }
+      .lb-root .cards2 { grid-template-columns: 1fr; }
+    }
+  </style>
+  <div class="bar-wrap">
+    <div class="bar">
+      <div class="lb-logo"></div>
+      <nav class="nav"><span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span></nav>
+      <div class="fn"><a class="lb-btn">Button</a><button class="lb-icon-btn" data-toggle><span class="lb-menu"></span></button></div>
+    </div>
+    <div class="panel">
+      <div class="cards3">
+        <div class="lcard"><div class="lb-img lb-notag"></div><div class="row"><span class="lb-link">Link one</span><span class="lb-arrow"></span></div></div>
+        <div class="lcard"><div class="lb-img lb-notag"></div><div class="row"><span class="lb-link">Link two</span><span class="lb-arrow"></span></div></div>
+        <div class="lcard"><div class="lb-img lb-notag"></div><div class="row"><span class="lb-link">Link three</span><span class="lb-arrow"></span></div></div>
+      </div>
+      <div class="links2">
+        <div class="row"><span class="lb-link">Link one</span><span class="lb-arrow"></span></div>
+        <div class="row"><span class="lb-link">Link two</span><span class="lb-arrow"></span></div>
+        <div class="row"><span class="lb-link">Link three</span><span class="lb-arrow"></span></div>
+        <div class="row"><span class="lb-link">Link four</span><span class="lb-arrow"></span></div>
+      </div>
+      <div class="cards2"><div class="lb-card"><span class="lb-h3">Card</span><span class="lb-small">Short text here</span></div><div class="lb-card"><span class="lb-h3">Card</span><span class="lb-small">Short text here</span></div></div>
+      <div class="bottom"><div class="icons"><span class="lb-link">Link</span><span class="lb-link">Link</span><span class="lb-link">Link</span></div><span class="lb-small lb-right">Small text here</span></div>
+    </div>
+  </div>
+  <script type="text/lb">
+    const btn = root.querySelector('[data-toggle]');
+    const icon = btn.firstElementChild;
+    const on = () => {
+      const o = root.classList.toggle('open');
+      icon.className = o ? 'lb-close' : 'lb-menu';
+    };
+    btn.addEventListener('click', on);
+    ctx.onCleanup(() => btn.removeEventListener('click', on));
+  </script>
+</header>

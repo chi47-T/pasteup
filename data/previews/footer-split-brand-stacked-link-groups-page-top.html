@@ -1,0 +1,162 @@
+<footer class="lb-root">
+  <style>
+    .lb-root {
+      position: relative;
+      padding: var(--lb-space) 0 calc(var(--lb-space) * .5);
+      background: var(--lb-bg);
+    }
+    .lb-root .main {
+      display: grid;
+      grid-template-columns: 4fr 6fr;
+      gap: var(--lb-gap);
+      align-items: start;
+    }
+    .lb-root .cols {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--lb-gap);
+      align-items: start;
+    }
+    .lb-root .stack {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--lb-gap) * 1.5);
+    }
+    .lb-root .group {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--lb-gap) * .5);
+    }
+    .lb-root .ghead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: 0;
+      padding: 0;
+      text-align: left;
+      cursor: default;
+    }
+    .lb-root .chev { display: none; }
+    .lb-root .links {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--lb-gap) * .5);
+    }
+    .lb-root .pagetop {
+      position: absolute;
+      top: var(--lb-space);
+      right: calc(var(--lb-gutter) * .5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: calc(var(--lb-gap) * .5);
+    }
+    .lb-root .bottom {
+      margin-top: calc(var(--lb-space) * .75);
+    }
+
+    @media (max-width: 640px) {
+      .lb-root .main {
+        grid-template-columns: 1fr;
+        gap: var(--lb-space);
+      }
+      .lb-root .links-area { order: -1; width: 66.667%; }
+      .lb-root .cols { display: block; }
+      .lb-root .stack { gap: 0; }
+      .lb-root .group {
+        gap: 0;
+        border-bottom: 1px solid var(--lb-line);
+      }
+      .lb-root .cols .stack:first-child .group:first-child { border-top: 1px solid var(--lb-line); }
+      .lb-root .ghead {
+        padding: calc(var(--lb-pad) * .6) 0;
+        width: 100%;
+      }
+      .lb-root .group.has-links .ghead { cursor: pointer; }
+      .lb-root .group.has-links .chev { display: inline-block; }
+      .lb-root .links {
+        display: none;
+        padding-bottom: calc(var(--lb-pad) * .6);
+      }
+      .lb-root .group.is-open .links { display: flex; }
+      .lb-root .group.is-open .chev { transform: rotate(180deg); }
+      .lb-root .pagetop {
+        right: var(--lb-gutter);
+      }
+    }
+  </style>
+
+  <div class="lb-wrap">
+    <div class="main">
+      <div class="brand"><span class="lb-logo">Brand Logo</span></div>
+      <div class="links-area">
+        <div class="cols">
+          <div class="stack">
+            <div class="group has-links">
+              <button class="ghead" type="button"><span class="lb-h3">Group one</span><span class="lb-arrow lb-arrow-down chev"></span></button>
+              <div class="links">
+                <a class="lb-link">Link one</a>
+                <a class="lb-link">Link two</a>
+                <a class="lb-link">Link three</a>
+              </div>
+            </div>
+            <div class="group">
+              <button class="ghead" type="button"><span class="lb-h3">Group</span><span class="lb-arrow lb-arrow-down chev"></span></button>
+            </div>
+          </div>
+          <div class="stack">
+            <div class="group has-links">
+              <button class="ghead" type="button"><span class="lb-h3">Group two</span><span class="lb-arrow lb-arrow-down chev"></span></button>
+              <div class="links">
+                <a class="lb-link">Link one</a>
+                <a class="lb-link">Link two</a>
+                <a class="lb-link">Link three</a>
+                <a class="lb-link">Link four</a>
+              </div>
+            </div>
+            <div class="group">
+              <button class="ghead" type="button"><span class="lb-h3">Group</span><span class="lb-arrow lb-arrow-down chev"></span></button>
+            </div>
+          </div>
+          <div class="stack">
+            <div class="group has-links">
+              <button class="ghead" type="button"><span class="lb-h3">Section title</span><span class="lb-arrow lb-arrow-down chev"></span></button>
+              <div class="links">
+                <a class="lb-link">Link one</a>
+                <a class="lb-link">Link two</a>
+              </div>
+            </div>
+            <div class="group">
+              <button class="ghead" type="button"><span class="lb-h3">Group</span><span class="lb-arrow lb-arrow-down chev"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <p class="lb-small">Copyright line text goes here for the footer.</p>
+    </div>
+  </div>
+
+  <a class="pagetop" href="#top">
+    <span class="lb-icon-btn"><span class="lb-arrow lb-arrow-up"></span></span>
+    <span class="lb-small lb-vertical">Page top</span>
+  </a>
+
+  <script type="text/lb">
+    var mq = window.matchMedia('(max-width: 640px)');
+    function onClick(e) {
+      var top = e.target.closest('.pagetop');
+      if (top) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: ctx.reducedMotion ? 'auto' : 'smooth' });
+        return;
+      }
+      var h = e.target.closest('.group.has-links .ghead');
+      if (h && mq.matches) h.parentNode.classList.toggle('is-open');
+    }
+    root.addEventListener('click', onClick);
+    ctx.onCleanup(function () { root.removeEventListener('click', onClick); });
+  </script>
+</footer>

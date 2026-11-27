@@ -1,0 +1,36 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: 0 0 var(--lb-space) calc(var(--lb-gutter) / 3); box-sizing: border-box; --w: calc((100% - 5 * var(--lb-gap)) / 5.3); }
+    .lb-root .head { padding: 0 0 var(--lb-gap); max-width: 40%; }
+    .lb-root .head .lb-h2 { margin: 0; }
+    .lb-root .track { display: flex; gap: var(--lb-gap); overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; cursor: grab; }
+    .lb-root .track::-webkit-scrollbar { display: none; }
+    .lb-root .item { position: relative; flex: 0 0 var(--w); scroll-snap-align: start; }
+    .lb-root .item .lb-img { width: 100%; aspect-ratio: 3 / 4; }
+    .lb-root .item .ttl { position: absolute; left: 0; top: 0; padding: var(--lb-pad); }
+    @media (max-width: 1024px) { .lb-root { --w: calc((100% - 3 * var(--lb-gap)) / 3.4); } }
+    @media (max-width: 640px) { .lb-root { --w: 55%; } .lb-root .head { max-width: 80%; } }
+  </style>
+  <div class="head"><h2 class="lb-h2">Section title goes here</h2></div>
+  <div class="track">
+    <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-h3 ttl">Item title</span></div>
+    <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-h3 ttl">Item title</span></div>
+    <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-h3 ttl">Item title</span></div>
+    <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-h3 ttl">Item title</span></div>
+    <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-h3 ttl">Item title</span></div>
+    <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-h3 ttl">Item title</span></div>
+    <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-h3 ttl">Item title</span></div>
+    <div class="item"><div class="lb-img lb-flat lb-tag-br"></div><span class="lb-h3 ttl">Item title</span></div>
+  </div>
+  <script type="text/lb">
+    const t = root.querySelector('.track');
+    let down = false, sx = 0, sl = 0;
+    const md = (e) => { down = true; sx = e.clientX; sl = t.scrollLeft; t.style.scrollSnapType = 'none'; };
+    const mm = (e) => { if (down) t.scrollLeft = sl - (e.clientX - sx); };
+    const mu = () => { down = false; t.style.scrollSnapType = ''; };
+    t.addEventListener('mousedown', md);
+    window.addEventListener('mousemove', mm);
+    window.addEventListener('mouseup', mu);
+    ctx.onCleanup(() => { t.removeEventListener('mousedown', md); window.removeEventListener('mousemove', mm); window.removeEventListener('mouseup', mu); });
+  </script>
+</section>

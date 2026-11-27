@@ -1,0 +1,65 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .head { padding: 0 var(--lb-gutter) 0 0; margin-bottom: var(--lb-gap); }
+    .lb-root .title { font-size: clamp(32px, 5vw, 64px); max-width: 16ch; }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .card { display: flex; flex-direction: column; height: 100%; border: 0; }
+    .lb-root .media { position: relative; }
+    .lb-root .pic { display: block; width: 100%; aspect-ratio: 4 / 3; border-radius: 0; }
+    .lb-root .chips { position: absolute; top: 8px; left: 8px; display: flex; flex-direction: row; gap: 4px; }
+    .lb-root .body { flex: 1; background: var(--lb-surface-2); padding: var(--lb-pad); min-height: 160px; }
+    .lb-root .body .lb-h3 { text-align: center; }
+    .lb-root .cta { display: flex; justify-content: center; margin-top: var(--lb-space); }
+    .lb-root .arrow { display: none; }
+    .lb-root .stage { position: relative; }
+    @media (max-width: 1024px) {
+      .lb-root .grid { grid-template-columns: repeat(3, 1fr); }
+      .lb-root .grid .card:nth-child(n+4) { display: none; }
+    }
+    @media (max-width: 640px) {
+      .lb-root { --cw: calc(80vw); }
+      .lb-root .title { text-align: center; max-width: none; }
+      .lb-root .grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: calc(-1 * var(--lb-gutter)); padding-right: var(--lb-gutter); }
+      .lb-root .grid::-webkit-scrollbar { display: none; }
+      .lb-root .grid .card:nth-child(n+4) { display: flex; }
+      .lb-root .card { flex: 0 0 var(--cw); scroll-snap-align: start; height: auto; }
+      .lb-root .arrow { display: flex; position: absolute; top: calc(var(--cw) * 0.375); transform: translateY(-50%); z-index: 2; }
+      .lb-root .arrow-l { left: 0; }
+      .lb-root .arrow-r { right: 0; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><h2 class="lb-h1 title">Headline goes here</h2></div>
+    <div class="stage">
+      <div class="grid">
+        <article class="lb-card lb-nopad card">
+          <div class="media"><div class="lb-img lb-flat pic"></div><div class="chips"><span class="lb-label">Tag</span><span class="lb-label">Tag</span></div></div>
+          <div class="body"><h3 class="lb-h3">Card title goes here</h3></div>
+        </article>
+        <article class="lb-card lb-nopad card">
+          <div class="media"><div class="lb-img lb-flat pic"></div></div>
+          <div class="body"><h3 class="lb-h3">Card title goes here</h3></div>
+        </article>
+        <article class="lb-card lb-nopad card">
+          <div class="media"><div class="lb-img lb-flat pic"></div><div class="chips"><span class="lb-label">Tag</span></div></div>
+          <div class="body"><h3 class="lb-h3">Card title goes here</h3></div>
+        </article>
+        <article class="lb-card lb-nopad card">
+          <div class="media"><div class="lb-img lb-flat pic"></div></div>
+          <div class="body"><h3 class="lb-h3">Card title goes here</h3></div>
+        </article>
+      </div>
+      <button class="lb-icon-btn arrow arrow-l" type="button">&lt;</button>
+      <button class="lb-icon-btn arrow arrow-r" type="button">&gt;</button>
+    </div>
+    <div class="cta"><a class="lb-btn">Button</a></div>
+  </div>
+  <script type="text/lb">
+    const g = root.querySelector('.grid');
+    const step = d => () => { const c = g.querySelector('.card'); g.scrollBy({ left: d * (c.offsetWidth + 16), behavior: ctx.reducedMotion ? 'auto' : 'smooth' }); };
+    const l = root.querySelector('.arrow-l'), r = root.querySelector('.arrow-r');
+    const a = step(-1), b = step(1); l.addEventListener('click', a); r.addEventListener('click', b);
+    ctx.onCleanup(() => { l.removeEventListener('click', a); r.removeEventListener('click', b); });
+  </script>
+</section>

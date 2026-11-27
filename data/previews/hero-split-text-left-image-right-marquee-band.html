@@ -1,0 +1,154 @@
+<section class="lb-root" data-header="below">
+  <style>
+    .lb-root {
+      position: relative;
+      overflow: hidden;
+      background: var(--lb-bg);
+      padding: 0;
+    }
+    .lb-root[data-header="below"] {
+      height: calc(80vh - var(--header-h));
+      min-height: 480px;
+    }
+    .lb-root .upper {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 66.667%;
+      display: flex;
+      align-items: center;
+      z-index: 4;
+    }
+    .lb-root .upper .lb-wrap { width: 100%; }
+    .lb-root .col {
+      position: relative;
+      /* 左欄右緣停在圖片左緣（44vw）之前：扣掉內容左緣與兩倍項目間距 */
+      max-width: calc(44vw - max(var(--lb-gutter), 50vw - var(--lb-content) / 2) - var(--lb-gap) * 2);
+    }
+    .lb-root .title { display: block; }
+    .lb-root .more {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      margin-top: var(--lb-gap);
+      display: inline-flex;
+      align-items: center;
+      gap: calc(var(--lb-gap) * .5);
+    }
+    .lb-root .arrow {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+    }
+    .lb-root .arrow .lb-arrow { margin: 0 0.15em 0 0; vertical-align: 0; }
+    .lb-root .media { position: static; }
+    .lb-root .band {
+      position: absolute;
+      left: 0; right: 0;
+      top: 66.667%;
+      bottom: 0;
+      background: var(--lb-surface-2);
+      z-index: 1;
+    }
+    .lb-root .photo {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 56vw;
+      height: 90%;
+      z-index: 3;
+      border-radius: 0;
+    }
+    .lb-root .marquee {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      width: max-content;
+      transform: translateY(50%);
+      pointer-events: none;
+    }
+    .lb-root .track {
+      display: flex;
+      flex-shrink: 0;
+      gap: 0.4em;
+      padding-right: 0.4em;
+      font-size: clamp(7rem, 18vw, 20rem);
+      line-height: 1;
+      animation: lb-marquee 30s linear infinite;
+    }
+    .lb-root .track .lb-h1 {
+      font-size: inherit;
+      line-height: inherit;
+      white-space: nowrap;
+      margin: 0;
+    }
+    @keyframes lb-marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
+    @media (max-width: 640px) {
+      .lb-root[data-header="below"] {
+        height: calc(90vh - var(--header-h));
+        min-height: 560px;
+      }
+      .lb-root {
+        display: flex;
+        flex-direction: column;
+      }
+      .lb-root .upper {
+        position: relative;
+        height: auto;
+        padding: var(--lb-space) 0 calc(var(--lb-space) + 2.5em);
+      }
+      .lb-root .col { max-width: none; }
+      .lb-root .media {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 1.5rem;
+      }
+      .lb-root .band {
+        top: calc(100% - 1.5rem - (100vw - var(--lb-gutter)) / 2);
+        bottom: -100vh;
+      }
+      .lb-root .photo {
+        position: relative;
+        width: calc(100vw - var(--lb-gutter));
+        height: auto;
+        aspect-ratio: 1 / 1;
+        flex-shrink: 0;
+        margin-left: var(--lb-gutter);
+      }
+      .lb-root .track { font-size: 7rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lb-root .track { animation: none; }
+    }
+  </style>
+
+  <div class="upper">
+    <div class="lb-wrap">
+      <div class="col">
+        <h1 class="lb-h1 title">Headline goes here and runs across a few lines of text</h1>
+        <a class="lb-link more">Learn more <span class="arrow"><span class="lb-arrow"></span></span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="media">
+    <div class="band"></div>
+    <div class="lb-img lb-flat photo"></div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track"><span class="lb-h1">MARQUEE TEXT</span><span class="lb-h1">MARQUEE TEXT</span></div>
+    <div class="track"><span class="lb-h1">MARQUEE TEXT</span><span class="lb-h1">MARQUEE TEXT</span></div>
+  </div>
+</section>

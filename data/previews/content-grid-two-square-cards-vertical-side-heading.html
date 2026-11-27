@@ -1,0 +1,47 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; isolation: isolate; overflow: clip; background: var(--lb-bg); padding: var(--lb-space) 0; }
+    .lb-root .grid { display: grid; grid-template-columns: 4fr 1fr; grid-template-rows: auto 1fr; grid-template-areas: "cards head" "cards foot"; column-gap: var(--lb-gap); }
+    .lb-root .cards { grid-area: cards; position: relative; container-type: inline-size; display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    /* lower background band: starts about one third down the cards */
+    .lb-root .band { position: absolute; z-index: 0; top: calc((100cqw - var(--lb-gap)) / 6); bottom: -100vmax; left: -100vmax; right: -100vmax; background: var(--lb-surface-2); }
+    .lb-root .card { position: relative; z-index: 1; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; }
+    .lb-root .card .lb-img { width: 55%; aspect-ratio: 4 / 3; }
+    .lb-root .card .lb-icon-btn { position: absolute; right: var(--lb-pad); bottom: var(--lb-pad); }
+    .lb-root .head { grid-area: head; position: relative; z-index: 1; align-self: start; display: flex; justify-content: flex-end; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .foot { grid-area: foot; position: relative; z-index: 1; align-self: end; display: flex; justify-content: flex-end; align-items: center; gap: var(--lb-gap); }
+    @media (max-width: 640px) {
+      .lb-root .grid { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "head" "cards" "foot"; row-gap: var(--lb-gap); }
+      .lb-root .cards { grid-template-columns: 1fr; }
+      .lb-root .band { top: calc(100cqw / 3); }
+      .lb-root .head { flex-direction: column; justify-content: flex-start; gap: calc(var(--lb-gap) / 2); }
+      .lb-root .head .lb-vertical { writing-mode: horizontal-tb; }
+      .lb-root .head .title { order: 1; }
+      .lb-root .head .sub { order: 2; }
+      .lb-root .foot { justify-content: flex-start; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="grid">
+      <div class="cards">
+        <div class="band"></div>
+        <div class="card lb-card">
+          <div class="lb-img"></div>
+          <span class="lb-icon-btn"></span>
+        </div>
+        <div class="card lb-card">
+          <div class="lb-img"></div>
+          <span class="lb-icon-btn"></span>
+        </div>
+      </div>
+      <div class="head">
+        <p class="sub lb-text lb-vertical">Short subtitle text</p>
+        <h2 class="title lb-h2 lb-vertical">Section Title</h2>
+      </div>
+      <div class="foot">
+        <a class="lb-link">View all items</a>
+        <span class="lb-icon-btn"></span>
+      </div>
+    </div>
+  </div>
+</section>

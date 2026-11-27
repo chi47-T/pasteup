@@ -1,0 +1,31 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { padding-top: 33vh; padding-bottom: var(--lb-space); }
+    .lb-root .cols { display: grid; grid-template-columns: 3fr 1fr; gap: var(--lb-gap); min-height: 320px; }
+    .lb-root .left { display: flex; flex-direction: column; justify-content: space-between; gap: var(--lb-space); }
+    .lb-root .brand { display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .brand .lb-logo { width: 25%; }
+    .lb-root .links { display: flex; flex-wrap: wrap; gap: var(--lb-gap) calc(var(--lb-gap) * 1.5); }
+    .lb-root .right { display: flex; align-items: flex-end; justify-content: flex-end; }
+    .lb-root .right .lb-btn { min-height: 56px; padding-left: 2.5em; padding-right: 2.5em; }
+    @media (max-width: 640px) {
+      .lb-root { padding-top: var(--lb-space); }
+      .lb-root .cols { grid-template-columns: 1fr; min-height: 0; justify-items: center; text-align: center; }
+      .lb-root .left { display: contents; }
+      .lb-root .links { order: 1; flex-direction: column; align-items: center; }
+      .lb-root .brand { order: 2; align-items: center; }
+      .lb-root .brand .lb-logo { width: 120px; }
+      .lb-root .right { order: 3; width: 70%; }
+      .lb-root .right .lb-btn { width: 100%; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="cols">
+      <div class="left">
+        <div class="brand"><div class="lb-logo">Logo</div></div>
+        <div class="links"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a><a class="lb-link">Link four</a></div>
+      </div>
+      <div class="right"><button class="lb-btn">Button</button></div>
+    </div>
+  </div>
+</footer>

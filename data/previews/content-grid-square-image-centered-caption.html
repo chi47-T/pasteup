@@ -1,0 +1,24 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--lb-gap); }
+    .lb-root .item { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .lb-root .item .lb-img { width: 100%; aspect-ratio: 1 / 1; }
+    .lb-root .item .lb-text { overflow-wrap: anywhere; }
+    @media (max-width: 640px) {
+      .lb-root .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="grid">
+      <div class="item"><div class="lb-img"></div><p class="lb-text lb-center">Caption text here</p></div>
+      <div class="item"><div class="lb-img"></div><p class="lb-text lb-center">Caption text here</p></div>
+      <div class="item"><div class="lb-img"></div><p class="lb-text lb-center">Caption text here</p></div>
+      <div class="item"><div class="lb-img"></div><p class="lb-text lb-center">Caption text here</p></div>
+      <div class="item"><div class="lb-img"></div><p class="lb-text lb-center">Caption text here</p></div>
+      <div class="item"><div class="lb-img"></div><p class="lb-text lb-center">Caption text here</p></div>
+      <div class="item"><div class="lb-img"></div><p class="lb-text lb-center">Caption text here</p></div>
+      <div class="item"><div class="lb-img"></div><p class="lb-text lb-center">Caption text here</p></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); margin: 0 auto var(--lb-space); }
+    .lb-root .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); padding: 0 16px; box-sizing: border-box; }
+    .lb-root .lb-card { display: flex; flex-direction: column; overflow: visible; }
+    .lb-root .band { background: var(--lb-surface-2); padding: var(--lb-pad); border-radius: var(--lb-r-tl) var(--lb-r-tr) 0 0; }
+    .lb-root .band .lb-img { width: 100%; aspect-ratio: 16 / 7; }
+    .lb-root .body { position: relative; flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); padding: var(--lb-pad); padding-top: calc(var(--lb-pad) + 12px); }
+    .lb-root .body .tagw { position: absolute; left: var(--lb-pad); top: 0; transform: translateY(-50%); z-index: 2; }
+    .lb-root .info { display: flex; align-items: center; gap: 8px; }
+    .lb-root .body .lb-btn { margin-top: auto; }
+    @media (max-width: 640px) { .lb-root .grid { grid-template-columns: 1fr; } }
+  </style>
+  <div class="lb-root-inner">
+    <div class="lb-wrap head"><h2 class="lb-h2">Section heading goes here</h2></div>
+    <div class="grid">
+      <div class="lb-card lb-nopad">
+        <div class="band"><div class="lb-img"></div></div>
+        <div class="body"><span class="tagw lb-label">Label</span><h3 class="lb-h3">Card title goes here</h3><div class="info"><span class="lb-icon"></span><span class="lb-small">Secondary text</span></div><a class="lb-btn lb-block">Button</a></div>
+      </div>
+      <div class="lb-card lb-nopad">
+        <div class="band"><div class="lb-img"></div></div>
+        <div class="body"><span class="tagw lb-label">Label</span><h3 class="lb-h3">Card title goes here</h3><div class="info"><span class="lb-icon"></span><span class="lb-small">Secondary text</span></div><a class="lb-btn lb-block">Button</a></div>
+      </div>
+    </div>
+  </div>
+</section>

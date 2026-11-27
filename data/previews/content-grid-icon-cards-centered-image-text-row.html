@@ -1,0 +1,35 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); margin-bottom: var(--lb-space); }
+    .lb-root .grid { width: 66.67vw; position: relative; left: 50%; transform: translateX(-50%); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--lb-gap); padding: var(--lb-pad); }
+    .lb-root .row { display: flex; align-items: center; justify-content: center; gap: var(--lb-gap); margin-top: var(--lb-space); }
+    .lb-root .thumb { width: 64px; height: 64px; aspect-ratio: 1 / 1; flex: none; }
+    .lb-root .cta { display: none; justify-content: center; margin-top: var(--lb-gap); }
+    @media (max-width: 640px) {
+      .lb-root .grid { width: 100%; left: 0; transform: none; grid-template-columns: 1fr; }
+      .lb-root .card { flex-direction: row; text-align: left; align-items: center; }
+      .lb-root .card .lb-text { text-align: left; }
+      .lb-root .thumb { display: none; }
+      .lb-root .row { justify-content: center; text-align: center; }
+      .lb-root .cta { display: flex; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <span class="lb-label">Label</span>
+      <h2 class="lb-h2 lb-center">Headline goes here<br>second line</h2>
+    </div>
+    <div class="grid">
+      <div class="lb-card card"><span class="lb-icon"></span><p class="lb-text">Short description text</p></div>
+      <div class="lb-card card"><span class="lb-icon"></span><p class="lb-text">Short description text</p></div>
+      <div class="lb-card card"><span class="lb-icon"></span><p class="lb-text">Short description text</p></div>
+    </div>
+    <div class="row">
+      <div class="lb-img lb-notag thumb"></div>
+      <p class="lb-text">Emphasis text goes here</p>
+    </div>
+    <div class="cta"><a class="lb-btn">Button</a></div>
+  </div>
+</section>

@@ -1,0 +1,161 @@
+<header class="lb-root">
+  <style>
+    .lb-root {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transition: transform .35s ease;
+    }
+    .lb-root.is-hidden { transform: translateY(-100%); }
+    @media (prefers-reduced-motion: reduce) { .lb-root { transition: none; } }
+    .lb-root[data-over] {
+      position: fixed;
+      left: 0; right: 0; top: 0;
+      background: none;
+    }
+    .lb-root .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--lb-gap);
+      padding: calc(var(--lb-pad) * .75) calc(var(--lb-gutter) * .5);
+      min-height: 64px;
+      position: relative;
+      z-index: 2;
+    }
+    .lb-root .right {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--lb-gap) * 1.5);
+    }
+    .lb-root .nav {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--lb-gap) * 1.25);
+    }
+    .lb-root .menu-btn { display: none; }
+    .lb-root .panel { display: none; }
+
+    @media (max-width: 1024px) {
+      .lb-root .right { display: none; }
+      .lb-root .menu-btn { display: inline-flex; }
+      .lb-root.is-open { transform: none; }
+      .lb-root .panel {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        background: var(--lb-bg);
+        padding: calc(64px + var(--lb-space) * .5) var(--lb-gutter) var(--lb-space);
+        flex-direction: column;
+        gap: var(--lb-gap);
+        overflow-y: auto;
+      }
+      .lb-root.is-open .panel { display: flex; }
+      .lb-root .pnav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--lb-gap);
+      }
+      .lb-root .pitem { width: 100%; }
+      .lb-root .prow {
+        display: flex;
+        align-items: center;
+        gap: calc(var(--lb-gap) * .5);
+        cursor: pointer;
+        background: none;
+        border: 0;
+        padding: 0;
+      }
+      .lb-root .sub {
+        display: none;
+        flex-direction: column;
+        gap: calc(var(--lb-gap) * .5);
+        padding: calc(var(--lb-gap) * .5) 0 0 var(--lb-pad);
+      }
+      .lb-root .pitem.is-expanded .sub { display: flex; }
+      .lb-root .pitem.is-expanded .chev { transform: rotate(180deg); }
+      .lb-root .pfoot {
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--lb-gap);
+      }
+    }
+  </style>
+
+  <div class="bar">
+    <span class="lb-logo">Brand Logo</span>
+    <div class="right">
+      <nav class="nav">
+        <a class="lb-link">Link one</a>
+        <a class="lb-link">Link two</a>
+        <a class="lb-link">Link three</a>
+        <a class="lb-link">Link four</a>
+        <a class="lb-link">Link five</a>
+      </nav>
+      <a class="lb-btn">Contact</a>
+    </div>
+    <button class="lb-icon-btn menu-btn" aria-label="Menu" aria-expanded="false"></button>
+  </div>
+
+  <div class="panel">
+    <nav class="pnav">
+      <div class="pitem">
+        <button class="prow" type="button"><span class="lb-h3">Menu item</span><span class="lb-arrow lb-arrow-down chev"></span></button>
+        <div class="sub">
+          <a class="lb-link">Sub link one</a>
+          <a class="lb-link">Sub link two</a>
+          <a class="lb-link">Sub link three</a>
+        </div>
+      </div>
+      <div class="pitem">
+        <button class="prow" type="button"><span class="lb-h3">Menu item</span><span class="lb-arrow lb-arrow-down chev"></span></button>
+        <div class="sub">
+          <a class="lb-link">Sub link one</a>
+          <a class="lb-link">Sub link two</a>
+        </div>
+      </div>
+      <div class="pitem"><a class="lb-h3">Menu item</a></div>
+      <div class="pitem"><a class="lb-h3">Menu item</a></div>
+      <div class="pitem"><a class="lb-h3">Menu item</a></div>
+    </nav>
+    <a class="lb-btn lb-block">Contact</a>
+    <div class="pfoot">
+      <a class="lb-small">Small link one</a>
+      <a class="lb-small">Small link two</a>
+    </div>
+  </div>
+
+  <script type="text/lb">
+    var btn = root.querySelector('.menu-btn');
+    btn.addEventListener('click', function () {
+      var open = root.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close' : 'Menu');
+    });
+    root.querySelectorAll('.prow').forEach(function (row) {
+      row.addEventListener('click', function () {
+        row.parentNode.classList.toggle('is-expanded');
+      });
+    });
+    var lastY = window.scrollY;
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var y = window.scrollY;
+        if (root.classList.contains('is-open')) { lastY = y; return; }
+        if (y > lastY && y > root.offsetHeight) root.classList.add('is-hidden');
+        else if (y < lastY) root.classList.remove('is-hidden');
+        lastY = y;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    ctx.onCleanup(function () { window.removeEventListener('scroll', onScroll); });
+  </script>
+</header>

@@ -1,0 +1,46 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding-top: var(--lb-space); box-sizing: border-box; }
+    .lb-root .top { display: flex; justify-content: space-between; align-items: center; gap: var(--lb-gap); }
+    .lb-root .top .copy { width: 50%; display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .top .lb-img { width: 25%; aspect-ratio: 1; }
+    .lb-root .acc { margin-top: calc(var(--lb-space) * 1.2); display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root details { border: 1px solid var(--lb-line); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: var(--lb-pad); cursor: pointer; }
+    .lb-root summary::-webkit-details-marker { display: none; }
+    .lb-root summary .lb-icon { border-radius: 50%; flex: none; }
+    .lb-root details[open] summary .lb-icon { transform: rotate(45deg); }
+    .lb-root details .body { padding: 0 var(--lb-pad) var(--lb-pad); }
+    .lb-root .badges { margin: var(--lb-space) 0; display: flex; justify-content: center; flex-wrap: wrap; gap: var(--lb-gap); }
+    .lb-root .badges .lb-img { width: 72px; height: 72px; }
+    .lb-root .badges .lb-img.round { border-radius: 50%; }
+    @media (max-width: 640px) {
+      .lb-root .top { flex-direction: column; align-items: stretch; }
+      .lb-root .top .copy { display: contents; }
+      .lb-root .top .lb-h2 { order: 1; text-align: center; }
+      .lb-root .top .lb-img { order: 2; width: 60%; align-self: center; }
+      .lb-root .top .desc { order: 3; }
+      .lb-root .badges { display: grid; grid-template-columns: 1fr 1fr; justify-items: center; gap: var(--lb-gap) 0; }
+      .lb-root .badges .lb-img:nth-child(odd) { justify-self: start; margin-top: 0; }
+      .lb-root .badges .lb-img:nth-child(even) { justify-self: end; margin-top: 32px; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="top">
+      <div class="copy">
+        <h2 class="lb-h2">Section headline goes here</h2>
+        <div class="desc"><p class="lb-text">Supporting description text for this section goes here</p></div>
+      </div>
+      <div class="lb-img"></div>
+    </div>
+    <div class="acc">
+      <details><summary><span class="lb-h3">Item title one</span><span class="lb-icon"></span></summary><div class="body"><p class="lb-text">Expanded description text goes here</p></div></details>
+      <details><summary><span class="lb-h3">Item title two</span><span class="lb-icon"></span></summary><div class="body"><p class="lb-text">Expanded description text goes here</p></div></details>
+      <details><summary><span class="lb-h3">Item title three</span><span class="lb-icon"></span></summary><div class="body"><p class="lb-text">Expanded description text goes here</p></div></details>
+    </div>
+    <div class="badges">
+      <div class="lb-img lb-notag round"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag round"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag round"></div>
+    </div>
+  </div>
+  <div class="lb-divider"></div>
+</section>

@@ -1,0 +1,64 @@
+<header class="lb-root">
+  <style>
+    .lb-root { --bar-h: 80px; }
+    .lb-root { position: sticky; top: 0; z-index: 50; background: var(--lb-bg); }
+    .lb-root[data-over] { position: fixed; left: 0; right: 0; top: 0; background: none; }
+    .lb-root .bar { position: relative; height: var(--bar-h); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; width: 100%; box-sizing: border-box; flex-wrap: nowrap; }
+    .lb-root .left { display: flex; align-items: center; flex: 1; min-width: 0; transition: opacity .3s; }
+    .lb-root .right { white-space: nowrap; flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end; gap: var(--lb-gap); flex: 1; }
+    .lb-root .logo { position: absolute; left: 50%; top: calc(var(--bar-h) / 3); transform: translateX(-50%); width: 240px; height: calc(var(--bar-h) * 4 / 3); z-index: 2; transition: all .35s ease; }
+    .lb-root.compact .logo { left: 5%; transform: none; width: 110px; height: calc(var(--bar-h) * .6); top: calc(var(--bar-h) * .2); }
+    .lb-root.compact .left { opacity: 0; pointer-events: none; }
+    .lb-root .logo { display: flex; align-items: flex-start; justify-content: center; font-size: 0; }
+    .lb-root .logo::after { display: none; }
+    .lb-root .logo::before { content: ""; display: block; flex: 0 0 auto; width: 70%; height: 100%; margin: 0; }
+    .lb-root.compact .logo { justify-content: flex-start; }
+    .lb-root.compact .logo::before { width: 100%; }
+    .lb-root .scrim { position: fixed; inset: 0; background: var(--lb-ink); opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 60; }
+    .lb-root.open .scrim { opacity: .4; pointer-events: auto; }
+    .lb-root .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: 30%; background: var(--lb-bg); transform: translateX(100%); transition: transform .35s; z-index: 61; padding: var(--lb-pad); box-sizing: border-box; display: flex; flex-direction: column; gap: var(--lb-gap); overflow-y: auto; }
+    .lb-root.open .drawer { transform: none; }
+    .lb-root .drawer-top { display: flex; justify-content: flex-end; }
+    .lb-root .big { display: flex; align-items: center; gap: var(--lb-gap); padding: var(--lb-gap) 0; border-bottom: 1px solid var(--lb-line); }
+    .lb-root .big .lb-h3 { flex: 1; }
+    .lb-root .drawer-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; gap: var(--lb-gap); }
+    .lb-root .smalls { display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .icons { display: flex; gap: var(--lb-gap); }
+    @media (max-width: 1024px) {
+      .lb-root .logo { justify-content: flex-start; }
+      .lb-root .drawer { width: 92%; }
+      .lb-root .logo { left: 5%; transform: none; width: 150px; height: calc(var(--bar-h) * 4 / 3); }
+      .lb-root .left { display: none; }
+      .lb-root .bar { justify-content: flex-end; }
+      .lb-root .right .lb-btn, .lb-root .right .lb-btn-ghost { display: none; }
+    }
+  </style>
+  <div class="bar">
+    <div class="left"><span class="lb-small">Secondary text</span></div>
+    <div class="lb-logo logo"></div>
+    <div class="right">
+      <a class="lb-link">Link</a>
+      <button class="lb-icon-btn" data-open aria-label="Menu"><span class="lb-menu"></span></button>
+    </div>
+  </div>
+  <div class="scrim" data-close></div>
+  <aside class="drawer">
+    <div class="drawer-top"><button class="lb-icon-btn" data-close aria-label="Close"><span class="lb-close"></span></button></div>
+    <div class="big"><span class="lb-icon"></span><span class="lb-h3">Link one</span><span class="lb-arrow"></span></div>
+    <div class="big"><span class="lb-icon"></span><span class="lb-h3">Link two</span><span class="lb-arrow"></span></div>
+    <div class="big"><span class="lb-icon"></span><span class="lb-h3">Link three</span><span class="lb-arrow"></span></div>
+    <div class="drawer-bottom">
+      <div class="smalls"><a class="lb-link">Small link</a><a class="lb-link">Small link</a><a class="lb-link">Small link</a></div>
+      <div class="icons"><span class="lb-icon"></span><span class="lb-icon"></span></div>
+    </div>
+  </aside>
+  <script type="text/lb">
+    const set = (o) => root.classList.toggle('open', o);
+    root.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => set(true)));
+    root.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => set(false)));
+    const onScroll = () => root.classList.toggle('compact', window.scrollY > window.innerHeight);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    ctx.onCleanup(() => window.removeEventListener('scroll', onScroll));
+  </script>
+</header>

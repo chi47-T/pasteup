@@ -1,0 +1,53 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); }
+    .lb-root .top { display: grid; grid-template-columns: 7fr 3fr; }
+    .lb-root .brand { padding: calc(var(--lb-space) * 1.5) var(--lb-gutter) var(--lb-space); display: flex; flex-direction: column; gap: var(--lb-gap); min-height: 320px; }
+    .lb-root .info { display: flex; flex-direction: column; gap: 8px; max-width: 360px; }
+    .lb-root .side { border-left: 1px solid var(--lb-line); padding: calc(var(--lb-space) * 1.5) var(--lb-gutter) var(--lb-space); display: flex; flex-direction: column; justify-content: space-between; gap: var(--lb-space); }
+    .lb-root .cols { display: grid; grid-template-columns: repeat(2, auto); justify-content: start; align-items: start; gap: var(--lb-gap); }
+    .lb-root .col { display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .row { display: flex; align-items: center; gap: var(--lb-gap); padding: 12px var(--lb-gutter); }
+    .lb-root .row .links { display: flex; flex-wrap: wrap; gap: var(--lb-gap); align-items: center; }
+    .lb-root .row .links .l { display: inline-flex; align-items: center; gap: 6px; }
+    .lb-root .row .icons { display: flex; gap: var(--lb-gap); }
+    .lb-root .bottom { padding: var(--lb-gap) var(--lb-gutter); display: flex; justify-content: center; }
+    @media (max-width: 640px) {
+      .lb-root .top { grid-template-columns: 1fr; }
+      .lb-root .side { display: none; }
+      .lb-root .brand { min-height: 0; }
+      .lb-root .row { align-items: flex-start; }
+      .lb-root .row .links { flex: 1; min-width: 0; flex-wrap: nowrap; }
+      .lb-root .row .links .l { min-width: 0; align-items: flex-start; }
+      .lb-root .row .icons { flex: none; margin-left: auto; }
+    }
+  </style>
+  <div class="top">
+    <div class="brand">
+      <div class="lb-logo">Logo</div>
+      <div class="info">
+        <div class="lb-small">Secondary information line one goes here</div>
+        <div class="lb-small">Secondary information line two goes here</div>
+        <div class="lb-small">Secondary information line three here</div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="cols">
+        <div class="col"><span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span></div>
+        <div class="col"><span class="lb-link">Link four</span><span class="lb-link">Link five</span></div>
+      </div>
+      <span class="lb-link">Small link</span>
+    </div>
+  </div>
+  <div class="lb-divider"></div>
+  <div class="row">
+    <div class="links">
+      <span class="l lb-link">Link one<span class="lb-arrow"></span></span>
+      <span class="l lb-link">Link two<span class="lb-arrow"></span></span>
+      <span class="l lb-link">Link three<span class="lb-arrow"></span></span>
+    </div>
+    <div class="icons"><span class="lb-icon"></span></div>
+  </div>
+  <div class="lb-divider"></div>
+  <div class="bottom"><span class="lb-small lb-center">Small print text goes here</span></div>
+</footer>

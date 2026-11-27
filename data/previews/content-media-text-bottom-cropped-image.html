@@ -1,0 +1,40 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0 0; overflow: hidden; }
+    .lb-root .cols { display: grid; grid-template-columns: 60% 1fr; gap: var(--lb-gap); align-items: stretch; justify-content: space-between; }
+    .lb-root .cols { grid-template-columns: 60% 24%; }
+    .lb-root .text { display: flex; flex-direction: column; gap: var(--lb-gap); align-self: start; padding-bottom: var(--lb-space); }
+    .lb-root .text .lb-h1 { font-size: clamp(40px, 7vw, 104px); line-height: 1.02; overflow-wrap: anywhere; }
+    .lb-root .text .lb-h3 { font-size: 22px; }
+    .lb-root .btns { display: flex; gap: var(--lb-gap); flex-wrap: wrap; }
+    .lb-root .pic { align-self: end; margin-top: calc(var(--lb-space) * 2); }
+    .lb-root .pic .lb-img { width: 100%; aspect-ratio: 3 / 5; display: block; margin-bottom: -12%; }
+    .lb-root .below { display: contents; }
+    @media (max-width: 640px) {
+      .lb-root .cols { grid-template-columns: 1fr 1fr; grid-template-areas: "head head" "left right"; row-gap: var(--lb-gap); }
+      .lb-root .text { display: contents; }
+      .lb-root .head { grid-area: head; display: flex; flex-direction: column; gap: var(--lb-gap); }
+      .lb-root .text .lb-h1 { font-size: clamp(36px, 11vw, 56px); }
+      .lb-root .below { grid-area: left; display: flex; flex-direction: column; gap: var(--lb-gap); align-self: start; padding-bottom: var(--lb-space); }
+      .lb-root .btns { flex-direction: column; align-items: flex-start; }
+      .lb-root .pic { grid-area: right; margin-top: 0; }
+      .lb-root .pic .lb-img { margin-bottom: -15%; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="cols">
+      <div class="text">
+        <div class="head">
+          <h2 class="lb-h1">Big headline goes here</h2>
+          <p class="lb-h3">Subheading placeholder</p>
+          <p class="lb-text">Description paragraph placeholder text that wraps across a few lines of copy.</p>
+        </div>
+        <div class="below">
+          <div class="btns"><a class="lb-btn">Button one</a><a class="lb-btn-ghost">Button two</a></div>
+          <p class="lb-small">Small secondary note text</p>
+        </div>
+      </div>
+      <div class="pic"><div class="lb-img lb-flat"></div></div>
+    </div>
+  </div>
+</section>

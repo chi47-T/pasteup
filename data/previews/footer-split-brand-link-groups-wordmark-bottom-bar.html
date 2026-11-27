@@ -1,0 +1,62 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .lb-wrap { min-height: calc(100vh - 2 * var(--lb-space)); display: flex; flex-direction: column; justify-content: space-between; gap: calc(var(--lb-space) * 2); }
+    .lb-root .top { display: grid; grid-template-columns: 1fr 3fr; gap: var(--lb-gap); align-items: start; }
+    .lb-root .brand { display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .info { display: flex; flex-direction: column; gap: calc(var(--lb-gap) / 4); }
+    .lb-root .cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--lb-gap); }
+    .lb-root .col { display: flex; flex-direction: column; gap: calc(var(--lb-gap) * 2); }
+    .lb-root .group { display: flex; flex-direction: column; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .group .lb-h3 { margin-bottom: calc(var(--lb-gap) / 4); }
+    .lb-root .col.big { gap: var(--lb-gap); }
+    .lb-root .bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--lb-gap); }
+    .lb-root .bar { display: flex; flex-direction: column; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .bar-links { display: flex; flex-wrap: wrap; gap: var(--lb-gap); }
+    .lb-root .wordmark { width: 50%; max-width: 50%; margin: 0; }
+    @media (max-width: 640px) {
+      .lb-root .lb-wrap { min-height: 0; gap: var(--lb-space); }
+      .lb-root .top { grid-template-columns: 1fr; }
+      .lb-root .cols, .lb-root .bar { display: none; }
+      .lb-root .bottom { display: block; }
+      .lb-root .wordmark { width: 100%; max-width: 100%; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="top">
+      <div class="brand">
+        <a class="lb-logo">Brand</a>
+        <div class="info">
+          <p class="lb-small">123 Example Street, Sample City</p>
+          <p class="lb-small">Open Mon to Fri, 9am to 5pm</p>
+          <p class="lb-small">hello@example.com</p>
+        </div>
+      </div>
+      <div class="cols">
+        <div class="col">
+          <div class="group"><h3 class="lb-h3">Title</h3><a class="lb-link">Link one</a><a class="lb-link">Link</a><a class="lb-link">Link two</a></div>
+          <div class="group"><h3 class="lb-h3">Group</h3><a class="lb-link">Link</a><a class="lb-link">Link two</a></div>
+        </div>
+        <div class="col">
+          <div class="group"><h3 class="lb-h3">Category</h3><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a><a class="lb-link">Link four</a></div>
+        </div>
+        <div class="col">
+          <div class="group"><h3 class="lb-h3">Section</h3><a class="lb-link">Link item one</a><a class="lb-link">Link item two</a></div>
+          <div class="group"><h3 class="lb-h3">Heading</h3><a class="lb-link">Link</a><a class="lb-link">FAQ</a></div>
+        </div>
+        <div class="col big">
+          <a class="lb-h3">Contact</a>
+          <a class="lb-h3">Explore</a>
+          <a class="lb-h3">Menu item</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bar">
+        <div class="bar-links"><a class="lb-small lb-link">Privacy</a><a class="lb-small lb-link">Terms</a><a class="lb-small lb-link">Accessibility</a></div>
+        <p class="lb-small">Copyright 2026 Brand. All rights reserved.</p>
+      </div>
+      <p class="lb-h1 wordmark lb-right">Brandname</p>
+    </div>
+  </div>
+</footer>

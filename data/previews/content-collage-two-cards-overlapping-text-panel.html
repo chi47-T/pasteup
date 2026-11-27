@@ -1,0 +1,45 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; }
+    .lb-root .row { display: grid; grid-template-columns: 3fr 7fr; gap: calc(var(--lb-gap) * 2.5); align-items: stretch; }
+    .lb-root .left { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: var(--lb-gap); padding: var(--lb-pad); min-height: 520px; }
+    .lb-root .right { position: relative; min-height: 520px; padding: 0; overflow: hidden; }
+    .lb-root .fill { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .panel { position: absolute; right: 0; bottom: 0; width: 50%; height: 50%; background: var(--lb-bg); display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--lb-gap) / 2); padding: var(--lb-pad); }
+    .lb-root .panel .btn-row { margin-top: auto; align-self: flex-end; }
+    .lb-root .small-ico { width: 40px; height: 40px; }
+    .lb-root .m-text { display: none; }
+    @media (max-width: 640px) {
+      .lb-root .row { grid-template-columns: 1fr; gap: var(--lb-gap); }
+      .lb-root .left { min-height: 360px; }
+      .lb-root .right { min-height: 0; aspect-ratio: 16 / 10; overflow: hidden; align-items: center; }
+      .lb-root .fill { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .lb-root .panel { display: none; }
+      .lb-root .m-text { display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--lb-gap) / 2); grid-column: 1; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="row">
+      <div class="lb-card left">
+        <span class="lb-label">Tag</span>
+        <h3 class="lb-h3">Card headline goes here</h3>
+        <span class="lb-icon small-ico"></span>
+      </div>
+      <div class="lb-card right">
+        <div class="lb-img lb-tag-tl fill"></div>
+        <div class="panel">
+          <span class="lb-label">Tag</span>
+          <h3 class="lb-h3">Panel headline goes here</h3>
+          <p class="lb-text">Supporting description text goes here for the panel.</p>
+          <div class="btn-row"><a class="lb-btn">Button</a></div>
+        </div>
+      </div>
+      <div class="m-text">
+        <span class="lb-label">Tag</span>
+        <h3 class="lb-h3">Panel headline goes here</h3>
+        <p class="lb-text">Supporting description text goes here for the panel.</p>
+        <a class="lb-btn lb-block">Button</a>
+      </div>
+    </div>
+  </div>
+</section>

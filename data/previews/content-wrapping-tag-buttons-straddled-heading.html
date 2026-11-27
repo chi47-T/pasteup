@@ -1,0 +1,18 @@
+<section class="lb-root">
+  <style>
+    .lb-root { margin-top: -80px; padding-bottom: var(--lb-space); }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; margin-bottom: var(--lb-space); }
+    .lb-root .tags { width: 70%; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px; }
+    @media (max-width: 640px) { .lb-root { margin-top: -60px; } .lb-root .head { gap: 8px; } .lb-root .tags { width: 100%; } }
+    /* 跨在交界上：區塊上方用自己的留白（不是外距）容納往上移的標題組，留白和頁面同色、下方才是本區塊的底色，整個區塊不透明，只有標題組往上移，不蓋到上一個區塊 */
+    .lb-root { --shift: calc(19px + 12px + clamp(34px, 4.6vw, 68px) * 0.56); margin-top: 0; padding-top: var(--shift); background: var(--lb-surface-2); position: relative; z-index: 1; }
+    .lb-root .head { position: relative; z-index: 1; margin-top: 0; transform: translateY(calc(-1 * var(--shift))); margin-bottom: calc(var(--lb-space) - var(--shift)); }
+    .lb-root::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: var(--shift); background: var(--lb-bg); z-index: 0; pointer-events: none; }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><span class="lb-label">Tag</span><h2 class="lb-h1">Headline goes here across two lines</h2><p class="lb-h3">Subheading</p></div>
+    <div class="tags">
+      <button class="lb-btn-ghost lb-btn">Button</button><button class="lb-btn-ghost lb-btn">Longer button</button><button class="lb-btn-ghost lb-btn">Tag</button><button class="lb-btn-ghost lb-btn">Medium tag</button><button class="lb-btn-ghost lb-btn">Button text</button><button class="lb-btn-ghost lb-btn">Tag</button><button class="lb-btn-ghost lb-btn">Much longer button</button><button class="lb-btn-ghost lb-btn">Button</button><button class="lb-btn-ghost lb-btn">Medium tag</button><button class="lb-btn-ghost lb-btn">Tag</button><button class="lb-btn-ghost lb-btn">Longer button</button><button class="lb-btn-ghost lb-btn">Button text</button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; overflow-x: clip; --cw: 65vw; --cg: var(--lb-gap); }
+    .lb-root .head { padding: 0 var(--lb-gutter) var(--lb-gap); }
+    .lb-root .stage { position: relative; overflow: hidden; }
+    .lb-root .track { display: flex; gap: var(--cg); margin-left: calc((100% - var(--cw)) / 2 - var(--cw) - var(--cg)); will-change: transform; }
+    .lb-root .track.anim { transition: transform .5s ease; }
+    .lb-root .slide { flex: none; width: var(--cw); height: 50vh; min-height: 360px; border: 0; border-radius: 0; display: grid; grid-template-columns: 60% 40%; gap: var(--lb-gap); padding: var(--lb-pad); }
+    .lb-root .l { display: flex; flex-direction: column; justify-content: flex-start; }
+    .lb-root .r { display: flex; flex-direction: column; gap: var(--lb-gap); align-items: flex-start; }
+    .lb-root .links { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
+    .lb-root .arrow { position: absolute; top: 50%; transform: translate(-50%, -50%); z-index: 5; }
+    .lb-root .arrow.prev { left: calc(50% - var(--cw) / 2); }
+    .lb-root .arrow.next { left: calc(50% + var(--cw) / 2); }
+    @media (max-width: 640px) {
+      .lb-root { --cw: calc(100vw - 2 * var(--lb-gutter)); --cg: 100vw; }
+      .lb-root .slide { height: 70vh; }
+      .lb-root .slide { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      .lb-root .r { align-items: center; }
+      .lb-root .l { width: 100%; }
+      .lb-root .links { flex-direction: row; gap: var(--lb-gap); }
+      .lb-root .arrow.prev { left: 24px; transform: translate(0, -50%); }
+      .lb-root .arrow.next { left: auto; right: 24px; transform: translate(0, -50%); }
+    }
+  </style>
+  <div class="head"><h2 class="lb-h2">Section title goes here</h2></div>
+  <div class="stage">
+    <div class="track">
+      <div class="lb-card slide"><div class="l"><div class="lb-img" style="aspect-ratio:16/9"></div></div><div class="r"><h3 class="lb-h2">Big title</h3><div class="lb-h1">000</div><span class="lb-btn">Button</span><div class="links"><span class="lb-link">Link one</span><span class="lb-link">Link two</span></div></div></div>
+      <div class="lb-card slide"><div class="l"><div class="lb-img" style="aspect-ratio:16/9"></div></div><div class="r"><h3 class="lb-h2">Big title</h3><div class="lb-h1">000</div><span class="lb-btn">Button</span><div class="links"><span class="lb-link">Link one</span><span class="lb-link">Link two</span></div></div></div>
+      <div class="lb-card slide"><div class="l"><div class="lb-img" style="aspect-ratio:16/9"></div></div><div class="r"><h3 class="lb-h2">Big title</h3><div class="lb-h1">000</div><span class="lb-btn">Button</span><div class="links"><span class="lb-link">Link one</span><span class="lb-link">Link two</span></div></div></div>
+      <div class="lb-card slide"><div class="l"><div class="lb-img" style="aspect-ratio:16/9"></div></div><div class="r"><h3 class="lb-h2">Big title</h3><div class="lb-h1">000</div><span class="lb-btn">Button</span><div class="links"><span class="lb-link">Link one</span><span class="lb-link">Link two</span></div></div></div>
+    </div>
+    <span class="lb-icon-btn arrow prev"><span class="lb-arrow lb-arrow-left"></span></span>
+    <span class="lb-icon-btn arrow next"><span class="lb-arrow"></span></span>
+  </div>
+  <script type="text/lb">
+    const track = root.querySelector('.track');
+    const step = () => { const s = track.children[0]; return s.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0); };
+    let busy = false;
+    function go(dir) {
+      if (busy) return; busy = true;
+      const d = step();
+      if (dir > 0) {
+        track.classList.add('anim'); track.style.transform = `translateX(${-d}px)`;
+        setTimeout(() => { track.classList.remove('anim'); track.appendChild(track.firstElementChild); track.style.transform = ''; busy = false; }, 520);
+      } else {
+        track.classList.remove('anim'); track.insertBefore(track.lastElementChild, track.firstElementChild);
+        track.style.transform = `translateX(${-d}px)`; void track.offsetWidth;
+        track.classList.add('anim'); track.style.transform = '';
+        setTimeout(() => { track.classList.remove('anim'); busy = false; }, 520);
+      }
+    }
+    const n = root.querySelector('.next'), p = root.querySelector('.prev');
+    const fn = () => go(1), fp = () => go(-1);
+    n.addEventListener('click', fn); p.addEventListener('click', fp);
+    ctx.onCleanup(() => { n.removeEventListener('click', fn); p.removeEventListener('click', fp); });
+  </script>
+</section>

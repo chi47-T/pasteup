@@ -1,0 +1,23 @@
+<section class="lb-root" data-header="overlay">
+  <style>
+    .lb-root { position: relative; height: 100vh; height: 100svh; background: var(--lb-bg); overflow: hidden; }
+    .lb-root[data-header="below"], .lb-root[data-header="inset"] { height: calc(100vh - var(--header-h)); height: calc(100svh - var(--header-h)); }
+    .lb-root[data-header="after"] { height: 100vh; }
+    .lb-root .bg { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; display: block; margin: 0; border-radius: 0; }
+    .lb-root .scroll { position: absolute; left: var(--lb-gutter); bottom: var(--lb-space); }
+    .lb-root .info { position: absolute; right: var(--lb-gutter); bottom: var(--lb-space); width: 25%; min-width: 280px; display: flex; align-items: center; gap: var(--lb-gap); padding: var(--lb-pad); background: var(--lb-bg); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .thumb { width: 64px; height: 64px; flex: none; }
+    .lb-root .info .txt { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    @media (max-width: 640px) {
+      .lb-root .scroll { display: none; }
+      .lb-root .info { left: var(--lb-gutter); right: var(--lb-gutter); width: auto; min-width: 0; bottom: var(--lb-gutter); }
+    }
+  </style>
+  <div class="lb-video lb-flat bg"></div>
+  <div class="scroll" data-acc="0"><button class="lb-icon-btn"><span class="lb-arrow lb-arrow-down"></span></button></div>
+  <div class="info" data-acc="1">
+    <div class="lb-img lb-notag thumb"></div>
+    <div class="txt"><span class="lb-label">Label</span><span class="lb-small">Secondary text here</span><span class="lb-small">More text here</span></div>
+    <button class="lb-icon-btn"><span class="lb-arrow"></span></button>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .cols { display: grid; grid-template-columns: 2fr 1fr; gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .left { display: flex; flex-direction: column; gap: var(--lb-gap); min-width: 0; }
+    .lb-root .brand { display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .brand .lb-logo { width: 16.6%; min-width: 96px; flex: none; }
+    .lb-root .brand .lb-text { flex: 1; }
+    .lb-root .links { display: flex; flex-wrap: wrap; gap: 8px var(--lb-gap); }
+    .lb-root .info { display: flex; flex-wrap: wrap; gap: var(--lb-gap); }
+    .lb-root .grp { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .lb-root .right { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: var(--lb-space); text-align: right; }
+    .lb-root .right-bot { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+    .lb-root .icons { display: flex; gap: 8px; }
+    @media (max-width: 640px) {
+      .lb-root .cols { grid-template-columns: 1fr; }
+      .lb-root .brand { flex-wrap: wrap; }
+      .lb-root .brand .lb-logo { width: 96px; }
+      .lb-root .right { align-items: flex-start; text-align: left; justify-content: flex-start; gap: var(--lb-gap); }
+      .lb-root .right-bot { align-items: flex-start; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="cols">
+      <div class="left">
+        <div class="brand"><div class="lb-logo"></div><p class="lb-text">Short brand description</p></div>
+        <div class="links"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a></div>
+        <div class="info">
+          <div class="grp"><span class="lb-label">Label</span><span class="lb-small">Secondary info text</span></div>
+          <div class="grp"><span class="lb-label">Label</span><span class="lb-small">Secondary info text</span></div>
+        </div>
+      </div>
+      <div class="right">
+        <a class="lb-btn">Main button</a>
+        <div class="right-bot">
+          <div class="icons"><a class="lb-icon-btn"></a><a class="lb-icon-btn"></a><a class="lb-icon-btn"></a></div>
+          <span class="lb-small">Small print text</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

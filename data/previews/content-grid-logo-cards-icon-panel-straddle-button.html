@@ -1,0 +1,53 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); margin-bottom: var(--lb-space); }
+    .lb-root .head .lb-h2 { font-size: clamp(28px, 4vw, 48px); }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--lb-gap); }
+    .lb-root .c { display: flex; flex-direction: column; transition: transform .2s; }
+    .lb-root .c .top { height: 160px; flex: none; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--lb-line); }
+    .lb-root .c .top .lb-img { width: 96px; height: 56px; }
+    .lb-root .c .txt { flex: 1; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+    .lb-root .c .lb-h3 { display: flex; align-items: center; gap: 8px; }
+    .lb-root .c .lb-h3 .lb-arrow { flex: none; }
+    .lb-root .panel { overflow: visible; position: relative; margin-top: var(--lb-space); margin-bottom: 28px; padding-bottom: calc(var(--lb-pad) + 28px); text-align: center; }
+    .lb-root .panel .lb-label { margin-bottom: var(--lb-gap); }
+    .lb-root .icons { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: var(--lb-gap); }
+    .lb-root .icons .i { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .lb-root .cta { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); }
+    @media (hover: hover) {
+      .lb-root[data-extra-on] .c:hover { transform: translateY(-4px); }
+      .lb-root[data-extra-on] .c:hover .txt { background: var(--lb-surface-2); }
+    }
+    @media (max-width: 1024px) { .lb-root .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) {
+      .lb-root .grid { grid-template-columns: 1fr; }
+      .lb-root .icons { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><div class="lb-h2">Headline goes here</div></div>
+    <div class="grid">
+      <div class="lb-card lb-nopad c"><div class="top"><div class="lb-img lb-notag"></div></div><div class="txt lb-pad"><span class="lb-label">Label</span><span class="lb-h3">Card title <span class="lb-arrow"></span></span><div class="lb-text">Description text placeholder</div></div></div>
+      <div class="lb-card lb-nopad c"><div class="top"><div class="lb-img lb-notag"></div></div><div class="txt lb-pad"><span class="lb-label">Label</span><span class="lb-h3">Card title <span class="lb-arrow"></span></span><div class="lb-text">Description text placeholder</div></div></div>
+      <div class="lb-card lb-nopad c"><div class="top"><div class="lb-img lb-notag"></div></div><div class="txt lb-pad"><span class="lb-label">Label</span><span class="lb-h3">Card title <span class="lb-arrow"></span></span><div class="lb-text">Description text placeholder</div></div></div>
+    </div>
+    <div class="lb-card panel">
+      <div class="lb-label lb-center">Panel heading</div>
+      <div class="icons">
+        <div class="i"><span class="lb-icon"></span><span class="lb-small">Short text</span></div>
+        <div class="i"><span class="lb-icon"></span><span class="lb-small">Short text</span></div>
+        <div class="i"><span class="lb-icon"></span><span class="lb-small">Short text</span></div>
+        <div class="i"><span class="lb-icon"></span><span class="lb-small">Short text</span></div>
+        <div class="i"><span class="lb-icon"></span><span class="lb-small">Short text</span></div>
+        <div class="i"><span class="lb-icon"></span><span class="lb-small">Short text</span></div>
+        <div class="i"><span class="lb-icon"></span><span class="lb-small">Short text</span></div>
+        <div class="i"><span class="lb-icon"></span><span class="lb-small">Short text</span></div>
+      </div>
+      <a class="lb-btn cta">Button</a>
+    </div>
+  </div>
+  <script type="text/lb">
+    if (ctx.extras.includes(0)) root.setAttribute('data-extra-on', '');
+  </script>
+</section>

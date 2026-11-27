@@ -1,0 +1,28 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .lb-wrap { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--lb-gap); }
+    .lb-root .textcol { flex: 0 1 66vw; max-width: 66%; min-width: 0; text-align: left; display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .textcol .lb-h2 { max-width: 50vw; overflow-wrap: anywhere; }
+    .lb-root .textcol .lb-text { overflow-wrap: anywhere; }
+    .lb-root .stat { flex: 0 0 20vw; width: 20vw; box-sizing: border-box; padding: var(--lb-pad); margin-right: calc((100% - 100vw) / 2 + 24px); display: flex; flex-direction: column; gap: 12px; }
+    .lb-root .stat .num { text-align: right; }
+    @media (max-width: 640px) {
+      .lb-root .lb-wrap { flex-direction: column; align-items: stretch; }
+      .lb-root .stat { order: -1; flex: none; width: auto; margin-right: 0; flex-direction: row; justify-content: space-between; align-items: center; }
+      .lb-root .textcol { max-width: none; flex: none; }
+      .lb-root .textcol .lb-h2 { max-width: none; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="textcol">
+      <h2 class="lb-h2">Headline goes here</h2>
+      <p class="lb-text">Description text placeholder spanning a couple of lines of content for the block.</p>
+      <a class="lb-link" href="#">Link one</a>
+    </div>
+    <div class="lb-card stat">
+      <span class="lb-label">Label</span>
+      <h3 class="lb-h2 num">42 unit</h3>
+    </div>
+  </div>
+</section>

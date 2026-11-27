@@ -1,0 +1,32 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; padding: 0 0 var(--lb-space); background: var(--lb-bg); }
+    .lb-root .img { position: absolute; top: 0; right: 0; width: 50vw; height: 80%; }
+    .lb-root .row { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    .lb-root .copy { grid-column: 1; padding-top: 12vw; display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .lede { font-size: clamp(20px, 2vw, 30px); }
+    .lb-root .body { display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .copy .lb-btn { margin-top: calc(var(--lb-gap) * 3); }
+    @media (max-width: 640px) {
+      .lb-root .img { position: static; display: block; width: auto; height: auto; aspect-ratio: 4 / 5; margin: 0 var(--lb-gutter) calc(var(--lb-gap) * 2); }
+      .lb-root .row { grid-template-columns: 1fr; }
+      .lb-root .copy { padding-top: 0; }
+      .lb-root .copy .lb-btn { margin-top: var(--lb-gap); }
+    }
+  </style>
+  <div class="lb-img lb-flat img"></div>
+  <div class="lb-wrap">
+    <div class="row">
+      <div class="copy">
+        <span class="lb-label">Label</span>
+        <h2 class="lb-h1">Headline goes here in brief</h2>
+        <p class="lb-h3 lede">A short lead sentence goes here to introduce the section and its main idea.</p>
+        <div class="body">
+          <p class="lb-text">Supporting text goes here. It describes the section in a little more detail and gives the reader some useful context.</p>
+          <p class="lb-text">A second line of supporting text goes here to round out the section content.</p>
+        </div>
+        <a class="lb-btn">Learn more</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,83 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .grid { display: grid; grid-template-columns: 6fr 4fr; gap: calc(var(--lb-gap) * 2); align-items: stretch; }
+    .lb-root .cards { display: flex; flex-direction: column; gap: var(--lb-gap); min-width: 0; }
+    .lb-root .side { grid-column: 2; grid-row: 1; min-width: 0; }
+    .lb-root .cards { grid-column: 1; grid-row: 1; }
+    .lb-root .head { position: sticky; top: calc(var(--header-h, 0px) + var(--lb-gap)); display: flex; flex-direction: column; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .head .lb-h1 { max-width: 100%; }
+    .lb-root .item { position: relative; }
+    .lb-root .card { position: relative; z-index: 1; border: 1px solid var(--lb-line); display: grid; grid-template-columns: 1fr auto; grid-template-areas: "img img" "title title" "text btn"; column-gap: var(--lb-gap); row-gap: calc(var(--lb-gap) * 0.75); align-items: center; transition: transform .35s ease; transform-origin: center; }
+    .lb-root .card .lb-img { grid-area: img; width: 100%; aspect-ratio: 16 / 10; }
+    .lb-root .card .lb-h3 { grid-area: title; }
+    .lb-root .card .lb-text { grid-area: text; }
+    .lb-root .card .btn-wrap { grid-area: btn; position: relative; justify-self: end; }
+    .lb-root .plate { position: absolute; inset: 0; z-index: 0; background: var(--lb-surface-2); border: 1px solid var(--lb-line); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); opacity: 0; transition: opacity .35s ease; }
+    .lb-root .arc { position: absolute; left: 50%; bottom: 100%; transform: translateX(-50%); white-space: nowrap; opacity: 0; transition: opacity .3s ease; margin-bottom: 4px; }
+    .lb-root .foot-btn { display: none; }
+    @media (hover: hover) and (min-width: 1025px) {
+      .lb-root.fx .item:hover .card { transform: rotate(-3deg); }
+      .lb-root.fx .item:hover .plate { opacity: 1; }
+      .lb-root.fx .item:hover .arc { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lb-root .head { position: static; }
+      .lb-root .card, .lb-root .plate, .lb-root .arc { transition: none; }
+    }
+    @media (max-width: 640px) {
+      .lb-root .grid { grid-template-columns: 1fr; gap: calc(var(--lb-gap) * 1.5); }
+      .lb-root .side, .lb-root .cards { grid-column: 1; grid-row: auto; }
+      .lb-root .head { position: static; }
+      .lb-root .head .lb-btn { align-self: center; }
+      .lb-root .card { grid-template-areas: "img img" "title btn" "text text"; }
+      .lb-root .foot-btn { display: flex; justify-content: center; margin-top: calc(var(--lb-gap) * 1.5); }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="grid">
+      <div class="side">
+        <div class="head">
+          <span class="lb-label">Category</span>
+          <h2 class="lb-h1">Headline goes here with a few more words</h2>
+          <p class="lb-text">A short supporting paragraph that introduces the list of items shown in the cards beside this heading.</p>
+          <a class="lb-btn" href="#">View all</a>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="item"><div class="plate" data-extra="0"></div><article class="card lb-card">
+          <div class="lb-img"></div><h3 class="lb-h3">Item title one</h3>
+          <p class="lb-text">Supporting text goes here that briefly describes the first card item.</p>
+          <div class="btn-wrap"><span class="arc lb-small" data-extra="0">Learn more · Learn more</span><a class="lb-icon-btn" href="#" aria-label="Open"></a></div>
+        </article></div>
+        <div class="item"><div class="plate" data-extra="0"></div><article class="card lb-card">
+          <div class="lb-img"></div><h3 class="lb-h3">Item title two</h3>
+          <p class="lb-text">A short line of supporting text goes here for this card item.</p>
+          <div class="btn-wrap"><span class="arc lb-small" data-extra="0">Learn more · Learn more</span><a class="lb-icon-btn" href="#" aria-label="Open"></a></div>
+        </article></div>
+        <div class="item"><div class="plate" data-extra="0"></div><article class="card lb-card">
+          <div class="lb-img"></div><h3 class="lb-h3">Item title three</h3>
+          <p class="lb-text">Supporting text goes here to describe this item in brief.</p>
+          <div class="btn-wrap"><span class="arc lb-small" data-extra="0">Learn more · Learn more</span><a class="lb-icon-btn" href="#" aria-label="Open"></a></div>
+        </article></div>
+        <div class="item"><div class="plate" data-extra="0"></div><article class="card lb-card">
+          <div class="lb-img"></div><h3 class="lb-h3">Item title four</h3>
+          <p class="lb-text">Another line of supporting text goes here for the card.</p>
+          <div class="btn-wrap"><span class="arc lb-small" data-extra="0">Learn more · Learn more</span><a class="lb-icon-btn" href="#" aria-label="Open"></a></div>
+        </article></div>
+        <div class="item"><div class="plate" data-extra="0"></div><article class="card lb-card">
+          <div class="lb-img"></div><h3 class="lb-h3">Item title five</h3>
+          <p class="lb-text">Supporting text goes here with a short note about this item.</p>
+          <div class="btn-wrap"><span class="arc lb-small" data-extra="0">Learn more · Learn more</span><a class="lb-icon-btn" href="#" aria-label="Open"></a></div>
+        </article></div>
+      </div>
+    </div>
+    <div class="foot-btn"><a class="lb-btn" href="#">View all</a></div>
+  </div>
+  <script type="text/lb">
+    if (ctx.extras.includes(0) && !ctx.reducedMotion) {
+      root.classList.add('fx');
+      ctx.onCleanup(function () { root.classList.remove('fx'); });
+    }
+  </script>
+</section>

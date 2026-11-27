@@ -1,0 +1,39 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .row { display: flex; justify-content: space-between; align-items: center; gap: var(--lb-gap); }
+    .lb-root .media { flex: 0 0 40%; }
+    .lb-root .media .lb-img { width: 100%; aspect-ratio: 1 / 1; }
+    .lb-root .items { flex: 0 0 33.333%; display: flex; flex-direction: column; gap: var(--lb-gap); text-align: left; }
+    .lb-root .item { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .lb-root .linkrow { display: inline-flex; flex-direction: column; gap: 8px; }
+    .lb-root .linkline { display: flex; align-items: center; gap: 8px; }
+    @media (max-width: 640px) {
+      .lb-root .row { flex-direction: column; align-items: stretch; }
+      .lb-root .media { flex: none; width: 90%; align-self: center; }
+      .lb-root .items { flex: none; width: 100%; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="row">
+      <div class="media"><div class="lb-img"></div></div>
+      <div class="items">
+        <div class="item">
+          <h3 class="lb-h3">Item title goes here</h3>
+          <p class="lb-text">Short description placeholder text for this item.</p>
+          <div class="linkrow"><div class="linkline"><a class="lb-link">Link one</a><span class="lb-icon-btn"><i class="lb-arrow"></i></span></div><div class="lb-divider"></div></div>
+        </div>
+        <div class="item">
+          <h3 class="lb-h3">Item title goes here</h3>
+          <p class="lb-text">Short description placeholder text for this item.</p>
+          <div class="linkrow"><div class="linkline"><a class="lb-link">Link one</a><span class="lb-icon-btn"><i class="lb-arrow"></i></span></div><div class="lb-divider"></div></div>
+        </div>
+        <div class="item">
+          <h3 class="lb-h3">Item title goes here</h3>
+          <p class="lb-text">Short description placeholder text for this item.</p>
+          <div class="linkrow"><div class="linkline"><a class="lb-link">Link one</a><span class="lb-icon-btn"><i class="lb-arrow"></i></span></div><div class="lb-divider"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

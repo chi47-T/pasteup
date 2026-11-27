@@ -1,0 +1,92 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: relative; background: var(--lb-bg); border-bottom: 1px solid var(--lb-line); }
+    .lb-root .bar { height: 80px; display: flex; align-items: center; padding: 0 24px; gap: var(--lb-gap); }
+    .lb-root .nav { margin-left: auto; display: flex; align-items: center; height: 100%; gap: 28px; }
+    .lb-root .nav-item { height: 100%; display: flex; align-items: center; }
+    .lb-root .tools { display: flex; align-items: center; gap: 16px; }
+    .lb-root .tools .sep { align-self: stretch; margin: 24px 0; }
+    .lb-root .menu-btn { display: none; }
+    .lb-root .panel { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--lb-bg); border-bottom: 1px solid var(--lb-line); z-index: 20; }
+    .lb-root .nav-item.has-sub:hover ~ .panel, .lb-root .panel:hover, .lb-root.open-panel .panel { display: block; }
+    .lb-root .panel-inner { position: relative; display: grid; grid-template-columns: 30% 1px 1fr; gap: 32px; max-width: 1200px; margin: 0 auto; padding: var(--lb-space) var(--lb-gutter); }
+    .lb-root .panel-left { display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .cat { padding: 12px 0; border-bottom: 1px solid var(--lb-line); }
+    .lb-root .cat.cur { border-bottom-color: var(--lb-accent); }
+    .lb-root .icons { display: flex; gap: 12px; margin-top: auto; }
+    .lb-root .panel-right { display: flex; flex-direction: column; gap: var(--lb-gap); padding-right: 56px; }
+    .lb-root .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--lb-gap); }
+    .lb-root .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--lb-gap); }
+    .lb-root .banner { display: flex; gap: var(--lb-gap); align-items: center; }
+    .lb-root .close { position: absolute; top: var(--lb-pad); right: var(--lb-gutter); }
+    .lb-root .mobile-menu { display: none; }
+    @media (max-width: 1024px) {
+      .lb-root .bar { padding: 0 16px; }
+      .lb-root .nav, .lb-root .tools .sep, .lb-root .panel { display: none !important; }
+      .lb-root .tools { margin-left: auto; }
+      .lb-root .menu-btn { display: inline-flex; }
+      .lb-root.menu-open .mobile-menu { display: flex; position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: var(--lb-bg); z-index: 50; flex-direction: column; padding: 16px; gap: 16px; overflow-y: auto; }
+      .lb-root .mm-top { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+      .lb-root .mm-item { padding: 12px 0; border-bottom: 1px solid var(--lb-line); }
+      .lb-root .mm-sub { display: none; padding: 12px 0 0 16px; flex-direction: column; gap: 12px; }
+      .lb-root .mm-item.exp .mm-sub { display: flex; }
+    }
+  </style>
+  <div class="bar">
+    <div class="lb-logo">Logo</div>
+    <nav class="nav">
+      <div class="nav-item has-sub"><span class="lb-link">Link one</span></div>
+      <div class="nav-item"><span class="lb-link">Link two</span></div>
+      <div class="nav-item"><span class="lb-link">Link three</span></div>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="panel-left">
+            <div class="lb-h3">Panel title</div>
+            <div class="cat cur"><span class="lb-link">Category one</span></div>
+            <div class="cat"><span class="lb-link">Category two</span></div>
+            <div class="cat"><span class="lb-link">Category three</span></div>
+            <div class="icons"><span class="lb-icon-btn"><span class="lb-icon"></span></span><span class="lb-icon-btn"><span class="lb-icon"></span></span><span class="lb-link">Small link</span></div>
+          </div>
+          <div class="lb-divider-v"></div>
+          <div class="panel-right">
+            <div class="lb-label">Small heading</div>
+            <div class="cols">
+              <span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span>
+              <span class="lb-link">Link four</span><span class="lb-link">Link five</span><span class="lb-link">Link six</span>
+            </div>
+            <div class="cards">
+              <div class="lb-card lb-nopad"><div class="lb-img" style="aspect-ratio:16/9"></div><div class="lb-pad"><span class="lb-link">Card title</span></div></div>
+              <div class="lb-card lb-nopad"><div class="lb-img" style="aspect-ratio:16/9"></div><div class="lb-pad"><span class="lb-link">Card title</span></div></div>
+              <div class="lb-card lb-nopad"><div class="lb-img" style="aspect-ratio:16/9"></div><div class="lb-pad"><span class="lb-link">Card title</span></div></div>
+            </div>
+            <div class="lb-card banner"><span class="lb-h3">Banner title</span><span class="lb-btn">Button</span></div>
+          </div>
+          <span class="lb-icon-btn close"><span class="lb-close"></span></span>
+        </div>
+      </div>
+    </nav>
+    <div class="tools">
+      <span class="lb-divider-v sep"></span>
+      <span class="lb-link">Small link</span>
+      <span class="lb-icon-btn"><span class="lb-icon"></span></span>
+      <span class="lb-icon-btn menu-btn"><span class="lb-menu"></span></span>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <div class="mm-top"><div class="lb-logo">Logo</div><span class="lb-icon-btn mm-close"><span class="lb-close"></span></span></div>
+    <div class="mm-item has-sub"><span class="lb-link">Link one</span><div class="mm-sub"><span class="lb-link">Sub link</span><span class="lb-link">Sub link</span></div></div>
+    <div class="mm-item"><span class="lb-link">Link two</span></div>
+    <div class="mm-item"><span class="lb-link">Link three</span></div>
+  </div>
+  <script type="text/lb">
+    const on = (el, ev, fn) => { el.addEventListener(ev, fn); ctx.onCleanup(() => el.removeEventListener(ev, fn)); };
+    const open = () => root.classList.add('menu-open'), close = () => root.classList.remove('menu-open');
+    on(root.querySelector('.menu-btn'), 'click', open);
+    on(root.querySelector('.mm-close'), 'click', close);
+    root.querySelectorAll('.mm-item.has-sub').forEach(i => on(i, 'click', () => i.classList.toggle('exp')));
+    const panel = root.querySelector('.panel');
+    let t;
+    on(root.querySelector('.panel .close'), 'click', () => { panel.style.display = 'none'; clearTimeout(t); t = setTimeout(() => panel.style.display = '', 400); });
+    ctx.onCleanup(() => clearTimeout(t));
+  </script>
+</header>

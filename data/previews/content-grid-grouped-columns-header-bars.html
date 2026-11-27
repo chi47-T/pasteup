@@ -1,0 +1,48 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); text-align: center; margin-bottom: var(--lb-space); }
+    .lb-root .groups { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    .lb-root .bar { position: relative; display: flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 var(--lb-pad); background: var(--lb-surface-2); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .bar .ics { position: absolute; left: var(--lb-pad); top: 50%; transform: translateY(-50%); display: flex; gap: 6px; }
+    .lb-root .bar .ic { width: 16px; height: 16px; border-radius: 50%; background: var(--lb-line); }
+    .lb-root .bar .side { position: absolute; right: var(--lb-pad); top: 6px; }
+    .lb-root .items { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--lb-gap); margin-top: var(--lb-gap); }
+    .lb-root .item { display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+    .lb-root .pic { position: relative; width: 100%; aspect-ratio: 3 / 2; }
+    .lb-root .pic .tags { position: absolute; left: 8px; top: 8px; display: flex; gap: 4px; }
+    .lb-root .more { display: flex; justify-content: center; margin-top: var(--lb-space); }
+    @media (max-width: 640px) {
+      .lb-root .groups { grid-template-columns: 1fr; gap: var(--lb-space); }
+      .lb-root .items { grid-template-columns: 1fr; }
+      .lb-root .pic { aspect-ratio: 16 / 10; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <span class="lb-label">Label</span>
+      <h2 class="lb-h2 lb-center">Headline goes here across lines</h2>
+      <p class="lb-h3 lb-center">Larger secondary text goes here</p>
+      <p class="lb-small lb-center">Small print text goes here</p>
+    </div>
+    <div class="groups">
+      <div class="group">
+        <div class="bar"><span class="ics"><span class="ic"></span><span class="ic"></span></span><h3 class="lb-h3">Group title</h3><span class="lb-small side">Small text</span></div>
+        <div class="items">
+          <div class="item"><div class="lb-img pic"><span class="tags"><span class="lb-label">Tag</span><span class="lb-label">Tag</span></span></div><h3 class="lb-h3">Item title</h3><p class="lb-text">Secondary text here</p></div>
+          <div class="item"><div class="lb-img pic"><span class="tags"><span class="lb-label">Tag</span><span class="lb-label">Tag</span></span></div><h3 class="lb-h3">Item title</h3><p class="lb-text">Secondary text here</p></div>
+          <div class="item"><div class="lb-img pic"><span class="tags"><span class="lb-label">Tag</span><span class="lb-label">Tag</span></span></div><h3 class="lb-h3">Item title</h3><p class="lb-text">Secondary text here</p></div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="bar"><span class="ics"><span class="ic"></span><span class="ic"></span></span><h3 class="lb-h3">Group title</h3><span class="lb-small side">Small text</span></div>
+        <div class="items">
+          <div class="item"><div class="lb-img pic"><span class="tags"><span class="lb-label">Tag</span><span class="lb-label">Tag</span></span></div><h3 class="lb-h3">Item title</h3><p class="lb-text">Secondary text here</p></div>
+          <div class="item"><div class="lb-img pic"><span class="tags"><span class="lb-label">Tag</span><span class="lb-label">Tag</span></span></div><h3 class="lb-h3">Item title</h3><p class="lb-text">Secondary text here</p></div>
+          <div class="item"><div class="lb-img pic"><span class="tags"><span class="lb-label">Tag</span><span class="lb-label">Tag</span></span></div><h3 class="lb-h3">Item title</h3><p class="lb-text">Secondary text here</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="more"><a class="lb-btn">View all</a></div>
+  </div>
+</section>

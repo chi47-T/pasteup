@@ -1,0 +1,27 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .row { display: grid; grid-template-columns: 24% 1fr; gap: var(--lb-gap); align-items: start; }
+    .lb-root .side { align-self: stretch; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 var(--lb-pad); }
+    .lb-root .items { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--lb-gap); align-items: start; }
+    .lb-root .item { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .lb-root .pic { width: 100%; aspect-ratio: 1 / 1; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .labels { display: flex; flex-wrap: wrap; gap: 8px; }
+    .lb-root .item .lb-h3 { overflow-wrap: anywhere; }
+    @media (max-width: 640px) {
+      .lb-root .row { grid-template-columns: 1fr; }
+      .lb-root .side { padding: 0; }
+      .lb-root .items { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: 1fr; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="row">
+      <div class="side"><h2 class="lb-h2 lb-center">Heading goes here</h2></div>
+      <div class="items">
+        <div class="item"><div class="lb-img pic"></div><div class="labels"><span class="lb-label">Label</span><span class="lb-label">Label</span></div><h3 class="lb-h3">Item title goes here</h3></div>
+        <div class="item"><div class="lb-img pic"></div><div class="labels"><span class="lb-label">Label</span><span class="lb-label">Label</span></div><h3 class="lb-h3">Item title goes here</h3></div>
+        <div class="item"><div class="lb-img pic"></div><div class="labels"><span class="lb-label">Label</span><span class="lb-label">Label</span></div><h3 class="lb-h3">Item title goes here</h3></div>
+      </div>
+    </div>
+  </div>
+</section>

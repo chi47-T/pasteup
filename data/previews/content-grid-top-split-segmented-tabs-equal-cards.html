@@ -1,0 +1,49 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; background: var(--lb-bg); }
+    .lb-root .head { display: flex; justify-content: space-between; align-items: center; gap: var(--lb-gap); margin-bottom: calc(var(--lb-gap) * 2); }
+    .lb-root .head-text { display: flex; flex-direction: column; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .tabs { display: flex; width: 50%; flex-shrink: 0; background: var(--lb-surface-2); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); padding: 4px; }
+    .lb-root .tabs .lb-btn-ghost { flex: 1; border-color: transparent; justify-content: center; }
+    .lb-root .tabs .lb-btn { flex: 1; justify-content: center; }
+    .lb-root .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--lb-gap); }
+    .lb-root .item { display: flex; flex-direction: column; gap: calc(var(--lb-gap) / 2); min-width: 0; }
+    .lb-root .item .lb-img { aspect-ratio: 4 / 3; width: 100%; }
+    .lb-root .item .lb-h3 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lb-root .meta { display: flex; justify-content: space-between; align-items: flex-start; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .tags { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; }
+    .lb-root .more { display: flex; justify-content: center; margin-top: calc(var(--lb-gap) * 2); }
+    @media (max-width: 640px) {
+      .lb-root .tabs { display: none; }
+      .lb-root .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lb-root .item:nth-child(n+5) { display: none; }
+      .lb-root .meta { flex-direction: column; }
+      .lb-root .tags { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head">
+      <div class="head-text">
+        <span class="lb-label">Category</span>
+        <h2 class="lb-h2">Section title here</h2>
+      </div>
+      <div class="tabs">
+        <a class="lb-btn">All</a>
+        <a class="lb-btn-ghost">Tab one</a>
+        <a class="lb-btn-ghost">Tab two</a>
+        <a class="lb-btn-ghost">Tab three</a>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="item"><div class="lb-img"></div><h3 class="lb-h3">Longer item title goes right here</h3><div class="meta"><span class="lb-small">Meta details</span><div class="tags"><span class="lb-label">Tag</span><span class="lb-label">Tag</span></div></div></div>
+      <div class="item"><div class="lb-img"></div><h3 class="lb-h3">Short item title</h3><div class="meta"><span class="lb-small">Meta detail</span><div class="tags"><span class="lb-label">Label</span></div></div></div>
+      <div class="item"><div class="lb-img"></div><h3 class="lb-h3">A longer item title that will truncate</h3><div class="meta"><span class="lb-small">Meta row</span><div class="tags"><span class="lb-label">Tag</span><span class="lb-label">Category</span></div></div></div>
+      <div class="item"><div class="lb-img"></div><h3 class="lb-h3">Item title here</h3><div class="meta"><span class="lb-small">Short meta</span><div class="tags"><span class="lb-label">Label</span></div></div></div>
+      <div class="item"><div class="lb-img"></div><h3 class="lb-h3">Item title two</h3><div class="meta"><span class="lb-small">Details</span><div class="tags"><span class="lb-label">Tag</span></div></div></div>
+      <div class="item"><div class="lb-img"></div><h3 class="lb-h3">Another longer item title goes here</h3><div class="meta"><span class="lb-small">Meta text</span><div class="tags"><span class="lb-label">Tag</span><span class="lb-label">Tag</span></div></div></div>
+      <div class="item"><div class="lb-img"></div><h3 class="lb-h3">Item title three</h3><div class="meta"><span class="lb-small">Meta info</span><div class="tags"><span class="lb-label">Label</span></div></div></div>
+      <div class="item"><div class="lb-img"></div><h3 class="lb-h3">Item title four</h3><div class="meta"><span class="lb-small">Detail</span><div class="tags"><span class="lb-label">Label</span></div></div></div>
+    </div>
+    <div class="more"><a class="lb-btn">View all <span class="lb-arrow"></span></a></div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) calc(var(--lb-gutter) / 2); background: var(--lb-bg); overflow-x: clip; }
+    .lb-root .pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); align-items: stretch; }
+    .lb-root .text-card { display: flex; flex-direction: column; justify-content: space-between; gap: calc(var(--lb-gap) * 3); min-height: 720px; min-width: 0; }
+    .lb-root .head { width: 50%; display: flex; flex-direction: column; gap: var(--lb-gap); }
+    .lb-root .btns { width: 60%; display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .btns .lb-btn-ghost { display: flex; justify-content: space-between; align-items: center; gap: calc(var(--lb-gap) / 2); }
+    .lb-root .img-card { position: relative; overflow: hidden; min-width: 0; }
+    .lb-root .track { position: absolute; top: 0; left: 15%; width: 70%; display: flex; flex-direction: column; animation: lb-up 24s linear infinite; }
+    .lb-root .set { display: flex; flex-direction: column; gap: var(--lb-gap); padding-bottom: var(--lb-gap); }
+    .lb-root .set .lb-img { width: 100%; aspect-ratio: 4 / 3; flex: none; }
+    @keyframes lb-up { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+    @keyframes lb-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .lb-root .track { animation: none; } }
+    @media (max-width: 640px) {
+      .lb-root .pair { grid-template-columns: 1fr; }
+      .lb-root .text-card { min-height: 0; justify-content: flex-start; gap: calc(var(--lb-gap) * 1.5); }
+      .lb-root .head, .lb-root .btns { width: 100%; }
+      .lb-root .btns { grid-template-columns: 1fr; }
+      .lb-root .img-card { height: 260px; }
+      .lb-root .track { top: 50%; left: 0; width: auto; height: 160px; margin-top: -80px; flex-direction: row; animation-name: lb-left; }
+      .lb-root .set { flex-direction: row; height: 100%; padding-bottom: 0; padding-right: var(--lb-gap); }
+      .lb-root .set .lb-img { width: auto; height: 100%; }
+    }
+  </style>
+  <div class="pair">
+    <div class="text-card lb-card">
+      <div class="head">
+        <span class="lb-label">Label</span>
+        <h2 class="lb-h2">Section headline goes here across two lines</h2>
+      </div>
+      <div class="btns">
+        <a class="lb-btn-ghost" href="#"><span>Button</span><span class="lb-arrow"></span></a>
+        <a class="lb-btn-ghost" href="#"><span>Learn more</span><span class="lb-arrow"></span></a>
+        <a class="lb-btn-ghost" href="#"><span>Contact</span><span class="lb-arrow"></span></a>
+        <a class="lb-btn-ghost" href="#"><span>View all</span><span class="lb-arrow"></span></a>
+      </div>
+    </div>
+    <div class="img-card lb-card lb-nopad">
+      <div class="track">
+        <div class="set"><div class="lb-img"></div><div class="lb-img"></div><div class="lb-img"></div><div class="lb-img"></div></div>
+        <div class="set" aria-hidden="true"><div class="lb-img"></div><div class="lb-img"></div><div class="lb-img"></div><div class="lb-img"></div></div>
+      </div>
+    </div>
+  </div>
+</section>

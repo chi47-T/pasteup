@@ -1,0 +1,71 @@
+<section class="lb-root">
+  <style>
+    .lb-root { position: relative; overflow-x: clip; --h: 70vh; }
+    .lb-root[data-header="overlay"] { padding-top: var(--header-h); }
+    .lb-root[data-header="below"], .lb-root[data-header="inset"], .lb-root[data-header="after"] { padding-top: 0; }
+    .lb-root .stage { height: calc(70vh - var(--header-h, 0px)); min-height: 320px; display: flex; flex-direction: column; }
+    .lb-root[data-header="overlay"] .stage { height: calc(70vh - var(--header-h, 0px)); }
+    .lb-root .viewport { position: relative; overflow: hidden; flex: 1 1 auto; min-height: 0; width: 100%; }
+    .lb-root .track { display: flex; height: 100%; gap: var(--lb-gap); transition: transform .6s ease; will-change: transform; }
+    .lb-root .slide { position: relative; flex: 0 0 70%; height: 100%; }
+    .lb-root .slide .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .slide .cap { position: absolute; left: var(--lb-pad); top: var(--lb-pad); max-width: 60%; display: flex; flex-direction: column; gap: 8px; }
+    .lb-root .slide .lb-btn { position: absolute; right: var(--lb-pad); bottom: var(--lb-pad); }
+    .lb-root .arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; }
+    .lb-root .arrow.prev { left: 16.5%; }
+    .lb-root .arrow.next { right: 16.5%; }
+    .lb-root .m-arrows { display: none; }
+    .lb-root .pager { display: flex; align-items: center; gap: 12px; padding: 16px var(--lb-gutter); }
+    .lb-root .num { width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid transparent; font-size: 13px; color: var(--lb-ink); cursor: pointer; background: none; padding: 0; }
+    .lb-root .num.is-on { border-color: var(--lb-ink); }
+    .lb-root .pager .m-arrows { margin-left: auto; }
+    @media (max-width: 640px) {
+      .lb-root .stage { height: calc(60vh - var(--header-h, 0px)); }
+      .lb-root .slide { flex: 0 0 100%; }
+      .lb-root .track { gap: 0; }
+      .lb-root .slide .lb-img { aspect-ratio: 1 / 1; }
+      .lb-root .slide .cap { max-width: 80%; }
+      .lb-root .arrow { display: none; }
+      .lb-root .m-arrows { display: flex; gap: 8px; }
+    }
+  </style>
+  <div class="stage">
+    <div class="viewport">
+      <div class="track">
+        <div class="slide"><span class="lb-img lb-flat lb-tag-br"></span><div class="cap"><h2 class="lb-h1 lb-invert">Headline goes here</h2><p class="lb-small">Caption text here</p></div><span class="lb-btn">Button</span></div>
+        <div class="slide"><span class="lb-img lb-flat lb-tag-br"></span><div class="cap"><h2 class="lb-h1 lb-invert">Headline goes here</h2><p class="lb-small">Caption text here</p></div><span class="lb-btn">Button</span></div>
+        <div class="slide"><span class="lb-img lb-flat lb-tag-br"></span><div class="cap"><h2 class="lb-h1 lb-invert">Headline goes here</h2><p class="lb-small">Caption text here</p></div><span class="lb-btn">Button</span></div>
+        <div class="slide"><span class="lb-img lb-flat lb-tag-br"></span><div class="cap"><h2 class="lb-h1 lb-invert">Headline goes here</h2><p class="lb-small">Caption text here</p></div><span class="lb-btn">Button</span></div>
+      </div>
+      <button class="lb-icon-btn arrow prev"><span class="lb-arrow lb-arrow-left"></span></button>
+      <button class="lb-icon-btn arrow next"><span class="lb-arrow"></span></button>
+    </div>
+  </div>
+  <div class="pager" data-acc="0">
+    <button class="num is-on">1</button><button class="num">2</button><button class="num">3</button><button class="num">4</button>
+    <div class="m-arrows"><button class="lb-icon-btn m-prev"><span class="lb-arrow lb-arrow-left"></span></button><button class="lb-icon-btn m-next"><span class="lb-arrow"></span></button></div>
+  </div>
+  <script type="text/lb">
+    var track = root.querySelector('.track'), vp = root.querySelector('.viewport');
+    var slides = root.querySelectorAll('.slide'), nums = root.querySelectorAll('.num');
+    var n = slides.length, i = 0, timer = null;
+    function go(k) {
+      i = (k + n) % n;
+      var s = slides[i];
+      var off = s.offsetLeft - (vp.clientWidth - s.offsetWidth) / 2;
+      track.style.transform = 'translateX(' + (-off) + 'px)';
+      nums.forEach(function (b, j) { b.classList.toggle('is-on', j === i); });
+    }
+    function reset() {
+      clearInterval(timer);
+      if (!ctx.reducedMotion) timer = setInterval(function () { go(i + 1); }, 4000);
+    }
+    function bind(sel, d) { var e = root.querySelector(sel); e.addEventListener('click', function () { go(i + d); reset(); }); }
+    bind('.arrow.prev', -1); bind('.arrow.next', 1); bind('.m-prev', -1); bind('.m-next', 1);
+    nums.forEach(function (b, j) { b.addEventListener('click', function () { go(j); reset(); }); });
+    window.addEventListener('resize', onR);
+    function onR() { go(i); }
+    ctx.onCleanup(function () { clearInterval(timer); window.removeEventListener('resize', onR); });
+    go(0); reset();
+  </script>
+</section>

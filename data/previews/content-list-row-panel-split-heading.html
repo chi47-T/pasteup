@@ -1,0 +1,36 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; }
+    .lb-root .top { display: flex; justify-content: space-between; align-items: center; gap: var(--lb-gap); margin-bottom: var(--lb-gap); }
+    .lb-root .acts { display: flex; align-items: center; gap: var(--lb-gap); }
+    .lb-root .panel { width: 96%; margin: 0 auto; background: var(--lb-surface-2); border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .row { display: flex; align-items: center; gap: var(--lb-gap); padding: var(--lb-pad); border-top: 1px solid var(--lb-line); }
+    .lb-root .row:first-child { border-top: 0; }
+    .lb-root .row .lb-label { flex: none; }
+    .lb-root .row .lb-h3 { overflow-wrap: anywhere; }
+    @media (max-width: 640px) {
+      .lb-root .lb-wrap { display: flex; flex-direction: column; gap: var(--lb-gap); }
+      .lb-root .top { display: contents; }
+      .lb-root .top .lb-h2 { order: 0; text-align: center; }
+      .lb-root .panel { order: 1; }
+      .lb-root .row { flex-direction: column; align-items: flex-start; }
+      .lb-root .acts { justify-content: center; order: 2; }
+      .lb-root .panel { width: 100%; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="top">
+      <h2 class="lb-h2">Heading goes here</h2>
+      <div class="acts">
+        <button class="lb-icon-btn" type="button"><span class="lb-arrow"></span></button>
+        <a class="lb-link">Link</a>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="row"><span class="lb-label">Label</span><span class="lb-h3">Item title goes here</span></div>
+      <div class="row"><span class="lb-label">Label</span><span class="lb-h3">Item title goes here</span></div>
+      <div class="row"><span class="lb-label">Label</span><span class="lb-h3">Item title goes here</span></div>
+      <div class="row"><span class="lb-label">Label</span><span class="lb-h3">Item title goes here</span></div>
+    </div>
+  </div>
+</section>

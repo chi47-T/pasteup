@@ -1,0 +1,48 @@
+<section class="lb-root">
+  <style>
+    .lb-root { background: var(--lb-bg); padding: var(--lb-space) 0; overflow-x: clip; }
+    .lb-root .stage { position: relative; }
+    .lb-root .slides { position: relative; aspect-ratio: 16 / 7; }
+    .lb-root .slide { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .5s; border-radius: var(--lb-r-tl) var(--lb-r-tr) var(--lb-r-br) var(--lb-r-bl); }
+    .lb-root .slide.on { opacity: 1; }
+    .lb-root .dots { position: absolute; left: 0; right: 0; bottom: var(--lb-gap); display: flex; justify-content: center; gap: 8px; }
+    .lb-root .dot { width: 8px; height: 8px; border-radius: 4px; background: var(--lb-line); border: 0; padding: 0; cursor: pointer; transition: width .3s; }
+    .lb-root .dot.on { width: 24px; background: var(--lb-accent); }
+    .lb-root .counter { position: absolute; right: var(--lb-gap); bottom: var(--lb-gap); width: 56px; height: 56px; border-radius: 50%; background: var(--lb-bg); display: flex; align-items: center; justify-content: center; }
+    .lb-root .ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+    .lb-root .ring circle { fill: none; stroke-width: 2; }
+    .lb-root .rt { stroke: var(--lb-line); }
+    .lb-root .rp { stroke: var(--lb-accent); stroke-dasharray: 100.53; stroke-dashoffset: 100.53; }
+    .lb-root .head { width: 50%; margin: var(--lb-gap) auto 0; padding-top: var(--lb-gap); display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); text-align: center; }
+    @media (max-width: 640px) { .lb-root .slides { aspect-ratio: 16 / 9; } .lb-root .head { width: 100%; } .lb-root .counter { width: 44px; height: 44px; } }
+  </style>
+  <div class="lb-wrap">
+    <div class="stage">
+      <div class="slides">
+        <div class="lb-img slide on"></div><div class="lb-img slide"></div><div class="lb-img slide"></div>
+      </div>
+      <div class="dots"><button class="dot on" type="button" aria-label="Slide"></button><button class="dot" type="button" aria-label="Slide"></button><button class="dot" type="button" aria-label="Slide"></button></div>
+      <div class="counter"><svg class="ring" viewBox="0 0 36 36"><circle class="rt" cx="18" cy="18" r="16"/><circle class="rp" cx="18" cy="18" r="16"/></svg><span class="lb-label num">1/3</span></div>
+    </div>
+    <div class="head">
+      <span class="lb-label">Label</span>
+      <h2 class="lb-h2 lb-center">Headline goes here across lines</h2>
+      <p class="lb-text lb-center">Supporting description text goes here for the block</p>
+      <a class="lb-btn">Learn more<span class="lb-arrow"></span></a>
+    </div>
+  </div>
+  <script type="text/lb">
+    const s = root.querySelectorAll('.slide'), d = root.querySelectorAll('.dot'), n = root.querySelector('.num'), rp = root.querySelector('.rp');
+    const L = 100.53, T = 4000;
+    let i = 0, t0 = performance.now(), raf = 0;
+    const go = k => { s[i].classList.remove('on'); d[i].classList.remove('on'); i = k; s[i].classList.add('on'); d[i].classList.add('on'); n.textContent = (i+1)+'/'+s.length; t0 = performance.now(); };
+    const hs = [];
+    d.forEach((el, k) => { const h = () => go(k); el.addEventListener('click', h); hs.push([el, h]); });
+    ctx.onCleanup(() => hs.forEach(([el, h]) => el.removeEventListener('click', h)));
+    if (!ctx.reducedMotion) {
+      const tick = now => { const p = Math.min((now - t0) / T, 1); rp.style.strokeDashoffset = L * (1 - p); if (p >= 1) go((i+1)%s.length); raf = requestAnimationFrame(tick); };
+      raf = requestAnimationFrame(tick);
+      ctx.onCleanup(() => cancelAnimationFrame(raf));
+    }
+  </script>
+</section>

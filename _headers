@@ -1,0 +1,15 @@
+# Cloudflare Pages 的 HTTP 標頭設定（https://developers.cloudflare.com/pages/configuration/headers/）
+# build 時原樣複製到 out/，部署後由 Cloudflare 套用
+
+# 全站：基本安全標頭。預覽頁是同網域的 iframe，所以只允許同網域嵌入
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+# Next.js 打包的 JS、CSS、字型檔名都帶雜湊，內容不會變，可以長期快取
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

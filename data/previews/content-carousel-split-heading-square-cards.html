@@ -1,0 +1,100 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: var(--lb-space) 0; --gap: var(--lb-gap); }
+    .lb-root .head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--lb-gap); margin-bottom: var(--lb-gap); }
+    .lb-root .head .lb-h2 { margin: 0; }
+    .lb-root .stage { position: relative; container-type: inline-size; --w: calc((100cqw - 4 * var(--gap)) / 4.4); }
+    .lb-root .track { display: flex; gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; }
+    .lb-root .track::-webkit-scrollbar { display: none; }
+    .lb-root .item { flex: 0 0 var(--w); scroll-snap-align: start; min-width: 0; }
+    .lb-root .pic { position: relative; }
+    .lb-root .pic .lb-img { width: 100%; aspect-ratio: 1 / 1; }
+    .lb-root .pic .tl { position: absolute; left: 12px; top: 12px; width: 24px; height: 24px; }
+    .lb-root .pic .tr { position: absolute; right: 12px; top: 12px; }
+    .lb-root .thumbs { display: flex; gap: 8px; padding: var(--lb-pad) var(--lb-pad) 0; }
+    .lb-root .thumbs .lb-img { width: 40px; height: 40px; aspect-ratio: 1 / 1; }
+    .lb-root .thumbs .lb-img.sel { outline: 2px solid var(--lb-ink); outline-offset: 2px; }
+    .lb-root .item .lb-divider { margin: var(--lb-gap) var(--lb-pad) 0; width: auto; }
+    .lb-root .info { padding: var(--lb-gap) var(--lb-pad) 0; display: flex; flex-direction: column; gap: 8px; }
+    .lb-root .arrow { position: absolute; top: calc(var(--w) / 2); width: 48px; height: 48px; margin-top: -24px; border-radius: 999px; z-index: 2; }
+    .lb-root .arrow.prev { left: -24px; }
+    .lb-root .arrow.next { right: 0; }
+    .lb-root .arrow[disabled] { opacity: .4; cursor: default; }
+    @media (max-width: 1024px) { .lb-root .stage { --w: calc((100cqw - 2 * var(--gap)) / 2.4); } }
+    @media (max-width: 640px) {
+      .lb-root { overflow-x: clip; }
+      .lb-root .stage { --w: 60cqw; margin-right: calc(50% - 50vw); container-type: normal; }
+      .lb-root .stage { --w: 60%; }
+      .lb-root .item { flex-basis: 60%; }
+      .lb-root .arrow { display: none; }
+    }
+  </style>
+  <div class="lb-wrap">
+    <div class="head"><h2 class="lb-h2">Section title goes here</h2><span class="lb-link">Link text</span></div>
+    <div class="stage">
+      <button class="lb-icon-btn arrow prev" type="button" aria-label="Previous" disabled></button>
+      <div class="track">
+        <div class="item">
+          <div class="pic"><div class="lb-img lb-tag-br"></div><span class="lb-icon tl"></span><button class="lb-icon-btn tr" type="button" aria-label="Action"></button></div>
+          <div class="thumbs"><div class="lb-img lb-notag sel"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div></div>
+          <div class="lb-divider"></div>
+          <div class="info"><h3 class="lb-h3">Item title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary text</p></div>
+        </div>
+        <div class="item">
+          <div class="pic"><div class="lb-img lb-tag-br"></div><span class="lb-icon tl"></span><button class="lb-icon-btn tr" type="button" aria-label="Action"></button></div>
+          <div class="thumbs"><div class="lb-img lb-notag sel"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div></div>
+          <div class="lb-divider"></div>
+          <div class="info"><h3 class="lb-h3">Item title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary text</p></div>
+        </div>
+        <div class="item">
+          <div class="pic"><div class="lb-img lb-tag-br"></div><span class="lb-icon tl"></span><button class="lb-icon-btn tr" type="button" aria-label="Action"></button></div>
+          <div class="thumbs"><div class="lb-img lb-notag sel"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div></div>
+          <div class="lb-divider"></div>
+          <div class="info"><h3 class="lb-h3">Item title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary text</p></div>
+        </div>
+        <div class="item">
+          <div class="pic"><div class="lb-img lb-tag-br"></div><span class="lb-icon tl"></span><button class="lb-icon-btn tr" type="button" aria-label="Action"></button></div>
+          <div class="thumbs"><div class="lb-img lb-notag sel"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div></div>
+          <div class="lb-divider"></div>
+          <div class="info"><h3 class="lb-h3">Item title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary text</p></div>
+        </div>
+        <div class="item">
+          <div class="pic"><div class="lb-img lb-tag-br"></div><span class="lb-icon tl"></span><button class="lb-icon-btn tr" type="button" aria-label="Action"></button></div>
+          <div class="thumbs"><div class="lb-img lb-notag sel"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div></div>
+          <div class="lb-divider"></div>
+          <div class="info"><h3 class="lb-h3">Item title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary text</p></div>
+        </div>
+        <div class="item">
+          <div class="pic"><div class="lb-img lb-tag-br"></div><span class="lb-icon tl"></span><button class="lb-icon-btn tr" type="button" aria-label="Action"></button></div>
+          <div class="thumbs"><div class="lb-img lb-notag sel"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div><div class="lb-img lb-notag"></div></div>
+          <div class="lb-divider"></div>
+          <div class="info"><h3 class="lb-h3">Item title goes here</h3><p class="lb-text">Description text goes here</p><p class="lb-small">Secondary text</p></div>
+        </div>
+      </div>
+      <button class="lb-icon-btn arrow next" type="button" aria-label="Next"></button>
+    </div>
+  </div>
+  <script type="text/lb">
+    const track = root.querySelector('.track');
+    const prev = root.querySelector('.arrow.prev');
+    const next = root.querySelector('.arrow.next');
+    const step = () => { const it = track.querySelector('.item'); return it.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0); };
+    const update = () => {
+      prev.disabled = track.scrollLeft <= 1;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+    };
+    const onPrev = () => track.scrollBy({ left: -step(), behavior: 'smooth' });
+    const onNext = () => track.scrollBy({ left: step(), behavior: 'smooth' });
+    prev.addEventListener('click', onPrev);
+    next.addEventListener('click', onNext);
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+    ctx.onCleanup(() => {
+      prev.removeEventListener('click', onPrev);
+      next.removeEventListener('click', onNext);
+      track.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    });
+  </script>
+</section>

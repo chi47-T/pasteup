@@ -1,0 +1,112 @@
+<header class="lb-root">
+  <style>
+    .lb-root { position: relative; background: var(--lb-bg); border-bottom: 1px solid var(--lb-line); }
+    .lb-root .announce { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--lb-gap); min-height: 32px; padding: 0 var(--lb-gutter); background: var(--lb-surface-2); }
+    .lb-root .announce .side { display: flex; align-items: center; gap: 8px; }
+    .lb-root .announce .side.r { justify-content: flex-end; }
+    .lb-root .bar { position: relative; z-index: 2; background: var(--lb-bg); display: grid; grid-template-columns: 1fr 50% 1fr; align-items: center; gap: var(--lb-gap); min-height: 72px; padding: 0 var(--lb-gutter); box-sizing: border-box; }
+    .lb-root .bar .logo { justify-self: start; }
+    .lb-root .bar .nav { display: flex; align-items: center; justify-content: space-between; gap: var(--lb-gap); min-width: 0; }
+    .lb-root .bar .nav .lb-link { font-size: 13px; white-space: nowrap; }
+    .lb-root .bar .right { justify-self: end; display: flex; align-items: center; gap: 8px; }
+    .lb-root .bar .left { display: none; align-items: center; gap: 8px; }
+    .lb-root .menu-btn { position: relative; }
+    .lb-root .menu-btn i { position: absolute; left: 50%; top: 50%; width: 18px; height: 2px; margin: -1px 0 0 -9px; background: var(--lb-ink); transition: transform .2s; }
+    .lb-root .menu-btn i:nth-child(1) { transform: translateY(-6px); }
+    .lb-root .menu-btn i:nth-child(3) { transform: translateY(6px); }
+    .lb-root.is-open .menu-btn i:nth-child(1) { transform: rotate(45deg); }
+    .lb-root.is-open .menu-btn i:nth-child(2) { opacity: 0; }
+    .lb-root.is-open .menu-btn i:nth-child(3) { transform: rotate(-45deg); }
+    .lb-root .scrim, .lb-root .drawer { display: none; }
+    @media (max-width: 1024px) {
+      .lb-root .bar { grid-template-columns: 1fr auto 1fr; min-height: 56px; }
+      .lb-root .bar .nav { display: none; }
+      .lb-root .bar .left { display: flex; justify-self: start; }
+      .lb-root .bar .logo { justify-self: center; grid-column: 2; grid-row: 1; }
+      .lb-root .bar .left { grid-column: 1; grid-row: 1; }
+      .lb-root .bar .right { grid-column: 3; grid-row: 1; }
+      .lb-root .scrim { display: block; position: fixed; left: 0; right: 0; bottom: 0; top: var(--header-h); z-index: 1; background: var(--lb-ink); opacity: 0; pointer-events: none; transition: opacity .25s; }
+      .lb-root.is-open .scrim { opacity: .4; pointer-events: auto; }
+      .lb-root .drawer { display: flex; flex-direction: column; position: fixed; left: 0; top: var(--header-h); bottom: 0; width: 90%; z-index: 1; background: var(--lb-bg); transform: translateX(-100%); transition: transform .25s; overflow-y: auto; visibility: hidden; }
+      .lb-root.is-open .drawer { transform: none; visibility: visible; }
+      .lb-root .tabs { display: grid; grid-template-columns: 1fr 1fr; }
+      .lb-root .tab { padding: var(--lb-pad); text-align: center; border: 0; border-bottom: 2px solid var(--lb-line); background: none; cursor: pointer; }
+      .lb-root .tab.on { border-bottom-color: var(--lb-ink); }
+      .lb-root .groups { padding: 0 var(--lb-pad); flex: 1; }
+      .lb-root .group { padding: var(--lb-pad) 0; }
+      .lb-root .group + .group { border-top: 1px solid var(--lb-line); }
+      .lb-root .group > .lb-label { display: block; margin-bottom: 8px; }
+      .lb-root .row { display: flex; align-items: center; justify-content: space-between; gap: var(--lb-gap); width: 100%; padding: 12px 0; border: 0; background: none; text-align: left; cursor: pointer; }
+      .lb-root .sub { display: none; padding: 0 0 8px var(--lb-pad); }
+      .lb-root .sub .lb-link { display: block; padding: 8px 0; }
+      .lb-root .item.open .sub { display: block; }
+      .lb-root .item.open .row .lb-icon { transform: rotate(90deg); }
+      .lb-root .secondary { background: var(--lb-surface-2); padding: var(--lb-pad); display: flex; flex-direction: column; gap: 10px; }
+      .lb-root .announce .side { display: none; }
+      .lb-root .announce { grid-template-columns: 1fr; justify-items: center; }
+    }
+  </style>
+  <div class="announce" data-extra="0">
+    <div class="side l"><span class="lb-icon"></span><span class="lb-link">Note left</span></div>
+    <span class="lb-link">Short announcement link</span>
+    <div class="side r"><span class="lb-icon"></span><span class="lb-link">Note right</span></div>
+  </div>
+  <div class="bar">
+    <div class="left">
+      <button class="lb-icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
+      <button class="lb-icon-btn" type="button" aria-label="Action"></button>
+    </div>
+    <div class="lb-logo logo"></div>
+    <nav class="nav">
+      <span class="lb-link">Link one</span><span class="lb-link">Link two</span><span class="lb-link">Link three</span><span class="lb-link">Link four</span><span class="lb-link">Link five</span><span class="lb-link">Link six</span><span class="lb-link">Link seven</span>
+    </nav>
+    <div class="right">
+      <button class="lb-icon-btn" type="button" aria-label="Action"></button>
+      <button class="lb-icon-btn" type="button" aria-label="Action"></button>
+      <button class="lb-icon-btn" type="button" aria-label="Action"></button>
+    </div>
+  </div>
+  <div class="scrim"></div>
+  <div class="drawer">
+    <div class="tabs">
+      <button class="tab on lb-label" type="button">Tab one</button>
+      <button class="tab lb-label" type="button">Tab two</button>
+    </div>
+    <div class="groups">
+      <div class="group">
+        <span class="lb-label">Group title</span>
+        <div class="item open"><button class="row" type="button"><span class="lb-link">Link one</span><span class="lb-icon"></span></button>
+          <div class="sub"><span class="lb-link">Sub link</span><span class="lb-link">Sub link</span></div></div>
+        <div class="item"><button class="row" type="button"><span class="lb-link">Link two</span><span class="lb-icon"></span></button><div class="sub"><span class="lb-link">Sub link</span></div></div>
+        <div class="item"><button class="row" type="button"><span class="lb-link">Link three</span><span class="lb-icon"></span></button><div class="sub"><span class="lb-link">Sub link</span></div></div>
+      </div>
+      <div class="group">
+        <span class="lb-label">Group title</span>
+        <div class="item"><button class="row" type="button"><span class="lb-link">Link four</span><span class="lb-icon"></span></button><div class="sub"><span class="lb-link">Sub link</span></div></div>
+        <div class="item"><button class="row" type="button"><span class="lb-link">Link five</span><span class="lb-icon"></span></button><div class="sub"><span class="lb-link">Sub link</span></div></div>
+      </div>
+    </div>
+    <div class="secondary"><span class="lb-link">Secondary link</span><span class="lb-link">Secondary link</span><span class="lb-link">Secondary link</span></div>
+  </div>
+  <script type="text/lb">
+    const btn = root.querySelector('.menu-btn');
+    const scrim = root.querySelector('.scrim');
+    const set = (o) => { root.classList.toggle('is-open', o); btn.setAttribute('aria-expanded', String(o)); };
+    const onBtn = () => set(!root.classList.contains('is-open'));
+    const onScrim = () => set(false);
+    btn.addEventListener('click', onBtn);
+    scrim.addEventListener('click', onScrim);
+    const rows = [...root.querySelectorAll('.row')];
+    const onRow = (e) => e.currentTarget.parentElement.classList.toggle('open');
+    rows.forEach(r => r.addEventListener('click', onRow));
+    const tabs = [...root.querySelectorAll('.tab')];
+    const onTab = (e) => { tabs.forEach(t => t.classList.toggle('on', t === e.currentTarget)); };
+    tabs.forEach(t => t.addEventListener('click', onTab));
+    ctx.onCleanup(() => {
+      btn.removeEventListener('click', onBtn);
+      scrim.removeEventListener('click', onScrim);
+      rows.forEach(r => r.removeEventListener('click', onRow));
+      tabs.forEach(t => t.removeEventListener('click', onTab));
+    });
+  </script>
+</header>

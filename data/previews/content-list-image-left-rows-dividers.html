@@ -1,0 +1,31 @@
+<section class="lb-root">
+  <style>
+    .lb-root { border-top: 1px solid var(--lb-line); padding: var(--lb-space) 0; }
+    .lb-root .head { display: flex; flex-direction: column; align-items: center; gap: var(--lb-gap); text-align: center; margin-bottom: var(--lb-space); padding: 0 var(--lb-gutter); }
+    .lb-root .list { display: flex; flex-direction: column; }
+    .lb-root .r { display: grid; grid-template-columns: 25% 1fr; gap: var(--lb-gap); align-items: center; padding: var(--lb-gap) 0; }
+    .lb-root .r + .r { border-top: 1px solid var(--lb-line); }
+    .lb-root .r .lb-img { aspect-ratio: 3 / 4; width: 100%; }
+    .lb-root .body { display: flex; flex-direction: column; gap: 8px; min-width: 0; overflow-wrap: anywhere; }
+    .lb-root .clamp { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; }
+    .lb-root .more { display: flex; justify-content: center; margin-top: var(--lb-space); }
+    @media (max-width: 640px) {
+      .lb-root .r { grid-template-columns: 45% 1fr; grid-template-areas: "img top" "desc desc"; align-items: start; }
+      .lb-root .r .lb-img { grid-area: img; }
+      .lb-root .body { display: contents; }
+      .lb-root .top { grid-area: top; display: flex; flex-direction: column; gap: 8px; }
+      .lb-root .clamp { grid-area: desc; }
+    }
+  </style>
+  <div class="head">
+    <div class="lb-label">Label</div>
+    <div class="lb-h2 lb-center">Section title goes here</div>
+    <div class="lb-text">Intro text goes here for the section.</div>
+  </div>
+  <div class="lb-wrap list">
+    <div class="r"><div class="lb-img"></div><div class="body"><div class="top"><div class="lb-label">Label</div><div class="lb-h3">Item title goes here</div></div><div class="lb-text clamp">Description text that may be long and is truncated with an ellipsis when it runs too long for the row.</div></div></div>
+    <div class="r"><div class="lb-img"></div><div class="body"><div class="top"><div class="lb-label">Label</div><div class="lb-h3">Item title goes here</div></div><div class="lb-text clamp">Description text that may be long and is truncated with an ellipsis when it runs too long for the row.</div></div></div>
+    <div class="r"><div class="lb-img"></div><div class="body"><div class="top"><div class="lb-label">Label</div><div class="lb-h3">Item title goes here</div></div><div class="lb-text clamp">Description text that may be long and is truncated with an ellipsis when it runs too long for the row.</div></div></div>
+  </div>
+  <div class="more"><a class="lb-btn">Button</a></div>
+</section>

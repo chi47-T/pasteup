@@ -1,0 +1,31 @@
+<footer class="lb-root">
+  <style>
+    .lb-root { border-top: 1px solid var(--lb-line); position: relative; padding-top: var(--lb-space); overflow-x: clip; }
+    .lb-root .main { display: flex; gap: var(--lb-gap); align-items: flex-start; }
+    .lb-root .brand { flex: 0 0 33.333%; }
+    .lb-root .cols { flex: 1; display: flex; gap: calc(var(--lb-gap) * 2); align-items: flex-start; }
+    .lb-root .col { display: flex; align-items: flex-start; gap: var(--lb-gap); }
+    .lb-root .links { display: flex; flex-direction: column; gap: 10px; }
+    .lb-root .totop { position: absolute; right: var(--lb-gutter); top: var(--lb-space); height: 140px; width: 44px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 10px 0; box-sizing: border-box; }
+    .lb-root .totop .lb-small { writing-mode: vertical-rl; }
+    .lb-root .bottom { margin-top: calc(var(--lb-space) * 1.5); padding-bottom: var(--lb-gap); text-align: center; }
+    @media (max-width: 640px) {
+      .lb-root .main { flex-direction: column; }
+      .lb-root .brand { flex: none; width: 100%; }
+      .lb-root .cols { flex-direction: column; gap: var(--lb-gap); }
+      .lb-root .col { flex-direction: column; gap: 8px; }
+      .lb-root .links { margin-left: 16px; padding-left: 16px; border-left: 1px solid var(--lb-line); }
+      .lb-root .totop { top: var(--lb-space); }
+    }
+  </style>
+  <div class="lb-wrap main">
+    <div class="brand"><div class="lb-logo">Logo</div></div>
+    <div class="cols">
+      <div class="col"><span class="lb-label">Heading</span><div class="links"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a></div></div>
+      <div class="col"><div class="links"><a class="lb-link">Link one</a><a class="lb-link">Link two</a><a class="lb-link">Link three</a></div></div>
+      <div class="col"><span class="lb-label">Heading</span><div class="links"><a class="lb-link">Link one</a><a class="lb-link">Link two</a></div></div>
+    </div>
+  </div>
+  <a class="totop lb-icon-btn" href="#"><span class="lb-arrow lb-arrow-up"></span><span class="lb-small">Page top</span></a>
+  <div class="lb-wrap bottom"><span class="lb-small lb-center">Small print line goes here</span></div>
+</footer>

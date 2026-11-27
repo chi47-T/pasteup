@@ -1,0 +1,24 @@
+<section class="lb-root">
+  <style>
+    .lb-root { padding: 0; overflow-x: clip; }
+    .lb-root .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--lb-gap); }
+    .lb-root .tile { position: relative; aspect-ratio: 1 / 1; min-width: 0; }
+    .lb-root .tile .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .lb-root .tile .copy { position: absolute; left: 0; bottom: 0; right: 0; padding: var(--lb-pad); display: flex; flex-direction: column; align-items: flex-start; gap: 8px; overflow-wrap: anywhere; }
+    .lb-root .tile .lb-h2 { font-size: clamp(24px, 3vw, 44px); }
+    @media (max-width: 640px) {
+      .lb-root .tiles { grid-template-columns: 1fr; }
+      .lb-root .tile { aspect-ratio: 3 / 4; }
+    }
+  </style>
+  <div class="tiles">
+    <div class="tile">
+      <div class="lb-img lb-flat lb-tag-tr"></div>
+      <div class="copy"><h2 class="lb-h2">Headline goes here</h2><p class="lb-small">Short description text</p><a class="lb-btn">Button</a></div>
+    </div>
+    <div class="tile">
+      <div class="lb-img lb-flat lb-tag-tr"></div>
+      <div class="copy"><h2 class="lb-h2">Headline goes here</h2><p class="lb-small">Short description text</p><a class="lb-btn">Button</a></div>
+    </div>
+  </div>
+</section>
